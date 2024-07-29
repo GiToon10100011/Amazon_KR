@@ -44,7 +44,7 @@ body {
   }
   .main-sideMenu {
     width: 100%;
-    height: 100%;
+    height: 90%;
     overflow-y: scroll;
     .sideMenu-category {
       display: flex;
@@ -150,9 +150,21 @@ body {
   }
 }
 
+.bgFilter{
+  position: relative;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.1);
+  display: none;
+  &.active{
+    display: block;
+  }
+}
+
 //Header
 header {
-  @include border-style;
+  @include border-style($color : #000);
   position: fixed;
   top: 0;
   width: 100%;
