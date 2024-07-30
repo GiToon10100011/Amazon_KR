@@ -1,22 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul,
-li,
-ol {
-  list-style: none;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -36,7 +18,6 @@ ol {
 
 body {
   font-family: "Noto Sans KR";
-  height: 10000px;
 }
 
 .inner {
@@ -45,145 +26,11 @@ body {
   margin: 0 auto;
 }
 
-.main-sideMenu-container {
-  height: 100%;
-  z-index: 10000;
-  position: fixed;
-  left: -100%;
-  background: #fff;
-  width: 216px;
-  transition: all 0.6s;
-}
-.main-sideMenu-container .sideMenu-header {
-  width: 100%;
-  height: 50px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-}
-.main-sideMenu-container .sideMenu-header .sideMenu-login {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-weight: 500;
-  cursor: pointer;
-}
-.main-sideMenu-container .sideMenu-header .fa-x {
-  cursor: pointer;
-}
-.main-sideMenu-container .main-sideMenu {
-  width: 100%;
-  height: 90%;
-  overflow-y: scroll;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-category {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-bottom: 1px solid #ccc;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-category .category-title {
-  padding: 10px;
-  font-weight: bold;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  cursor: pointer;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover {
-  background: linear-gradient(90deg, rgba(255, 216, 20, 0.7) 0%, #ffd814 4%, #ff9900 93.5%, rgba(255, 153, 0, 0.7) 99.5%);
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover span, .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover i {
-  color: #fff;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li span {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li span.material-symbols-outlined {
-  font-size: 12px;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-misc {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-bottom: 1px solid #ccc;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-misc .misc-title {
-  padding: 10px;
-  font-weight: bold;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-misc .misc-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  font-size: 14px;
-  cursor: pointer;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-misc .misc-list li:hover {
-  background: #fafafa;
-  color: #ff9900;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-settings {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-title {
-  padding: 10px;
-  font-weight: bold;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li {
-  padding: 10px;
-  font-size: 14px;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li.darkmode {
-  display: none;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li a {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li a .material-symbols-outlined {
-  font-size: 14px;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li:hover {
-  background: #fafafa;
-}
-.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li:hover:not(.material-symbols-outlined) {
-  text-decoration: underline;
-}
-.main-sideMenu-container.active {
-  left: 0;
-}
-
-.bgFilter {
-  position: relative;
-  z-index: 9999;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  display: none;
-}
-.bgFilter.active {
-  display: block;
-}
-
 header {
-  border: 1px solid #000;
   position: fixed;
   top: 0;
   width: 100%;
+  background: #fff;
 }
 header .gnb-content {
   width: 100%;
@@ -271,6 +118,14 @@ header .gnb-content .gnb .hottest-items {
   justify-content: space-between;
   align-self: start;
   cursor: pointer;
+}
+header .gnb-content .gnb .hottest-items.active {
+  display: none;
+}
+header .gnb-content .gnb .hottest-items .ranking {
+  position: relative;
+  bottom: 0;
+  transition: all 0.3s;
 }
 header .gnb-content .gnb .hottest-items .ranking p {
   font-weight: 500;
@@ -434,10 +289,202 @@ body {
 
 header {
   width: 100%;
-  height: 100%;
+  z-index: 1;
 }
 
-iframe {
+.bgFilter {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  display: none;
+}
+.bgFilter.active {
+  display: block;
+}
+
+.main-sideMenu-container {
+  height: 100%;
+  z-index: 10000;
+  position: fixed;
+  left: -100%;
+  background: #fff;
+  width: 216px;
+  transition: all 0.6s;
+}
+.main-sideMenu-container .sideMenu-header {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.main-sideMenu-container .sideMenu-header .sideMenu-login {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.main-sideMenu-container .sideMenu-header .fa-x {
+  cursor: pointer;
+}
+.main-sideMenu-container .main-sideMenu {
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .category-title {
+  padding: 10px;
+  font-weight: bold;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover {
+  background: linear-gradient(90deg, rgba(255, 216, 20, 0.7) 0%, #ffd814 4%, #ff9900 93.5%, rgba(255, 153, 0, 0.7) 99.5%);
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover span, .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover i {
+  color: #fff;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li span {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li span.material-symbols-outlined {
+  font-size: 12px;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-misc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-misc .misc-title {
+  padding: 10px;
+  font-weight: bold;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-misc .misc-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-misc .misc-list li:hover {
+  background: #fafafa;
+  color: #ff9900;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-title {
+  padding: 10px;
+  font-weight: bold;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li {
+  padding: 10px;
+  font-size: 14px;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li.darkmode {
+  display: none;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li a .material-symbols-outlined {
+  font-size: 14px;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li:hover {
+  background: #fafafa;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li:hover:not(.material-symbols-outlined) {
+  text-decoration: underline;
+}
+.main-sideMenu-container.active {
+  left: 0;
+}
+
+#main {
+  position: absolute;
+  top: 140px;
+  width: 100%;
+  height: 100%;
+}
+#main .profile-banner {
+  width: 100%;
+  height: 260px;
+  background: #ff9900;
+}
+#main .profile-banner .profile-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 58px;
+}
+#main .profile-banner .profile-content .profile-pic img {
+  width: 160px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#main .profile-banner .profile-content .profile-info {
+  padding: 20px 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+#main .profile-banner .profile-content .profile-info .info-first {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#main .profile-banner .profile-content .profile-info .info-first h3 {
+  font-size: 32px;
+}
+#main .profile-banner .profile-content .profile-info .info-first .user-membership {
+  font-size: 18px;
+  font-weight: 500;
+}
+#main .profile-banner .profile-content .profile-info .info-second .user-history-list {
+  display: flex;
+  gap: 70px;
+}
+#main .profile-banner .profile-content .profile-info .info-second .user-history-list li {
+  display: flex;
+  flex-direction: column;
+}
+#main .profile-banner .profile-content .profile-info .info-second .user-history-list li span {
+  font-size: 14px;
+}
+#main .profile-banner .profile-content .profile-info .info-second .user-history-list li a {
+  font-weight: bold;
+  font-size: 32px;
+}
+#main #footer {
   width: 100%;
   height: 360px;
 }
