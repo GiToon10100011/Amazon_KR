@@ -1,0 +1,54 @@
+.slider {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.slick-slide {
+	margin: 0px 0px;
+}
+
+.slick-slide img {
+	width: 100%;
+}
+
+.slick-next,
+.slick-prev {
+	z-index: 200;
+}
+
+.slick-next {
+	right: 35px;
+}
+
+.slick-prev {
+	left: 35px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+	color: black;
+}
+
+/* .slick-slide {
+	transition: all ease-in-out 0.3s;
+	opacity: 0.2;
+}
+
+.slick-active {
+	opacity: 0.5;
+}
+
+.slick-current {
+	opacity: 1;
+} */
+
+.slick-next {
+	background-color: red;
+}
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+	background-color: red;
+}

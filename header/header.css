@@ -162,10 +162,10 @@ body {
 }
 
 header {
-  border: 1px solid #000;
   position: fixed;
   top: 0;
   width: 100%;
+  background: #fff;
 }
 header .gnb-content {
   width: 100%;
@@ -406,4 +406,4 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
 }
 .Top.active {
   opacity: 1;
-}
+}/*# sourceMappingURL=header.css.map */
