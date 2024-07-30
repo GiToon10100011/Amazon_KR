@@ -42,13 +42,25 @@
 	opacity: 1;
 } */
 
+.slick-next,
+.slick-prev {
+	&::before {
+		content: "";
+	}
+	width: 40px;
+	height: 40px;
+}
+
+.slick-next:hover,
+.slick-next:focus,
 .slick-next {
-	background-color: red;
+	background-image: url("../img/mainbanner/next_btn.png");
+	background-size: cover;
 }
 
 .slick-prev:hover,
 .slick-prev:focus,
-.slick-next:hover,
-.slick-next:focus {
-	background-color: red;
+.slick-prev {
+	background-image: url("../img/mainbanner/prev_btn.png");
+	background-size: cover;
 }
