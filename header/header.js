@@ -1,5 +1,5 @@
 // Insert Header
-const body = document.querySelector("body");
+const body = document.querySelector("#header");
 body.innerHTML = `<div class="main-sideMenu-container">
       <div class="sideMenu-header">
         <a href="#none" class="sideMenu-login">
