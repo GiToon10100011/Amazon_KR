@@ -122,12 +122,22 @@ header .gnb-content .gnb .hottest-items {
 header .gnb-content .gnb .hottest-items.active {
   display: none;
 }
-header .gnb-content .gnb .hottest-items .ranking {
+header .gnb-content .gnb .hottest-items .ranking-container {
+  width: 128px;
+  height: 100%;
   position: relative;
-  bottom: 0;
-  transition: all 0.3s;
 }
-header .gnb-content .gnb .hottest-items .ranking p {
+header .gnb-content .gnb .hottest-items .ranking-container .ranking {
+  position: relative;
+  height: 100%;
+  bottom: 0;
+  opacity: 1;
+  transition: all 0.6s;
+}
+header .gnb-content .gnb .hottest-items .ranking-container .ranking.active {
+  opacity: 0;
+}
+header .gnb-content .gnb .hottest-items .ranking-container .ranking p {
   font-weight: 500;
   width: 128px;
   padding: 16px 0;
@@ -137,7 +147,7 @@ header .gnb-content .gnb .hottest-items .ranking p {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-header .gnb-content .gnb .hottest-items .ranking p span {
+header .gnb-content .gnb .hottest-items .ranking-container .ranking p span {
   color: #ff9900;
 }
 header .gnb-content .gnb .hottest-items .fa-chevron-down {

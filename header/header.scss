@@ -106,22 +106,32 @@ header {
         &.active {
           display: none;
         }
-        .ranking {
+        .ranking-container {
+          width: 128px;
+          height: 100%;
           position: relative;
-          bottom: 0;
-          transition: all 0.3s;
-          p {
-            font-weight: 500;
-            width: 128px;
-            padding: 16px 0;
+          .ranking {
             position: relative;
-            // 54px마다 순위 변경
+            height: 100%;
             bottom: 0;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            span {
-              color: map-get($map: $color, $key: main-amazon-color);
+            opacity: 1;
+            transition: all 0.6s;
+            &.active {
+              opacity: 0;
+            }
+            p {
+              font-weight: 500;
+              width: 128px;
+              padding: 16px 0;
+              position: relative;
+              // 54px마다 순위 변경
+              bottom: 0;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              span {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
             }
           }
         }
