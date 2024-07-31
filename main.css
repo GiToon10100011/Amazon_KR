@@ -434,6 +434,7 @@ body {
 
 header {
   width: 100%;
+  z-index: 1;
 }
 
 #main-contents {
@@ -444,4 +445,4 @@ header {
 iframe {
   width: 100%;
   height: 360px;
-}/*# sourceMappingURL=main.css.map */
+}
