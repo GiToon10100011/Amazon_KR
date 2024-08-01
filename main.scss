@@ -35,26 +35,25 @@ header {
 		}
 	}
 	#main-promotions {
-		width: 1000px;
-		height: 528px;
+		width: 1200px;
 		margin: 0 auto;
-		border: 1px solid #f00;
+		// border: 1px solid #f00;
 		.promotions-items {
-			border: 1px solid #f00;
+			// border: 1px solid #f00;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-color: red;
 			ul {
+				width: 1200px;
 				display: flex;
 				justify-content: space-between;
-				gap: 40px;
+				flex-wrap: wrap;
 				li {
 					display: flex;
 					flex-direction: column;
 					width: 270px;
 					img {
-						width: 268px;
+						width: 100%;
 					}
 				}
 			}
