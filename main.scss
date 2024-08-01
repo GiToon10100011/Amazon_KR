@@ -3,45 +3,72 @@
 
 html,
 body {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 header {
-	width: 100%;
-	// height: 100%;
-	z-index: 1;
+  width: 100%;
+  // height: 100%;
+  z-index: 1;
 }
 
 #main-contents {
-	margin-top: 112px;
-	min-height: 500px;
-	#main-slider-wrap {
-		position: relative;
-		margin-bottom: 100px;
-		.main-slider-title {
-			position: absolute;
-			bottom: 0;
-			width: calc(100% / 3);
-			height: calc(100% / 4);
-			background-color: map-get($color, $key: main-amazon-color);
-			transform: translateY(50%);
-		}
-	}
+  margin-top: 112px;
+  min-height: 500px;
+  #main-slider-wrap {
+    position: relative;
+    margin-bottom: 100px;
+    .main-slider-title {
+      position: absolute;
+      bottom: 0;
+      width: calc(100% / 3);
+      height: calc(100% / 5);
+      background-color: map-get($color, $key: main-amazon-color);
+      transform: translateY(50%);
+      p {
+        margin: 10px;
+        font-size: 30px;
+        font-weight: 400;
+        color: map-get($map: $color, $key: main-dark-color);
+      }
+    }
+  }
+  #main-promotions {
+    width: 1000px;
+    height: 528px;
+    border: 1px solid #f00;
+    .promotions-items {
+      border: 1px solid #f00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      ul {
+        li {
+          img {
+            width: 268px;
+          }
+        }
+      }
+    }
+  }
 }
 
 iframe {
-	width: 100%;
-	height: 360px;
+  width: 100%;
+  height: 360px;
 }
 
-// @media screen and (max-width: 1200px) {
-// 	#main-contents {
-// 		#main-slider-wrap {
-// 			.main-slider-title {
-// 				width: 340px;
-// 				height: 85px;
-// 			}
-// 		}
-// 	}
-// }
+@media screen and (max-width: 1200px) {
+  #main-contents {
+    #main-slider-wrap {
+      .main-slider-title {
+        width: 340px;
+        height: 85px;
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
