@@ -294,7 +294,7 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
 html,
 body {
   width: 100%;
-  height: 2900px;
+  height: 9000px;
   overflow-x: hidden;
 }
 
@@ -442,7 +442,7 @@ header {
   position: absolute;
   top: 140px;
   width: 100%;
-  height: 100%;
+  height: 8900px;
 }
 #main .profile-banner {
   width: 100%;
@@ -551,8 +551,11 @@ header {
   position: sticky;
   margin-left: 20px;
   width: 970px;
+  height: 8000px;
 }
 #main #footer {
+  position: absolute;
+  bottom: 0;
   z-index: 1;
   width: 100%;
   height: 360px;
