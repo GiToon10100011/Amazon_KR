@@ -97,68 +97,30 @@ header .dateFilter input[type=radio]:nth-of-type(3):checked ~ label:nth-of-type(
 header .dateFilter input[type=radio]:nth-of-type(4):checked ~ label:nth-of-type(4) {
   border: 1px solid #ff9900;
 }
-header .dateFilter input[type=radio]:nth-of-type(5):checked ~ label:nth-of-type(5) {
-  border: 1px solid #ff9900;
-}
-header .dateFilter .calendarFilter {
-  width: 350px;
-  display: flex;
-  justify-content: space-between;
-}
-header .dateFilter .calendarFilter input[type=date] {
-  width: 160px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  font-family: "Noto Sans KR";
-}
 
-#order-content .sortFilter select {
-  width: 80px;
-  height: 20px;
-  font-family: "Noto Sans KR";
-  border: none;
-  border-right: 1px solid;
-  padding-right: 10px;
-}
-#order-content .sortFilter select:last-child {
-  border: none;
-}
-#order-content .sortFilter select:focus {
-  border: none;
-  outline: none;
-}
-#order-content .orderItems {
+#wishlist-content .total {
   width: 100%;
-}
-#order-content .orderItems .orderItem {
-  margin-top: 50px;
-}
-#order-content .orderItems .orderItem .item-title {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-}
-#order-content .orderItems .orderItem .item-title span {
-  font-size: 24px;
+  justify-content: space-between;
+  font-size: 12px;
   font-weight: 500;
 }
-#order-content .orderItems .orderItem .item-title a {
+#wishlist-content .total .soldOut-box {
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 16px;
-  color: #ff9900;
-  text-decoration: none;
 }
-#order-content .orderItems .orderItem .item-title a:hover {
-  border-bottom: 1px solid #ff9900;
+#wishlist-content .total .soldOut-box label {
+  font-size: 14px;
+  margin-left: 4px;
 }
-#order-content .orderItems .orderItem .item-title a i {
-  padding-top: 4px;
-  font-size: 10px;
+#wishlist-content .wishlistItems {
+  width: 100%;
 }
-#order-content .orderItems .orderItem .item-content {
+#wishlist-content .wishlistItems .wishlistItem {
+  margin-top: 50px;
+}
+#wishlist-content .wishlistItems .wishlistItem .item-content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,33 +131,35 @@ header .dateFilter .calendarFilter input[type=date] {
   border-radius: 10px;
   padding: 40px 30px;
 }
-#order-content .orderItems .orderItem .item-content .item-img {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-img {
   width: 140px;
   height: 140px;
 }
-#order-content .orderItems .orderItem .item-content .item-img img {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-img img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
 }
-#order-content .orderItems .orderItem .item-content .item-info {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info {
   width: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
-#order-content .orderItems .orderItem .item-content .item-info .delivery-status {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .delivery-status {
   padding-bottom: 6px;
   border-bottom: 1px solid #ccc;
 }
-#order-content .orderItems .orderItem .item-content .item-info .product-name {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-name {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
   padding-top: 10px;
 }
-#order-content .orderItems .orderItem .item-content .item-info .product-name .icon-cart {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-name .icon-cart {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,40 +170,40 @@ header .dateFilter .calendarFilter input[type=date] {
   font-size: 18px;
   cursor: pointer;
 }
-#order-content .orderItems .orderItem .item-content .item-info .product-option {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-option {
   margin-top: 6px;
   font-size: 10px;
 }
-#order-content .orderItems .orderItem .item-content .item-info .product-price {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price {
   display: flex;
   align-items: center;
   margin-top: 30px;
 }
-#order-content .orderItems .orderItem .item-content .item-info .product-price h4 {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price h4 {
   color: #ff9900;
   font-size: 16px;
   margin-right: 8px;
 }
-#order-content .orderItems .orderItem .item-content .item-info .product-price .order-number {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price .order-number {
   display: flex;
   align-items: center;
 }
-#order-content .orderItems .orderItem .item-content .item-info .product-price .order-number span {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price .order-number span {
   font-size: 10px;
   margin-right: 4px;
 }
-#order-content .orderItems .orderItem .item-content .item-info .product-price .order-number i {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price .order-number i {
   font-size: 8px;
   color: #888;
   cursor: pointer;
 }
-#order-content .orderItems .orderItem .item-content .item-query {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-query {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
 }
-#order-content .orderItems .orderItem .item-content .item-query button {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-query button {
   border: 1px solid #ccc;
   padding: 4px 14px;
   border-radius: 20px;
@@ -247,7 +211,7 @@ header .dateFilter .calendarFilter input[type=date] {
   transition: all 0.3s;
   cursor: pointer;
 }
-#order-content .orderItems .orderItem .item-content .item-query button:hover {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-query button:hover {
   border: 1px solid #ff9900;
   background: #ff9900;
   color: #fff;

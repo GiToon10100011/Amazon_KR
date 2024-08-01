@@ -85,74 +85,31 @@ header {
           $color: map-get($map: $color, $key: main-amazon-color)
         );
       }
-      &:nth-of-type(5):checked ~ label:nth-of-type(5) {
-        @include border-style(
-          $color: map-get($map: $color, $key: main-amazon-color)
-        );
-      }
-    }
-    .calendarFilter {
-      width: 350px;
-      display: flex;
-      justify-content: space-between;
-      input[type="date"] {
-        width: 160px;
-        border: none;
-        border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
-        font-family: map-get($map: $family, $key: kr-font);
-      }
     }
   }
 }
 
-#order-content {
-  .sortFilter {
-    select {
-      width: 80px;
-      height: 20px;
-      font-family: map-get($map: $family, $key: kr-font);
-      border: none;
-      border-right: 1px solid;
-      padding-right: 10px;
-      &:last-child {
-        border: none;
-      }
-      &:focus {
-        border: none;
-        outline: none;
+#wishlist-content {
+  .total {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 500;
+    .soldOut-box {
+      display: flex;
+      align-items: center;
+      label {
+        font-size: 14px;
+        margin-left: 4px;
       }
     }
   }
-  .orderItems {
+  .wishlistItems {
     width: 100%;
-    .orderItem {
+    .wishlistItem {
       margin-top: 50px;
-      .item-title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-        span {
-          font-size: 24px;
-          font-weight: 500;
-        }
-        a {
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          font-size: 16px;
-          color: map-get($map: $color, $key: main-amazon-color);
-          text-decoration: none;
-          &:hover {
-            border-bottom: 1px solid
-              map-get($map: $color, $key: main-amazon-color);
-          }
-          i {
-            padding-top: 4px;
-            font-size: 10px;
-          }
-        }
-      }
       .item-content {
         display: flex;
         justify-content: center;
@@ -175,8 +132,10 @@ header {
         }
         .item-info {
           width: 60%;
+          height: 100%;
           display: flex;
           flex-direction: column;
+          align-items: start;
           .delivery-status {
             padding-bottom: 6px;
             border-bottom: 1px solid
@@ -185,7 +144,7 @@ header {
           .product-name {
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            gap: 10px;
             padding-top: 10px;
             .icon-cart {
               display: flex;
