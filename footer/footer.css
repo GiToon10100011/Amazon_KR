@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Noto Sans KR";
+}
+body footer .bar {
+  width: 100%;
+  height: 18px;
+  background: #ff9900;
+}
+body footer .footer-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 30px;
+}
+body footer .footer-content .footer-first {
+  flex: 2;
+}
+body footer .footer-content .footer-first .logo {
+  width: 196px;
+}
+body footer .footer-content .footer-first .logo img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body footer .footer-content .footer-first .footer-info {
+  margin-top: 30px;
+  width: 430px;
+  color: #ccc;
+  font-size: 12px;
+  line-height: 24px;
+}
+body footer .footer-content .footer-second {
+  flex: 1;
+}
+body footer .footer-content .footer-second .customerService {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body footer .footer-content .footer-second .customerService .customerService-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+body footer .footer-content .footer-second .customerService .customerService-list li:hover {
+  text-decoration: underline;
+}
+body footer .footer-content .footer-second .customerService h2 {
+  font-size: 14px;
+}
+body footer .footer-content .footer-third {
+  flex: 1;
+}
+body footer .footer-content .footer-third .companyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body footer .footer-content .footer-third .companyInfo .companyInfo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+body footer .footer-content .footer-third .companyInfo .companyInfo-list li:hover {
+  text-decoration: underline;
+}
+body footer .footer-content .footer-third .companyInfo h2 {
+  font-size: 14px;
+}
+body footer .footer-utils {
+  padding: 30px;
+  width: 100%;
+}
+body footer .footer-utils .footer-last {
+  display: flex;
+}
+body footer .footer-utils .footer-last .copyright {
+  flex: 2;
+  font-size: 14px;
+  color: #b1b1b1;
+}
+body footer .footer-utils .footer-last .utils-list {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 30px;
+}
+body footer .footer-utils .footer-last .utils-list li {
+  font-size: 12px;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 4px;
+}
+body footer .footer-utils .footer-last .utils-list li:first-child {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body footer .footer-utils .footer-last .utils-list li:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+body footer .footer-utils .footer-last .utils-list li .lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+body footer .footer-utils .footer-last .utils-list li .lang .material-symbols-outlined {
+  font-size: 12px;
+}
+body footer .footer-utils .footer-last .utils-list li select {
+  width: 136px;
+  font-size: 12px;
+  outline: none;
+  border: none;
+}
+body footer .footer-utils .footer-last .utils-list li select:focus {
+  outline: none;
+}
+body footer .footer-utils .footer-last .utils-list li:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+}
+body footer .footer-utils .footer-last .form-container {
+  position: relative;
+  flex: 1;
+  width: 120px;
+  height: 30px;
+}
+body footer .footer-utils .footer-last .form-container form select {
+  position: relative;
+  width: 120px;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 6px;
+  color: #888;
+  -webkit-text-fill-color: #000;
+}
+body footer .footer-utils .footer-last .form-container form select option {
+  color: #000;
+}
