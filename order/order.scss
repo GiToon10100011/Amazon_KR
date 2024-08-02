@@ -54,6 +54,7 @@ header {
   .dateFilter {
     display: flex;
     justify-content: space-between;
+    white-space: nowrap;
     label {
       @include border-style(
         $color: map-get($map: $color, $key: main-border-color)

@@ -74,6 +74,7 @@ header form input[type=button]:hover {
 header .dateFilter {
   display: flex;
   justify-content: space-between;
+  white-space: nowrap;
 }
 header .dateFilter label {
   border: 1px solid #ccc;
