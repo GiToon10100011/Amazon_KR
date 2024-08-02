@@ -31,6 +31,7 @@ body footer .footer-content {
   height: 100%;
   display: flex;
   padding: 30px;
+  background: #fff;
 }
 body footer .footer-content .footer-first {
   flex: 2;
@@ -166,4 +167,4 @@ body footer .footer-utils .footer-last .form-container form select {
 }
 body footer .footer-utils .footer-last .form-container form select option {
   color: #000;
-}/*# sourceMappingURL=footer.css.map */
+}
