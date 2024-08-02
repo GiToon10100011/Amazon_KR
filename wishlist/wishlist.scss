@@ -107,9 +107,31 @@ header {
     }
   }
   .wishlistItems {
+    margin-top: 50px;
     width: 100%;
+    .wishlistFilter {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      .deleteOpt {
+        input[type="button"] {
+          @include border-style($color: map-get($color, main-border-color));
+          padding: 4px 10px;
+          border-radius: 8px;
+          background: map-get($map: $color, $key: main-color);
+          font-weight: 500;
+          font-family: map-get($map: $color, $key: kr-font);
+          font-size: 12px;
+          transition: all 0.3s;
+          cursor: pointer;
+          &:hover {
+            @include border-style($color: map-get($color, main-dark-color));
+          }
+        }
+      }
+    }
     .wishlistItem {
-      margin-top: 50px;
+      margin-bottom: 30px;
       .item-content {
         display: flex;
         justify-content: center;
@@ -136,11 +158,6 @@ header {
           display: flex;
           flex-direction: column;
           align-items: start;
-          .delivery-status {
-            padding-bottom: 6px;
-            border-bottom: 1px solid
-              map-get($map: $color, $key: main-border-color);
-          }
           .product-name {
             width: 100%;
             display: flex;
@@ -153,6 +170,7 @@ header {
               width: 30px;
               height: 30px;
               border-radius: 50%;
+              font-weight: 200;
               @include border-style($color: map-get($color, main-border-color));
               font-size: 18px;
               cursor: pointer;
@@ -171,31 +189,18 @@ header {
               font-size: 16px;
               margin-right: 8px;
             }
-            .order-number {
-              display: flex;
-              align-items: center;
-              span {
-                font-size: 10px;
-                margin-right: 4px;
-              }
-              i {
-                font-size: 8px;
-                color: map-get($map: $color, $key: dark-placeholder-color);
-                cursor: pointer;
-              }
-            }
           }
         }
-        .item-query {
+        .item-delete-btn {
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-          gap: 10px;
+          align-items: center;
           button {
             @include border-style($color: map-get($color, main-border-color));
             padding: 4px 14px;
             border-radius: 20px;
             background: map-get($map: $color, $key: main-color);
+            font-family: map-get($map: $family, $key: kr-font);
+            font-weight: 500;
             transition: all 0.3s;
             cursor: pointer;
             &:hover {

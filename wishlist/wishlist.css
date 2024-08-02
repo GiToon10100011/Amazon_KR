@@ -115,10 +115,29 @@ header .dateFilter input[type=radio]:nth-of-type(4):checked ~ label:nth-of-type(
   margin-left: 4px;
 }
 #wishlist-content .wishlistItems {
+  margin-top: 50px;
   width: 100%;
 }
+#wishlist-content .wishlistItems .wishlistFilter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+#wishlist-content .wishlistItems .wishlistFilter .deleteOpt input[type=button] {
+  border: 1px solid #ccc;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#wishlist-content .wishlistItems .wishlistFilter .deleteOpt input[type=button]:hover {
+  border: 1px solid #000;
+}
 #wishlist-content .wishlistItems .wishlistItem {
-  margin-top: 50px;
+  margin-bottom: 30px;
 }
 #wishlist-content .wishlistItems .wishlistItem .item-content {
   display: flex;
@@ -149,10 +168,6 @@ header .dateFilter input[type=radio]:nth-of-type(4):checked ~ label:nth-of-type(
   flex-direction: column;
   align-items: start;
 }
-#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .delivery-status {
-  padding-bottom: 6px;
-  border-bottom: 1px solid #ccc;
-}
 #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-name {
   width: 100%;
   display: flex;
@@ -166,6 +181,7 @@ header .dateFilter input[type=radio]:nth-of-type(4):checked ~ label:nth-of-type(
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  font-weight: 200;
   border: 1px solid #ccc;
   font-size: 18px;
   cursor: pointer;
@@ -184,34 +200,21 @@ header .dateFilter input[type=radio]:nth-of-type(4):checked ~ label:nth-of-type(
   font-size: 16px;
   margin-right: 8px;
 }
-#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price .order-number {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-delete-btn {
   display: flex;
   align-items: center;
 }
-#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price .order-number span {
-  font-size: 10px;
-  margin-right: 4px;
-}
-#wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price .order-number i {
-  font-size: 8px;
-  color: #888;
-  cursor: pointer;
-}
-#wishlist-content .wishlistItems .wishlistItem .item-content .item-query {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-}
-#wishlist-content .wishlistItems .wishlistItem .item-content .item-query button {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-delete-btn button {
   border: 1px solid #ccc;
   padding: 4px 14px;
   border-radius: 20px;
   background: #fff;
+  font-family: "Noto Sans KR";
+  font-weight: 500;
   transition: all 0.3s;
   cursor: pointer;
 }
-#wishlist-content .wishlistItems .wishlistItem .item-content .item-query button:hover {
+#wishlist-content .wishlistItems .wishlistItem .item-content .item-delete-btn button:hover {
   border: 1px solid #ff9900;
   background: #ff9900;
   color: #fff;
