@@ -3,9 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amazon</title>
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!--  Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/308cb3c90c.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Header JS -->
+    <script type="module" src="./header/header.js"></script>
+    <title>장바구니</title>
+    <!-- Custom CSS & JS -->
     <link rel="stylesheet" href="./cart.css" />
     <script defer src="./cart.js"></script>
   </head>
-  <body></body>
+  <body>
+    <header id="header"></header>
+    <main>
+      <section class="cart-title">
+        <h2>장바구니</h2>
+        <div class="cart-title-items">
+          <div class="cart-title-icons">
+            <span class="material-symbols-outlined"> shopping_cart </span>
+            <hr />
+            <span class="material-symbols-outlined"> credit_card </span>
+            <hr />
+            <span class="material-symbols-outlined"> event_available </span>
+          </div>
+          <div class="cart-title-desc">
+            <span>장바구니</span>
+            <span>주문/결제</span>
+            <span>결제완료</span>
+          </div>
+        </div>
+      </section>
+      <section class="cart-wrap">
+        <div class="cart-items">
+          <!-- 첫 번째 상품 -->
+          <div class="cart-item">
+            <div class="cart-item-title">
+              <h3>Coding rebel</h3>
+              <hr />
+            </div>
+            <div class="cart-item-header">
+              <input type="checkbox" name="cart-check" id="cart-check-1" />
+              <span>X</span>
+            </div>
+            <div class="cart-item-main">
+              <img src="https://via.placeholder.com/130" alt="상품 이미지" />
+              <div>
+                <h3>
+                  [코딩반란군] 코딩 걱정 없는 VS Code에서 손쉽게 코딩 해보자<br />
+                  무제한 언어 선택 가능
+                </h3>
+                <p>30,000원 이상 무료배송 | 일반택배</p>
+              </div>
+            </div>
+            <div class="cart-item-options">
+              <h3>HTML 패키지</h3>
+              <span>X</span>
+              <div class="cart-options-control">
+                <button class="minus">-</button>
+                <input type="text" value="1" />
+                <button class="plus">+</button>
+              </div>
+              <p class="cart-item-price">14,321원</p>
+            </div>
+            <div class="cart-item-actions">
+              <span class="cart-change-options">옵션변경</span>
+              <span class="cart-direct-buy">바로구매</span>
+            </div>
+            <div class="cart-item-footer">
+              <h3>배송비 3,000원</h3>
+              <p>총 주문금액 50,000원 이상시 무료배송</p>
+            </div>
+          </div>
+          <!-- 두 번째 상품 (복사해서 반복) -->
+          <div class="cart-item">
+            <div class="cart-item-title">
+              <h3>Coding rebel</h3>
+              <hr />
+            </div>
+            <div class="cart-item-header">
+              <input type="checkbox" name="cart-check" id="cart-check-2" />
+              <span>X</span>
+            </div>
+            <div class="cart-item-main">
+              <img src="https://via.placeholder.com/130" alt="상품 이미지" />
+              <div>
+                <h3>
+                  [코딩반란군] 코딩 걱정 없는 VS Code에서 손쉽게 코딩 해보자<br />
+                  무제한 언어 선택 가능
+                </h3>
+                <p>30,000원 이상 무료배송 | 일반택배</p>
+              </div>
+            </div>
+            <div class="cart-item-options">
+              <h3>HTML 패키지</h3>
+              <span>X</span>
+              <div class="cart-options-control">
+                <button class="minus">-</button>
+                <input type="text" value="1" />
+                <button class="plus">+</button>
+              </div>
+              <p class="cart-item-price">14,321원</p>
+            </div>
+            <div class="cart-item-actions">
+              <span class="cart-change-options">옵션변경</span>
+              <span class="cart-direct-buy">바로구매</span>
+            </div>
+            <div class="cart-item-footer">
+              <hr />
+              <h3>배송비 3,000원</h3>
+              <p>총 주문금액 50,000원 이상시 무료배송</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <iframe src="./footer/footer.html" frameborder="0"></iframe>
+  </body>
 </html>

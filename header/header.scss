@@ -150,24 +150,25 @@ body {
   }
 }
 
-.bgFilter{
+.bgFilter {
   position: relative;
   z-index: 9999;
   width: 100%;
   height: 100%;
   background: rgba($color: #000000, $alpha: 0.1);
   display: none;
-  &.active{
+  &.active {
     display: block;
   }
 }
 
 //Header
 header {
-  @include border-style($color : #000);
+  @include border-style($color: #000);
   position: fixed;
   top: 0;
   width: 100%;
+  background: map-get($map: $color, $key: main-color);
   .gnb-content {
     width: 100%;
     overflow: hidden;

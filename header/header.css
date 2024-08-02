@@ -166,6 +166,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  background: #fff;
 }
 header .gnb-content {
   width: 100%;
