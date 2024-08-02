@@ -3,7 +3,7 @@
 html,
 body {
   width: 100%;
-  height: 9000px;
+  height: 5000px;
   overflow-x: hidden;
 }
 
@@ -165,7 +165,7 @@ header {
   position: absolute;
   top: 140px;
   width: 100%;
-  height: 8900px;
+  height: 5100px;
   .profile-banner {
     width: 100%;
     height: 260px;
@@ -262,6 +262,9 @@ header {
                 a {
                   transition: all 0.3s;
                   font-size: 14px;
+                  &.active{
+                    color: map-get($map: $color, $key: main-amazon-color);
+                  }
                 }
                 &:hover a {
                   color: map-get($map: $color, $key: main-amazon-color);
@@ -280,7 +283,7 @@ header {
       position: sticky;
       margin-left: 20px;
       width: 970px;
-      height: 8000px;
+      height: 5000px;
     }
   }
   #footer {

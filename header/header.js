@@ -244,7 +244,6 @@ setInterval(() => {
     scrollLength = 0;
     scrollIndex = 0;
   }
-  console.log(rankingMenu);
   rankingMenu.style.bottom = `${scrollLength}px`;
   scrollLength += 56;
   scrollIndex++;
