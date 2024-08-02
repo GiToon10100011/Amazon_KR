@@ -1,0 +1,473 @@
+@import "./reset.scss";
+@import "./header/header.scss";
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+iframe{
+  width: 100%;
+  height: 360px;
+}
+
+#header{
+  width: 100%;
+  height: 100%;
+}
+ 
+ .inner{
+  width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+ }
+
+ main{
+  position: absolute;
+  top: 140px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.category{
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  ul{
+   display: flex;
+   justify-content: center;
+   gap: 20px;
+}
+}
+.contents_all{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.left_area{
+  flex : 2;
+ height: 100%;
+ width: 60%;
+ /*category*/
+ .category{
+   width: 100%;
+   height: auto;
+   ul{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 20px;
+  }
+ }
+ /*main*/
+ .main{
+   width: 100%;
+   height: auto;
+   display: inline-block;
+   .content{
+    display: flex;
+    .main_img{
+    width: 100%;
+    height: 520px;
+    background: url(./img/main_img.jpg) center/cover ;
+    }
+   }
+ }
+ /*pro_code*/
+ .pro_code{
+   width: 100%;
+  height: 70px;
+  background: map-get($color, main-border-color );
+  span{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 12px;
+    padding: 5px 0 0 10px;
+    line-height: 26px;
+  }
+ }
+ /*main_info*/
+ .main_info{
+      .content{
+        width: 100%;
+     height: auto;
+     margin-top: 5px;
+     // @include border-style;
+     .info_img{
+       width: 100%;
+       height: 3000px;
+       margin-top: 5px;
+       background: map-get($color, main-border-color);
+       .moreimg_slide{
+         width: 100%;
+         height: 60px;
+         bottom: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 10px;
+         background-color: #eee;
+         cursor: pointer;
+         i{
+           transform: translateY(15%);
+         }
+       }
+     }
+   }
+   
+ }
+ /*subinfo*/
+ .subinfo_all{
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  .content{
+    .subinfo{
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 25px;
+      font-size: 14px;
+      background-color: #eee;
+      gap: 20px;
+      i{
+        transform: rotate(180deg);
+        color: map-get($map: $color, $key: main-dark-color);
+        cursor: pointer;
+      }
+    }
+    .subinfo_area{
+      width: 100%;
+      height: 500px;
+      background: map-get($map:$color, $key: main-border-color);
+    }
+   }
+  }
+ /*reviw*/
+ .reviw_all{
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  position: relative;
+  .reviw_title{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    font-size: 14px;
+    background-color: #eee;
+    gap: 20px;
+  }
+  .reviw_headinfo{
+    margin-top: 5px;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    font-size: 14px;
+    background-color: #ffffff;
+    gap: 160px;
+    .avg{
+      font-size: 36px;
+      margin-left: 50px;
+      font-weight: 500;
+    }
+    .grap{
+      // @include border-style;
+      width: 120px;
+      height: auto;
+      vertical-align: top;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      p{
+        font-size: 14px;
+      }
+      .none{
+        opacity: 0;
+      }
+      span{
+        width: 100%;
+        height: 5px;
+        background: #000;
+        border-radius: 4px;
+        background: map-get($map: $color, $key: main-border-color);
+      }
+    }
+  }
+    .photos{
+    overflow: hidden;
+    width: 100;
+    height: auto;
+    display: flex;
+    margin-top: 5px;
+    margin-left: 62px;
+  ul{
+        gap: 5px;
+    display: flex;
+    li{
+    width: 120px;
+    height: 120px;
+    background: map-get($map: $color, $key: main-border-color);
+    // @include border-style;
+    }
+  }
+  }
+  .reviw_photo_btn{
+    position: absolute;
+    left: 0;
+    top: 195px;
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    .slide_btn_L{
+      width: 56px;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #eee;
+      i{
+        transform: rotate(-90deg);
+      }
+    }
+    .slide_btn_R{
+      width: 56px;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #eee;
+      i{
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .reviw_userdetail{
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    .reviw_profile{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      .user_img{
+        width: 56px;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span{
+          scale: 1.4;
+          color: map-get($map: $color, $key: main-border-color);
+        }
+        .user_desc{
+        .info{
+        font-size: 12px;
+        }
+        }
+      }
+    }
+    .reviw_star{
+      margin-top: 24px;
+    ul{
+      display: flex;
+      li{
+      color: map-get($map: $color, $key: main-amazon-color);
+      }
+    }
+    }
+    .reviw_txt{
+      padding: 40px 0;
+    }
+    .reviw_img_ic{
+      width: 100%;
+      height: auto;
+      display: flex;
+      position: relative;
+      .img{
+      width: 180px;
+      height: 180px;
+      background: map-get($map: $color, $key: main-border-color);
+      }
+    }
+    .underline{
+      width: 100%;
+      height: 1px;
+      background: #eee;
+      margin-top: 20px;
+    }
+  }
+  .reviw_moreslide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 60px;
+    width: 100%;
+    height: 60px;
+    background: #eee;
+    gap: 10px;
+    i{
+      transform: rotate(180deg);
+    }
+  }
+ }
+ /*another_service*/
+ .another_service{
+  display: flex;
+  flex-direction: column;
+  .ap_title{
+  
+  }
+ }
+}
+.right_area{
+  flex: 1;
+  position: sticky;
+  top: 100px; 
+  height: 100%;
+  .main_desc {
+    width: 100%;
+    height: 520px;
+    padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  // @include border-style;
+  .brand_heart{
+  display: flex;
+  justify-content: space-between;
+    .fa-heart{
+    scale: 1.6;
+    line-height: 25px;
+    margin-right: 4px;
+    padding: 2px;
+    }
+  }
+  .product-name{
+    width: 100%;
+    height: auto;
+    font-size: 32px;
+    margin-top: 20px;
+  }
+  .Amount_info{
+    height: auto;
+    width: 100%;
+    margin-top: 20px;
+    .sale{
+      font-size: 16px;
+      text-decoration: line-through;
+    }
+    .amount-cupon{
+      width: 100%;
+      height: auto;
+    display: flex;
+    justify-content: space-between;
+    .amount span{
+      &:nth-child(1){
+        font-size:22px;
+        color: #f00;
+        font-weight: 500;
+      }
+      &:nth-child(2){
+        font-size:26px;
+        font-weight: 600;
+        margin-left: 6px;
+      }
+    }
+    .cupon{
+      width: 130px;
+      height: 38px;
+      font-size: 16px;
+      border-style:none;
+      background:map-get($color, main-amazon-color);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      svg{
+       color: #fff;
+      }
+    }
+    }
+  }
+  .info-txt-box{
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .count{
+   width: 100%;
+   height: auto;
+   .content_all{
+     width: 100%;
+     padding: 5px;
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   .button{
+     width: 35px;
+     height: 35px;
+     border-style: none;
+     color: map-get($color,main-dark-color );
+     background: map-get($color, main-border-color );
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   }
+  }
+  .selectoption{
+   width: 100%;
+   height: 35px;
+   margin-top: 10px;
+   option{
+     text-align: center;
+   }
+  }
+  .mylist-buynow{
+    display: flex;
+    width: 100%;
+    height: auto;
+    gap: 12px;
+    .mylist{
+      width: 50%;
+      height: 55px;
+      font-size: 16px;
+      border-style:none;
+      background:map-get($color, main-border-color);
+      color: #000;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .buynow{
+      width:50%;
+      font-size: 16px;
+      font-weight: 500;
+      border-style:none;
+      background: map-get($color, main-amazon-color );
+      color: map-get($color,main-dark-color);
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+  }
+  }
+}
