@@ -31,6 +31,7 @@ body footer .footer-content {
   height: 100%;
   display: flex;
   padding: 30px;
+  background: #fff;
 }
 body footer .footer-content .footer-first {
   flex: 2;
