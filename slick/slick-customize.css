@@ -64,3 +64,16 @@
 	background-image: url("../img/mainbanner/prev_btn.png");
 	background-size: cover;
 }
+
+.slick-dots li button::before {
+	content: "";
+}
+
+.slick-dots li button {
+	background-color: red;
+	border-radius: 50%;
+}
+
+.slick-dots li.slick-active button {
+	background-color: blue;
+}
