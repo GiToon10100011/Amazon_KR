@@ -45,6 +45,7 @@ header .points-banner {
   border-radius: 8px;
   background: #ff9900;
   color: #fff;
+  box-shadow: 0px 0px 1;
   border: none;
 }
 header .points-banner span {
@@ -62,6 +63,7 @@ header .points-banner .total-points-box .total-points {
 header .dateFilter {
   display: flex;
   justify-content: space-between;
+  white-space: nowrap;
   margin-bottom: 40px;
 }
 header .dateFilter label {
@@ -121,6 +123,7 @@ header .dateFilter .calendarFilter input[type=date] {
 }
 #points-content .pointsItems {
   width: 100%;
+  margin-top: 50px;
 }
 #points-content .pointsItems .item-title {
   display: flex;
@@ -147,86 +150,63 @@ header .dateFilter .calendarFilter input[type=date] {
   padding-top: 4px;
   font-size: 10px;
 }
+#points-content .pointsItems .pointsItem {
+  margin-bottom: 14px;
+}
 #points-content .pointsItems .pointsItem .item-content {
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
   width: 100%;
-  height: 220px;
+  height: 66px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  padding: 40px 30px;
 }
 #points-content .pointsItems .pointsItem .item-content .item-info {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-}
-#points-content .pointsItems .pointsItem .item-content .item-info .delivery-status {
-  padding-bottom: 6px;
-  border-bottom: 1px solid #ccc;
-}
-#points-content .pointsItems .pointsItem .item-content .item-info .product-name {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
-  padding-top: 10px;
-}
-#points-content .pointsItems .pointsItem .item-content .item-info .product-name .icon-cart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 1px solid #ccc;
-  font-size: 18px;
-  cursor: pointer;
-}
-#points-content .pointsItems .pointsItem .item-content .item-info .product-option {
-  margin-top: 6px;
-  font-size: 10px;
-}
-#points-content .pointsItems .pointsItem .item-content .item-info .product-price {
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-}
-#points-content .pointsItems .pointsItem .item-content .item-info .product-price h4 {
-  color: #ff9900;
-  font-size: 16px;
-  margin-right: 8px;
-}
-#points-content .pointsItems .pointsItem .item-content .item-info .product-price .order-number {
-  display: flex;
   align-items: center;
 }
-#points-content .pointsItems .pointsItem .item-content .item-info .product-price .order-number span {
-  font-size: 10px;
-  margin-right: 4px;
-}
-#points-content .pointsItems .pointsItem .item-content .item-info .product-price .order-number i {
-  font-size: 8px;
-  color: #888;
-  cursor: pointer;
-}
-#points-content .pointsItems .pointsItem .item-content .item-query {
+#points-content .pointsItems .pointsItem .item-content .item-info .points-name {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
 }
-#points-content .pointsItems .pointsItem .item-content .item-query button {
-  border: 1px solid #ccc;
-  padding: 4px 14px;
-  border-radius: 20px;
-  background: #fff;
-  transition: all 0.3s;
-  cursor: pointer;
+#points-content .pointsItems .pointsItem .item-content .item-info .points-name span {
+  font-weight: bold;
+  font-size: 16px;
 }
-#points-content .pointsItems .pointsItem .item-content .item-query button:hover {
-  border: 1px solid #ff9900;
-  background: #ff9900;
-  color: #fff;
+#points-content .pointsItems .pointsItem .item-content .item-info .points-name span.product-date {
+  font-weight: normal;
+  font-size: 10px;
+}
+#points-content .pointsItems .pointsItem .item-content .item-info .points-status {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 6px;
+  width: 90%;
+}
+#points-content .pointsItems .pointsItem .item-content .item-info .points-status h4 {
+  color: #ff9900;
+  font-size: 16px;
+  margin-right: 8px;
+}
+#points-content .pointsItems .pointsItem .item-content .item-info .points-status .points-desc {
+  display: flex;
+  align-items: center;
+}
+#points-content .pointsItems .pointsItem .item-content .item-info .points-status .points-desc span {
+  font-size: 10px;
+  margin-right: 4px;
+}
+#points-content .pointsItems .pointsItem .item-content .item-info .points-status .points-desc i {
+  font-size: 8px;
+  color: #888;
+  cursor: pointer;
 }
