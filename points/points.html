@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/a7e457e146.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="points.css" />
+    <script defer src="points.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>적립금</h1>
+      <div class = "points-banner">
+        <span>사용가능 적립금</span>
+        <div class = "total-points-box">
+          <span class = "total-points">0 원</span>
+          <i class = "fas fa-chevron-down"></i>
+        </div>
+      </div>
+      <div class="dateFilter">
+        <div class="radioBtns">
+          <input type="radio" name="yearBtn" id="yearBtn1" checked/>
+          <label for="yearBtn1">최근 6개월</label>
+          <input type="radio" name="yearBtn" id="yearBtn2" />
+          <label for="yearBtn2">2024</label>
+          <input type="radio" name="yearBtn" id="yearBtn3" />
+          <label for="yearBtn3">2023</label>
+          <input type="radio" name="yearBtn" id="yearBtn4" />
+          <label for="yearBtn4">2022</label>
+          <input type="radio" name="yearBtn" id="yearBtn5" />
+          <label for="yearBtn5">2021</label>
+        </div>
+        <div class="calendarFilter">
+          <input type="date" name="" id="" />
+          <span>~</span>
+          <input type="date"  name="" id="" />
+        </div>
+      </div>
+    </header>
+    <main id="points-content">
+      <div class="sortFilter">
+        <select name="" id="">
+          <option value="">전체</option>
+          <option value="">전체</option>
+          <option value="">전체</option>
+        </select>
+        <select name="" id="">
+          <option value="">최신순</option>
+          <option value="">최신순</option>
+          <option value="">최신순</option>
+        </select>
+      </div>
+      <section class="pointsItems">
+        <div class="item-title">
+          <span>0000.00.00</span>
+        </div>
+        <div class="pointsItem">
+          <div class="item-content">
+            <div class="item-info">
+              <p class="product-name">
+                <span
+                  >Lorem ipsum (적립금 추가사유)
+                </span>
+                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+              </p>
+              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class = "points-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
