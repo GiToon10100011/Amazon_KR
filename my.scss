@@ -2,12 +2,14 @@
 
 html,
 body {
+  position: relative;
   width: 100%;
-  height: 5000px;
+  height: 6000px;
   overflow-x: hidden;
 }
 
 header {
+  margin: 0 auto;
   width: 100%;
   // height: 100%;
   z-index: 2;
@@ -262,7 +264,7 @@ header {
                 a {
                   transition: all 0.3s;
                   font-size: 14px;
-                  &.active{
+                  &.active {
                     color: map-get($map: $color, $key: main-amazon-color);
                   }
                 }
@@ -286,11 +288,97 @@ header {
       height: 5000px;
     }
   }
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 360px;
+}
+
+.mobile-navBar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    right: 0;
+  }
+  .main-sideMenu-container {
+    // display: none;
+    position: fixed;
+    left: 100%;
+    &.active {
+      // display: block;
+      left: auto;
+      right: 0;
+    }
+    .main-sideMenu {
+      scrollbar-width: none;
+      overscroll-behavior: contain;
+      .sideMenu-category {
+        .categories-large {
+          li {
+            .fa-chevron-right {
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+      .sideMenu-misc {
+        .misc-list {
+          .fa-chevron-right {
+            transform: rotate(90deg);
+          }
+        }
+      }
+      .sideMenu-settings {
+        .settings-list {
+          li {
+            &.darkmode {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
   #footer {
-    position: absolute;
-    bottom: 0;
-    z-index: 1;
+    height: 860px;
+  }
+  .mobile-navBar {
+    display: block;
+    z-index: 2;
     width: 100%;
-    height: 360px;
+    height: 68px;
+    background: map-get($map: $color, $key: main-color);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -4px 25px rgba(0, 0, 0, 0.25);
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      li {
+        a {
+          transition: all 0.3s;
+          span {
+            font-size: 40px;
+          }
+          i {
+            font-size: 30px;
+          }
+          &:hover {
+            color: map-get($map: $color, $key: main-amazon-color);
+          }
+        }
+      }
+    }
   }
 }

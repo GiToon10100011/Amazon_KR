@@ -8,6 +8,7 @@
 a {
   text-decoration: none;
   color: inherit;
+  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -189,11 +190,13 @@ header .banner .lnb-content {
   align-items: center;
   height: 40px;
   justify-content: space-between;
+  white-space: nowrap;
   transition: all 0.3s;
 }
 header .banner .lnb-content.active {
   height: 0;
   overflow: hidden;
+  border: none;
 }
 header .banner .lnb-content .lnb-main {
   height: 100%;
@@ -270,6 +273,10 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
   position: fixed;
   right: 50px;
   bottom: 100px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.Top .desktop-top {
   width: 56px;
   height: 56px;
   padding: 8px;
@@ -280,25 +287,116 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
   align-items: center;
   justify-content: center;
   z-index: 10000;
-  opacity: 0;
-  transition: all 0.3s;
   cursor: pointer;
 }
-.Top .fa-chevron-up {
+.Top .desktop-top .fa-chevron-up {
+  font-size: 24px;
+}
+.Top .mobile-top {
+  display: none;
+}
+.Top .mobile-top .mobile-top-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 14px;
+}
+.Top .mobile-top .mobile-top-menu span {
+  text-align: center;
+  line-height: 38px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(238, 238, 238, 0.8);
+  color: #000;
   font-size: 24px;
 }
 .Top.active {
   opacity: 1;
 }
 
+@media screen and (max-width: 768px) {
+  .inner {
+    width: 100%;
+  }
+  header {
+    padding: 10px;
+    width: 100%;
+  }
+  header .gnb-content {
+    width: 100%;
+    justify-content: center;
+  }
+  header .gnb-content .gnb {
+    width: 100%;
+  }
+  header .gnb-content .gnb .logo_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  header .gnb-content .gnb .logo_container .sideMenu-trigger-btn {
+    display: block;
+    order: 2;
+  }
+  header .gnb-content .gnb .searchBar {
+    display: none;
+  }
+  header .gnb-content .gnb .hottest-items {
+    display: none;
+  }
+  header .gnb-content .icon-menu {
+    display: none;
+  }
+  header .banner {
+    margin: 0;
+  }
+  header .banner .lnb-content {
+    border-top: 1px solid #ccc;
+    width: 100%;
+    justify-content: center;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    overflow-y: hidden;
+  }
+  header .banner .lnb-content .lnb-main {
+    width: 100%;
+  }
+  header .banner .lnb-content .lnb-main .main-category-menu {
+    display: none;
+  }
+  header .banner .lnb-content .lnb-main .main-category-menu .lnb {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  header .banner .lnb-content .lnb-user-menu {
+    display: none;
+  }
+  .Top {
+    right: 25px;
+  }
+  .Top .desktop-top {
+    display: none;
+  }
+  .Top .mobile-top {
+    display: block;
+  }
+}
 html,
 body {
+  position: relative;
   width: 100%;
-  height: 5000px;
+  height: 6000px;
   overflow-x: hidden;
 }
 
 header {
+  margin: 0 auto;
   width: 100%;
   z-index: 2;
 }
@@ -556,10 +654,76 @@ header {
   width: 970px;
   height: 5000px;
 }
-#main #footer {
+
+#footer {
   position: absolute;
   bottom: 0;
   z-index: 1;
   width: 100%;
   height: 360px;
+}
+
+.mobile-navBar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    right: 0;
+  }
+  .main-sideMenu-container {
+    position: fixed;
+    left: 100%;
+  }
+  .main-sideMenu-container.active {
+    left: auto;
+    right: 0;
+  }
+  .main-sideMenu-container .main-sideMenu {
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .fa-chevron-right {
+    transform: rotate(90deg);
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-misc .misc-list .fa-chevron-right {
+    transform: rotate(90deg);
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li.darkmode {
+    display: block;
+  }
+  #footer {
+    height: 860px;
+  }
+  .mobile-navBar {
+    display: block;
+    z-index: 2;
+    width: 100%;
+    height: 68px;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -4px 25px rgba(0, 0, 0, 0.25);
+  }
+  .mobile-navBar ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .mobile-navBar ul li a {
+    transition: all 0.3s;
+  }
+  .mobile-navBar ul li a span {
+    font-size: 40px;
+  }
+  .mobile-navBar ul li a i {
+    font-size: 30px;
+  }
+  .mobile-navBar ul li a:hover {
+    color: #ff9900;
+  }
 }

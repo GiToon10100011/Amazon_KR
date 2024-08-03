@@ -174,10 +174,22 @@ body.innerHTML = `
         </div>
       </div>
     </header>
-    <a href="#" class="Top">
-      <i class="fa-solid fa-chevron-up"></i>
-      <span>TOP</span>
-    </a>`;
+    <div class="Top">
+      <a href = "#" class = "desktop-top">
+        <i class="fa-solid fa-chevron-up"></i>
+        <span>TOP</span>
+      </a>
+      <div class = "mobile-top">
+        <div class = "mobile-top-menu">
+        <span class="material-symbols-outlined">
+        schedule
+        </span>
+        <a href = "#">
+        <span class="material-symbols-outlined">north</span>
+        </a>
+        </div>
+      </div>
+    </div>`;
 
 // Header
 
