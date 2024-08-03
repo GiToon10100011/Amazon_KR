@@ -162,6 +162,14 @@ header {
   }
 }
 
+#mobile-pageBox {
+  display: none;
+  position: absolute;
+  top: 120px;
+  width: 100%;
+  height: 1800px;
+}
+
 #main {
   z-index: 1;
   position: absolute;
@@ -306,6 +314,9 @@ header {
   body,
   html {
     height: 2000px;
+    &.active {
+      height: 4000px;
+    }
   }
   header {
     right: 0;
@@ -347,6 +358,12 @@ header {
           }
         }
       }
+    }
+  }
+
+  #mobile-pageBox {
+    &.active {
+      display: block;
     }
   }
 
@@ -451,6 +468,9 @@ header {
         display: none;
       }
     }
+    &.active {
+      display: none;
+    }
   }
 
   #footer {
@@ -485,6 +505,13 @@ header {
           }
           &:hover {
             color: map-get($map: $color, $key: main-amazon-color);
+          }
+          &.mobile-my-shortcut{
+            .fa-user{
+              &.active {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
           }
         }
       }
