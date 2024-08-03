@@ -692,6 +692,24 @@ header {
   .main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li.darkmode {
     display: block;
   }
+  #main .profile-banner {
+    height: 340px;
+  }
+  #main .profile-banner .profile-content {
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+  }
+  #main .profile-banner .profile-content .profile-pic img {
+    width: 140px;
+  }
+  #main .profile-banner .profile-content .profile-info {
+    padding: 0;
+  }
+  #main .profile-banner .profile-content .profile-info .info-first {
+    flex-direction: column;
+    gap: 6px;
+  }
   #footer {
     height: 860px;
   }

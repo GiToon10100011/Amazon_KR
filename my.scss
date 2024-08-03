@@ -345,9 +345,34 @@ header {
       }
     }
   }
+
+  #main {
+    .profile-banner {
+      height: 340px;
+      .profile-content {
+        flex-direction: column;
+        gap: 10px;
+        padding: 30px;
+        .profile-pic {
+          img {
+            width: 140px;
+          }
+        }
+        .profile-info {
+          padding: 0;
+          .info-first {
+            flex-direction: column;
+            gap: 6px;
+          }
+        }
+      }
+    }
+  }
+
   #footer {
     height: 860px;
   }
+
   .mobile-navBar {
     display: block;
     z-index: 2;
