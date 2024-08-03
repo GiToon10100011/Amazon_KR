@@ -192,6 +192,7 @@ body footer .footer-utils .footer-last .form-container form select option {
     width: 100%;
   }
   body .mobile-footer .footer-utils .utils-list {
+    white-space: nowrap;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,7 +237,7 @@ body footer .footer-utils .footer-last .form-container form select option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70px;
+    width: 80px;
   }
   body .mobile-footer .bar {
     width: 100%;

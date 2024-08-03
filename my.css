@@ -668,6 +668,10 @@ header {
 }
 
 @media screen and (max-width: 768px) {
+  body,
+  html {
+    height: 2000px;
+  }
   header {
     right: 0;
   }
@@ -692,8 +696,12 @@ header {
   .main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li.darkmode {
     display: block;
   }
+  #main {
+    top: 120px;
+    height: auto;
+  }
   #main .profile-banner {
-    height: 340px;
+    height: auto;
   }
   #main .profile-banner .profile-content {
     flex-direction: column;
@@ -705,13 +713,86 @@ header {
   }
   #main .profile-banner .profile-content .profile-info {
     padding: 0;
+    width: 100%;
+    gap: 20px;
   }
   #main .profile-banner .profile-content .profile-info .info-first {
+    width: 100%;
     flex-direction: column;
     gap: 6px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 14px;
+  }
+  #main .profile-banner .profile-content .profile-info .info-first h3 {
+    font-size: 24px;
+  }
+  #main .profile-banner .profile-content .profile-info .info-second {
+    width: 100%;
+    padding: 20px 0;
+  }
+  #main .profile-banner .profile-content .profile-info .info-second .user-history-list {
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    gap: 40px;
+  }
+  #main .profile-banner .profile-content .profile-info .info-second .user-history-list li {
+    white-space: nowrap;
+  }
+  #main .profile-banner .profile-content .profile-info .info-second .user-history-list li span {
+    font-size: 12px;
+  }
+  #main .profile-banner .profile-content .profile-info .info-second .user-history-list li a {
+    font-size: 18px;
+  }
+  #main .myPage-content {
+    margin-top: 14px;
+    height: auto;
+  }
+  #main .myPage-content .profile-sideMenu {
+    width: 100%;
+  }
+  #main .myPage-content .profile-sideMenu .profile-sideMenu-list h1 {
+    display: none;
+  }
+  #main .myPage-content .profile-sideMenu .profile-sideMenu-list .items {
+    gap: 0;
+  }
+  #main .myPage-content .profile-sideMenu .profile-sideMenu-list .items .item {
+    padding-bottom: 14px;
+    border: none;
+  }
+  #main .myPage-content .profile-sideMenu .profile-sideMenu-list .items .item h3 {
+    display: none;
+  }
+  #main .myPage-content .profile-sideMenu .profile-sideMenu-list .items .item ul {
+    gap: 14px;
+  }
+  #main .myPage-content .profile-sideMenu .profile-sideMenu-list .items .item ul li {
+    padding: 0 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 14px;
+  }
+  #main .myPage-content .profile-sideMenu .profile-sideMenu-list .items .item:last-child {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 14px;
+  }
+  #main .myPage-content .profile-sideMenu .profile-sideMenu-list .items .item:last-child .last-item {
+    padding: 0 10px;
+    font-weight: normal;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  #main .myPage-content .profile-sideMenu .profile-sideMenu-list .items .item:last-child .last-item i {
+    order: 2;
+  }
+  #main .myPage-content .pageBox {
+    display: none;
   }
   #footer {
-    height: 860px;
+    height: 900px;
   }
   .mobile-navBar {
     display: block;

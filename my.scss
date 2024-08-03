@@ -303,6 +303,10 @@ header {
 }
 
 @media screen and (max-width: 768px) {
+  body,
+  html {
+    height: 2000px;
+  }
   header {
     right: 0;
   }
@@ -347,8 +351,10 @@ header {
   }
 
   #main {
+    top: 120px;
+    height: auto;
     .profile-banner {
-      height: 340px;
+      height: auto;
       .profile-content {
         flex-direction: column;
         gap: 10px;
@@ -360,17 +366,95 @@ header {
         }
         .profile-info {
           padding: 0;
+          width: 100%;
+          gap: 20px;
           .info-first {
+            width: 100%;
             flex-direction: column;
             gap: 6px;
+            border-bottom: 1px solid map-get($map: $color, $key: main-color);
+            padding-bottom: 14px;
+            h3 {
+              font-size: 24px;
+            }
+          }
+          .info-second {
+            width: 100%;
+            padding: 20px 0;
+            .user-history-list {
+              width: 100%;
+              justify-content: center;
+              align-items: start;
+              gap: 40px;
+              li {
+                white-space: nowrap;
+                span {
+                  font-size: 12px;
+                }
+                a {
+                  font-size: 18px;
+                }
+              }
+            }
           }
         }
+      }
+    }
+
+    .myPage-content {
+      margin-top: 14px;
+      height: auto;
+      .profile-sideMenu {
+        width: 100%;
+        .profile-sideMenu-list {
+          h1 {
+            display: none;
+          }
+          .items {
+            gap: 0;
+            .item {
+              padding-bottom: 14px;
+              border: none;
+              h3 {
+                display: none;
+              }
+              ul {
+                gap: 14px;
+                li {
+                  padding: 0 10px;
+                  border-bottom: 1px solid
+                    map-get($map: $color, $key: main-border-color);
+                  padding-bottom: 14px;
+                }
+              }
+              &:last-child {
+                border-bottom: 1px solid
+                  map-get($map: $color, $key: main-border-color);
+                padding-bottom: 14px;
+                .last-item {
+                  padding: 0 10px;
+                  font-weight: normal;
+                  font-size: 14px;
+                  display: flex;
+                  align-items: center;
+                  gap: 6px;
+                  i {
+                    order: 2;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .pageBox {
+        display: none;
       }
     }
   }
 
   #footer {
-    height: 860px;
+    height: 900px;
   }
 
   .mobile-navBar {

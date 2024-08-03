@@ -187,6 +187,7 @@ body {
         padding: 30px;
         width: 100%;
         .utils-list {
+          white-space: nowrap;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -229,7 +230,7 @@ body {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              width: 70px;
+              width: 80px;
             }
           }
         }
@@ -313,17 +314,17 @@ body {
             }
           }
         }
-        .footer-last{
+        .footer-last {
           display: flex;
           flex-direction: column;
-          .form-container{
-            select{
+          .form-container {
+            select {
               border: none;
               font-size: 14px;
               margin-bottom: 50px;
             }
           }
-          .footer-last-bottom{
+          .footer-last-bottom {
             display: flex;
             flex-direction: column;
             align-items: center;
