@@ -108,18 +108,19 @@ header {
 
 #order-content {
   .sortFilter {
+    display: flex;
+    gap: 4px;
     select {
       width: 80px;
       height: 20px;
       font-family: map-get($map: $family, $key: kr-font);
       border: none;
-      border-right: 1px solid;
+      // border-right: 1px solid;
       padding-right: 10px;
       &:last-child {
         border: none;
       }
       &:focus {
-        border: none;
         outline: none;
       }
     }
@@ -182,6 +183,9 @@ header {
             padding-bottom: 6px;
             border-bottom: 1px solid
               map-get($map: $color, $key: main-border-color);
+            i {
+              display: none;
+            }
           }
           .product-name {
             width: 100%;
@@ -245,6 +249,158 @@ header {
               background: map-get($map: $color, $key: main-amazon-color);
               color: map-get($map: $color, $key: main-color);
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
+    h1 {
+      display: none;
+    }
+    form {
+      width: 100%;
+      gap: 0;
+      padding: 0;
+      .searchBox {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        input[type="text"] {
+          width: 100%;
+          padding-left: 30px;
+          background: map-get($map: $color, $key: main-color);
+          @include border-style($color: map-get($color, main-border-color));
+        }
+        &::before {
+          content: "\f002";
+          font-family: "FontAwesome";
+          font-size: 14px;
+          color: #000;
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          transform: translateY(-50%);
+          color: map-get($map: $color, $key: main-border-color);
+        }
+      }
+      input[type="button"] {
+        display: none;
+      }
+    }
+    .dateFilter {
+      width: 100%;
+      overflow-x: scroll;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      user-select: none;
+      overflow-y: hidden;
+      font-size: 12px;
+      .radioBtns {
+        padding-top: 8px;
+        height: 30px;
+      }
+      .calendarFilter {
+        align-items: center;
+        gap: 10px;
+        input[type="date"] {
+          width: 110px;
+          border-radius: 20px;
+          @include border-style($color: map-get($color, main-border-color));
+          padding: 4px 14px;
+          font-size: 10px;
+          &.active {
+            @include border-style($color: map-get($color, main-amazon-color));
+          }
+        }
+      }
+    }
+  }
+
+  #order-content {
+    .sortFilter {
+      select {
+        width: 70px;
+        font-size: 12px;
+      }
+    }
+    .orderItems {
+      .orderItem {
+        margin-top: 30px;
+        .item-title {
+          span {
+            font-size: 18px;
+          }
+          a {
+            font-size: 12px;
+            i {
+              font-size: 12px;
+            }
+          }
+        }
+        .item-content {
+          width: 100%;
+          padding: 14px;
+          gap: 20px;
+          height: 128px;
+          .item-img {
+            width: 100px;
+            height: 100%;
+          }
+          .item-info {
+            width: 80%;
+            .delivery-status {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              position: relative;
+              width: 100%;
+              font-size: 12px;
+              i {
+                display: block;
+                cursor: pointer;
+              }
+            }
+            .product-name {
+              font-size: 12px;
+              align-items: start;
+              padding-top: 4px;
+              span:first-child {
+                width: 100%;
+              }
+              .icon-cart {
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+              }
+            }
+            .product-option {
+              font-size: 8px;
+            }
+            .product-price {
+              margin-top: 6px;
+              h4 {
+                font-size: 10px;
+              }
+              .order-number {
+                display: none;
+              }
+            }
+          }
+          .item-query {
+            display: none;
           }
         }
       }

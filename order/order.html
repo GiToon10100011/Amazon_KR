@@ -21,12 +21,18 @@
     <header>
       <h1>주문내역</h1>
       <form action="https://localhost:3000">
-        <input type="text" name="search" id="search" placeholder="주문 상품의 정보를 입력해주세요." />
+        <span class="searchBox"
+          ><input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="주문 상품의 정보를 입력해주세요."
+        /></span>
         <input type="button" value="조회하기" />
       </form>
       <div class="dateFilter">
         <div class="radioBtns">
-          <input type="radio" name="yearBtn" id="yearBtn1" checked/>
+          <input type="radio" name="yearBtn" id="yearBtn1" checked />
           <label for="yearBtn1">최근 6개월</label>
           <input type="radio" name="yearBtn" id="yearBtn2" />
           <label for="yearBtn2">2024</label>
@@ -40,7 +46,7 @@
         <div class="calendarFilter">
           <input type="date" name="" id="" />
           <span>~</span>
-          <input type="date"  name="" id="" />
+          <input type="date" name="" id="" />
         </div>
       </div>
     </header>
@@ -51,6 +57,7 @@
           <option value="">전체</option>
           <option value="">전체</option>
         </select>
+        <hr />
         <select name="" id="">
           <option value="">최신순</option>
           <option value="">최신순</option>
@@ -70,17 +77,23 @@
               <img src="../img/product_img1.JPG" alt="" />
             </div>
             <div class="item-info">
-              <span class="delivery-status"> 배송준비중 </span>
+              <span class="delivery-status">
+                배송준비중 <i class="fa-solid fa-ellipsis-vertical"></i
+              ></span>
               <p class="product-name">
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -109,12 +122,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -143,12 +160,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -177,12 +198,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -211,12 +236,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -245,12 +274,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -279,12 +312,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -313,12 +350,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -347,12 +388,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -381,12 +426,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -415,12 +464,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -449,12 +502,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>
@@ -483,12 +540,16 @@
                 <span
                   >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </span>
-                <span class="icon-cart material-symbols-outlined"> shopping_cart </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
               </p>
-              <span class = "product-option">Option | Lorem Ipsum(상품의 옵션)</span>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
               <div class="product-price">
                 <h4>00,000원/0개</h4>
-                <div class = "order-number">
+                <div class="order-number">
                   <span>주문번호 00000000000000</span>
                   <i class="fa-regular fa-clipboard"></i>
                 </div>

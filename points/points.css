@@ -105,6 +105,8 @@ header .dateFilter .calendarFilter input[type=date] {
 }
 
 #points-content .sortFilter {
+  display: flex;
+  gap: 4px;
   margin-bottom: 50px;
 }
 #points-content .sortFilter select {
@@ -112,14 +114,12 @@ header .dateFilter .calendarFilter input[type=date] {
   height: 20px;
   font-family: "Noto Sans KR";
   border: none;
-  border-right: 1px solid;
   padding-right: 10px;
 }
 #points-content .sortFilter select:last-child {
   border: none;
 }
 #points-content .sortFilter select:focus {
-  border: none;
   outline: none;
 }
 #points-content .pointsItems {
@@ -210,4 +210,140 @@ header .dateFilter .calendarFilter input[type=date] {
   font-size: 8px;
   color: #888;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    gap: 0;
+  }
+  header h1 {
+    display: none;
+  }
+  header .points-banner {
+    margin-bottom: 20px;
+  }
+  header .dateFilter {
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    overflow-y: hidden;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  header .dateFilter .radioBtns {
+    padding-top: 8px;
+    height: 30px;
+  }
+  header .dateFilter .calendarFilter {
+    align-items: center;
+    gap: 10px;
+  }
+  header .dateFilter .calendarFilter input[type=date] {
+    width: 110px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding: 4px 14px;
+    font-size: 10px;
+  }
+  header .dateFilter .calendarFilter input[type=date].active {
+    border: 1px solid #ff9900;
+  }
+  #points-content .sortFilter {
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-bottom: 20px;
+    transform: translateY(4px);
+  }
+  #points-content .total {
+    margin-bottom: 20px;
+  }
+  #points-content .total .soldOut-box input[type=checkbox] {
+    width: 10px;
+    height: 10px;
+  }
+  #points-content .total .soldOut-box label {
+    font-size: 12px;
+  }
+  #points-content .mobile-radioBtns {
+    font-size: 12px;
+    display: block;
+    padding-top: 8px;
+    height: 30px;
+  }
+  #points-content .pointsItems {
+    margin-top: 30px;
+  }
+  #points-content .pointsItems .pointsItem {
+    margin-bottom: 14px;
+  }
+  #points-content .pointsItems .pointsItem .item-title span {
+    font-size: 18px;
+  }
+  #points-content .pointsItems .pointsItem .item-title a {
+    font-size: 12px;
+  }
+  #points-content .pointsItems .pointsItem .item-title a i {
+    font-size: 12px;
+  }
+  #points-content .pointsItems .pointsItem .item-content {
+    width: 100%;
+    padding: 14px;
+    gap: 20px;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-img {
+    width: 100px;
+    height: 100%;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info {
+    white-space: nowrap;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info .delivery-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info .delivery-status i {
+    display: block;
+    cursor: pointer;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info .product-name {
+    font-size: 12px;
+    align-items: start;
+    padding-top: 4px;
+    gap: 0;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info .product-name span:first-child {
+    width: 90%;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info .product-name .icon-cart {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info .product-option {
+    font-size: 8px;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info .product-price {
+    margin-top: 6px;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info .product-price h4 {
+    font-size: 10px;
+  }
+  #points-content .pointsItems .pointsItem .item-content .item-info .product-price .points-number {
+    display: none;
+  }
 }

@@ -100,6 +100,31 @@ header .dateFilter input[type=radio]:nth-of-type(4):checked ~ label:nth-of-type(
   border: 1px solid #ff9900;
 }
 
+#wishlist-content .mobile-radioBtns {
+  display: none;
+}
+#wishlist-content .mobile-radioBtns label {
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+#wishlist-content .mobile-radioBtns input[type=radio] {
+  display: none;
+}
+#wishlist-content .mobile-radioBtns input[type=radio]:nth-of-type(1):checked ~ label:nth-of-type(1) {
+  border: 1px solid #ff9900;
+}
+#wishlist-content .mobile-radioBtns input[type=radio]:nth-of-type(2):checked ~ label:nth-of-type(2) {
+  border: 1px solid #ff9900;
+}
+#wishlist-content .mobile-radioBtns input[type=radio]:nth-of-type(3):checked ~ label:nth-of-type(3) {
+  border: 1px solid #ff9900;
+}
+#wishlist-content .mobile-radioBtns input[type=radio]:nth-of-type(4):checked ~ label:nth-of-type(4) {
+  border: 1px solid #ff9900;
+}
 #wishlist-content .total {
   width: 100%;
   display: flex;
@@ -220,4 +245,109 @@ header .dateFilter input[type=radio]:nth-of-type(4):checked ~ label:nth-of-type(
   border: 1px solid #ff9900;
   background: #ff9900;
   color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    display: none;
+  }
+  #wishlist-content .total {
+    margin-bottom: 20px;
+  }
+  #wishlist-content .total .soldOut-box input[type=checkbox] {
+    width: 10px;
+    height: 10px;
+  }
+  #wishlist-content .total .soldOut-box label {
+    font-size: 12px;
+  }
+  #wishlist-content .mobile-radioBtns {
+    font-size: 12px;
+    display: block;
+    padding-top: 8px;
+    height: 30px;
+  }
+  #wishlist-content .wishlistItems {
+    margin-top: 30px;
+  }
+  #wishlist-content .wishlistItems .wishlistFilter {
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  #wishlist-content .wishlistItems .wishlistFilter input[type=checkbox] {
+    width: 10px;
+    height: 10px;
+  }
+  #wishlist-content .wishlistItems .wishlistFilter .deleteOpt input[type=button] {
+    font-size: 10px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem {
+    margin-bottom: 14px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-title span {
+    font-size: 18px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-title a {
+    font-size: 12px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-title a i {
+    font-size: 12px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content {
+    width: 100%;
+    padding: 14px;
+    gap: 20px;
+    height: 128px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-img {
+    width: 100px;
+    height: 100%;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info {
+    width: 80%;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .delivery-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .delivery-status i {
+    display: block;
+    cursor: pointer;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-name {
+    font-size: 12px;
+    align-items: start;
+    padding-top: 4px;
+    gap: 0;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-name span:first-child {
+    width: 90%;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-name .icon-cart {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-option {
+    font-size: 8px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price {
+    margin-top: 6px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price h4 {
+    font-size: 10px;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-info .product-price .wishlist-number {
+    display: none;
+  }
+  #wishlist-content .wishlistItems .wishlistItem .item-content .item-delete-btn {
+    display: none;
+  }
 }

@@ -114,19 +114,21 @@ header .dateFilter .calendarFilter input[type=date] {
   font-family: "Noto Sans KR";
 }
 
+#order-content .sortFilter {
+  display: flex;
+  gap: 4px;
+}
 #order-content .sortFilter select {
   width: 80px;
   height: 20px;
   font-family: "Noto Sans KR";
   border: none;
-  border-right: 1px solid;
   padding-right: 10px;
 }
 #order-content .sortFilter select:last-child {
   border: none;
 }
 #order-content .sortFilter select:focus {
-  border: none;
   outline: none;
 }
 #order-content .orderItems {
@@ -191,6 +193,9 @@ header .dateFilter .calendarFilter input[type=date] {
   padding-bottom: 6px;
   border-bottom: 1px solid #ccc;
 }
+#order-content .orderItems .orderItem .item-content .item-info .delivery-status i {
+  display: none;
+}
 #order-content .orderItems .orderItem .item-content .item-info .product-name {
   width: 100%;
   display: flex;
@@ -253,4 +258,149 @@ header .dateFilter .calendarFilter input[type=date] {
   border: 1px solid #ff9900;
   background: #ff9900;
   color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #ccc;
+  }
+  header h1 {
+    display: none;
+  }
+  header form {
+    width: 100%;
+    gap: 0;
+    padding: 0;
+  }
+  header form .searchBox {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  header form .searchBox input[type=text] {
+    width: 100%;
+    padding-left: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+  }
+  header form .searchBox::before {
+    content: "\f002";
+    font-family: "FontAwesome";
+    font-size: 14px;
+    color: #000;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #ccc;
+  }
+  header form input[type=button] {
+    display: none;
+  }
+  header .dateFilter {
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    overflow-y: hidden;
+    font-size: 12px;
+  }
+  header .dateFilter .radioBtns {
+    padding-top: 8px;
+    height: 30px;
+  }
+  header .dateFilter .calendarFilter {
+    align-items: center;
+    gap: 10px;
+  }
+  header .dateFilter .calendarFilter input[type=date] {
+    width: 110px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding: 4px 14px;
+    font-size: 10px;
+  }
+  header .dateFilter .calendarFilter input[type=date].active {
+    border: 1px solid #ff9900;
+  }
+  #order-content .sortFilter select {
+    width: 70px;
+    font-size: 12px;
+  }
+  #order-content .orderItems .orderItem {
+    margin-top: 30px;
+  }
+  #order-content .orderItems .orderItem .item-title span {
+    font-size: 18px;
+  }
+  #order-content .orderItems .orderItem .item-title a {
+    font-size: 12px;
+  }
+  #order-content .orderItems .orderItem .item-title a i {
+    font-size: 12px;
+  }
+  #order-content .orderItems .orderItem .item-content {
+    width: 100%;
+    padding: 14px;
+    gap: 20px;
+    height: 128px;
+  }
+  #order-content .orderItems .orderItem .item-content .item-img {
+    width: 100px;
+    height: 100%;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info {
+    width: 80%;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info .delivery-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info .delivery-status i {
+    display: block;
+    cursor: pointer;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info .product-name {
+    font-size: 12px;
+    align-items: start;
+    padding-top: 4px;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info .product-name span:first-child {
+    width: 100%;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info .product-name .icon-cart {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info .product-option {
+    font-size: 8px;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info .product-price {
+    margin-top: 6px;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info .product-price h4 {
+    font-size: 10px;
+  }
+  #order-content .orderItems .orderItem .item-content .item-info .product-price .order-number {
+    display: none;
+  }
+  #order-content .orderItems .orderItem .item-content .item-query {
+    display: none;
+  }
 }

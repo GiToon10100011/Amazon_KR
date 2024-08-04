@@ -167,7 +167,7 @@ header {
   position: absolute;
   top: 120px;
   width: 100%;
-  height: 1800px;
+  height: 3600px;
 }
 
 #main {
@@ -322,11 +322,11 @@ header {
     right: 0;
   }
   .main-sideMenu-container {
-    // display: none;
+    display: none;
     position: fixed;
     left: 100%;
     &.active {
-      // display: block;
+      display: block;
       left: auto;
       right: 0;
     }
@@ -506,8 +506,8 @@ header {
           &:hover {
             color: map-get($map: $color, $key: main-amazon-color);
           }
-          &.mobile-my-shortcut{
-            .fa-user{
+          &.mobile-my-shortcut {
+            .fa-user {
               &.active {
                 color: map-get($map: $color, $key: main-amazon-color);
               }

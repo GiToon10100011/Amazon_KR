@@ -76,6 +76,65 @@ header {
       }
     }
   }
+  .mobile-coupon-banner {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 160px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: map-get($map: $color, $key: main-amazon-color);
+    color: map-get($map: $color, $key: main-color);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border: none;
+    .coupon-banner-inner {
+      h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .coupon-inputBox {
+        display: flex;
+        gap: 20px;
+        input {
+          font-family: map-get($map: $family, $key: kr-font);
+          &[type="text"] {
+            width: 390px;
+            border: none;
+            border-bottom: 1px solid map-get($map: $color, $key: main-color);
+            color: map-get($map: $color, $key: main-color);
+            padding-bottom: 8px;
+            background: none;
+            &::placeholder {
+              color: map-get($map: $color, $key: searchBar-bg-color);
+              font-size: 16px;
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+          &[type="button"] {
+            background: map-get($map: $color, $key: main-color);
+            color: map-get($map: $color, $key: main-amazon-color);
+            @include border-style($color: transparent);
+            border-radius: 20px;
+            padding: 6px 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+            &:hover {
+              @include border-style($color: map-get($color, main-color));
+              color: map-get($map: $color, $key: main-color);
+              background: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 #coupon-content {
@@ -156,6 +215,96 @@ header {
                 cursor: pointer;
                 &:hover {
                   text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    gap: 0;
+    h1 {
+      display: none;
+    }
+    .coupon-banner {
+      display: none;
+      margin-bottom: 20px;
+    }
+    .mobile-coupon-banner {
+      display: flex;
+      flex-direction: row;
+      height: 80px;
+      .coupon-banner-inner {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .coupon-quantity {
+          h3 {
+            margin-bottom: 0;
+          }
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .coupon-register {
+          font-size: 12px;
+          border-bottom: 1px solid transparent;
+          &:hover {
+            border-bottom: 1px solid;
+          }
+        }
+      }
+    }
+  }
+  #coupon-content {
+    .coupon-content-title {
+      margin-bottom: 20px;
+    }
+    .sortFilter {
+      position: absolute;
+      right: 0;
+      padding-right: 10px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-bottom: 20px;
+      transform: translateY(4px);
+    }
+    .couponItems {
+      margin-top: 20px;
+      .couponItem {
+        margin-bottom: 14px;
+        .item-content {
+          width: 100%;
+          padding: 20px;
+          height: 120px;
+          .item-info {
+            .coupon-rate {
+              font-size: 18px;
+              padding-bottom: 4px;
+            }
+            .coupon-name {
+              width: 80%;
+              font-size: 12px;
+              padding-top: 4px;
+              gap: 0;
+            }
+            .coupon-desc {
+              font-size: 0px;
+              margin-top: 20px;
+              span {
+                &:last-child {
+                  font-size: 10px;
                 }
               }
             }

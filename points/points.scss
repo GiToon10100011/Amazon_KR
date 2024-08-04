@@ -101,19 +101,20 @@ header {
 
 #points-content {
   .sortFilter {
+    display: flex;
+    gap: 4px;
     margin-bottom: 50px;
     select {
       width: 80px;
       height: 20px;
       font-family: map-get($map: $family, $key: kr-font);
       border: none;
-      border-right: 1px solid;
+      // border-right: 1px solid;
       padding-right: 10px;
       &:last-child {
         border: none;
       }
       &:focus {
-        border: none;
         outline: none;
       }
     }
@@ -201,6 +202,147 @@ header {
                 font-size: 8px;
                 color: map-get($map: $color, $key: dark-placeholder-color);
                 cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    gap: 0;
+    h1 {
+      display: none;
+    }
+    .points-banner {
+      margin-bottom: 20px;
+    }
+    .dateFilter {
+      width: 100%;
+      overflow-x: scroll;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      user-select: none;
+      overflow-y: hidden;
+      font-size: 12px;
+      margin-bottom: 10px;
+      .radioBtns {
+        padding-top: 8px;
+        height: 30px;
+      }
+      .calendarFilter {
+        align-items: center;
+        gap: 10px;
+        input[type="date"] {
+          width: 110px;
+          border-radius: 20px;
+          @include border-style($color: map-get($color, main-border-color));
+          padding: 4px 14px;
+          font-size: 10px;
+          &.active {
+            @include border-style($color: map-get($color, main-amazon-color));
+          }
+        }
+      }
+    }
+  }
+  #points-content {
+    .sortFilter {
+      position: absolute;
+      right: 0;
+      padding-right: 10px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-bottom: 20px;
+      transform: translateY(4px);
+    }
+    .total {
+      margin-bottom: 20px;
+      .soldOut-box {
+        input[type="checkbox"] {
+          width: 10px;
+          height: 10px;
+        }
+        label {
+          font-size: 12px;
+        }
+      }
+    }
+    .mobile-radioBtns {
+      font-size: 12px;
+      display: block;
+      padding-top: 8px;
+      height: 30px;
+    }
+    .pointsItems {
+      margin-top: 30px;
+      .pointsItem {
+        margin-bottom: 14px;
+        .item-title {
+          span {
+            font-size: 18px;
+          }
+          a {
+            font-size: 12px;
+            i {
+              font-size: 12px;
+            }
+          }
+        }
+        .item-content {
+          width: 100%;
+          padding: 14px;
+          gap: 20px;
+          .item-img {
+            width: 100px;
+            height: 100%;
+          }
+          .item-info {
+            // width: 80%;
+            white-space: nowrap;
+            .delivery-status {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              position: relative;
+              width: 100%;
+              font-size: 12px;
+              i {
+                display: block;
+                cursor: pointer;
+              }
+            }
+            .product-name {
+              font-size: 12px;
+              align-items: start;
+              padding-top: 4px;
+              gap: 0;
+              span:first-child {
+                width: 90%;
+              }
+              .icon-cart {
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+              }
+            }
+            .product-option {
+              font-size: 8px;
+            }
+            .product-price {
+              margin-top: 6px;
+              h4 {
+                font-size: 10px;
+              }
+              .points-number {
+                display: none;
               }
             }
           }
