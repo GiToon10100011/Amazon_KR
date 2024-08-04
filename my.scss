@@ -513,6 +513,13 @@ header {
               }
             }
           }
+          &.mobile-search-shortcut{
+            span{
+              &.active {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+          }
         }
       }
     }

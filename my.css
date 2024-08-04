@@ -848,4 +848,7 @@ header {
   .mobile-navBar ul li a.mobile-my-shortcut .fa-user.active {
     color: #ff9900;
   }
+  .mobile-navBar ul li a.mobile-search-shortcut span.active {
+    color: #ff9900;
+  }
 }
