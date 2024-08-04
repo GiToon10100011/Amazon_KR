@@ -105,3 +105,4 @@ mySearch.addEventListener("click", () => {
     mySearch.classList.remove("active");
   }
 });
+

@@ -184,7 +184,7 @@ body.innerHTML = `
         <span class="material-symbols-outlined">
         schedule
         </span>
-        <a href = "#">
+        <a class = "mobile-top-btn" href = "#">
         <span class="material-symbols-outlined">north</span>
         </a>
         </div>
@@ -196,6 +196,9 @@ body.innerHTML = `
 const lnb = document.querySelector(".lnb-content");
 
 const Top = document.querySelector(".Top");
+
+const desktopTop = document.querySelector(".desktop-top");
+const mobileTop = document.querySelector(".mobile-top-btn");
 
 const ranking = document.querySelector(".hottest-items");
 
@@ -263,3 +266,19 @@ setInterval(() => {
     rankingMenu.classList.remove("active");
   }, 200);
 }, 3000);
+
+desktopTop.addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+mobileTop.addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
