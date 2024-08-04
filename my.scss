@@ -513,8 +513,9 @@ header {
               }
             }
           }
-          &.mobile-search-shortcut{
-            span{
+          &.mobile-search-shortcut {
+            span {
+              transition: all 0.3s;
               &.active {
                 color: map-get($map: $color, $key: main-amazon-color);
               }
