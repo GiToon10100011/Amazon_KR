@@ -1,6 +1,30 @@
 .slider {
 	width: 100%;
 	margin: 0 auto;
+	.slick-next,
+	.slick-prev {
+		z-index: 200;
+	}
+
+	.slick-next {
+		right: 35px;
+	}
+
+	.slick-prev {
+		left: 35px;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+		color: black;
+	}
+
+	.slick-next,
+	.slick-prev {
+		&::before {
+			content: "";
+		}
+	}
 }
 
 .slick-slide {
@@ -9,24 +33,6 @@
 
 .slick-slide img {
 	width: 100%;
-}
-
-.slick-next,
-.slick-prev {
-	z-index: 200;
-}
-
-.slick-next {
-	right: 35px;
-}
-
-.slick-prev {
-	left: 35px;
-}
-
-.slick-prev:before,
-.slick-next:before {
-	color: black;
 }
 
 .slick-dots li button::before {
@@ -56,21 +62,18 @@
 		width: 40px;
 		height: 40px;
 	}
-
 	.slick-next:hover,
 	.slick-next:focus,
 	.slick-next {
 		background-image: url("../img/mainbanner/next_btn.png");
 		background-size: cover;
 	}
-
 	.slick-prev:hover,
 	.slick-prev:focus,
 	.slick-prev {
 		background-image: url("../img/mainbanner/prev_btn.png");
 		background-size: cover;
 	}
-
 	.main-slider {
 		&.slider {
 			.slick-dots {
@@ -87,13 +90,26 @@
 				.slick-dots {
 					bottom: -70px;
 				}
+				.slick-prev {
+					left: -30px;
+				}
+				.slick-next {
+					right: -30px;
+				}
+				.slick-next,
+				.slick-prev {
+					&::before {
+						content: "";
+					}
+					width: 60px;
+					height: 60px;
+				}
 				.slick-next:hover,
 				.slick-next:focus,
 				.slick-next {
 					background-image: url("../img/mainbanner/next_btn.png");
 					background-size: cover;
 				}
-
 				.slick-prev:hover,
 				.slick-prev:focus,
 				.slick-prev {
@@ -112,6 +128,53 @@
 					color: #ffffff;
 					background-color: #000000;
 				}
+			}
+		}
+	}
+}
+
+#mmb-slider-wrap {
+	.mbb-slider {
+		&.slider {
+			.slick-dots {
+				bottom: -70px;
+			}
+			.slick-prev {
+				left: -30px;
+			}
+			.slick-next {
+				right: -30px;
+			}
+			.slick-next,
+			.slick-prev {
+				&::before {
+					content: "";
+				}
+				width: 60px;
+				height: 60px;
+			}
+			.slick-next:hover,
+			.slick-next:focus,
+			.slick-next {
+				background-image: url("../img/mainbanner/next_btn.png");
+				background-size: cover;
+			}
+			.slick-prev:hover,
+			.slick-prev:focus,
+			.slick-prev {
+				background-image: url("../img/mainbanner/prev_btn.png");
+				background-size: cover;
+			}
+			.slick-list {
+				margin: 0 -30px;
+			}
+			.slick-slide {
+				min-height: 324px;
+				margin: 0 30px;
+				padding: 10px;
+				overflow: hidden;
+				color: #000000;
+				background-color: #ffffff;
 			}
 		}
 	}

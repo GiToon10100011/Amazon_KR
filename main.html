@@ -253,16 +253,57 @@
 					<h3>이벤트 / 쿠폰</h3>
 					<div class="event-slider-wrap">
 						<div class="event-slider slider">
-							<a href="#" class="inner">
-								<h4>event banner1</h4>
+							<a href="#" class="items item1">
+								<h4>카카오 채널 친구 혜택</h4>
+								<p>카톡 채널 추가 시 15% 쿠폰 하나 더!</p>
 							</a>
-							<a href="#" class="inner">
-								<h4>event banner2</h4>
+							<a href="#" class="items item2">
+								<h4>2.카카오 채널 친구 혜택</h4>
+								<p>카톡 채널 추가 시 15% 쿠폰 하나 더!</p>
 							</a>
-							<a href="#" class="inner">
-								<h4>event banner3</h4>
+							<a href="#" class="items item3">
+								<h4>3/카카오 채널 친구 혜택</h4>
+								<p>카톡 채널 추가 시 15% 쿠폰 하나 더!</p>
 							</a>
 						</div>
+					</div>
+				</div>
+				<div id="category-best">
+					<h3>카테고리별 인기상품</h3>
+					<div class="inner">컨텐츠 작업중</div>
+				</div>
+			</div>
+			<div id="main-bottom-banner">
+				<p class="top-keywords">
+					<a href="#">Summer Vest,</a>
+					<a href="#">Ball Cap,</a>
+					<a href="#">Nylon Pants,</a>
+					<a href="#">Bermuda Shorts,</a>
+					<a href="#">Flip Flop,</a>
+					<a href="#">Keyring for Pants,</a>
+					<a href="#">T-shirts,</a>
+					<a href="#">Summer Electronics,</a>
+					<a href="#">Summer Vest,</a>
+					<a href="#">Ball Cap,</a>
+					<a href="#">Nylon Pants,</a>
+					<a href="#">Bermuda Shorts,</a>
+					<a href="#">Flip Flop,</a>
+					<a href="#">Keyring for Pants,</a>
+					<a href="#">T-shirts,</a>
+					<a href="#">Summer Electronics</a>
+				</p>
+				<div id="mmb-slider-wrap">
+					<div class="mbb-slider slider">
+						<div class="item">1</div>
+						<div class="item">2</div>
+						<div class="item">3</div>
+						<div class="item">4</div>
+						<div class="item">5</div>
+						<div class="item">6</div>
+						<div class="item">7</div>
+						<div class="item">8</div>
+						<div class="item">9</div>
+						<div class="item">10</div>
 					</div>
 				</div>
 			</div>
@@ -286,7 +327,29 @@
 				dots: true,
 				slidesToShow: 2,
 				slidesToScroll: 1,
+				infinite: true,
+				autoplay: true,
 				autoplaySpeed: 2000,
+			});
+			$(".mbb-slider").slick({
+				arrows: false,
+				dots: false,
+				slidesToShow: 7,
+				slidesToScroll: 1,
+				responsive: [
+					{
+						breakpoint: 1300,
+						settings: {
+							slidesToShow: 5,
+						},
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							slidesToShow: 3,
+						},
+					},
+				],
 			});
 		</script>
 	</body>

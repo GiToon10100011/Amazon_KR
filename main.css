@@ -526,9 +526,43 @@ header {
 #main-contents #container #event-coupon .event-slider-wrap .event-slider {
   /*슬라이드 내부디자인*/
 }
-#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide a.inner {
+#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide {
+  background-repeat: no-repeat;
+}
+#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide:has(.item1) {
+  background-image: url(./img/maineventbanner/event1.png);
+  background-position: calc(100% - 60px) calc(100% - 50px);
+}
+#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide a.items {
   display: inline-block;
   width: 100%;
+}
+#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide a.items h4 {
+  font-size: 28px;
+}
+#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide a.items p {
+  font-size: 14px;
+}
+#main-contents #container #category-best .inner {
+  min-height: 500px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main-contents #main-bottom-banner {
+  margin-top: 115px;
+  padding-bottom: 50px;
+  background-color: #000000;
+  overflow: hidden;
+}
+#main-contents #main-bottom-banner .top-keywords {
+  padding: 30px 70px;
+}
+#main-contents #main-bottom-banner .top-keywords a {
+  color: #ff9900;
+  font-size: 47px;
+  line-height: 70px;
 }
 
 iframe {
