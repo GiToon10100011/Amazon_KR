@@ -310,15 +310,15 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
 }
 
 html, body {
+  position: relative;
   width: 100%;
-  height: 5000px;
+  height: 13000px;
 }
 
 #header {
   position: relative;
   z-index: 3;
   width: 100%;
-  height: 100%;
 }
 
 .bgFilter {
@@ -465,13 +465,18 @@ main {
 
 .category {
   width: 100%;
-  height: 30px;
-  margin-bottom: 20px;
+  height: auto;
+  margin-bottom: 14px;
 }
 .category ul {
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+.category ul li {
+  color: #bdbdbd;
+  font-size: 12px;
+  font-weight: normal;
 }
 
 .contents_all {
@@ -491,7 +496,6 @@ main {
   /*main_info*/
   /*subinfo*/
   /*reviw*/
-  /*another_service*/
 }
 .left_area .category {
   width: 100%;
@@ -514,7 +518,7 @@ main {
 .left_area .main .content .main_img {
   width: 100%;
   height: 520px;
-  background: url(./img/main_img.jpg) center/cover;
+  background: url(./img/main1.jpg) center/cover;
 }
 .left_area .pro_code {
   width: 100%;
@@ -536,14 +540,24 @@ main {
 }
 .left_area .main_info .content .info_img {
   width: 100%;
-  height: 3000px;
+  height: auto;
   margin-top: 5px;
   background: #ccc;
+  position: relative;
+}
+.left_area .main_info .content .info_img .img_area {
+  width: 100%;
+}
+.left_area .main_info .content .info_img .img_area img {
+  width: 100%;
+  background: center/cover no-repeat;
 }
 .left_area .main_info .content .info_img .moreimg_slide {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   width: 100%;
   height: 60px;
-  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -749,10 +763,7 @@ main {
 .left_area .reviw_all .reviw_moreslide i {
   transform: rotate(180deg);
 }
-.left_area .another_service {
-  display: flex;
-  flex-direction: column;
-}
+
 .right_area {
   flex: 1;
   position: sticky;
@@ -786,7 +797,7 @@ main {
 .right_area .main_desc .Amount_info {
   height: auto;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .right_area .main_desc .Amount_info .sale {
   font-size: 16px;
@@ -825,8 +836,33 @@ main {
   color: #fff;
 }
 .right_area .main_desc .info-txt-box {
-  margin-top: 20px;
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 8px 0 0 0;
+}
+.right_area .main_desc .info-txt-box .txtbox_1 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 6px;
+  line-height: 18px;
+}
+.right_area .main_desc .info-txt-box .txtbox_1 div {
+  display: flex;
+  width: 100px;
+  font-weight: 600;
+  gap: 5px;
+}
+.right_area .main_desc .info-txt-box .txtbox_1 div span {
+  line-height: 20px;
+  color: #ff9900;
+  font-weight: 200;
+}
+.right_area .main_desc .info-txt-box .txtbox_1 ul {
+  padding: 6px 0;
+}
+.right_area .main_desc .info-txt-box .txtbox_1 ul li {
+  padding: 2px 0;
 }
 .right_area .main_desc .count {
   width: 100%;
@@ -834,7 +870,7 @@ main {
 }
 .right_area .main_desc .count .content_all {
   width: 100%;
-  padding: 5px;
+  padding: 2px;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -852,7 +888,7 @@ main {
 .right_area .main_desc .selectoption {
   width: 100%;
   height: 35px;
-  margin-top: 10px;
+  margin: 6px 0;
 }
 .right_area .main_desc .selectoption option {
   text-align: center;
@@ -890,6 +926,184 @@ main {
   align-items: center;
   gap: 6px;
   cursor: pointer;
+}
+
+/*another_brand*/
+.same_brand {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+}
+.same_brand .title_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+.same_brand .title_box .ap_title {
+  font-size: 24px;
+}
+.same_brand .title_box .more {
+  font-size: 16px;
+  color: #acacac;
+}
+.same_brand .title_box .more i {
+  transform: rotate(90deg);
+  font-size: 13px;
+}
+.same_brand .info_box {
+  width: 100%;
+  gap: 16px;
+  display: flex;
+}
+.same_brand .info_box .ap_desc {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.same_brand .info_box .ap_desc img {
+  width: 285px;
+  height: 330px;
+  background: center/cover no-repeat;
+}
+.same_brand .info_box .ap_desc .txtbox {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 0;
+  gap: 5px;
+}
+.same_brand .info_box .ap_desc .txtbox .pro_brand {
+  font-size: 12px;
+}
+.same_brand .info_box .ap_desc .txtbox .pro_name {
+  font-size: 16px;
+  width: 260px;
+  height: 80px;
+}
+.same_brand .info_box .ap_desc .txtbox .pro_price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*another_brand*/
+.another_brand {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.another_brand .title_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+.another_brand .title_box .ap_title {
+  font-size: 24px;
+}
+.another_brand .title_box .more {
+  font-size: 16px;
+  color: #acacac;
+}
+.another_brand .title_box .more i {
+  transform: rotate(90deg);
+  font-size: 13px;
+}
+.another_brand .info_box {
+  width: 100%;
+  gap: 16px;
+  display: flex;
+}
+.another_brand .info_box .ap_desc {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.another_brand .info_box .ap_desc img {
+  width: 285px;
+  height: 330px;
+  background: center/cover no-repeat;
+}
+.another_brand .info_box .ap_desc .txtbox {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 0;
+  gap: 5px;
+}
+.another_brand .info_box .ap_desc .txtbox .pro_brand {
+  font-size: 12px;
+}
+.another_brand .info_box .ap_desc .txtbox .pro_name {
+  font-size: 16px;
+  width: 260px;
+  height: 80px;
+}
+.another_brand .info_box .ap_desc .txtbox .pro_price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*another_Recommend*/
+.another_Recommend {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-bottom: 300px;
+}
+.another_Recommend .title_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+.another_Recommend .title_box .ap_title {
+  font-size: 24px;
+}
+.another_Recommend .title_box .more {
+  font-size: 16px;
+  color: #acacac;
+}
+.another_Recommend .title_box .more i {
+  transform: rotate(90deg);
+  font-size: 13px;
+}
+.another_Recommend .info_box {
+  width: 100%;
+  gap: 16px;
+  display: flex;
+}
+.another_Recommend .info_box .ap_desc {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.another_Recommend .info_box .ap_desc img {
+  width: 285px;
+  height: 330px;
+  background: center/cover no-repeat;
+}
+.another_Recommend .info_box .ap_desc .txtbox {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 0;
+  gap: 5px;
+}
+.another_Recommend .info_box .ap_desc .txtbox .pro_brand {
+  font-size: 12px;
+}
+.another_Recommend .info_box .ap_desc .txtbox .pro_name {
+  font-size: 16px;
+  width: 260px;
+  height: 80px;
+}
+.another_Recommend .info_box .ap_desc .txtbox .pro_price {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 #footer {
