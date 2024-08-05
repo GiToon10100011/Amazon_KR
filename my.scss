@@ -237,10 +237,19 @@ header {
     height: 2000px;
     display: flex;
     position: relative;
+    &.fixed{
+      left: 200px;
+    }
     .profile-sideMenu {
-      position: sticky;
-      bottom: 0;
+      // position: fixed;
+      // top: 0;
+      top: 450px;
+      left: 18.4%;
       width: 200px;
+      &.fixed{
+        position: fixed;
+        top: 100px;
+      }
       .profile-sideMenu-list {
         h1 {
           font-size: 28px;
@@ -290,7 +299,6 @@ header {
       }
     }
     .pageBox {
-      position: sticky;
       margin-left: 20px;
       width: 970px;
       height: 5000px;
@@ -421,8 +429,15 @@ header {
     .myPage-content {
       margin-top: 14px;
       height: auto;
+      &.fixed{
+        left: auto;
+      }
       .profile-sideMenu {
         width: 100%;
+        &.fixed{
+          position: static;
+          // top: none;
+        }
         .profile-sideMenu-list {
           h1 {
             display: none;

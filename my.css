@@ -609,10 +609,17 @@ header {
   display: flex;
   position: relative;
 }
+#main .myPage-content.fixed {
+  left: 200px;
+}
 #main .myPage-content .profile-sideMenu {
-  position: sticky;
-  bottom: 0;
+  top: 450px;
+  left: 18.4%;
   width: 200px;
+}
+#main .myPage-content .profile-sideMenu.fixed {
+  position: fixed;
+  top: 100px;
 }
 #main .myPage-content .profile-sideMenu .profile-sideMenu-list h1 {
   font-size: 28px;
@@ -657,7 +664,6 @@ header {
   font-size: 18px;
 }
 #main .myPage-content .pageBox {
-  position: sticky;
   margin-left: 20px;
   width: 970px;
   height: 5000px;
@@ -766,8 +772,14 @@ header {
     margin-top: 14px;
     height: auto;
   }
+  #main .myPage-content.fixed {
+    left: auto;
+  }
   #main .myPage-content .profile-sideMenu {
     width: 100%;
+  }
+  #main .myPage-content .profile-sideMenu.fixed {
+    position: static;
   }
   #main .myPage-content .profile-sideMenu .profile-sideMenu-list h1 {
     display: none;
