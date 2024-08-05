@@ -29,51 +29,90 @@
 	color: black;
 }
 
-/* .slick-slide {
-	transition: all ease-in-out 0.3s;
-	opacity: 0.2;
-}
-
-.slick-active {
-	opacity: 0.5;
-}
-
-.slick-current {
-	opacity: 1;
-} */
-
-.slick-next,
-.slick-prev {
-	&::before {
-		content: "";
-	}
-	width: 40px;
-	height: 40px;
-}
-
-.slick-next:hover,
-.slick-next:focus,
-.slick-next {
-	background-image: url("../img/mainbanner/next_btn.png");
-	background-size: cover;
-}
-
-.slick-prev:hover,
-.slick-prev:focus,
-.slick-prev {
-	background-image: url("../img/mainbanner/prev_btn.png");
-	background-size: cover;
-}
-
 .slick-dots li button::before {
 	content: "";
+	width: 100%;
+	height: 100%;
 }
 
 .slick-dots li button {
-	background-color: red;
+	width: 8px;
+	height: 8px;
+	background-color: #999999;
 	border-radius: 50%;
 }
 
 .slick-dots li.slick-active button {
-	background-color: blue;
+	background-color: #333333;
+}
+
+/*main-slider*/
+#main-slider-wrap {
+	.slick-next,
+	.slick-prev {
+		&::before {
+			content: "";
+		}
+		width: 40px;
+		height: 40px;
+	}
+
+	.slick-next:hover,
+	.slick-next:focus,
+	.slick-next {
+		background-image: url("../img/mainbanner/next_btn.png");
+		background-size: cover;
+	}
+
+	.slick-prev:hover,
+	.slick-prev:focus,
+	.slick-prev {
+		background-image: url("../img/mainbanner/prev_btn.png");
+		background-size: cover;
+	}
+
+	.main-slider {
+		&.slider {
+			.slick-dots {
+				bottom: -60px;
+			}
+		}
+	}
+}
+
+#event-coupon {
+	.event-slider-wrap {
+		.event-slider {
+			&.slider {
+				.slick-dots {
+					bottom: -70px;
+				}
+				.slick-next:hover,
+				.slick-next:focus,
+				.slick-next {
+					background-image: url("../img/mainbanner/next_btn.png");
+					background-size: cover;
+				}
+
+				.slick-prev:hover,
+				.slick-prev:focus,
+				.slick-prev {
+					background-image: url("../img/mainbanner/prev_btn.png");
+					background-size: cover;
+				}
+				.slick-list {
+					margin: 0 -30px;
+				}
+				.slick-slide {
+					min-height: 324px;
+					margin: 0 30px;
+					padding: 60px;
+					border-radius: 30px;
+					overflow: hidden;
+					color: #ffffff;
+					background-color: #000000;
+				}
+			}
+		}
+	}
 }
