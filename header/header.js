@@ -174,16 +174,31 @@ body.innerHTML = `
         </div>
       </div>
     </header>
-    <a href="#" class="Top">
-      <i class="fa-solid fa-chevron-up"></i>
-      <span>TOP</span>
-    </a>`;
+    <div class="Top">
+      <a href = "#" class = "desktop-top">
+        <i class="fa-solid fa-chevron-up"></i>
+        <span>TOP</span>
+      </a>
+      <div class = "mobile-top">
+        <div class = "mobile-top-menu">
+        <span class="material-symbols-outlined">
+        schedule
+        </span>
+        <a class = "mobile-top-btn" href = "#">
+        <span class="material-symbols-outlined">north</span>
+        </a>
+        </div>
+      </div>
+    </div>`;
 
 // Header
 
 const lnb = document.querySelector(".lnb-content");
 
 const Top = document.querySelector(".Top");
+
+const desktopTop = document.querySelector(".desktop-top");
+const mobileTop = document.querySelector(".mobile-top-btn");
 
 const ranking = document.querySelector(".hottest-items");
 
@@ -244,7 +259,6 @@ setInterval(() => {
     scrollLength = 0;
     scrollIndex = 0;
   }
-  console.log(rankingMenu);
   rankingMenu.style.bottom = `${scrollLength}px`;
   scrollLength += 56;
   scrollIndex++;
@@ -252,3 +266,19 @@ setInterval(() => {
     rankingMenu.classList.remove("active");
   }, 200);
 }, 3000);
+
+desktopTop.addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+mobileTop.addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
