@@ -136,45 +136,13 @@
 #mmb-slider-wrap {
 	.mbb-slider {
 		&.slider {
-			.slick-dots {
-				bottom: -70px;
-			}
-			.slick-prev {
-				left: -30px;
-			}
-			.slick-next {
-				right: -30px;
-			}
-			.slick-next,
-			.slick-prev {
-				&::before {
-					content: "";
-				}
-				width: 60px;
-				height: 60px;
-			}
-			.slick-next:hover,
-			.slick-next:focus,
-			.slick-next {
-				background-image: url("../img/mainbanner/next_btn.png");
-				background-size: cover;
-			}
-			.slick-prev:hover,
-			.slick-prev:focus,
-			.slick-prev {
-				background-image: url("../img/mainbanner/prev_btn.png");
-				background-size: cover;
-			}
 			.slick-list {
 				margin: 0 -30px;
 			}
 			.slick-slide {
-				min-height: 324px;
 				margin: 0 30px;
-				padding: 10px;
 				overflow: hidden;
-				color: #000000;
-				background-color: #ffffff;
+				color: #ffffff;
 			}
 		}
 	}

@@ -171,8 +171,8 @@ header {
 		.main-slider-title {
 			position: absolute;
 			bottom: 0;
-			width: calc(100% / 3);
-			height: calc(100% / 5);
+			min-width: calc(100% / 3);
+			padding: 15px 20px;
 			background-color: map-get($color, $key: main-amazon-color);
 			transform: translateY(50%);
 			p {
@@ -199,16 +199,17 @@ header {
 					display: flex;
 					justify-content: space-between;
 					flex-wrap: wrap;
+					gap: 20px;
 					li {
 						display: flex;
 						flex-direction: column;
-						width: 270px;
+						flex-basis: 270px;
+						flex-grow: 1;
+						flex-shrink: 1;
 						box-sizing: border-box;
 						border: 1px solid #e1e1e1;
 						border-radius: 4px;
-						&:nth-child(4) ~ li {
-							margin-top: 40px;
-						}
+						margin: 20px 0;
 						img {
 							width: 100%;
 						}
@@ -221,6 +222,7 @@ header {
 				}
 			}
 		}
+		// 이벤트 / 쿠폰 영역
 		#event-coupon {
 			margin-top: 137px;
 			margin-bottom: 185px;
@@ -232,6 +234,7 @@ header {
 					.slick-slide {
 						background-repeat: no-repeat;
 						&:has(.item1) {
+							background-color: red;
 							background-image: url(./img/maineventbanner/event1.png);
 							background-position: calc(100% - 60px) calc(100% - 50px);
 						}
@@ -259,12 +262,71 @@ header {
 		}
 		// 카테고리별 인기상품
 		#category-best {
+			h3 {
+				font-size: 24px;
+				font-weight: bold;
+				border-bottom: 2px solid #000000;
+				padding-bottom: 28px;
+			}
 			.inner {
+				border: 1px solid #f1f1f1;
 				min-height: 500px;
-				background-color: #f9f9f9;
 				display: flex;
-				justify-content: center;
-				align-items: center;
+				#cate-menu {
+					flex-basis: 190px;
+					flex-grow: 0;
+					flex-shrink: 0;
+					padding: 40px 20px;
+					border-right: 1px solid #f1f1f1;
+					h5 {
+						font-size: 26px;
+						color: map-get($color, $key: main-amazon-color);
+						margin-bottom: 15px;
+					}
+					ul {
+						li {
+							a {
+								font-size: 12px;
+								color: black;
+								line-height: 25px;
+							}
+						}
+					}
+				}
+				.mid-banner-slider {
+					flex-basis: 260px;
+					flex-grow: 0;
+					flex-shrink: 0;
+					border-right: 1px solid #f1f1f1;
+					.item {
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						height: 100%;
+						.txt {
+							padding: 35px 15px;
+							h5 {
+								font-size: 24px;
+								color: #000000;
+								margin-bottom: 5px;
+							}
+							p {
+								font-size: 15px;
+								color: #999999;
+							}
+						}
+						.img {
+							height: 280px;
+							overflow: hidden;
+							img {
+								width: 100%;
+							}
+						}
+					}
+				}
+				.content {
+					flex-grow: 1;
+				}
 			}
 		}
 	}
@@ -281,6 +343,16 @@ header {
 				line-height: 70px;
 			}
 		}
+		.mbb-slider {
+			.item {
+				p {
+					margin-top: 10px;
+					strong {
+						margin-right: 10px;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -289,16 +361,81 @@ iframe {
 	height: 360px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
 	#main-contents {
 		#main-slider-wrap {
 			.main-slider-title {
-				width: 340px;
-				height: 85px;
 				p {
 					font-size: 18px;
 				}
 			}
 		}
 	}
+}
+
+@media screen and (max-width: 1200px) {
+	#main-contents {
+		#container {
+			width: 100%;
+			.inner {
+				width: 100%;
+			}
+			#main-promotions .promotions-items ul {
+				width: auto;
+				padding: 0 20px;
+			}
+		}
+		#main-slider-wrap {
+			.main-slider-title {
+				padding: 10px 15px;
+				p {
+					font-size: 16px;
+				}
+			}
+		}
+		#event-coupon {
+			overflow: hidden;
+			.event-slider-wrap {
+				padding: 0 30px;
+			}
+		}
+		#main-bottom-banner {
+			.top-keywords {
+				a {
+					color: #ff9900;
+					font-size: 30px;
+					line-height: 50px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#main-contents {
+		#main-slider-wrap {
+			.main-slider-title {
+				padding: 5px 10px;
+				p {
+					font-size: 12px;
+				}
+			}
+		}
+		#main-bottom-banner {
+			margin-top: 115px;
+			padding-bottom: 50px;
+			.top-keywords {
+				padding: 20px 50px;
+				a {
+					color: #ff9900;
+					font-size: 20px;
+					line-height: 40px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 578px) {
+	//  추가 작업
 }
