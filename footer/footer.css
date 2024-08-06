@@ -8,6 +8,7 @@
 a {
   text-decoration: none;
   color: inherit;
+  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -35,6 +36,7 @@ body footer .footer-content {
 }
 body footer .footer-content .footer-first {
   flex: 2;
+  margin-right: 20px;
 }
 body footer .footer-content .footer-first .logo {
   width: 196px;
@@ -52,7 +54,9 @@ body footer .footer-content .footer-first .footer-info {
   line-height: 24px;
 }
 body footer .footer-content .footer-second {
+  margin-right: 20px;
   flex: 1;
+  white-space: nowrap;
 }
 body footer .footer-content .footer-second .customerService {
   display: flex;
@@ -73,6 +77,7 @@ body footer .footer-content .footer-second .customerService h2 {
 }
 body footer .footer-content .footer-third {
   flex: 1;
+  white-space: nowrap;
 }
 body footer .footer-content .footer-third .companyInfo {
   display: flex;
@@ -151,6 +156,7 @@ body footer .footer-utils .footer-last .utils-list li:last-child {
   width: 70px;
 }
 body footer .footer-utils .footer-last .form-container {
+  margin-left: 20px;
   position: relative;
   flex: 1;
   width: 120px;
@@ -167,4 +173,176 @@ body footer .footer-utils .footer-last .form-container form select {
 }
 body footer .footer-utils .footer-last .form-container form select option {
   color: #000;
+}
+
+.mobile-footer {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  body footer {
+    display: none;
+  }
+  body .mobile-footer {
+    display: flex;
+    flex-direction: column;
+  }
+  body .mobile-footer .footer-utils {
+    padding: 30px;
+    width: 100%;
+  }
+  body .mobile-footer .footer-utils .utils-list {
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 30px;
+  }
+  body .mobile-footer .footer-utils .utils-list li {
+    font-size: 12px;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4px;
+  }
+  body .mobile-footer .footer-utils .utils-list li:first-child {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .mobile-footer .footer-utils .utils-list li:nth-child(2) {
+    display: flex;
+    align-items: center;
+  }
+  body .mobile-footer .footer-utils .utils-list li .lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  body .mobile-footer .footer-utils .utils-list li .lang .material-symbols-outlined {
+    font-size: 12px;
+  }
+  body .mobile-footer .footer-utils .utils-list li select {
+    width: 136px;
+    font-size: 12px;
+    outline: none;
+    border: none;
+  }
+  body .mobile-footer .footer-utils .utils-list li select:focus {
+    outline: none;
+  }
+  body .mobile-footer .footer-utils .utils-list li:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80px;
+  }
+  body .mobile-footer .bar {
+    width: 100%;
+    height: 1px;
+    background: #ff9900;
+  }
+  body .mobile-footer .footer-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background: #fff;
+  }
+  body .mobile-footer .footer-content .footer-first {
+    margin-bottom: 40px;
+  }
+  body .mobile-footer .footer-content .footer-first .footer-info {
+    margin-top: 30px;
+    color: #ccc;
+    font-size: 12px;
+    line-height: 24px;
+  }
+  body .mobile-footer .footer-content .footer-second {
+    margin-bottom: 20px;
+  }
+  body .mobile-footer .footer-content .footer-second .customerService {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  body .mobile-footer .footer-content .footer-second .customerService .customerService-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+  }
+  body .mobile-footer .footer-content .footer-second .customerService .customerService-list li {
+    border-right: 1px solid #ccc;
+    padding-right: 12px;
+  }
+  body .mobile-footer .footer-content .footer-second .customerService .customerService-list li:last-child {
+    border: none;
+  }
+  body .mobile-footer .footer-content .footer-second .customerService .customerService-list li:hover {
+    text-decoration: underline;
+  }
+  body .mobile-footer .footer-content .footer-second .customerService h2 {
+    font-size: 14px;
+  }
+  body .mobile-footer .footer-content .footer-third {
+    margin-bottom: 70px;
+    white-space: nowrap;
+  }
+  body .mobile-footer .footer-content .footer-third .companyInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  body .mobile-footer .footer-content .footer-third .companyInfo .companyInfo-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+  }
+  body .mobile-footer .footer-content .footer-third .companyInfo .companyInfo-list li {
+    border-right: 1px solid #ccc;
+    padding-right: 12px;
+  }
+  body .mobile-footer .footer-content .footer-third .companyInfo .companyInfo-list li:last-child {
+    border: none;
+  }
+  body .mobile-footer .footer-content .footer-third .companyInfo .companyInfo-list li:hover {
+    text-decoration: underline;
+  }
+  body .mobile-footer .footer-content .footer-third .companyInfo h2 {
+    font-size: 14px;
+  }
+  body .mobile-footer .footer-content .footer-last {
+    display: flex;
+    flex-direction: column;
+  }
+  body .mobile-footer .footer-content .footer-last .form-container select {
+    border: none;
+    font-size: 14px;
+    margin-bottom: 50px;
+  }
+  body .mobile-footer .footer-content .footer-last .footer-last-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  body .mobile-footer .footer-content .footer-last .footer-last-bottom .logo {
+    width: 116px;
+  }
+  body .mobile-footer .footer-content .footer-last .footer-last-bottom .logo img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .mobile-footer .footer-content .footer-last .footer-last-bottom .copyright {
+    font-size: 12px;
+    color: #b1b1b1;
+  }
 }
