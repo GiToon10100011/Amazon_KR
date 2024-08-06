@@ -180,107 +180,182 @@
     </div>
     <figure class="bgFilter"></figure>
     <main>
-      <section class="cart-title">
-        <h2>장바구니</h2>
-        <div class="cart-title-items">
-          <div class="cart-title-icons">
-            <span class="material-symbols-outlined"> shopping_cart </span>
-            <hr />
-            <span class="material-symbols-outlined"> credit_card </span>
-            <hr />
-            <span class="material-symbols-outlined"> event_available </span>
-          </div>
-          <div class="cart-title-desc">
-            <span>장바구니</span>
-            <span>주문/결제</span>
-            <span>결제완료</span>
-          </div>
-        </div>
-      </section>
-      <section class="cart-wrap">
-        <div class="cart-items">
-          <!-- 첫 번째 상품 -->
-          <div class="cart-item">
-            <div class="cart-item-title">
-              <h3>Coding rebel</h3>
+      <div class = "inner">
+        <section class="cart-title">
+          <h2>장바구니</h2>
+          <div class="cart-title-items">
+            <div class="cart-title-icons">
+              <span class="material-symbols-outlined"> shopping_cart </span>
               <hr />
+              <span class="material-symbols-outlined"> credit_card </span>
+              <hr />
+              <span class="material-symbols-outlined"> event_available </span>
             </div>
-            <div class="cart-item-header">
-              <input type="checkbox" name="cart-check" id="cart-check-1" />
-              <span>X</span>
-            </div>
-            <div class="cart-item-main">
-              <img src="https://via.placeholder.com/130" alt="상품 이미지" />
-              <div>
-                <h3>
-                  [코딩반란군] 코딩 걱정 없는 VS Code에서 손쉽게 코딩 해보자<br />
-                  무제한 언어 선택 가능
-                </h3>
-                <p>30,000원 이상 무료배송 | 일반택배</p>
-              </div>
-            </div>
-            <div class="cart-item-options">
-              <h3>HTML 패키지</h3>
-              <span>X</span>
-              <div class="cart-options-control">
-                <button class="minus">-</button>
-                <input type="text" value="1" />
-                <button class="plus">+</button>
-              </div>
-              <p class="cart-item-price">14,321원</p>
-            </div>
-            <div class="cart-item-actions">
-              <span class="cart-change-options">옵션변경</span>
-              <span class="cart-direct-buy">바로구매</span>
-            </div>
-            <div class="cart-item-footer">
-              <h3>배송비 3,000원</h3>
-              <p>총 주문금액 50,000원 이상시 무료배송</p>
+            <div class="cart-title-desc">
+              <span>장바구니</span>
+              <span>주문/결제</span>
+              <span>결제완료</span>
             </div>
           </div>
-          <!-- 두 번째 상품 (복사해서 반복) -->
-          <div class="cart-item">
-            <div class="cart-item-title">
-              <h3>Coding rebel</h3>
-              <hr />
-            </div>
-            <div class="cart-item-header">
-              <input type="checkbox" name="cart-check" id="cart-check-2" />
-              <span>X</span>
-            </div>
-            <div class="cart-item-main">
-              <img src="https://via.placeholder.com/130" alt="상품 이미지" />
-              <div>
-                <h3>
-                  [코딩반란군] 코딩 걱정 없는 VS Code에서 손쉽게 코딩 해보자<br />
-                  무제한 언어 선택 가능
-                </h3>
-                <p>30,000원 이상 무료배송 | 일반택배</p>
+        </section>
+        <section class="cart-wrap">
+          <div class="cart-items-wrapper">
+            <div class="cart-items">
+              <!-- 첫 번째 상품 -->
+              <div class="cart-item">
+                <div class="cart-item-title">
+                  <h3>Coding rebel</h3>
+                  <hr />
+                </div>
+                <div class="cart-item-header">
+                  <input type="checkbox" name="cart-check" id="cart-check-1" />
+                  <span>X</span>
+                </div>
+                <div class="cart-item-main">
+                  <img src="https://via.placeholder.com/130" alt="상품 이미지" />
+                  <div>
+                    <h3>
+                      [코딩반란군] 코딩 걱정 없는 VS Code에서 손쉽게 코딩
+                      해보자<br />
+                      무제한 언어 선택 가능
+                    </h3>
+                    <p>30,000원 이상 무료배송 | 일반택배</p>
+                  </div>
+                </div>
+                <div class="cart-item-options">
+                  <div class="options-title">
+                    <h3>HTML 패키지</h3>
+                    <span>X</span>
+                  </div>
+                  <div class="options-bottom">
+                    <div class="cart-options-control">
+                      <i class="fa-solid fa-minus"></i>
+                      <span>1</span>
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <p class="cart-item-price">14,321원</p>
+                  </div>
+                </div>
+                <div class="cart-item-actions">
+                  <span class="cart-change-options">옵션변경 | 바로구매</span>
+                </div>
+                <div class="cart-item-footer">
+                  <hr />
+                  <h3>배송비 3,000원</h3>
+                  <p>총 주문금액 50,000원 이상시 무료배송</p>
+                </div>
+              </div>
+              <div class="cart-item">
+                <div class="cart-item-title">
+                  <h3>Coding rebel</h3>
+                  <hr />
+                </div>
+                <div class="cart-item-header">
+                  <input type="checkbox" name="cart-check" id="cart-check-1" />
+                  <span>X</span>
+                </div>
+                <div class="cart-item-main">
+                  <img src="https://via.placeholder.com/130" alt="상품 이미지" />
+                  <div>
+                    <h3>
+                      [코딩반란군] 코딩 걱정 없는 VS Code에서 손쉽게 코딩
+                      해보자<br />
+                      무제한 언어 선택 가능
+                    </h3>
+                    <p>30,000원 이상 무료배송 | 일반택배</p>
+                  </div>
+                </div>
+                <div class="cart-item-options">
+                  <div class="options-title">
+                    <h3>HTML 패키지</h3>
+                    <span>X</span>
+                  </div>
+                  <div class="options-bottom">
+                    <div class="cart-options-control">
+                      <i class="fa-solid fa-minus"></i>
+                      <span>1</span>
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <p class="cart-item-price">14,321원</p>
+                  </div>
+                </div>
+                <div class="cart-item-actions">
+                  <span class="cart-change-options">옵션변경 | 바로구매</span>
+                </div>
+                <div class="cart-item-footer">
+                  <hr />
+                  <h3>배송비 3,000원</h3>
+                  <p>총 주문금액 50,000원 이상시 무료배송</p>
+                </div>
               </div>
             </div>
-            <div class="cart-item-options">
-              <h3>HTML 패키지</h3>
-              <span>X</span>
-              <div class="cart-options-control">
-                <button class="minus">-</button>
-                <input type="text" value="1" />
-                <button class="plus">+</button>
+            <div class="recommended-products">
+              <h2>AI가 추천드리는 같이 구매하기 좋은 상품</h2>
+              <div class="products-slider">
+                <button class="slider-btn prev-btn">
+                  <span class="material-symbols-outlined">arrow_back_ios</span>
+                </button>
+                <div class="products-container">
+                  <div class="product-card">
+                    <img
+                      src="https://via.placeholder.com/150"
+                      alt="Product Image 1"
+                    />
+                    <h3>Coding rebel</h3>
+                    <p>[편리한] 누구나 사용할 수 있는 선풍기</p>
+                    <p class="price">57% 24,900원</p>
+                    <div class="product-tags">
+                      <span class="tag">오늘특가</span>
+                      <span class="tag">무료배송</span>
+                    </div>
+                  </div>
+                  <div class="product-card">
+                    <img
+                      src="https://via.placeholder.com/150"
+                      alt="Product Image 2"
+                    />
+                    <h3>Coding rebel</h3>
+                    <p>[편리한] 누구나 사용할 수 있는 선풍기</p>
+                    <p class="price">57% 24,900원</p>
+                    <div class="product-tags">
+                      <span class="tag">오늘특가</span>
+                      <span class="tag">무료배송</span>
+                    </div>
+                  </div>
+                  <div class="product-card">
+                    <img
+                      src="https://via.placeholder.com/150"
+                      alt="Product Image 3"
+                    />
+                    <h3>Coding rebel</h3>
+                    <p>[편리한] 누구나 사용할 수 있는 선풍기</p>
+                    <p class="price">57% 24,900원</p>
+                    <div class="product-tags">
+                      <span class="tag">오늘특가</span>
+                      <span class="tag">무료배송</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="slider-btn next-btn">
+                  <span class="material-symbols-outlined">arrow_forward_ios</span>
+                </button>
               </div>
-              <p class="cart-item-price">14,321원</p>
-            </div>
-            <div class="cart-item-actions">
-              <span class="cart-change-options">옵션변경</span>
-              <span class="cart-direct-buy">바로구매</span>
-            </div>
-            <div class="cart-item-footer">
-              <hr />
-              <h3>배송비 3,000원</h3>
-              <p>총 주문금액 50,000원 이상시 무료배송</p>
             </div>
           </div>
-        </div>
-      </section>
+          <!-- 결제 탭 -->
+          <aside class="checkout-summary">
+            <div class="summary-box">
+              <h3>주문금액</h3>
+              <p>총 주문금액: <span>13,745원</span></p>
+              <p>총 배송비: <span>3,000원</span></p>
+              <p>총 할인금액: <span>-13,745원</span></p>
+              <p class="total">결제금액: <span>43,654원</span></p>
+              <button class="checkout-button">구매하기</button>
+            </div>
+          </aside>
+        </section>
+      </div>
     </main>
-    <iframe src="./footer/footer.html" frameborder="0"></iframe>
+    <iframe id = "footer" src="./footer/footer.html" frameborder="0"></iframe>
   </body>
 </html>
