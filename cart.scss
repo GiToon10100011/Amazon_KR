@@ -191,7 +191,7 @@ main {
     .cart-items-wrapper {
       display: flex;
       flex-direction: column;
-      flex : 6;
+      flex: 6;
       width: 100%;
       gap: 20px;
     }
@@ -291,7 +291,7 @@ main {
               width: 120px;
               height: 35px;
               font-size: 20px;
-              margin-: 5px;
+              margin: 5px;
               cursor: pointer;
             }
             .cart-item-price {
@@ -479,7 +479,7 @@ main {
   }
 }
 
-#footer{
+#footer {
   position: absolute;
   bottom: 0;
 }
