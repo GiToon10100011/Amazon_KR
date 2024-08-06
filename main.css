@@ -573,35 +573,47 @@ header {
   color: black;
   line-height: 25px;
 }
-#main-contents #container #category-best .inner .mid-banner-slider {
+#main-contents #container #category-best .inner #mid-banner-slider-wrap {
+  position: relative;
   flex-basis: 260px;
   flex-grow: 0;
   flex-shrink: 0;
+  align-items: stretch;
   border-right: 1px solid #f1f1f1;
+  overflow: hidden;
 }
-#main-contents #container #category-best .inner .mid-banner-slider .item {
-  display: flex;
+#main-contents #container #category-best .inner #mid-banner-slider-wrap #cate1-count {
+  position: absolute;
+  right: 45px;
+  top: calc(50% - 40px);
+  transform: translateY(-50%);
+}
+#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider {
+  height: 100%;
+}
+#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item {
+  display: flex !important;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
 }
-#main-contents #container #category-best .inner .mid-banner-slider .item .txt {
+#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .txt {
   padding: 35px 15px;
 }
-#main-contents #container #category-best .inner .mid-banner-slider .item .txt h5 {
+#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .txt h5 {
   font-size: 24px;
   color: #000000;
   margin-bottom: 5px;
 }
-#main-contents #container #category-best .inner .mid-banner-slider .item .txt p {
+#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .txt p {
   font-size: 15px;
   color: #999999;
 }
-#main-contents #container #category-best .inner .mid-banner-slider .item .img {
+#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .img {
   height: 280px;
   overflow: hidden;
 }
-#main-contents #container #category-best .inner .mid-banner-slider .item .img img {
+#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .img img {
   width: 100%;
 }
 #main-contents #container #category-best .inner .content {

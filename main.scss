@@ -162,6 +162,7 @@ header {
 	}
 }
 
+// 메인페이지 컨텐츠 영역
 #main-contents {
 	margin-top: 112px;
 	min-height: 500px;
@@ -228,7 +229,6 @@ header {
 			margin-bottom: 185px;
 			.event-slider-wrap {
 				margin-top: 37px;
-				// overflow: hidden; 좌우 버튼 슬라이드 영역 밖으로 뺄경우 hidden 보이지 않음
 				.event-slider {
 					/*슬라이드 내부디자인*/
 					.slick-slide {
@@ -238,14 +238,6 @@ header {
 							background-image: url(./img/maineventbanner/event1.png);
 							background-position: calc(100% - 60px) calc(100% - 50px);
 						}
-						// &:has(.item2) {
-						// 	background-image: url(./img/maineventbanner/event1.png); // 이미지 바꾸기
-						// 	background-position: calc(100% - 60px) calc(100% - 50px); // 위치 바꾸기 100%는 변경하지 않는다. 60px은 왼쪽에서의 거리, 50px은 아래에서 거리, 즉 위에 추가한 이미지의 위치를 정의할 수 있다. 아래 코드에 인덱스만 변경하고 동일하게 변경
-						// }
-						// &:has(.item3) {
-						// 	background-image: url(./img/maineventbanner/event1.png);
-						// 	background-position: calc(100% - 60px) calc(100% - 50px);
-						// }
 						a.items {
 							display: inline-block;
 							width: 100%;
@@ -293,33 +285,45 @@ header {
 						}
 					}
 				}
-				.mid-banner-slider {
+				#mid-banner-slider-wrap {
+					position: relative;
 					flex-basis: 260px;
 					flex-grow: 0;
 					flex-shrink: 0;
+					align-items: stretch;
 					border-right: 1px solid #f1f1f1;
-					.item {
-						display: flex;
-						flex-direction: column;
-						justify-content: space-between;
+					overflow: hidden;
+					#cate1-count {
+						position: absolute;
+						right: 45px;
+						top: calc(50% - 40px);
+						transform: translateY(-50%);
+					}
+					.mid-banner-slider {
 						height: 100%;
-						.txt {
-							padding: 35px 15px;
-							h5 {
-								font-size: 24px;
-								color: #000000;
-								margin-bottom: 5px;
+						.item {
+							display: flex !important;
+							flex-direction: column;
+							justify-content: space-between;
+							height: 100%;
+							.txt {
+								padding: 35px 15px;
+								h5 {
+									font-size: 24px;
+									color: #000000;
+									margin-bottom: 5px;
+								}
+								p {
+									font-size: 15px;
+									color: #999999;
+								}
 							}
-							p {
-								font-size: 15px;
-								color: #999999;
-							}
-						}
-						.img {
-							height: 280px;
-							overflow: hidden;
-							img {
-								width: 100%;
+							.img {
+								height: 280px;
+								overflow: hidden;
+								img {
+									width: 100%;
+								}
 							}
 						}
 					}

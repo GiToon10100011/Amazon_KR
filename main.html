@@ -284,14 +284,41 @@
 								<li><a href="">반려동물/애완용품</a></li>
 							</ul>
 						</aside>
-						<div class="mid-banner-slider">
-							<div class="item">
-								<div class="txt">
-									<h5>기획전 Main title</h5>
-									<p>sub title area</p>
+						<div id="mid-banner-slider-wrap">
+							<div id="cate1-count"></div>
+							<div class="mid-banner-slider slider">
+								<div class="item">
+									<div class="txt">
+										<h5>기획전 Main title</h5>
+										<p>sub title area</p>
+									</div>
+									<div class="img">
+										<img
+											src="./img/pdbycate/promotion/banner/img1.png"
+											alt="banner1" />
+									</div>
 								</div>
-								<div class="img">
-									<img src="./img/promotion/banner/test.png" alt="banner1" />
+								<div class="item">
+									<div class="txt">
+										<h5>기획전 Main title</h5>
+										<p>sub title area</p>
+									</div>
+									<div class="img">
+										<img
+											src="./img/pdbycate/promotion/banner/img2.png"
+											alt="banner2" />
+									</div>
+								</div>
+								<div class="item">
+									<div class="txt">
+										<h5>기획전 Main title</h5>
+										<p>sub title area</p>
+									</div>
+									<div class="img">
+										<img
+											src="./img/pdbycate/promotion/banner/img3.png"
+											alt="banner3" />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -461,6 +488,34 @@
 					},
 				],
 			});
+
+			const mbs = $(".mid-banner-slider");
+			const itemElem = $(".mid-banner-slider.slider .item");
+			$("#cate1-count").html(
+				"<span class='now'>1</span><span> / " + itemElem.length + "</span>"
+			);
+
+			mbs.slick({
+				dots: false,
+				arrows: true,
+				infinite: true,
+				autoplay: true,
+				autoplaySpeed: 2000,
+			});
+
+			mbs.on(
+				"init reInit beforeChange afterChange",
+				function (event, slick, currentSlide, nextSlide) {
+					var i = (currentSlide ? currentSlide : 0) + 1;
+					$("#cate1-count").html(
+						"<span class='now'>" +
+							i +
+							"</span><span> / " +
+							slick.slideCount +
+							"</span>"
+					);
+				}
+			);
 		</script>
 	</body>
 </html>

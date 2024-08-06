@@ -147,3 +147,43 @@
 		}
 	}
 }
+
+/*카테고리별 인기상품*/
+#mid-banner-slider-wrap {
+	.mid-banner-slider {
+		&.slider {
+			height: 100%;
+			.slick-prev {
+				left: auto;
+				right: 20px;
+				background-image: url("../img/pdbycate/prev_btn.png");
+			}
+			.slick-next {
+				right: 0px;
+				background-image: url("../img/pdbycate/next_btn.png");
+			}
+			.slick-next,
+			.slick-prev {
+				z-index: 50;
+				top: calc(50% - 40px);
+				width: 20px;
+				height: 20px;
+				border: 1px solid #000000;
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+			.slick-list {
+				height: 100%;
+				.slick-track {
+					height: inherit;
+					.slick-slide {
+						height: inherit;
+						& > div {
+							height: inherit;
+						}
+					}
+				}
+			}
+		}
+	}
+}
