@@ -237,7 +237,7 @@ header {
     height: 2000px;
     display: flex;
     position: relative;
-    &.fixed{
+    &.fixed {
       left: 200px;
     }
     .profile-sideMenu {
@@ -246,7 +246,7 @@ header {
       top: 450px;
       left: 18.4%;
       width: 200px;
-      &.fixed{
+      &.fixed {
         position: fixed;
         top: 100px;
       }
@@ -429,12 +429,12 @@ header {
     .myPage-content {
       margin-top: 14px;
       height: auto;
-      &.fixed{
+      &.fixed {
         left: auto;
       }
       .profile-sideMenu {
         width: 100%;
-        &.fixed{
+        &.fixed {
           position: static;
           // top: none;
         }
