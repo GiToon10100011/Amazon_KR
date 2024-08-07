@@ -234,8 +234,16 @@ header {
 					.slick-slide {
 						background-repeat: no-repeat;
 						&:has(.item1) {
-							background-color: red;
+							background-color: #000;
 							background-image: url(./img/maineventbanner/event1.png);
+							background-position: calc(100% - 60px) calc(100% - 50px);
+						}
+						&:has(.item2) {
+							background-color: #ff9900;
+							background-position: calc(100% - 60px) calc(100% - 50px);
+						}
+						&:has(.item3) {
+							background-color: #000;
 							background-position: calc(100% - 60px) calc(100% - 50px);
 						}
 						a.items {
