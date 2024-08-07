@@ -1,454 +1,445 @@
-@import "./reset.scss";
 @import "./header/header.scss";
 
 html,
 body {
-	width: 100%;
-	height: 100%;
+  position: relative;
+  width: 100%;
+  height: 9000px;
+  overflow-x: hidden;
 }
 
 header {
-	width: 100%;
-	// height: 100%;
-	z-index: 1;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .bgFilter {
-	position: relative;
-	top: 0;
-	left: 0;
-	z-index: 3;
-	width: 100%;
-	height: 100%;
-	background: rgba($color: #000000, $alpha: 0.1);
-	display: none;
-	&.active {
-		display: block;
-	}
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.1);
+  display: none;
+  &.active {
+    display: block;
+  }
 }
 
 .main-sideMenu-container {
-	height: 100%;
-	z-index: 10000;
-	position: fixed;
-	left: -100%;
-	background: map-get($map: $color, $key: main-color);
-	width: 216px;
-	transition: all 0.6s;
-	.sideMenu-header {
-		width: 100%;
-		height: 50px;
-		padding: 10px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
-		.sideMenu-login {
-			display: flex;
-			align-items: center;
-			gap: 4px;
-			font-weight: 500;
-			cursor: pointer;
-		}
-		.fa-x {
-			cursor: pointer;
-		}
-	}
-	.main-sideMenu {
-		width: 100%;
-		height: 90%;
-		overflow-y: scroll;
-		.sideMenu-category {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
-			.category-title {
-				padding: 10px;
-				font-weight: bold;
-			}
-			.categories-large {
-				li {
-					width: 100%;
-					padding: 10px;
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					font-size: 14px;
-					cursor: pointer;
-					&:hover {
-						background: linear-gradient(
-							90deg,
-							rgba(255, 216, 20, 0.7) 0%,
-							#ffd814 4%,
-							#ff9900 93.5%,
-							rgba(255, 153, 0, 0.7) 99.5%
-						);
-					}
-					&:hover span,
-					&:hover i {
-						color: map-get($map: $color, $key: main-color);
-					}
-					span {
-						display: flex;
-						gap: 4px;
-						align-items: center;
-						&.material-symbols-outlined {
-							font-size: 12px;
-						}
-					}
-				}
-			}
-		}
-		.sideMenu-misc {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
-			.misc-title {
-				padding: 10px;
-				font-weight: bold;
-			}
-			.misc-list {
-				li {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					padding: 10px;
-					font-size: 14px;
-					cursor: pointer;
-					&:hover {
-						background: #fafafa;
-						color: map-get($map: $color, $key: main-amazon-color);
-					}
-				}
-			}
-		}
-		.sideMenu-settings {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			.settings-title {
-				padding: 10px;
-				font-weight: bold;
-			}
-			.settings-list {
-				li {
-					padding: 10px;
-					font-size: 14px;
-					&.darkmode {
-						display: none;
-					}
-					a {
-						display: flex;
-						align-items: center;
-						gap: 4px;
-						.material-symbols-outlined {
-							font-size: 14px;
-						}
-					}
-					&:hover {
-						background: #fafafa;
-					}
-					&:hover:not(.material-symbols-outlined) {
-						text-decoration: underline;
-					}
-				}
-			}
-		}
-	}
-	&.active {
-		left: 0;
-	}
+  height: 100%;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  background: map-get($map: $color, $key: main-color);
+  width: 216px;
+  transition: all 0.6s;
+  .sideMenu-header {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
+    .sideMenu-login {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .fa-x {
+      cursor: pointer;
+    }
+  }
+  .main-sideMenu {
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+    .sideMenu-category {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
+      .category-title {
+        padding: 10px;
+        font-weight: bold;
+      }
+      .categories-large {
+        li {
+          width: 100%;
+          padding: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 14px;
+          cursor: pointer;
+          &:hover {
+            background: linear-gradient(
+              90deg,
+              rgba(255, 216, 20, 0.7) 0%,
+              #ffd814 4%,
+              #ff9900 93.5%,
+              rgba(255, 153, 0, 0.7) 99.5%
+            );
+          }
+          &:hover span,
+          &:hover i {
+            color: map-get($map: $color, $key: main-color);
+          }
+          span {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            &.material-symbols-outlined {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .sideMenu-misc {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
+      .misc-title {
+        padding: 10px;
+        font-weight: bold;
+      }
+      .misc-list {
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          font-size: 14px;
+          cursor: pointer;
+          &:hover {
+            background: #fafafa;
+            color: map-get($map: $color, $key: main-amazon-color);
+          }
+        }
+      }
+    }
+    .sideMenu-settings {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .settings-title {
+        padding: 10px;
+        font-weight: bold;
+      }
+      .settings-list {
+        li {
+          padding: 10px;
+          font-size: 14px;
+          &.darkmode {
+            display: none;
+          }
+          a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            .material-symbols-outlined {
+              font-size: 14px;
+            }
+          }
+          &:hover {
+            background: #fafafa;
+          }
+          &:hover:not(.material-symbols-outlined) {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  &.active {
+    left: 0;
+  }
 }
 
 // 메인페이지 컨텐츠 영역
 #main-contents {
-	margin-top: 112px;
-	min-height: 500px;
-	#main-slider-wrap {
-		position: relative;
-		margin-bottom: 100px;
-		.main-slider-title {
-			position: absolute;
-			bottom: 0;
-			min-width: calc(100% / 3);
-			padding: 15px 20px;
-			background-color: map-get($color, $key: main-amazon-color);
-			transform: translateY(50%);
-			p {
-				margin: 10px;
-				font-size: 30px;
-				font-weight: 400;
-				color: map-get($map: $color, $key: main-dark-color);
-			}
-		}
-	}
-	#container {
-		width: 1200px;
-		margin: 0 auto;
-		#main-promotions {
-			h3 {
-				margin-bottom: 27px;
-			}
-			.promotions-items {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				ul {
-					width: 1200px;
-					display: flex;
-					justify-content: space-between;
-					flex-wrap: wrap;
-					gap: 20px;
-					li {
-						display: flex;
-						flex-direction: column;
-						flex-basis: 270px;
-						flex-grow: 1;
-						flex-shrink: 1;
-						box-sizing: border-box;
-						border: 1px solid #e1e1e1;
-						border-radius: 4px;
-						margin: 20px 0;
-						img {
-							width: 100%;
-						}
-						p {
-							padding: 0 20px;
-							height: 70px;
-							line-height: 70px;
-						}
-					}
-				}
-			}
-		}
-		// 이벤트 / 쿠폰 영역
-		#event-coupon {
-			margin-top: 137px;
-			margin-bottom: 185px;
-			.event-slider-wrap {
-				margin-top: 37px;
-				.event-slider {
-					/*슬라이드 내부디자인*/
-					.slick-slide {
-						background-repeat: no-repeat;
-						&:has(.item1) {
-							background-color: #000;
-							background-image: url(./img/maineventbanner/event1.png);
-							background-position: calc(100% - 60px) calc(100% - 50px);
-						}
-						&:has(.item2) {
-							background-color: #ff9900;
-							background-position: calc(100% - 60px) calc(100% - 50px);
-						}
-						&:has(.item3) {
-							background-color: #000;
-							background-position: calc(100% - 60px) calc(100% - 50px);
-						}
-						a.items {
-							display: inline-block;
-							width: 100%;
-							h4 {
-								font-size: 28px;
-							}
-							p {
-								font-size: 14px;
-							}
-						}
-					}
-				}
-			}
-		}
-		// 카테고리별 인기상품
-		#category-best {
-			h3 {
-				font-size: 24px;
-				font-weight: bold;
-				border-bottom: 2px solid #000000;
-				padding-bottom: 28px;
-			}
-			.inner {
-				border: 1px solid #f1f1f1;
-				min-height: 500px;
-				display: flex;
-				#cate-menu {
-					flex-basis: 190px;
-					flex-grow: 0;
-					flex-shrink: 0;
-					padding: 40px 20px;
-					border-right: 1px solid #f1f1f1;
-					h5 {
-						font-size: 26px;
-						color: map-get($color, $key: main-amazon-color);
-						margin-bottom: 15px;
-					}
-					ul {
-						li {
-							a {
-								font-size: 12px;
-								color: black;
-								line-height: 25px;
-							}
-						}
-					}
-				}
-				#mid-banner-slider-wrap {
-					position: relative;
-					flex-basis: 260px;
-					flex-grow: 0;
-					flex-shrink: 0;
-					align-items: stretch;
-					border-right: 1px solid #f1f1f1;
-					overflow: hidden;
-					#cate1-count {
-						position: absolute;
-						right: 45px;
-						top: calc(50% - 40px);
-						transform: translateY(-50%);
-					}
-					.mid-banner-slider {
-						height: 100%;
-						.item {
-							display: flex !important;
-							flex-direction: column;
-							justify-content: space-between;
-							height: 100%;
-							.txt {
-								padding: 35px 15px;
-								h5 {
-									font-size: 24px;
-									color: #000000;
-									margin-bottom: 5px;
-								}
-								p {
-									font-size: 15px;
-									color: #999999;
-								}
-							}
-							.img {
-								height: 280px;
-								overflow: hidden;
-								img {
-									width: 100%;
-								}
-							}
-						}
-					}
-				}
-				.content {
-					flex-grow: 1;
-				}
-			}
-		}
-	}
-	#main-bottom-banner {
-		margin-top: 115px;
-		padding-bottom: 50px;
-		background-color: #000000;
-		overflow: hidden;
-		.top-keywords {
+  position: absolute;
+  z-index: 2;
+  top: 140px;
+  left: 0;
+  // height: 3000px;
+  #main-slider-wrap {
+    position: relative;
+    margin-bottom: 178px !important;
+    width: 100vw;
+    .main-slider-title {
+      position: absolute;
+      bottom: 0;
+      transform: translateY(50%);
+      width: 36%;
+      padding: 15px 20px;
+      background-color: map-get($color, $key: main-amazon-color);
+      p {
+        margin: 10px;
+        font-size: 30px;
+        font-weight: 400;
+        color: map-get($map: $color, $key: main-dark-color);
+      }
+    }
+  }
+  #container {
+    width: 100%;
+    margin: 0 auto;
+    #main-promotions {
+      margin-bottom: 130px;
+      h3 {
+        margin-bottom: 27px;
+      }
+      .promotions-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ul {
+          width: 1200px;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 20px;
+          li {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 270px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            box-sizing: border-box;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            margin: 20px 0;
+            img {
+              width: 100%;
+            }
+            p {
+              padding: 0 20px;
+              height: 70px;
+              line-height: 70px;
+            }
+          }
+        }
+      }
+    }
+    // 이벤트 / 쿠폰 영역
+    #event-coupon {
+      margin-bottom: 185px;
+      .event-slider-wrap {
+        margin-top: 37px;
+        .event-slider {
+          /*슬라이드 내부디자인*/
+          .slick-slide {
+            background-repeat: no-repeat;
+            &:has(.item1) {
+              background-color: #000;
+              background-image: url(./img/maineventbanner/event1.png);
+              background-position: calc(100% - 60px) calc(100% - 50px);
+            }
+            &:has(.item2) {
+              background-color: #ff9900;
+              background-position: calc(100% - 60px) calc(100% - 50px);
+            }
+            &:has(.item3) {
+              background-color: #000;
+              background-position: calc(100% - 60px) calc(100% - 50px);
+            }
+            a.items {
+              display: inline-block;
+              width: 100%;
+              h4 {
+                font-size: 28px;
+              }
+              p {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+    // 카테고리별 인기상품
+    #category-best {
+			margin-bottom: 100px;
+      h3 {
+        font-size: 24px;
+        font-weight: bold;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 28px;
+      }
+      .inner {
+        border: 1px solid #f1f1f1;
+        min-height: 500px;
+        display: flex;
+        #cate-menu {
+          flex-basis: 190px;
+          flex-grow: 0;
+          flex-shrink: 0;
+          padding: 40px 20px;
+          border-right: 1px solid #f1f1f1;
+          h5 {
+            font-size: 26px;
+            color: map-get($color, $key: main-amazon-color);
+            margin-bottom: 15px;
+          }
+          ul {
+            li {
+              a {
+                font-size: 12px;
+                color: black;
+                line-height: 25px;
+              }
+            }
+          }
+        }
+        #mid-banner-slider-wrap {
+          position: relative;
+          flex-basis: 260px;
+          flex-grow: 0;
+          flex-shrink: 0;
+          align-items: stretch;
+          border-right: 1px solid #f1f1f1;
+          overflow: hidden;
+          #cate1-count {
+            position: absolute;
+            right: 45px;
+            top: calc(50% - 40px);
+            transform: translateY(-50%);
+          }
+          .mid-banner-slider {
+            height: 100%;
+            .item {
+              display: flex !important;
+              flex-direction: column;
+              justify-content: space-between;
+              height: 100%;
+              .txt {
+                padding: 35px 15px;
+                h5 {
+                  font-size: 24px;
+                  color: #000000;
+                  margin-bottom: 5px;
+                }
+                p {
+                  font-size: 15px;
+                  color: #999999;
+                }
+              }
+              .img {
+                height: 280px;
+                overflow: hidden;
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+        .content {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+  #main-bottom-banner {
+    margin-top: 115px;
+    padding-bottom: 50px;
+    background-color: #000000;
+    overflow: hidden;
+    .top-keywords {
+      padding: 30px 70px;
+      a {
+        color: #ff9900;
+        font-size: 47px;
+        line-height: 70px;
+      }
+    }
+    .mbb-slider {
+      width: 100vw;
 			padding: 30px 70px;
-			a {
-				color: #ff9900;
-				font-size: 47px;
-				line-height: 70px;
-			}
-		}
-		.mbb-slider {
-			
-			.item {
-				p {
-					margin-top: 10px;
-					strong {
-						margin-right: 10px;
-					}
-				}
-			}
-		}
-	}
+      .item {
+        p {
+          margin-top: 10px;
+          strong {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
 }
 
-iframe {
-	width: 100%;
-	height: 360px;
-}
-
-@media screen and (max-width: 1400px) {
-	#main-contents {
-		#main-slider-wrap {
-			.main-slider-title {
-				p {
-					font-size: 18px;
-				}
-			}
-		}
-	}
-}
-
-@media screen and (max-width: 1200px) {
-	#main-contents {
-		#container {
-			width: 100%;
-			.inner {
-				width: 100%;
-			}
-			#main-promotions .promotions-items ul {
-				width: auto;
-				padding: 0 20px;
-			}
-		}
-		#main-slider-wrap {
-			.main-slider-title {
-				padding: 10px 15px;
-				p {
-					font-size: 16px;
-				}
-			}
-		}
-		#event-coupon {
-			overflow: hidden;
-			.event-slider-wrap {
-				padding: 0 30px;
-			}
-		}
-		#main-bottom-banner {
-			.top-keywords {
-				a {
-					color: #ff9900;
-					font-size: 30px;
-					line-height: 50px;
-				}
-			}
-		}
-	}
+#footer {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 360px;
 }
 
 @media screen and (max-width: 768px) {
-	#main-contents {
-		#main-slider-wrap {
-			.main-slider-title {
-				padding: 5px 10px;
-				p {
-					font-size: 12px;
-				}
-			}
-		}
-		#main-bottom-banner {
-			margin-top: 115px;
-			padding-bottom: 50px;
-			.top-keywords {
-				padding: 20px 50px;
-				a {
-					color: #ff9900;
-					font-size: 20px;
-					line-height: 40px;
-				}
-			}
-		}
-	}
-}
-
-@media screen and (max-width: 578px) {
-	//  추가 작업
+  body,
+  html {
+    height: 2000px;
+    &.active {
+      height: 4000px;
+    }
+  }
+  header {
+    right: 0;
+  }
+  .main-sideMenu-container {
+    display: none;
+    position: fixed;
+    left: 100%;
+    &.active {
+      display: block;
+      left: auto;
+      right: 0;
+    }
+    .main-sideMenu {
+      scrollbar-width: none;
+      overscroll-behavior: contain;
+      .sideMenu-category {
+        .categories-large {
+          li {
+            .fa-chevron-right {
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+      .sideMenu-misc {
+        .misc-list {
+          .fa-chevron-right {
+            transform: rotate(90deg);
+          }
+        }
+      }
+      .sideMenu-settings {
+        .settings-list {
+          li {
+            &.darkmode {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  #footer {
+    position: absolute;
+    bottom: 0;
+    height: 900px;
+    width: 100%;
+    z-index: 1;
+  }
 }
