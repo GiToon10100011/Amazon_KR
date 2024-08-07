@@ -28,31 +28,13 @@ $(".mbb-slider").slick({
   autoplay: true,
   autoplaySpeed: 2000,
   infinite: true,
-  slidesToShow: 7,
+  slidesToShow: 6,
   slidesToScroll: 1,
   responsive: [
-    {
-      breakpoint: 1300,
-      settings: {
-        slidesToShow: 5,
-      },
-    },
-    {
-      breakpoint: 1100,
-      settings: {
-        slidesToShow: 4,
-      },
-    },
     {
       breakpoint: 768,
       settings: {
         slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 578,
-      settings: {
-        slidesToShow: 1,
       },
     },
   ],
