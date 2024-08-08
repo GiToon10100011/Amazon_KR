@@ -199,16 +199,38 @@ header {
     }
   }
   .inner-plus {
-    width: 1360px;
+    width: 1400px;
     margin: 0 auto;
   }
   .category-sideBar {
     top: 0;
     position: fixed;
     width: 60px;
-    height: 400px;
-    background: #000;
     top: 120px;
+    ul {
+      li {
+        height: 50px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+        font-size: 14px;
+        background: map-get($map: $color, $key: main-color);
+        @include border-style($color: map-get($color, main-border-color));
+        border-bottom: none;
+        &:first-child{
+          background: map-get($map: $color, $key: main-amazon-color);
+          color: map-get($map: $color, $key: main-color);
+        }
+        &:last-child{
+          background: map-get($map: $color, $key: searchBar-bg-color);
+          color: map-get($map: $color, $key: placeholder-color );
+          border-bottom: 1px solid #ccc;
+          
+        }
+      }
+    }
   }
   #container {
     width: 100%;
@@ -327,12 +349,13 @@ header {
           .inner {
             border: 1px solid #f1f1f1;
             display: flex;
-            #cate-menu {
+            .cate-menu {
               flex-basis: 190px;
               flex-grow: 0;
               flex-shrink: 0;
               padding: 40px 20px;
               border-right: 1px solid #f1f1f1;
+              scroll-margin-top: 100px;
               h5 {
                 font-size: 26px;
                 color: map-get($color, $key: main-amazon-color);
