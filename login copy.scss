@@ -382,11 +382,12 @@ iframe {
 // mobile
 @media screen and (max-width: 768px) {
   body, html {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    height: 2000px;
   }
-  header, iframe {
+  header {
     display: none;
+  }
+  main {
+    margin-top: 10px;
   }
 }

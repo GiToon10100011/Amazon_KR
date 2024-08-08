@@ -311,7 +311,7 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
 
 html, body {
   width: 100%;
-  height: 4000px;
+  height: 1200px;
   position: relative;
   letter-spacing: -0.7px;
 }
@@ -457,23 +457,26 @@ html, body {
 }
 
 .login {
-  width: 100%;
-  height: 100vh;
+  width: 1200px;
+  height: 75%;
+  margin: 0 auto;
   display: flex;
-  position: relative;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 .login .wrapper_left {
-  height: 100%;
-  height: 100%;
   display: flex;
-  position: absolute;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .login .wrapper_left h1 {
+  font-weight: 600;
+  letter-spacing: -2.5px;
   font-size: 40px;
   margin-bottom: 20px;
 }
@@ -481,14 +484,23 @@ html, body {
   color: #ff9900;
 }
 .login .wrapper_left .logo img {
-  width: 250px;
-  height: 60px;
+  width: 260px;
+  height: 65px;
+}
+.login .wrapper_right {
+  margin-right: 20%;
 }
 .login .wrapper_right h2 {
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  font-size: 25px;
   color: #ff9900;
 }
 .login .wrapper_right .log_middle {
-  border: 1px solid #f00;
+  padding: 15px 0 0 0;
+}
+.login .wrapper_right .log_middle .log_id {
+  padding-bottom: 5px;
 }
 .login .wrapper_right .log_middle .log_id #id {
   display: inline-block;
@@ -503,12 +515,12 @@ html, body {
 }
 .login .wrapper_right .log_middle .log_id .inputbox::-moz-placeholder {
   color: #ccc;
-  font-size: 12px;
+  font-size: 14px;
   padding-left: 5px;
 }
 .login .wrapper_right .log_middle .log_id .inputbox::placeholder {
   color: #ccc;
-  font-size: 12px;
+  font-size: 14px;
   padding-left: 5px;
 }
 .login .wrapper_right .log_middle .log_pw #password {
@@ -524,38 +536,126 @@ html, body {
 }
 .login .wrapper_right .log_middle .log_pw .inputbox::-moz-placeholder {
   color: #ccc;
-  font-size: 12px;
+  font-size: 14px;
   padding-left: 5px;
 }
 .login .wrapper_right .log_middle .log_pw .inputbox::placeholder {
   color: #ccc;
-  font-size: 12px;
+  font-size: 14px;
   padding-left: 5px;
 }
 .login .wrapper_right .logDetail .logSet {
-  border: 1px solid #f00;
-  width: 200px;
+  width: 210px;
   height: 40px;
   display: flex;
   justify-content: space-between;
 }
+.login .wrapper_right .logDetail .logSet .autoLog {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .login .wrapper_right .logDetail .logSet .autoLog input[type=checkbox] {
-  width: 15px;
-  height: 15px;
+  display: none;
 }
 .login .wrapper_right .logDetail .logSet .autoLog input[type=checkbox] + label {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  cursor: pointer;
 }
-.login .wrapper_right .logDetail .logSet .autoLog input[id=autoLog]:checked + label:after {
+.login .wrapper_right .logDetail .logSet .autoLog input[id=autoLog] + label::before {
   content: "";
-  font-size: 10px;
-  width: 30px;
-  height: 30px;
   position: absolute;
-  top: 0;
+  width: 16px;
+  height: 16px;
+  top: 15px;
   left: 0;
+  background: url("./img/checkOff1.png") center/cover no-repeat;
+}
+.login .wrapper_right .logDetail .logSet .autoLog input[id=autoLog]:checked + label::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 15px;
+  left: 0;
+  background: url("./img/checkOn.png") center/cover no-repeat;
+}
+.login .wrapper_right .logDetail .logSet .rememId {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.login .wrapper_right .logDetail .logSet .rememId input[type=checkbox] {
+  display: none;
+}
+.login .wrapper_right .logDetail .logSet .rememId input[type=checkbox] + label {
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.login .wrapper_right .logDetail .logSet .rememId input[id=rememId] + label::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 15px;
+  left: 0;
+  background: url("./img/checkOff1.png") center/cover no-repeat;
+}
+.login .wrapper_right .logDetail .logSet .rememId input[id=rememId]:checked + label::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 15px;
+  left: 0;
+  color: #ff9900;
+  background: url("./img/checkOn.png") center/cover no-repeat;
+}
+.login .wrapper_right .logDetail input[type=submit] {
+  width: 330px;
+  height: 50px;
+  font-size: 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  margin-top: 15px;
+  background: #ff9900;
+  color: #fff;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.login .wrapper_right .logDetail .logSubDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.login .wrapper_right .logDetail .logSubDetail span {
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 300;
+  padding-right: 5px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.login .wrapper_right .logDetail .logSubDetail span:hover {
+  color: #333;
+  text-decoration: underline;
+}
+.login .wrapper_right .sns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login .wrapper_right .sns img {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
 }
 
 iframe {
@@ -563,4 +663,15 @@ iframe {
   bottom: 0;
   width: 100%;
   height: 360px;
+}
+
+@media screen and (max-width: 768px) {
+  body, html {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  header, iframe {
+    display: none;
+  }
 }
