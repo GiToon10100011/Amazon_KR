@@ -391,7 +391,7 @@ html,
 body {
   position: relative;
   width: 100%;
-  height: 9000px;
+  height: 9540px;
   overflow-x: hidden;
 }
 
@@ -550,6 +550,7 @@ header {
   width: 100vw;
 }
 #main-contents #main-slider-wrap .main-slider-title {
+  white-space: nowrap;
   position: absolute;
   bottom: 0;
   transform: translateY(50%);
@@ -559,9 +560,21 @@ header {
 }
 #main-contents #main-slider-wrap .main-slider-title p {
   margin: 10px;
-  font-size: 30px;
+  font-size: 19.5px;
   font-weight: 400;
   color: #000;
+}
+#main-contents .inner-plus {
+  width: 1360px;
+  margin: 0 auto;
+}
+#main-contents .category-sideBar {
+  top: 0;
+  position: fixed;
+  width: 60px;
+  height: 400px;
+  background: #000;
+  top: 120px;
 }
 #main-contents #container {
   width: 100%;
@@ -579,7 +592,6 @@ header {
   justify-content: center;
 }
 #main-contents #container #main-promotions .promotions-items ul {
-  width: 1200px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -639,38 +651,69 @@ header {
 #main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide a.items p {
   font-size: 14px;
 }
-#main-contents #container #category-best {
+#main-contents #container .category-container {
+  display: flex;
+  gap: 20px;
+  height: 5530px;
+}
+#main-contents #container .category-container .categories {
+  width: 100%;
+}
+#main-contents #container .category-container .categories #category-best {
+  width: 100%;
   margin-bottom: 100px;
 }
-#main-contents #container #category-best h3 {
+#main-contents #container .category-container .categories #category-best .category-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000000;
+}
+#main-contents #container .category-container .categories #category-best .category-title .pageIndex {
+  display: flex;
+  gap: 6px;
+}
+#main-contents #container .category-container .categories #category-best .category-title .pageIndex span {
+  text-align: center;
+  line-height: 20px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #b6bdc7;
+  font-size: 14px;
+  cursor: pointer;
+}
+#main-contents #container .category-container .categories #category-best .category-title .pageIndex span:first-child {
+  background: #000;
+  color: #fff;
+}
+#main-contents #container .category-container .categories #category-best h3 {
   font-size: 24px;
   font-weight: bold;
-  border-bottom: 2px solid #000000;
   padding-bottom: 28px;
 }
-#main-contents #container #category-best .inner {
+#main-contents #container .category-container .categories #category-best .inner {
   border: 1px solid #f1f1f1;
-  min-height: 500px;
   display: flex;
 }
-#main-contents #container #category-best .inner #cate-menu {
+#main-contents #container .category-container .categories #category-best .inner #cate-menu {
   flex-basis: 190px;
   flex-grow: 0;
   flex-shrink: 0;
   padding: 40px 20px;
   border-right: 1px solid #f1f1f1;
 }
-#main-contents #container #category-best .inner #cate-menu h5 {
+#main-contents #container .category-container .categories #category-best .inner #cate-menu h5 {
   font-size: 26px;
   color: #ff9900;
   margin-bottom: 15px;
 }
-#main-contents #container #category-best .inner #cate-menu ul li a {
+#main-contents #container .category-container .categories #category-best .inner #cate-menu ul li a {
   font-size: 12px;
   color: black;
   line-height: 25px;
 }
-#main-contents #container #category-best .inner #mid-banner-slider-wrap {
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap {
   position: relative;
   flex-basis: 260px;
   flex-grow: 0;
@@ -679,42 +722,67 @@ header {
   border-right: 1px solid #f1f1f1;
   overflow: hidden;
 }
-#main-contents #container #category-best .inner #mid-banner-slider-wrap #cate1-count {
-  position: absolute;
-  right: 45px;
-  top: calc(50% - 40px);
-  transform: translateY(-50%);
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .slick-dots {
+  bottom: 0;
 }
-#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider {
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .slick-dots li {
+  padding: 2px;
+  margin: 2.6px;
+  width: 5px;
+}
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .slick-dots li button {
+  padding: 0;
+  width: 5px !important;
+  height: 5px;
+}
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .mid-banner-slider {
   height: 100%;
 }
-#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item {
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item {
   display: flex !important;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
 }
-#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .txt {
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .txt {
   padding: 35px 15px;
 }
-#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .txt h5 {
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .txt h5 {
   font-size: 24px;
   color: #000000;
   margin-bottom: 5px;
 }
-#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .txt p {
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .txt p {
   font-size: 15px;
   color: #999999;
 }
-#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .img {
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .img {
   height: 280px;
   overflow: hidden;
 }
-#main-contents #container #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .img img {
+#main-contents #container .category-container .categories #category-best .inner #mid-banner-slider-wrap .mid-banner-slider .item .img img {
   width: 100%;
 }
-#main-contents #container #category-best .inner .content {
-  flex-grow: 1;
+#main-contents #container .category-container .categories #category-best .inner .content {
+  padding: 20px;
+  grid-gap: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+#main-contents #container .category-container .categories #category-best .inner .content .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#main-contents #container .category-container .categories #category-best .inner .content .item:nth-of-type(4) {
+  flex-basis: 100%;
+}
+#main-contents #container .category-container .categories #category-best .inner .content .item img {
+  width: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #main-contents #main-bottom-banner {
   margin-top: 115px;
@@ -752,11 +820,7 @@ header {
 @media screen and (max-width: 768px) {
   body,
   html {
-    height: 2000px;
-  }
-  body.active,
-  html.active {
-    height: 4000px;
+    height: 11000px;
   }
   header {
     right: 0;
@@ -785,8 +849,66 @@ header {
     display: block;
   }
   #main-contents {
-    padding: 0 10px;
     width: 100%;
+    height: 7000px;
+  }
+  #main-contents #main-slider-wrap .main-slider {
+    position: relative;
+    height: 380px !important;
+  }
+  #main-contents #main-slider-wrap .main-slider img {
+    height: 380px !important;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #main-contents #main-slider-wrap .main-slider .slick-dots {
+    position: absolute;
+    bottom: -16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 0 14px;
+  }
+  #main-contents #main-slider-wrap .main-slider .slick-dots li {
+    width: 5px;
+    height: 5px;
+    margin: 0;
+  }
+  #main-contents #main-slider-wrap .main-slider .slick-dots li button {
+    width: 5px;
+    height: 5px;
+    padding: 0;
+  }
+  #main-contents #main-slider-wrap .main-slider .slick-dots li button::before {
+    padding: 0;
+    margin: 0;
+  }
+  #main-contents #main-slider-wrap .main-slider-title {
+    display: flex;
+    align-items: center;
+    width: 260px;
+    height: 80px;
+  }
+  #main-contents #main-slider-wrap .main-slider-title p {
+    font-size: 16px;
+  }
+  #main-contents #container {
+    padding: 0 10px;
+  }
+  #main-contents #container #main-promotions .promotions-items {
+    justify-content: flex-start;
+  }
+  #main-contents #container #main-promotions .promotions-items ul {
+    flex-wrap: nowrap;
+    gap: 40px;
+    flex-direction: row;
+    overflow-x: scroll;
+    scrollbar-width: none;
+  }
+  #main-contents #container #main-promotions .promotions-items ul li {
+    width: 268px;
+    flex: none;
   }
   #footer {
     position: absolute;

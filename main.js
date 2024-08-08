@@ -5,6 +5,15 @@ $(".main-slider").slick({
   infinite: true,
   autoplay: true,
   autoplaySpeed: 2000,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        dots: true,
+      },
+    },
+  ],
 });
 $(".event-slider").slick({
   dots: true,
@@ -15,7 +24,7 @@ $(".event-slider").slick({
   autoplaySpeed: 2000,
   responsive: [
     {
-      breakpoint: 1100,
+      breakpoint: 768,
       settings: {
         slidesToShow: 1,
       },
@@ -42,28 +51,14 @@ $(".mbb-slider").slick({
 
 const mbs = $(".mid-banner-slider");
 const itemElem = $(".mid-banner-slider.slider .item");
-$("#cate1-count").html(
-  "<span class='now'>1</span><span> / " + itemElem.length + "</span>"
-);
+$("#cate1-count").html();
 
 mbs.slick({
-  dots: false,
+  dots: true,
   arrows: true,
   infinite: true,
   autoplay: true,
   autoplaySpeed: 2000,
+  pauseOnFocus: false,
+  pauseOnHover: false,
 });
-
-mbs.on(
-  "init reInit beforeChange afterChange",
-  function (event, slick, currentSlide, nextSlide) {
-    var i = (currentSlide ? currentSlide : 0) + 1;
-    $("#cate1-count").html(
-      "<span class='now'>" +
-        i +
-        "</span><span> / " +
-        slick.slideCount +
-        "</span>"
-    );
-  }
-);
