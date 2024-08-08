@@ -609,12 +609,8 @@ header {
   display: flex;
   position: relative;
 }
-#main .myPage-content.fixed {
-  left: 200px;
-}
 #main .myPage-content .profile-sideMenu {
   top: 450px;
-  left: 18.4%;
   width: 200px;
 }
 #main .myPage-content .profile-sideMenu.fixed {
@@ -667,6 +663,10 @@ header {
   margin-left: 20px;
   width: 970px;
   height: 5000px;
+}
+#main .myPage-content .pageBox.fixed {
+  position: absolute;
+  left: 200px;
 }
 
 #footer {

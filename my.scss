@@ -237,14 +237,10 @@ header {
     height: 2000px;
     display: flex;
     position: relative;
-    &.fixed {
-      left: 200px;
-    }
     .profile-sideMenu {
       // position: fixed;
       // top: 0;
       top: 450px;
-      left: 18.4%;
       width: 200px;
       &.fixed {
         position: fixed;
@@ -302,6 +298,10 @@ header {
       margin-left: 20px;
       width: 970px;
       height: 5000px;
+      &.fixed {
+        position: absolute;
+        left: 200px;
+      }
     }
   }
 }

@@ -110,7 +110,7 @@ window.addEventListener("scroll", () => {
   const scrollValue = window.scrollY;
   console.log(scrollValue);
   const sideMenu = document.querySelector(".profile-sideMenu");
-  const myContent = document.querySelector(".myPage-content");
+  const myContent = document.querySelector(".pageBox");
   if (scrollValue > 350) {
     sideMenu.classList.add("fixed");
     myContent.classList.add("fixed");
