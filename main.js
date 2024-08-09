@@ -27,6 +27,8 @@ $(".event-slider").slick({
       breakpoint: 768,
       settings: {
         slidesToShow: 1,
+        arrows : false,
+        autoplay : false, 
       },
     },
   ],
@@ -50,8 +52,6 @@ $(".mbb-slider").slick({
 });
 
 const mbs = $(".mid-banner-slider");
-const itemElem = $(".mid-banner-slider.slider .item");
-$("#cate1-count").html();
 
 mbs.slick({
   dots: true,
