@@ -943,10 +943,12 @@ header {
     justify-content: center;
   }
   #main-contents .category-sideBar ul li {
-    width: 74px;
-    height: 74px;
+    white-space: nowrap;
+    width: 14%;
+    height: 60px;
     border-top: 2px solid #000;
     border-bottom: 1px solid #ccc;
+    transition: all 0.3s;
   }
   #main-contents #container {
     padding: 0 10px;
@@ -972,7 +974,7 @@ header {
     flex: none;
   }
   #main-contents #container #event-coupon {
-    margin-bottom: 400px;
+    margin-bottom: 250px;
   }
   #main-contents #container #event-coupon h3 {
     font-size: 26px;
@@ -1019,6 +1021,7 @@ header {
     display: flex;
     flex-direction: column;
     text-align: center;
+    padding-bottom: 20px;
   }
   #main-contents #container .category-container .categories #category-best .inner .category-section .cate-menu h5 {
     border-bottom: 1px solid #ccc;
@@ -1040,6 +1043,35 @@ header {
     border: 1px solid #ccc;
     padding: 2px 10px;
     border-radius: 20px;
+    transition: all 0.3s;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section .cate-menu ul li:hover {
+    background: #000;
+    border: 1px solid transparent;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section .cate-menu ul li:hover a {
+    color: #fff;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section .cate-menu ul li a {
+    transition: all 0.3s;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap {
+    height: 390px !important;
+    flex-basis: auto;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .mid-banner-slider {
+    height: 390px !important;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .mid-banner-slider .slick-arrow {
+    top: 54px;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .mid-banner-slider .slick-dots {
+    bottom: 20px;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .mid-banner-slider img {
+    height: 240px;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   #footer {
     position: absolute;
