@@ -7,6 +7,17 @@
 // }
 // }
 
+.active_prev {
+  opacity: 0;
+  transform: translateY(-30%);
+  transition: all 0.8s;
+}
+
+.active_next {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 @mixin counter {
   position: absolute;
   right: 45px;
@@ -18,7 +29,7 @@ html,
 body {
   position: relative;
   width: 100%;
-  height: 7920px;
+  height: 7900px;
   overflow-x: hidden;
 }
 
