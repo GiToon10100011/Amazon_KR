@@ -1,6 +1,6 @@
-import "./header/header.js";
+import "../header/header.js";
 
-const myPages = [
+export const myPages = [
   "./order/order.html",
   "./wishlist/wishlist.html",
   "./points/points.html",
@@ -9,7 +9,7 @@ const myPages = [
 
 const mainContent = document.querySelector("main");
 
-const pageFrame = document.querySelector(".pageBox");
+export const pageFrame = document.querySelector(".pageBox");
 
 const mobilePageFrame = document.getElementById("mobile-pageBox");
 
@@ -124,3 +124,5 @@ window.addEventListener("scroll", () => {
     myContent.classList.remove("fixed");
   }
 });
+
+

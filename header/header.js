@@ -1,15 +1,43 @@
+//Ascii Art
+console.log(`
+  @          @@@                  @@@@          @@@           @@         @@@           @@@@@@@@@@@@@@@
+              @@                   @@@          @@@           @@          @@            @@@@@@@@@@@@@@
+              @@                   @@           @@@           @           @@            @@@@@@@@@@@@@@
+              @@                   @             @@           @            @            @@@@@@@@@@@@@@
+       @@      @                   @      @      @@@@@@      @      @      @            @@@@@@@@@@@@@@
+  @@@          @     @@     @@     @@@@@         @@@@@      @@     @@@     @     @@     @@@@@  @@@@@@@
+  @            @     @@     @@     @@@           @@@@       @@     @@@     @     @@     @@@@   @@@@@@@
+               @     @@     @@     @@            @@@@      @@@     @@@     @     @@     @@@@   @@@@@@@
+               @     @@     @@     @             @@@      @@@@     @@@     @     @@     @@@@   @      
+       @@      @     @@     @@     @      @@     @@       @@@@     @@@     @     @@     @@@@          
+       @@      @     @@     @@     @     @@      @@          @      @@     @     @@     @@@@          
+       @       @     @@     @@     @      @                         @      @     @@     @@@@     @   @
+               @     @@     @@     @                          @           @@     @@     @@@@     @   @
+               @     @@     @@     @                          @@          @@     @@     @            @
+               @     @@     @@     @@            @     @@@    @@         @@@     @@     @            @
+  @      @@   @@     @@     @@     @@@      @@  @@@ @     ,@  @@@       @@@@     @@     @   @  @     @
+  @@@@@@@@@@@.   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@.    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@.        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@             . @@@@@@@@ .            @   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@                                 @@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@                            @@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@                       -@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@.                  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
+
 // Insert Header
 const body = document.querySelector("#header");
 body.innerHTML = `
 const body = document.querySelector("#header");
-body.innerHTML = `
     <header>
       <div class="inner">
         <div class="gnb-content">
           <nav class="gnb">
             <div class="logo_container">
               <i class="fa-solid fa-bars sideMenu-trigger-btn"></i>
-              <a href=""
+              <a href="./main.html"
                 ><img src="./logo/png/amazon_kr_ezen2.png" alt="logo"
               /></a>
             </div>
@@ -121,78 +149,13 @@ body.innerHTML = `
                     </p>
                   </div>
                 </div>
-              <div class = "ranking-container">
-                <div class="ranking">
-                    <p><span>1 </span> 갤럭시 Z플립</p>
-                    <p><span>2 </span> 갤럭시 Z플립Z플립</p>
-                    <p><span>3 </span> 갤럭시 Z플립Z플립Z플립</p>
-                    <p><span>4 </span> 갤럭시 Z플립Z플립Z플립Z플립</p>
-                    <p><span>5 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
-                    <p><span>6 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
-                    <p>
-                      <span>7 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>8 </span> 갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>9 </span> 갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>10 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>11 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>12 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>13 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>14 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>15 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>16 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>17 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>18 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>19 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립플립
-                    </p>
-                    <p>
-                      <span>20 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플Z플립
-                    </p>
-                  </div>
-                </div>
               <i class="fa-solid fa-chevron-down"></i>
             </div>
           </nav>
           <div class="icon-menu">
             <div class="items">
               <div class="item">
-                <a href="#none"><i class="fa-regular fa-user"></i></a>
+                <a href="./my.html"><i class="fa-regular fa-user"></i></a>
                 <span>회원정보</span>
               </div>
               <div class="item">
@@ -202,7 +165,7 @@ body.innerHTML = `
                 <span>장바구니</span>
               </div>
               <div class="item">
-                <a href="#none"><i class="fa-regular fa-heart"></i></a>
+                <a href="./my.html"><i class="fa-regular fa-heart"></i></a>
                 <span>찜목록</span>
               </div>
             </div>
@@ -257,33 +220,12 @@ body.innerHTML = `
         </div>
       </div>
     </div>`;
-    <div class="Top">
-      <a href = "#" class = "desktop-top">
-        <i class="fa-solid fa-chevron-up"></i>
-        <span>TOP</span>
-      </a>
-      <div class = "mobile-top">
-        <div class = "mobile-top-menu">
-        <span class="material-symbols-outlined">
-        schedule
-        </span>
-        <a class = "mobile-top-btn" href = "#">
-        <span class="material-symbols-outlined">north</span>
-        </a>
-        </div>
-      </div>
-    </div>`;
 
 // Header
 
 const lnb = document.querySelector(".lnb-content");
 
 const Top = document.querySelector(".Top");
-
-const desktopTop = document.querySelector(".desktop-top");
-const mobileTop = document.querySelector(".mobile-top-btn");
-
-const ranking = document.querySelector(".hottest-items");
 
 const desktopTop = document.querySelector(".desktop-top");
 const mobileTop = document.querySelector(".mobile-top-btn");
@@ -373,30 +315,4 @@ mobileTop.addEventListener("click", function (e) {
   });
 });
 
-console.log(`
-@          @@@                  @@@@          @@@           @@         @@@           @@@@@@@@@@@@@@@
-            @@                   @@@          @@@           @@          @@            @@@@@@@@@@@@@@
-            @@                   @@           @@@           @           @@            @@@@@@@@@@@@@@
-            @@                   @             @@           @            @            @@@@@@@@@@@@@@
-     @@      @                   @      @      @@@@@@      @      @      @            @@@@@@@@@@@@@@
-@@@          @     @@     @@     @@@@@         @@@@@      @@     @@@     @     @@     @@@@@  @@@@@@@
-@            @     @@     @@     @@@           @@@@       @@     @@@     @     @@     @@@@   @@@@@@@
-             @     @@     @@     @@            @@@@      @@@     @@@     @     @@     @@@@   @@@@@@@
-             @     @@     @@     @             @@@      @@@@     @@@     @     @@     @@@@   @      
-     @@      @     @@     @@     @      @@     @@       @@@@     @@@     @     @@     @@@@          
-     @@      @     @@     @@     @     @@      @@          @      @@     @     @@     @@@@          
-     @       @     @@     @@     @      @                         @      @     @@     @@@@     @   @
-             @     @@     @@     @                          @           @@     @@     @@@@     @   @
-             @     @@     @@     @                          @@          @@     @@     @            @
-             @     @@     @@     @@            @     @@@    @@         @@@     @@     @            @
-@      @@   @@     @@     @@     @@@      @@  @@@ @     ,@  @@@       @@@@     @@     @   @  @     @
-@@@@@@@@@@@.   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@.    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@.        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@             . @@@@@@@@ .            @   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@                                 @@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@                            @@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@                       -@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@.                  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
+

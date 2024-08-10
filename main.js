@@ -76,7 +76,6 @@ mbs.slick({
 
 window.addEventListener("scroll", () => {
   let scrollY = window.scrollY;
-  console.log(scrollY);
   const categorySidebar = document.querySelector(".category-sideBar");
   // 2250
   if (scrollY >= 2200) {
@@ -97,3 +96,13 @@ window.addEventListener("scroll", () => {
 //     }
 //   });
 // });
+
+
+//wishlist event 
+// import {pageFrame, myPages} from "./my.js";
+// const wishlistShortcut = document.querySelector(".icon-menu .item:last-child");
+// console.log(wishlistShortcut);
+// wishlistShortcut.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   pageFrame.setAttribute("src", myPages[1]);
+// })

@@ -1,1 +1,1 @@
-This is the My_page of Amazon_KR
+This is the Develop Branch of Amazon_KR
