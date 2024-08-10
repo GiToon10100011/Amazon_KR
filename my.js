@@ -106,3 +106,21 @@ mySearch.addEventListener("click", () => {
   }
 });
 
+window.addEventListener("scroll", () => {
+  const scrollValue = window.scrollY;
+  console.log(scrollValue);
+  const sideMenu = document.querySelector(".profile-sideMenu");
+  const myContent = document.querySelector(".pageBox");
+  if (scrollValue > 350) {
+    sideMenu.classList.add("fixed");
+    myContent.classList.add("fixed");
+    if (scrollValue > 4300) {
+      sideMenu.classList.remove("fixed");
+      myContent.classList.remove("fixed");
+    }
+  } else {
+    myContent.classList.add("fixed");
+    sideMenu.classList.remove("fixed");
+    myContent.classList.remove("fixed");
+  }
+});
