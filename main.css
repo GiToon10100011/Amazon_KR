@@ -541,7 +541,7 @@ header {
 #main-contents {
   position: absolute;
   z-index: 2;
-  top: 140px;
+  top: 120px;
   left: 0;
 }
 #main-contents #main-slider-wrap {
@@ -633,11 +633,21 @@ header {
   border: 1px solid #e1e1e1;
   border-radius: 4px;
   margin: 20px 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+#main-contents #container #main-promotions .promotions-items ul li img {
+  transition: all 0.3s;
+}
+#main-contents #container #main-promotions .promotions-items ul li:hover img {
+  overflow: hidden;
+  transform: scale(1.1);
 }
 #main-contents #container #main-promotions .promotions-items ul li img {
   width: 100%;
 }
 #main-contents #container #main-promotions .promotions-items ul li p {
+  overflow: hidden;
   padding: 0 20px;
   height: 70px;
   line-height: 70px;

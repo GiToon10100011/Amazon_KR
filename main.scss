@@ -1,5 +1,12 @@
 @import "./header/header.scss";
 
+// &.active .about_box .about_img,
+// &.active .about_desc .box:nth-child(1),
+// &.active .about_desc .box:nth-child(2) {
+//   @extend .active_next;
+// }
+// }
+
 @mixin counter {
   position: absolute;
   right: 45px;
@@ -175,7 +182,7 @@ header {
 #main-contents {
   position: absolute;
   z-index: 2;
-  top: 140px;
+  top: 120px;
   left: 0;
   // height: 3000px;
   #main-slider-wrap {
@@ -234,7 +241,7 @@ header {
         }
       }
     }
-    &.fixed{
+    &.fixed {
       display: block;
     }
   }
@@ -265,10 +272,13 @@ header {
             border: 1px solid #e1e1e1;
             border-radius: 4px;
             margin: 20px 0;
+            @include extendItems;
+            cursor: pointer;
             img {
               width: 100%;
             }
             p {
+              overflow: hidden;
               padding: 0 20px;
               height: 70px;
               line-height: 70px;
@@ -323,7 +333,7 @@ header {
         #category-best {
           width: 100%;
           margin-bottom: 100px;
-          &:last-child{
+          &:last-child {
             margin-bottom: 0;
           }
           .category-title {
@@ -472,11 +482,11 @@ header {
         line-height: 70px;
       }
     }
-    #mbb-slider-wrap{
+    #mbb-slider-wrap {
       width: 100%;
       flex-wrap: nowrap;
     }
-    .slick-track{
+    .slick-track {
       display: flex;
       flex-wrap: nowrap;
     }
@@ -485,19 +495,19 @@ header {
       padding: 30px 70px;
       white-space: nowrap;
       margin: 0;
-      .slick-slider{
+      .slick-slider {
         width: 100%;
       }
-      .slick-slide{
+      .slick-slide {
         width: 240px !important;
         overflow: visible;
       }
-      .slick-list{
+      .slick-list {
         overflow: hidden;
       }
       .item {
         width: 240px !important;
-        img{
+        img {
           width: 100%;
         }
         p {
@@ -644,7 +654,7 @@ header {
           transition: all 0.3s;
         }
       }
-      &.fixed{
+      &.fixed {
         display: flex;
       }
     }
