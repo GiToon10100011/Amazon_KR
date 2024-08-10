@@ -1,6 +1,8 @@
 // Insert Header
 const body = document.querySelector("#header");
 body.innerHTML = `
+const body = document.querySelector("#header");
+body.innerHTML = `
     <header>
       <div class="inner">
         <div class="gnb-content">
@@ -54,6 +56,71 @@ body.innerHTML = `
               </form>
             </div>
             <div class="hottest-items">
+              <div class = "ranking-container">
+                <div class="ranking">
+                    <p><span>1 </span> 갤럭시 Z플립</p>
+                    <p><span>2 </span> 갤럭시 Z플립Z플립</p>
+                    <p><span>3 </span> 갤럭시 Z플립Z플립Z플립</p>
+                    <p><span>4 </span> 갤럭시 Z플립Z플립Z플립Z플립</p>
+                    <p><span>5 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
+                    <p><span>6 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
+                    <p>
+                      <span>7 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>8 </span> 갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>9 </span> 갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>10 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>11 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>12 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>13 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>14 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>15 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>16 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>17 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>18 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>19 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립플립
+                    </p>
+                    <p>
+                      <span>20 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플Z플립
+                    </p>
+                  </div>
+                </div>
               <div class = "ranking-container">
                 <div class="ranking">
                     <p><span>1 </span> 갤럭시 Z플립</p>
@@ -190,12 +257,33 @@ body.innerHTML = `
         </div>
       </div>
     </div>`;
+    <div class="Top">
+      <a href = "#" class = "desktop-top">
+        <i class="fa-solid fa-chevron-up"></i>
+        <span>TOP</span>
+      </a>
+      <div class = "mobile-top">
+        <div class = "mobile-top-menu">
+        <span class="material-symbols-outlined">
+        schedule
+        </span>
+        <a class = "mobile-top-btn" href = "#">
+        <span class="material-symbols-outlined">north</span>
+        </a>
+        </div>
+      </div>
+    </div>`;
 
 // Header
 
 const lnb = document.querySelector(".lnb-content");
 
 const Top = document.querySelector(".Top");
+
+const desktopTop = document.querySelector(".desktop-top");
+const mobileTop = document.querySelector(".mobile-top-btn");
+
+const ranking = document.querySelector(".hottest-items");
 
 const desktopTop = document.querySelector(".desktop-top");
 const mobileTop = document.querySelector(".mobile-top-btn");
@@ -209,10 +297,12 @@ window.addEventListener("scroll", () => {
     Top.classList.add("active");
     sideMenu_trigger_alt.classList.add("active");
     ranking.classList.add("active");
+    ranking.classList.add("active");
   } else {
     lnb.classList.remove("active");
     Top.classList.remove("active");
     sideMenu_trigger_alt.classList.remove("active");
+    ranking.classList.remove("active");
     ranking.classList.remove("active");
   }
 });
