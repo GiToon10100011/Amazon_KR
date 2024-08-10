@@ -27,8 +27,8 @@ $(".event-slider").slick({
       breakpoint: 768,
       settings: {
         slidesToShow: 1,
-        arrows : false,
-        autoplay : false, 
+        arrows: false,
+        autoplay: false,
       },
     },
   ],
@@ -61,4 +61,25 @@ mbs.slick({
   autoplaySpeed: 2000,
   pauseOnFocus: false,
   pauseOnHover: false,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        autoplay: false,
+      },
+    },
+  ],
 });
+
+
+window.addEventListener("scroll", () => {
+  let scrollY = window.scrollY;
+  console.log(scrollY);
+  const categorySidebar = document.querySelector(".category-sideBar");
+  // 2250
+  if(scrollY >= 2200) {
+    categorySidebar.classList.add("fixed");
+    if(scrollY >= 6000) categorySidebar.classList.remove("fixed");
+  }
+  else categorySidebar.classList.remove("fixed")
+})
