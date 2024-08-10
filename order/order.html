@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/a7e457e146.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="order.css" />
+    <script defer src="order.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>주문내역</h1>
+      <form action="https://localhost:3000">
+        <span class="searchBox"
+          ><input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="주문 상품의 정보를 입력해주세요."
+        /></span>
+        <input type="button" value="조회하기" />
+      </form>
+      <div class="dateFilter">
+        <div class="radioBtns">
+          <input type="radio" name="yearBtn" id="yearBtn1" checked />
+          <label for="yearBtn1">최근 6개월</label>
+          <input type="radio" name="yearBtn" id="yearBtn2" />
+          <label for="yearBtn2">2024</label>
+          <input type="radio" name="yearBtn" id="yearBtn3" />
+          <label for="yearBtn3">2023</label>
+          <input type="radio" name="yearBtn" id="yearBtn4" />
+          <label for="yearBtn4">2022</label>
+          <input type="radio" name="yearBtn" id="yearBtn5" />
+          <label for="yearBtn5">2021</label>
+        </div>
+        <div class="calendarFilter">
+          <input type="date" name="" id="" />
+          <span>~</span>
+          <input type="date" name="" id="" />
+        </div>
+      </div>
+    </header>
+    <main id="order-content">
+      <div class="sortFilter">
+        <select name="" id="">
+          <option value="">전체</option>
+          <option value="">전체</option>
+          <option value="">전체</option>
+        </select>
+        <hr />
+        <select name="" id="">
+          <option value="">최신순</option>
+          <option value="">최신순</option>
+          <option value="">최신순</option>
+        </select>
+      </div>
+      <section class="orderItems">
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status">
+                배송준비중 <i class="fa-solid fa-ellipsis-vertical"></i
+              ></span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+        <div class="orderItem">
+          <div class="item-title">
+            <span>0000.00.00</span>
+            <a href=""
+              >주문 상세보기 <i class="fa-solid fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="item-content">
+            <div class="item-img">
+              <img src="../img/product_img1.JPG" alt="" />
+            </div>
+            <div class="item-info">
+              <span class="delivery-status"> 배송준비중 </span>
+              <p class="product-name">
+                <span
+                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </span>
+                <span class="icon-cart material-symbols-outlined">
+                  shopping_cart
+                </span>
+              </p>
+              <span class="product-option"
+                >Option | Lorem Ipsum(상품의 옵션)</span
+              >
+              <div class="product-price">
+                <h4>00,000원/0개</h4>
+                <div class="order-number">
+                  <span>주문번호 00000000000000</span>
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item-query">
+              <span>(판매사 이름)</span>
+              <button>문의하기</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

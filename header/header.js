@@ -54,69 +54,71 @@ body.innerHTML = `
               </form>
             </div>
             <div class="hottest-items">
-              <div class="ranking">
-                <p><span>1 </span> 갤럭시 Z플립</p>
-                <p><span>2 </span> 갤럭시 Z플립Z플립</p>
-                <p><span>3 </span> 갤럭시 Z플립Z플립Z플립</p>
-                <p><span>4 </span> 갤럭시 Z플립Z플립Z플립Z플립</p>
-                <p><span>5 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
-                <p><span>6 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
-                <p>
-                  <span>7 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>8 </span> 갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>9 </span> 갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>10 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>11 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>12 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>13 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>14 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>15 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>16 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>17 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>18 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                </p>
-                <p>
-                  <span>19 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립플립
-                </p>
-                <p>
-                  <span>20 </span>갤럭시
-                  Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플Z플립
-                </p>
-              </div>
+              <div class = "ranking-container">
+                <div class="ranking">
+                    <p><span>1 </span> 갤럭시 Z플립</p>
+                    <p><span>2 </span> 갤럭시 Z플립Z플립</p>
+                    <p><span>3 </span> 갤럭시 Z플립Z플립Z플립</p>
+                    <p><span>4 </span> 갤럭시 Z플립Z플립Z플립Z플립</p>
+                    <p><span>5 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
+                    <p><span>6 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
+                    <p>
+                      <span>7 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>8 </span> 갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>9 </span> 갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>10 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>11 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>12 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>13 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>14 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>15 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>16 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>17 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>18 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                    </p>
+                    <p>
+                      <span>19 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립플립
+                    </p>
+                    <p>
+                      <span>20 </span>갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플Z플립
+                    </p>
+                  </div>
+                </div>
               <i class="fa-solid fa-chevron-down"></i>
             </div>
           </nav>
@@ -172,16 +174,31 @@ body.innerHTML = `
         </div>
       </div>
     </header>
-    <a href="#" class="Top">
-      <i class="fa-solid fa-chevron-up"></i>
-      <span>TOP</span>
-    </a>`;
+    <div class="Top">
+      <a href = "#" class = "desktop-top">
+        <i class="fa-solid fa-chevron-up"></i>
+        <span>TOP</span>
+      </a>
+      <div class = "mobile-top">
+        <div class = "mobile-top-menu">
+        <span class="material-symbols-outlined">
+        schedule
+        </span>
+        <a class = "mobile-top-btn" href = "#">
+        <span class="material-symbols-outlined">north</span>
+        </a>
+        </div>
+      </div>
+    </div>`;
 
 // Header
 
 const lnb = document.querySelector(".lnb-content");
 
 const Top = document.querySelector(".Top");
+
+const desktopTop = document.querySelector(".desktop-top");
+const mobileTop = document.querySelector(".mobile-top-btn");
 
 const ranking = document.querySelector(".hottest-items");
 
@@ -233,14 +250,35 @@ let scrollLength = 0;
 
 setInterval(() => {
   const rankingMenu = ranking.querySelector(".ranking");
-  if (scrollIndex > 20) {
+  if (scrollIndex === 0) {
+    rankingMenu.classList.remove("active");
+  } else {
+    rankingMenu.classList.add("active");
+  }
+  if (scrollIndex > 19) {
     scrollLength = 0;
     scrollIndex = 0;
   }
-  console.log(rankingMenu);
   rankingMenu.style.bottom = `${scrollLength}px`;
-  scrollLength += 54;
+  scrollLength += 56;
   scrollIndex++;
-  
-}, 2000);
+  setTimeout(() => {
+    rankingMenu.classList.remove("active");
+  }, 200);
+}, 3000);
 
+desktopTop.addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+mobileTop.addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});

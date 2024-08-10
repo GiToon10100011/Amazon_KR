@@ -169,7 +169,12 @@
             <li>
               <a href="#none"><img src="./img/flag.png" alt="" />한국</a>
             </li>
-            <li class="darkmode"><a href="#none"></a></li>
+            <li class="darkmode">
+              <a href="#none"
+                ><span class="material-symbols-outlined"> dark_mode </span
+                >다크모드</a
+              >
+            </li>
             <li><a href="#none">고객서비스</a></li>
             <li><a href="#none">로그아웃</a></li>
           </ul>
@@ -177,6 +182,7 @@
       </div>
     </div>
     <figure class="bgFilter"></figure>
+    <iframe id="mobile-pageBox" src="" frameborder="0"></iframe>
     <main id="main">
       <section class="profile-banner">
         <div class="inner">
@@ -215,8 +221,100 @@
           </div>
         </div>
       </section>
-
-      <iframe id="footer" src="./footer/footer.html" frameborder="0"></iframe>
+      <section class="myPage-content-container">
+        <div class="inner">
+          <div class="myPage-content">
+            <aside class="profile-sideMenu">
+              <div class="profile-sideMenu-list">
+                <h1>MY PAGE</h1>
+                <div class="items">
+                  <div class="item first-item">
+                    <h3>나의 쇼핑정보</h3>
+                    <ul class="working-list">
+                      <li>
+                        <a href="#none">주문내역</a>
+                      </li>
+                      <li>
+                        <a href="#none">관심상품</a>
+                      </li>
+                      <li>
+                        <a href="#none">적립금</a>
+                      </li>
+                      <li>
+                        <a href="#none">쿠폰</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <h3>활동내역</h3>
+                    <ul>
+                      <li>
+                        <a href="">선물함</a>
+                      </li>
+                      <li>
+                        <a href="">상품평</a>
+                      </li>
+                      <li>
+                        <a href="">자주 구매한 상품</a>
+                      </li>
+                      <li>
+                        <a href="">문의내역 / 쪽지함</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <h3>회원정보</h3>
+                    <ul>
+                      <li>
+                        <a href="">배송주소록 관리</a>
+                      </li>
+                      <li>
+                        <a href="">회원 정보 수정</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <div class="last-item">
+                      <i class="fa-solid fa-headphones"></i>
+                      <a href="">고객센터</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+            <iframe
+              src="./order/order.html"
+              frameborder="0"
+              class="pageBox"
+            ></iframe>
+          </div>
+        </div>
+      </section>
     </main>
+    <iframe id="footer" src="./footer/footer.html" frameborder="0"></iframe>
+    <nav class="mobile-navBar">
+      <ul>
+        <li>
+          <a class="mobile-home-shortcut" href="#none"
+            ><span class="material-symbols-outlined"> home </span></a
+          >
+        </li>
+        <li>
+          <a class="mobile-search-shortcut" data-search = "search" href="#none"
+            ><span class="material-symbols-outlined"> manage_search </span></a
+          >
+        </li>
+        <li>
+          <a class="mobile-my-shortcut" href="#none"
+            ><i class="fa-regular fa-user"></i
+          ></a>
+        </li>
+        <li>
+          <a class="mobile-cart-shortcut" href="#none"
+            ><span class="material-symbols-outlined"> shopping_cart </span></a
+          >
+        </li>
+      </ul>
+    </nav>
   </body>
 </html>

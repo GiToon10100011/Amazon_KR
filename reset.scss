@@ -7,6 +7,7 @@
 a {
   text-decoration: none;
   color: inherit;
+  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -41,5 +42,3 @@ $family: (
 @mixin border-style($weight: 1px, $type: solid, $color: #f00) {
   border: $weight $type $color;
 }
-
-

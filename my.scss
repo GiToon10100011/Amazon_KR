@@ -2,19 +2,22 @@
 
 html,
 body {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 6000px;
+  overflow-x: hidden;
 }
 
 header {
+  margin: 0 auto;
   width: 100%;
   // height: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .bgFilter {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   height: 100%;
   background: rgba($color: #000000, $alpha: 0.1);
@@ -159,11 +162,20 @@ header {
   }
 }
 
+#mobile-pageBox {
+  display: none;
+  position: absolute;
+  top: 120px;
+  width: 100%;
+  height: 3600px;
+}
+
 #main {
+  z-index: 1;
   position: absolute;
   top: 140px;
   width: 100%;
-  height: 100%;
+  height: 5100px;
   .profile-banner {
     width: 100%;
     height: 260px;
@@ -219,8 +231,297 @@ header {
       }
     }
   }
-  #footer {
+  .myPage-content {
+    margin-top: 40px;
     width: 100%;
-    height: 360px;
+    height: 2000px;
+    display: flex;
+    position: relative;
+    .profile-sideMenu {
+      position: sticky;
+      bottom: 0;
+      width: 200px;
+      .profile-sideMenu-list {
+        h1 {
+          font-size: 28px;
+          font-family: map-get($map: $family, $key: main-font);
+          border-bottom: 1px solid;
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+        }
+        .items {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          .item {
+            border-bottom: 1px solid
+              map-get($map: $color, $key: main-border-color);
+            padding-bottom: 20px;
+            &:last-child {
+              border: none;
+            }
+            h3 {
+              margin-bottom: 20px;
+              font-size: 18px;
+            }
+            ul {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              li {
+                a {
+                  transition: all 0.3s;
+                  font-size: 14px;
+                  &.active {
+                    color: map-get($map: $color, $key: main-amazon-color);
+                  }
+                }
+                &:hover a {
+                  color: map-get($map: $color, $key: main-amazon-color);
+                }
+              }
+            }
+            .last-item {
+              font-weight: 500;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+    .pageBox {
+      position: sticky;
+      margin-left: 20px;
+      width: 970px;
+      height: 5000px;
+    }
+  }
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 360px;
+}
+
+.mobile-navBar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  body,
+  html {
+    height: 2000px;
+    &.active {
+      height: 4000px;
+    }
+  }
+  header {
+    right: 0;
+  }
+  .main-sideMenu-container {
+    display: none;
+    position: fixed;
+    left: 100%;
+    &.active {
+      display: block;
+      left: auto;
+      right: 0;
+    }
+    .main-sideMenu {
+      scrollbar-width: none;
+      overscroll-behavior: contain;
+      .sideMenu-category {
+        .categories-large {
+          li {
+            .fa-chevron-right {
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+      .sideMenu-misc {
+        .misc-list {
+          .fa-chevron-right {
+            transform: rotate(90deg);
+          }
+        }
+      }
+      .sideMenu-settings {
+        .settings-list {
+          li {
+            &.darkmode {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #mobile-pageBox {
+    &.active {
+      display: block;
+    }
+  }
+
+  #main {
+    top: 120px;
+    height: auto;
+    .profile-banner {
+      height: auto;
+      .profile-content {
+        flex-direction: column;
+        gap: 10px;
+        padding: 30px;
+        .profile-pic {
+          img {
+            width: 140px;
+          }
+        }
+        .profile-info {
+          padding: 0;
+          width: 100%;
+          gap: 20px;
+          .info-first {
+            width: 100%;
+            flex-direction: column;
+            gap: 6px;
+            border-bottom: 1px solid map-get($map: $color, $key: main-color);
+            padding-bottom: 14px;
+            h3 {
+              font-size: 24px;
+            }
+          }
+          .info-second {
+            width: 100%;
+            padding: 20px 0;
+            .user-history-list {
+              width: 100%;
+              justify-content: center;
+              align-items: start;
+              gap: 40px;
+              li {
+                white-space: nowrap;
+                span {
+                  font-size: 12px;
+                }
+                a {
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .myPage-content {
+      margin-top: 14px;
+      height: auto;
+      .profile-sideMenu {
+        width: 100%;
+        .profile-sideMenu-list {
+          h1 {
+            display: none;
+          }
+          .items {
+            gap: 0;
+            .item {
+              padding-bottom: 14px;
+              border: none;
+              h3 {
+                display: none;
+              }
+              ul {
+                gap: 14px;
+                li {
+                  padding: 0 10px;
+                  border-bottom: 1px solid
+                    map-get($map: $color, $key: main-border-color);
+                  padding-bottom: 14px;
+                }
+              }
+              &:last-child {
+                border-bottom: 1px solid
+                  map-get($map: $color, $key: main-border-color);
+                padding-bottom: 14px;
+                .last-item {
+                  padding: 0 10px;
+                  font-weight: normal;
+                  font-size: 14px;
+                  display: flex;
+                  align-items: center;
+                  gap: 6px;
+                  i {
+                    order: 2;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .pageBox {
+        display: none;
+      }
+    }
+    &.active {
+      display: none;
+    }
+  }
+
+  #footer {
+    height: 900px;
+  }
+
+  .mobile-navBar {
+    display: block;
+    z-index: 2;
+    width: 100%;
+    height: 68px;
+    background: map-get($map: $color, $key: main-color);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -4px 25px rgba(0, 0, 0, 0.25);
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      li {
+        a {
+          transition: all 0.3s;
+          span {
+            font-size: 40px;
+          }
+          i {
+            font-size: 30px;
+          }
+          &:hover {
+            color: map-get($map: $color, $key: main-amazon-color);
+          }
+          &.mobile-my-shortcut {
+            .fa-user {
+              &.active {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+          }
+          &.mobile-search-shortcut{
+            span{
+              &.active {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

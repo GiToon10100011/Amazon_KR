@@ -106,22 +106,32 @@ header {
         &.active {
           display: none;
         }
-        .ranking {
+        .ranking-container {
+          width: 128px;
+          height: 100%;
           position: relative;
-          bottom: 0;
-          transition: all 0.3s;
-          p {
-            font-weight: 500;
-            width: 128px;
-            padding: 16px 0;
+          .ranking {
             position: relative;
-            // 54px마다 순위 변경
+            height: 100%;
             bottom: 0;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            span {
-              color: map-get($map: $color, $key: main-amazon-color);
+            opacity: 1;
+            transition: all 0.6s;
+            &.active {
+              opacity: 0;
+            }
+            p {
+              font-weight: 500;
+              width: 128px;
+              padding: 16px 0;
+              position: relative;
+              // 54px마다 순위 변경
+              bottom: 0;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              span {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
             }
           }
         }
@@ -168,10 +178,12 @@ header {
       align-items: center;
       height: 40px;
       justify-content: space-between;
+      white-space: nowrap;
       transition: all 0.3s;
       &.active {
         height: 0;
         overflow: hidden;
+        border: none;
       }
       .lnb-main {
         height: 100%;
@@ -252,23 +264,116 @@ header {
   position: fixed;
   right: 50px;
   bottom: 100px;
-  width: 56px;
-  height: 56px;
-  padding: 8px;
-  background: #5c5a5a;
-  color: map-get($map: $color, $key: main-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
   opacity: 0;
   transition: all 0.3s;
-  cursor: pointer;
-  .fa-chevron-up {
-    font-size: 24px;
+  .desktop-top {
+    width: 56px;
+    height: 56px;
+    padding: 8px;
+    background: #5c5a5a;
+    color: map-get($map: $color, $key: main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    cursor: pointer;
+    .fa-chevron-up {
+      font-size: 24px;
+    }
+  }
+  .mobile-top {
+    display: none;
+    .mobile-top-menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 14px;
+      span {
+        text-align: center;
+        line-height: 38px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba($color: #eee, $alpha: 0.8);
+        color: map-get($map: $color, $key: main-dark-color);
+        font-size: 24px;
+      }
+    }
   }
   &.active {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .inner {
+    width: 100%;
+  }
+
+  header {
+    padding: 10px;
+    width: 100%;
+    .gnb-content {
+      width: 100%;
+      justify-content: center;
+      .gnb {
+        width: 100%;
+        .logo_container {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .sideMenu-trigger-btn {
+            display: block;
+            order: 2;
+          }
+        }
+        .searchBar {
+          display: none;
+        }
+        .hottest-items {
+          display: none;
+        }
+      }
+      .icon-menu {
+        display: none;
+      }
+    }
+    .banner {
+      margin: 0;
+      .lnb-content {
+        border-top: 1px solid map-get($map: $color, $key: main-border-color);
+        width: 100%;
+        justify-content: center;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        user-select: none;
+        overflow-y: hidden;
+        .lnb-main {
+          width: 100%;
+          .main-category-menu {
+            display: none;
+            .lnb {
+              width: 100%;
+              justify-content: space-evenly;
+            }
+          }
+        }
+        .lnb-user-menu {
+          display: none;
+        }
+      }
+    }
+  }
+  .Top {
+    right: 25px;
+    .desktop-top {
+      display: none;
+    }
+    .mobile-top {
+      display: block;
+    }
   }
 }
