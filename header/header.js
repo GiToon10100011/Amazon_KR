@@ -37,8 +37,8 @@ const body = document.querySelector("#header");
           <nav class="gnb">
             <div class="logo_container">
               <i class="fa-solid fa-bars sideMenu-trigger-btn"></i>
-              <a href="./main.html"
-                ><img src="./logo/png/amazon_kr_ezen2.png" alt="logo"
+              <a href="../main.html"
+                ><img src="../logo/png/amazon_kr_ezen2.png" alt="logo"
               /></a>
             </div>
             <div class="searchBar">
@@ -155,7 +155,7 @@ const body = document.querySelector("#header");
           <div class="icon-menu">
             <div class="items">
               <div class="item">
-                <a href="./my.html"><i class="fa-regular fa-user"></i></a>
+                <a href="../my/my.html"><i class="fa-regular fa-user"></i></a>
                 <span>회원정보</span>
               </div>
               <div class="item">
@@ -165,7 +165,7 @@ const body = document.querySelector("#header");
                 <span>장바구니</span>
               </div>
               <div class="item">
-                <a href="./my.html"><i class="fa-regular fa-heart"></i></a>
+                <a href="./my/my.html"><i class="fa-regular fa-heart"></i></a>
                 <span>찜목록</span>
               </div>
             </div>
@@ -314,5 +314,3 @@ mobileTop.addEventListener("click", function (e) {
     behavior: "smooth",
   });
 });
-
-

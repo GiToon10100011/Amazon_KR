@@ -1,21 +1,36 @@
 {
-  "data" : [
+  "data": [
     {
-      "name" : "AULA F99 무선 기계식 키보드, 트라이모드 BT5.0/2.4GHz/USB-C 핫 스왑 가능 맞춤형 키보드, 사전 윤활 선형 스위치, 개스킷 구조, PC/태블릿/Xbox/PS4/PS5용 RGB 백라이트 게이밍 키보드",
-      "price" : 113226 ,
-      "category" : "비디오 게임",
-      "image-url" : "https://m.media-amazon.com/images/I/6161iAaXAfL._AC_SY110_.jpg",
-      "href" : "https://www.amazon.com/-/ko/dp/B0CQ4TBV2N/?_encoding=UTF8&pd_rd_w=Chkv2&content-id=amzn1.sym.c88b1de5-804d-4697-8351-8b685d57e597%3Aamzn1.symc.a68f4ca3-28dc-4388-a2cf-24672c480d8f&pf_rd_p=c88b1de5-804d-4697-8351-8b685d57e597&pf_rd_r=T6FXGYDH1SGQZJS6B5NG&pd_rd_wg=waesP&pd_rd_r=8e0b2a34-a895-415c-96f6-50a66bbd71e3&ref_=pd_hp_d_atf_ci_mcx_mr_ca_hp_atf_d&th=1",
-      "detail" : {
-        "more-img" : [
+      "name": "AULA F99 무선 기계식 키보드, 트라이모드 BT5.0/2.4GHz/USB-C 핫 스왑 가능 맞춤형 키보드, 사전 윤활 선형 스위치, 개스킷 구조, PC/태블릿/Xbox/PS4/PS5용 RGB 백라이트 게이밍 키보드",
+      "price": 113226,
+      "category": "비디오 게임",
+      "image-url": "https://m.media-amazon.com/images/I/6161iAaXAfL._AC_SY110_.jpg",
+      "href": "https://www.amazon.com/-/ko/dp/B0CQ4TBV2N/?_encoding=UTF8&pd_rd_w=Chkv2&content-id=amzn1.sym.c88b1de5-804d-4697-8351-8b685d57e597%3Aamzn1.symc.a68f4ca3-28dc-4388-a2cf-24672c480d8f&pf_rd_p=c88b1de5-804d-4697-8351-8b685d57e597&pf_rd_r=T6FXGYDH1SGQZJS6B5NG&pd_rd_wg=waesP&pd_rd_r=8e0b2a34-a895-415c-96f6-50a66bbd71e3&ref_=pd_hp_d_atf_ci_mcx_mr_ca_hp_atf_d&th=1",
+      "detail": {
+        "more-img": [
           "https://m.media-amazon.com/images/S/aplus-media-library-service-media/52ee07ad-47a1-4f60-aa3e-358c554481f0.__CR0,0,1464,600_PT0_SX1464_V1___.png",
           "https://m.media-amazon.com/images/S/aplus-media-library-service-media/bb224715-44a4-436b-ad62-21f4407f4b50.__CR0,0,1464,600_PT0_SX1464_V1___.png",
-          "https://m.media-amazon.com/images/S/aplus-media-library-service-media/db8c542a-1f40-41cd-85a5-9635dd83eb76.__CR0,0,1464,600_PT0_SX1464_V1___.png"
-        ]
+          "https://m.media-amazon.com/images/S/aplus-media-library-service-media/db8c542a-1f40-41cd-85a5-9635dd83eb76.__CR0,0,1464,600_PT0_SX1464_V1___.png",
+          "https://m.media-amazon.com/images/S/aplus-media-library-service-media/cb845238-e918-4f92-93b0-c4170c8c5082.__CR0,0,1464,600_PT0_SX1464_V1___.png",
+          "https://m.media-amazon.com/images/S/aplus-media-library-service-media/d87b02ca-d4c5-4ce7-b010-05e0fa74685e.__CR0,0,1464,600_PT0_SX1464_V1___.png",
+          "https://m.media-amazon.com/images/S/aplus-media-library-service-media/e67674fc-c71e-4423-bd12-a3dd8a519afe.__CR0,0,650,350_PT0_SX650_V1___.png",
+          "https://m.media-amazon.com/images/S/aplus-media-library-service-media/db7805e4-c775-4f29-86c6-d1c5e5bcc521.__CR0,55,1500,640_PT0_SX1464_V1___.jpg"
+        ],
+        "product-num": "B0CQ4TBV2N",
+        "category-path": ["비디오 게임", "PC", "엑세서리", "게임키보드"],
+        "brands": "AULA",
+        "discount": "-12%",
+        "currency": "KRW",
+        "ratings": 4.8,
+        "reviews": 448,
+        "options": [
+          "블랙&그레이&화이트",
+          "블루&퍼플&화이트",
+          "블루&화이트",
+          "블루&화이트&블랙"
+        ],
+        "coupon": -6830
       }
-      
-
-      
     }
   ]
 }

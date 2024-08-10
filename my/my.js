@@ -92,7 +92,7 @@ if (
 }
 
 mySearch.addEventListener("click", () => {
-  mobilePageFrame.setAttribute("src", "./mobileSearch/msearch.html");
+  mobilePageFrame.setAttribute("src", "../mobileSearch/msearch.html");
   document.body.classList.add("active");
   mainContent.classList.add("active");
   mobilePageFrame.classList.add("active");
