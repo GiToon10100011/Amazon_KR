@@ -29,7 +29,7 @@ html,
 body {
   position: relative;
   width: 100%;
-  height: 7900px;
+  height: 7960px;
   overflow-x: hidden;
 }
 
@@ -184,6 +184,31 @@ header {
       }
     }
   }
+  .middle-sideMenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    li {
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      cursor: pointer;
+      &:hover {
+        background: #fafafa;
+        color: map-get($map: $color, $key: main-amazon-color);
+      }
+    }
+    &.active{
+      display: block;
+    }
+  }
   &.active {
     left: 0;
   }
@@ -193,13 +218,92 @@ header {
 #main-contents {
   position: absolute;
   z-index: 2;
-  top: 120px;
+  top: 20px;
   left: 0;
   // height: 3000px;
   #main-slider-wrap {
     position: relative;
     margin-bottom: 178px !important;
     width: 100vw;
+    .slick-slider {
+      height: 880px !important;
+    }
+    .slick-slide {
+      height: 880px !important;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 880px !important;
+        object-fit: cover;
+        margin: 100px auto 0 auto;
+      }
+      p {
+        width: 70%;
+        font-size: 64px;
+        position: absolute;
+        top: 300px;
+        left: 6%;
+        font-weight: bold;
+        color: map-get($map: $color, $key: main-color);
+        text-align: left;
+        border-left: 8px solid;
+        padding-left: 10px;
+        span {
+          display: block;
+          &.subtitle {
+            font-size: 34px;
+            color: map-get($map: $color, $key: main-border-color);
+            font-weight: normal;
+          }
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 88.8%;
+        // background: rgba($color: #fff, $alpha: 0.2);
+        background: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0.1),
+          rgba(0, 0, 0, 0.4)
+        );
+      }
+      &[data-slick-index="0"] div p {
+        left: auto;
+        right: 6%;
+        border-left: none;
+        border-right: 8px solid;
+        text-align: right;
+        padding-left: 0;
+        padding-right: 10px;
+      }
+      &[data-slick-index="1"] div p {
+        left: auto;
+        right: 6%;
+        border-left: none;
+        border-right: 8px solid;
+        text-align: right;
+        padding-left: 0;
+        padding-right: 10px;
+      }
+      &[data-slick-index="2"] div p {
+        left: auto;
+        right: 6%;
+        border-left: none;
+        border-right: 8px solid;
+        text-align: right;
+        padding-left: 0;
+        padding-right: 10px;
+      }
+      &[data-slick-index="3"] div p {
+        top: 180px;
+        left: 40px;
+      }
+    }
     .main-slider-title {
       white-space: nowrap;
       position: absolute;
@@ -594,37 +698,81 @@ header {
     height: 7400px;
     #main-slider-wrap {
       margin-bottom: 120px !important;
-      .main-slider {
-        position: relative;
+      .slick-slider {
+        height: 380px !important;
+      }
+      .slick-slide {
         height: 380px !important;
         img {
           height: 380px !important;
           object-fit: cover;
         }
-        .slick-dots {
-          position: absolute;
-          bottom: -16px;
-          display: flex;
-          justify-content: flex-end;
-          align-items: flex-start;
-          gap: 6px;
-          padding: 0 14px;
-          li {
+        p {
+          width: 260px;
+          font-size: 24px;
+          top: 180px;
+          left: 40px;
+          border-left: 4px solid;
+          font-weight: 550;
+          span {
+            &.subtitle {
+              font-size: 12px;
+              white-space: nowrap;
+            }
+          }
+        }
+        &[data-slick-index="0"] div p {
+          left: auto;
+          right: 40px;
+          border-left: none;
+          border-right: 4px solid;
+          text-align: right;
+          padding-left: 0;
+          padding-right: 10px;
+        }
+        &[data-slick-index="1"] div p {
+          left: auto;
+          right: 40px;
+          border-left: none;
+          border-right: 4px solid;
+          text-align: right;
+          padding-left: 0;
+          padding-right: 10px;
+        }
+        &[data-slick-index="2"] div p {
+          left: auto;
+          right: 40px;
+          border-left: none;
+          border-right: 4px solid;
+          text-align: right;
+          padding-left: 0;
+          padding-right: 10px;
+        }
+      }
+      .slick-dots {
+        position: absolute;
+        bottom: -16px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 0 14px;
+        li {
+          width: 5px;
+          height: 5px;
+          margin: 0;
+          button {
             width: 5px;
             height: 5px;
-            margin: 0;
-            button {
-              width: 5px;
-              height: 5px;
+            padding: 0;
+            &::before {
               padding: 0;
-              &::before {
-                padding: 0;
-                margin: 0;
-              }
+              margin: 0;
             }
           }
         }
       }
+
       .main-slider-title {
         display: flex;
         align-items: center;

@@ -14,6 +14,8 @@ $(".main-slider").slick({
       settings: {
         slidesToShow: 1,
         dots: true,
+        arrows : false,
+        fade : false,
       },
     },
   ],
