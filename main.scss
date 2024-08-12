@@ -98,10 +98,6 @@ header {
         li {
           width: 100%;
           padding: 10px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 14px;
           cursor: pointer;
           &:hover {
             background: linear-gradient(
@@ -116,12 +112,47 @@ header {
           &:hover i {
             color: map-get($map: $color, $key: main-color);
           }
-          span {
+          div {
             display: flex;
-            gap: 4px;
+            justify-content: space-between;
             align-items: center;
-            &.material-symbols-outlined {
-              font-size: 12px;
+            font-size: 14px;
+            span {
+              display: flex;
+              gap: 4px;
+              align-items: center;
+              &.material-symbols-outlined {
+                font-size: 12px;
+              }
+            }
+          }
+          .categories-middle {
+            opacity: 0;
+            max-width: 0;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            overflow-y: scroll;
+            transition: opacity 0.3s;
+            li {
+              width: 100%;
+              padding: 10px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              font-size: 14px;
+              cursor: pointer;
+              &:hover {
+                background: #fafafa;
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+            &.active {
+              max-width: 100%;
+              opacity: 1;
             }
           }
         }
@@ -182,31 +213,6 @@ header {
           }
         }
       }
-    }
-  }
-  .middle-sideMenu {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 100%;
-    height: 100%;
-    background: white;
-    li {
-      width: 100%;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-      cursor: pointer;
-      &:hover {
-        background: #fafafa;
-        color: map-get($map: $color, $key: main-amazon-color);
-      }
-    }
-    &.active{
-      display: block;
     }
   }
   &.active {

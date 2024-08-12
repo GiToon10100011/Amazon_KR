@@ -474,10 +474,6 @@ header {
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li {
   width: 100%;
   padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
   cursor: pointer;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover {
@@ -486,13 +482,48 @@ header {
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover span, .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover i {
   color: #fff;
 }
-.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li span {
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li div span {
   display: flex;
   gap: 4px;
   align-items: center;
 }
-.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li span.material-symbols-outlined {
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li div span.material-symbols-outlined {
   font-size: 12px;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle {
+  opacity: 0;
+  max-width: 0;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  overflow-y: scroll;
+  transition: opacity 0.3s;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle li {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle li:hover {
+  background: #fafafa;
+  color: #ff9900;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle.active {
+  max-width: 100%;
+  opacity: 1;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-misc {
   display: flex;
@@ -545,31 +576,6 @@ header {
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li:hover:not(.material-symbols-outlined) {
   text-decoration: underline;
-}
-.main-sideMenu-container .middle-sideMenu {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 100%;
-  height: 100%;
-  background: white;
-}
-.main-sideMenu-container .middle-sideMenu li {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  cursor: pointer;
-}
-.main-sideMenu-container .middle-sideMenu li:hover {
-  background: #fafafa;
-  color: #ff9900;
-}
-.main-sideMenu-container .middle-sideMenu.active {
-  display: block;
 }
 .main-sideMenu-container.active {
   left: 0;

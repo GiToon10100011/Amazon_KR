@@ -277,7 +277,7 @@ bgFilter.addEventListener("click", () => {
 });
 
 const categories = {
-  "전자": [
+  전자: [
     "엑세서리 및 용품",
     "카메라 및 사진",
     "자동차 및 엑세서리",
@@ -294,7 +294,7 @@ const categories = {
     "웨어러블 테크 제품",
     "전자책 리더 및 액세서리",
   ],
-  "컴퓨터": [
+  컴퓨터: [
     "컴퓨터 액세서리 및 주변기기",
     "컴퓨터 구성품",
     "컴퓨터 및 태블릿",
@@ -342,7 +342,7 @@ const categories = {
     "자동차 매니아용 상품",
     "대형차 및 상용차 장비",
   ],
-  "유아": [
+  유아: [
     "놀이 및 오락",
     "의류 및 액세서리",
     "유아 및 아기 장난감",
@@ -370,8 +370,8 @@ const categories = {
     "퍼스널 케어",
     "구강 케어",
   ],
-  "여성패션": ["의류", "신발", "보석", "시계", "핸드백", "액세서리"],
-  "남성패션": ["의류", "신발", "시계", "액세서리"],
+  여성패션: ["의류", "신발", "보석", "시계", "핸드백", "액세서리"],
+  남성패션: ["의류", "신발", "시계", "액세서리"],
   "아동용 의류": ["의류", "신발", "보석", "시계", "액세서리", "교복"],
   "건강 및 가정용품": [
     "케어",
@@ -465,7 +465,7 @@ const categories = {
     "파충류 및 양서류",
     "소형 동물",
   ],
-  "소프트웨어": [
+  소프트웨어: [
     "회계 및 재무",
     "안티바이러스 및 보안",
     "기업 및 사무소",
@@ -550,31 +550,53 @@ const categories = {
   ],
 };
 
-const categoriesKeys = ["전자", "컴퓨터", "예술 및 공예", "자동차 용품", "유아", "뷰티 및 퍼스널케어", "여성패션", "남성패션", "아동용 의류", "건강 및 가정용품", "가정 및 주방", "산업용 및 과학용", "여행 가방", "영화 및 TV", "애왕동물 용품", "소프트웨어", "스포츠 및 야외 활동", "공구 및 주택 개조", "장난감 및 게임", "비디오 게임"];
+const categoriesKeys = [
+  "전자",
+  "컴퓨터",
+  "예술 및 공예",
+  "자동차 용품",
+  "유아",
+  "뷰티 및 퍼스널케어",
+  "여성패션",
+  "남성패션",
+  "아동용 의류",
+  "건강 및 가정용품",
+  "가정 및 주방",
+  "산업용 및 과학용",
+  "여행 가방",
+  "영화 및 TV",
+  "애왕동물 용품",
+  "소프트웨어",
+  "스포츠 및 야외 활동",
+  "공구 및 주택 개조",
+  "장난감 및 게임",
+  "비디오 게임",
+];
 
 const categoryItems = document.querySelectorAll(".categories-large li");
 
-const middleSidebar = document.querySelector(".middle-sideMenu");
-
 categoryItems.forEach((item, index) => {
-  
-  item.addEventListener("mouseover", () => {
-    middleSidebar.classList.add("active");
-    const middleSidebarItems = middleSidebar.querySelector("ul");
-    const li = document.createElement("li");
-    middleSidebarItems.appendChild(li);
-  })
-})
-middleSidebar.addEventListener("mouseover", () => {
-  middleSidebar.classList.add("active");
-})
-middleSidebar.addEventListener("mouseout", () => {
-  middleSidebar.classList.remove("active");
-})
+  item.addEventListener("mouseover", (e) => {
+    console.log(e.relatedTarget.tagName);
+    const middleCategoryItems = item.querySelector(".categories-middle");
+    middleCategoryItems.classList.add("active");
 
-// categoriesKeys.forEach((key, index) => {
-//   console.log(categories[categoriesKeys[index]]);
-// })
+    for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
+      const lis = middleCategoryItems.querySelectorAll("li");
+      if (lis.length >= categories[categoriesKeys[index]].length) {
+        break;
+      } else {
+        const li = document.createElement("li");
+        li.innerHTML = `<a>${categories[categoriesKeys[index]][i]}</a>`;
+        middleCategoryItems.appendChild(li);
+      }
+    }
+  });
+  item.addEventListener("mouseout", (e) => {
+    const middleCategoryItems = item.querySelector(".categories-middle");
+    middleCategoryItems.classList.remove("active");
+  });
+});
 
 // ranking auto scroll
 let scrollIndex = 0;
