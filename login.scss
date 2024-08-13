@@ -163,7 +163,7 @@ html, body{
 
 .login {
   width: 1200px;
-  height: 75%;
+  height: 80%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -193,6 +193,16 @@ html, body{
       height: 65px;
       }
     }
+
+    .h1mobile {
+      display: none;
+    }
+    .h1mobile .active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 45px;
+    }
   }
   .wrapper_right {
     margin-right: 20%;
@@ -215,6 +225,7 @@ html, body{
       .inputbox {
         width: 300px;
         height: 50px;
+        padding-left: 5px;
         border: 0.5px solid #ddd;
         border-radius: 8px;
         &::placeholder {
@@ -231,14 +242,25 @@ html, body{
         width: 100%;
       }
       .inputbox {
+        position: relative;
         width: 300px;
         height: 50px;
+        padding-left: 5px;
         border: 0.5px solid #ddd;
         border-radius: 8px;
         &::placeholder {
           color: map-get($map: $color, $key: main-border-color);
           font-size: 14px;
           padding-left: 5px;
+        }
+      }
+      i {
+        position: absolute;
+        top: 41.5%;
+        right: 21%;
+        color: map-get($map: $color, $key: main-border-color);
+        &.active {
+          color: crimson;
         }
       }
     }
@@ -264,6 +286,9 @@ html, body{
           padding-left: 20px;
           cursor: pointer;
         }
+        input[id="autoLogSave"] + label{
+          display: none;
+        }
         input[id="autoLog"] + label::before {
           content: "";
           position: absolute;
@@ -283,6 +308,9 @@ html, body{
           left: 0;
           background: url("./img/checkOn.png")center/cover no-repeat;
           }
+        }
+        .logSubDetail2 {
+          display: none;
         }
       .rememId {
         position: relative;
@@ -345,6 +373,7 @@ html, body{
         justify-content: center;
         align-items: center;
         padding: 20px;
+        margin-bottom: 15px;
         span {
           color: map-get($map: $color, $key: main-border-color);
           font-size: 13px;
@@ -360,14 +389,32 @@ html, body{
       }
     }
   .sns {
+    width: 300px;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    img {
-      width: 40px;
-      height: 40px;
-      margin: 5px;
-      }
+    border: none;
+    border-top: 1px solid #000;
+    legend {
+      text-align: center;
+      padding: 0 10px;
+      font-size: 14px;
+      color: map-get($map: $color, $key: main-desc-color);
+      margin-bottom: 10px;
+    }
+    .snsIcon {
+      width: 300px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      img {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        }
+    }
     }
   }
 }
@@ -381,12 +428,172 @@ iframe {
 
 // mobile
 @media screen and (max-width: 768px) {
-  body, html {
+  body {
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // overflow: hidden;
   }
   header, iframe {
     display: none;
+  }
+
+  .login {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    .wrapper_left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      padding-bottom: 15px;
+      // border: 1px solid #f00;
+      h1 {
+        display: none;
+      }
+      .logo {
+        img {
+          width: 320px;
+          height: 85px;
+        }
+      }
+      .h1mobile {
+        display: block;
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 33px;
+      }
+    }
+    .wrapper_right {
+      display: block;
+      margin: 0 auto;
+      // position: absolute;
+      // border: 1px solid #f00;
+      h2 {
+        display: none;
+      }
+        .log_middle {
+          form {
+            .log_id {
+              .inputbox {
+                width: 310px;
+                height: 60px;
+                padding-left: 5px;
+                background: map-get($map: $color, $key: searchBar-bg-color);
+                border: 1px solid map-get($map: $color, $key: light-placeholder-color);
+                &::placeholder {
+                  color: map-get($map: $color, $key: light-placeholder-color);
+                  font-size: 15px;
+                  padding-left: 5px;
+                }
+                &:focus {
+                  outline: none;
+                }
+              }
+            }
+            .log_pw {
+              position: relative;
+              .inputbox {
+                width: 310px;
+                height: 60px;
+                padding-left: 5px;
+                background: map-get($map: $color, $key: searchBar-bg-color);
+                border: 1px solid map-get($map: $color, $key: light-placeholder-color);
+                &::placeholder {
+                  color: map-get($map: $color, $key: light-placeholder-color);
+                  font-size: 15px;
+                  padding-left: 5px;
+                }
+                &:focus {
+                  outline: none;
+                }
+              }
+              i {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 10px;
+                color: map-get($map: $color, $key: light-placeholder-color);
+              }
+            }
+          }
+        }
+      .logDetail{
+        .logSet {
+          width: 310px;
+          display: flex;
+          justify-content: space-between;
+          .autoLog {
+            input[id="autoLog"] + label {
+              display: none;
+            }
+            input[id="autoLogSave"] + label {
+              display: block;
+              font-size: 15px;
+              font-weight: 330;
+            }
+            input[id="autoLogSave"] + label::before {
+              content: "";
+              position: absolute;
+              width: 16px;
+              height: 16px;
+              top: 13px;
+              left: 0;
+              background: url("./img/checkOff1.png")center/cover no-repeat;
+              }
+    
+            input[id="autoLogSave"]:checked + label::after {
+              content: "";
+              position: absolute;
+              width: 16px;
+              height: 16px;
+              top: 13px;
+              left: 0;
+              background: url("./img/checkOn.png")center/cover no-repeat;
+              }
+          }
+          .logSubDetail2 {
+            display: block;
+            padding-top: 8px;
+            font-size: 14px;
+            font-weight: 330;
+            span {
+              color: map-get($map: $color, $key: main-border-color);
+              font-size: 14px;
+              font-weight: 300;
+              padding-right: 5px;
+              transition: all 0.3s;
+              cursor: pointer;
+              // &:hover {
+              //   color: map-get($map: $color, $key: main-desc-color);
+              //   text-decoration: underline;
+              // }
+            }
+            }
+          .rememId {
+            display: none;
+          }
+        }
+        input[type="submit"] {
+          width: 310px;
+          height: 60px;
+          font-weight: 600;
+        }
+        .logSubDetail {
+          display: none;
+        }
+      }
+      .sns {
+        padding: 20px 0;
+        border: none;
+        legend {
+          display: none;
+        }
+      }
+    }
   }
 }

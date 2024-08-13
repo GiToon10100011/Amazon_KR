@@ -586,9 +586,6 @@ html, body {
   padding-left: 20px;
   cursor: pointer;
 }
-.login .wrapper_right .logDetail .logSet .autoLog input[id=autoLogSave] + label {
-  display: none;
-}
 .login .wrapper_right .logDetail .logSet .autoLog input[id=autoLog] + label::before {
   content: "";
   position: absolute;
@@ -606,9 +603,6 @@ html, body {
   top: 15px;
   left: 0;
   background: url("./img/checkOn.png") center/cover no-repeat;
-}
-.login .wrapper_right .logDetail .logSet .logSubDetail2 {
-  display: none;
 }
 .login .wrapper_right .logDetail .logSet .rememId {
   position: relative;
@@ -712,34 +706,28 @@ iframe {
 }
 
 @media screen and (max-width: 768px) {
-  body {
+  body, html {
     width: 100%;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
   }
   header, iframe {
     display: none;
   }
   .login {
     display: flex;
-    flex-direction: column;
-    padding: 0 20px;
+    top: -10%;
   }
   .login .wrapper_left {
     display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
-    padding-bottom: 15px;
   }
   .login .wrapper_left h1 {
     display: none;
   }
   .login .wrapper_left .logo img {
-    width: 320px;
-    height: 85px;
+    width: 330px;
+    height: 90px;
   }
   .login .wrapper_left .h1mobile {
     display: block;
@@ -748,124 +736,10 @@ iframe {
     margin-top: 20px;
     font-size: 33px;
   }
-  .login .wrapper_right {
-    display: block;
-    margin: 0 auto;
-  }
   .login .wrapper_right h2 {
     display: none;
   }
-  .login .wrapper_right .log_middle form .log_id .inputbox {
-    width: 310px;
-    height: 60px;
-    padding-left: 5px;
-    background: #eee;
-    border: 1px solid #bbb;
-  }
-  .login .wrapper_right .log_middle form .log_id .inputbox::-moz-placeholder {
-    color: #bbb;
-    font-size: 15px;
-    padding-left: 5px;
-  }
-  .login .wrapper_right .log_middle form .log_id .inputbox::placeholder {
-    color: #bbb;
-    font-size: 15px;
-    padding-left: 5px;
-  }
-  .login .wrapper_right .log_middle form .log_id .inputbox:focus {
-    outline: none;
-  }
-  .login .wrapper_right .log_middle form .log_pw {
-    position: relative;
-  }
-  .login .wrapper_right .log_middle form .log_pw .inputbox {
-    width: 310px;
-    height: 60px;
-    padding-left: 5px;
-    background: #eee;
-    border: 1px solid #bbb;
-  }
-  .login .wrapper_right .log_middle form .log_pw .inputbox::-moz-placeholder {
-    color: #bbb;
-    font-size: 15px;
-    padding-left: 5px;
-  }
-  .login .wrapper_right .log_middle form .log_pw .inputbox::placeholder {
-    color: #bbb;
-    font-size: 15px;
-    padding-left: 5px;
-  }
-  .login .wrapper_right .log_middle form .log_pw .inputbox:focus {
-    outline: none;
-  }
-  .login .wrapper_right .log_middle form .log_pw i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 10px;
-    color: #bbb;
-  }
-  .login .wrapper_right .logDetail .logSet {
-    width: 310px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .login .wrapper_right .logDetail .logSet .autoLog input[id=autoLog] + label {
-    display: none;
-  }
-  .login .wrapper_right .logDetail .logSet .autoLog input[id=autoLogSave] + label {
-    display: block;
-    font-size: 15px;
-    font-weight: 330;
-  }
-  .login .wrapper_right .logDetail .logSet .autoLog input[id=autoLogSave] + label::before {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 13px;
-    left: 0;
-    background: url("./img/checkOff1.png") center/cover no-repeat;
-  }
-  .login .wrapper_right .logDetail .logSet .autoLog input[id=autoLogSave]:checked + label::after {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 13px;
-    left: 0;
-    background: url("./img/checkOn.png") center/cover no-repeat;
-  }
-  .login .wrapper_right .logDetail .logSet .logSubDetail2 {
-    display: block;
-    padding-top: 8px;
-    font-size: 14px;
-    font-weight: 330;
-  }
-  .login .wrapper_right .logDetail .logSet .logSubDetail2 span {
-    color: #ccc;
-    font-size: 14px;
-    font-weight: 300;
-    padding-right: 5px;
-    transition: all 0.3s;
-    cursor: pointer;
-  }
-  .login .wrapper_right .logDetail .logSet .rememId {
-    display: none;
-  }
-  .login .wrapper_right .logDetail input[type=submit] {
-    width: 310px;
-    height: 60px;
-    font-weight: 600;
-  }
-  .login .wrapper_right .logDetail .logSubDetail {
-    display: none;
-  }
-  .login .wrapper_right .sns {
-    padding: 20px 0;
-    border: none;
-  }
-  .login .wrapper_right .sns legend {
-    display: none;
+  .login .wrapper_right .log_middle .log_id #id {
+    border: 1px solid #f00;
   }
 }

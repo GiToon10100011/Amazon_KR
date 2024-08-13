@@ -181,29 +181,35 @@
             <a href="#none">
               <img src="./img/amazonLogo.png" alt="logo">
             </a>
-          </div>
+          </div> 
+          <h1 class="h1mobile">
+            아마존 코리아 <span>모바일</span>에서</br><span>더 많은 상품</span>들을 만나세요!
+          </h1>
     </div>
     <div class="wrapper_right">
       <h2>회원 로그인</h2>
       <div class="log_middle">
-        <div class="log_id">
-          <label for="id"></label>
-          <input
-          id="id"
-          class="inputbox"
-          type="text"
-          placeholder="아이디를 입력해주세요."
-          />
-        </div>
-        <div class="log_pw">
-          <label for="id"></label>
-          <input
-          id="password"
-          class="inputbox"
-          type="password"
-          placeholder="비밀번호를 입력해주세요."
-          />
-        </div>
+        <form>
+          <div class="log_id">
+            <label for="id"></label>
+            <input
+            id="id"
+            class="inputbox"
+            type="text"
+            placeholder="아이디를 입력해주세요."
+            />
+          </div>
+          <div class="log_pw">
+            <label for="password"></label>
+            <input
+            id="password"
+            class="inputbox"
+            type="password"
+            placeholder="비밀번호를 입력해주세요."
+            />
+            <i class="fa-solid fa-eye-slash"></i>
+          </div>
+        </form>
       </div>
       <div class="logDetail">
         <div class="logSet">
@@ -213,6 +219,15 @@
             name="autoLog"
             id="autoLog">
             <label for="autoLog">자동 로그인</label>
+            <input 
+            type="checkbox"
+            name="autoLogSave"
+            id="autoLogSave">
+            <label for="autoLogSave">로그인 상태 유지</label>
+          </div>
+          <div class="logSubDetail2">
+            <span>아이디 찾기 |</span>
+            <span>비밀번호 찾기</span>
           </div>
           <div class="rememId">
             <input
@@ -222,18 +237,23 @@
             <label for="rememId">아이디 저장</label>
           </div>
         </div>
-        <input type="submit" value="로그인">
+        <input id="loginSubmit" type="submit" value="로그인">
         <div class="logSubDetail">
           <span>아이디 찾기 |</span>
           <span>비밀번호 찾기 |</span>
           <span>회원가입</span>
         </div>
       </div>
-      <div class="sns">
-        <a href="https://www.naver.com/"><img src="./img/sns_naver.png" alt="naver"></a>
-        <a href="https://support.apple.com/ko-kr/111001"><img src="./img/sns_apple.png" alt="apple"></a>
-        <a href="https://www.google.com/?hl=ko"><img src="./img/sns_google.png" alt="google"></a>
-        <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><img src="./img/sns_talk.png" alt="talk"></a>
+      <!-- SNS -->
+        <fieldset class="sns">
+          <legend>SNS 간편 로그인</legend>
+          <div class="snsIcon">
+            <a href="https://www.naver.com/"><img src="./img/sns_naver.png" alt="naver"></a>
+            <a href="https://support.apple.com/ko-kr/111001"><img src="./img/sns_apple.png" alt="apple"></a>
+            <a href="https://www.google.com/?hl=ko"><img src="./img/sns_google.png" alt="google"></a>
+            <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><img src="./img/sns_talk.png" alt="talk"></a>
+          </div>
+        </fieldset>
       </div>
     </div>
   </div>
