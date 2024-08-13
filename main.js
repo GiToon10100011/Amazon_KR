@@ -14,8 +14,8 @@ $(".main-slider").slick({
       settings: {
         slidesToShow: 1,
         dots: true,
-        arrows : false,
-        fade : false,
+        arrows: false,
+        fade: false,
       },
     },
   ],
@@ -76,6 +76,10 @@ mbs.slick({
   ],
 });
 
+// Scroll events
+const promotionSection = document.querySelector(".promotions-items ul");
+const eventSection = document.querySelector(".event-slider-wrap");
+
 window.addEventListener("scroll", () => {
   let scrollY = window.scrollY;
   const categorySidebar = document.querySelector(".category-sideBar");
@@ -84,23 +88,16 @@ window.addEventListener("scroll", () => {
     categorySidebar.classList.add("fixed");
     if (scrollY >= 6000) categorySidebar.classList.remove("fixed");
   } else categorySidebar.classList.remove("fixed");
+
+  if (scrollY >= promotionSection.offsetHeight - window.innerHeight / 5) {
+    promotionSection.classList.add("active");
+  }
+  if (scrollY >= 1400) {
+    eventSection.classList.add("active");
+  }
 });
 
-// section event
-// const sections = document.querySelectorAll("section");
-
-// window.addEventListener("scroll", function () {
-//   let Scroll = this.scrollY;
-
-//   sections.forEach((section) => {
-//     if (Scroll >= section.offsetHeight - this.window.innerHeight / 5) {
-//       section.classList.add("active");
-//     }
-//   });
-// });
-
-
-//wishlist event 
+//wishlist event
 // import {pageFrame, myPages} from "./my.js";
 // const wishlistShortcut = document.querySelector(".icon-menu .item:last-child");
 // console.log(wishlistShortcut);
@@ -108,5 +105,3 @@ window.addEventListener("scroll", () => {
 //   e.preventDefault();
 //   pageFrame.setAttribute("src", myPages[1]);
 // })
-
-

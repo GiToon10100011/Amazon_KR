@@ -241,10 +241,42 @@ header .banner .lnb-content .lnb-main .lnb {
   padding: 10px;
 }
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy {
+  position: relative;
   cursor: pointer;
 }
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy .fa-circle-question {
   font-size: 14px;
+}
+header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::after, header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::before {
+  opacity: 1;
+}
+header .banner .lnb-content .lnb-main .lnb .online-pharmacy::before {
+  content: attr(data-info);
+  position: absolute;
+  white-space: pre-wrap;
+  bottom: -334px;
+  width: 180px;
+  height: auto;
+  padding: 20px;
+  font-size: 12px;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: all 0.3s;
+}
+header .banner .lnb-content .lnb-main .lnb .online-pharmacy::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: 2.5px;
+  width: 0;
+  height: 0;
+  border-top: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 8px solid;
+  opacity: 0;
+  transition: all 0.3s;
 }
 header .banner .lnb-content .lnb-main .lnb a {
   transition: all 0.3s;
@@ -399,6 +431,26 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
   opacity: 1;
 }
 
+@keyframes show {
+  from {
+    opacity: 0;
+    margin-top: 60px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 20px;
+  }
+}
+@keyframes show2 {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 html,
 body {
   position: relative;
@@ -593,22 +645,22 @@ header {
   width: 100vw;
 }
 #main-contents #main-slider-wrap .slick-slider {
-  height: 880px !important;
+  height: 840px !important;
 }
 #main-contents #main-slider-wrap .slick-slide {
-  height: 880px !important;
+  height: 840px !important;
   position: relative;
 }
 #main-contents #main-slider-wrap .slick-slide img {
   width: 100%;
-  height: 880px !important;
+  height: 840px !important;
   -o-object-fit: cover;
      object-fit: cover;
   margin: 100px auto 0 auto;
 }
 #main-contents #main-slider-wrap .slick-slide p {
-  width: 70%;
-  font-size: 64px;
+  min-width: 70%;
+  font-size: 4vw;
   position: absolute;
   top: 300px;
   left: 6%;
@@ -622,7 +674,7 @@ header {
   display: block;
 }
 #main-contents #main-slider-wrap .slick-slide p span.subtitle {
-  font-size: 34px;
+  font-size: 2vw;
   color: #ccc;
   font-weight: normal;
 }
@@ -632,7 +684,7 @@ header {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 88.8%;
+  height: 88%;
   background: radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
 }
 #main-contents #main-slider-wrap .slick-slide[data-slick-index="0"] div p {
@@ -677,7 +729,7 @@ header {
 }
 #main-contents #main-slider-wrap .main-slider-title p {
   margin: 10px;
-  font-size: 19.5px;
+  font-size: 2vw;
   font-weight: 400;
   color: #000;
 }
@@ -741,6 +793,7 @@ header {
   gap: 20px;
 }
 #main-contents #container #main-promotions .promotions-items ul li {
+  opacity: 0;
   display: flex;
   flex-direction: column;
   flex-basis: 270px;
@@ -750,18 +803,24 @@ header {
   border: 1px solid #e1e1e1;
   border-radius: 4px;
   margin: 20px 0;
-  overflow: hidden;
   cursor: pointer;
 }
-#main-contents #container #main-promotions .promotions-items ul li img {
+#main-contents #container #main-promotions .promotions-items ul li div {
+  overflow: hidden;
+  width: 100%;
+}
+#main-contents #container #main-promotions .promotions-items ul li div img {
   transition: all 0.3s;
 }
-#main-contents #container #main-promotions .promotions-items ul li:hover img {
+#main-contents #container #main-promotions .promotions-items ul li div:hover img {
   overflow: hidden;
   transform: scale(1.1);
 }
-#main-contents #container #main-promotions .promotions-items ul li img {
+#main-contents #container #main-promotions .promotions-items ul li div img {
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #main-contents #container #main-promotions .promotions-items ul li p {
   overflow: hidden;
@@ -769,11 +828,39 @@ header {
   height: 70px;
   line-height: 70px;
 }
+#main-contents #container #main-promotions .promotions-items ul.active li {
+  animation: show 0.6s linear both;
+}
+#main-contents #container #main-promotions .promotions-items ul.active li:nth-child(1) {
+  animation-delay: 0.3s;
+}
+#main-contents #container #main-promotions .promotions-items ul.active li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+#main-contents #container #main-promotions .promotions-items ul.active li:nth-child(3) {
+  animation-delay: 0.5s;
+}
+#main-contents #container #main-promotions .promotions-items ul.active li:nth-child(4) {
+  animation-delay: 0.6s;
+}
+#main-contents #container #main-promotions .promotions-items ul.active li:nth-child(5) {
+  animation-delay: 0.7s;
+}
+#main-contents #container #main-promotions .promotions-items ul.active li:nth-child(6) {
+  animation-delay: 0.8s;
+}
+#main-contents #container #main-promotions .promotions-items ul.active li:nth-child(7) {
+  animation-delay: 0.9s;
+}
+#main-contents #container #main-promotions .promotions-items ul.active li:nth-child(8) {
+  animation-delay: 1s;
+}
 #main-contents #container #event-coupon {
   margin-bottom: 185px;
 }
 #main-contents #container #event-coupon .event-slider-wrap {
   margin-top: 37px;
+  opacity: 0;
 }
 #main-contents #container #event-coupon .event-slider-wrap .event-slider {
   /*슬라이드 내부디자인*/
@@ -803,6 +890,9 @@ header {
 }
 #main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide a.items p {
   font-size: 14px;
+}
+#main-contents #container #event-coupon .event-slider-wrap.active {
+  animation: show2 0.3s linear both;
 }
 #main-contents #container .category-container {
   display: flex;

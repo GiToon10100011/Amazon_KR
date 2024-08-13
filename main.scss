@@ -25,6 +25,29 @@
   transform: translateY(-50%);
 }
 
+//Animation
+@keyframes show {
+  from {
+    opacity: 0;
+    margin-top: 60px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 20px;
+  }
+}
+
+@keyframes show2 {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 html,
 body {
   position: relative;
@@ -232,21 +255,21 @@ header {
     margin-bottom: 178px !important;
     width: 100vw;
     .slick-slider {
-      height: 880px !important;
+      height: 840px !important;
     }
     .slick-slide {
-      height: 880px !important;
+      height: 840px !important;
       position: relative;
 
       img {
         width: 100%;
-        height: 880px !important;
+        height: 840px !important;
         object-fit: cover;
         margin: 100px auto 0 auto;
       }
       p {
-        width: 70%;
-        font-size: 64px;
+        min-width: 70%;
+        font-size: 4vw;
         position: absolute;
         top: 300px;
         left: 6%;
@@ -258,7 +281,7 @@ header {
         span {
           display: block;
           &.subtitle {
-            font-size: 34px;
+            font-size: 2vw;
             color: map-get($map: $color, $key: main-border-color);
             font-weight: normal;
           }
@@ -270,7 +293,7 @@ header {
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 88.8%;
+        height: 88%;
         // background: rgba($color: #fff, $alpha: 0.2);
         background: radial-gradient(
           circle,
@@ -320,7 +343,7 @@ header {
       background-color: map-get($color, $key: main-amazon-color);
       p {
         margin: 10px;
-        font-size: 19.5px;
+        font-size: 2vw;
         font-weight: 400;
         color: map-get($map: $color, $key: main-dark-color);
       }
@@ -384,6 +407,7 @@ header {
           flex-wrap: wrap;
           gap: 20px;
           li {
+            opacity: 0;
             display: flex;
             flex-direction: column;
             flex-basis: 270px;
@@ -393,16 +417,50 @@ header {
             border: 1px solid #e1e1e1;
             border-radius: 4px;
             margin: 20px 0;
-            @include extendItems;
             cursor: pointer;
-            img {
+            div {
+              @include extendItems;
               width: 100%;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
             }
             p {
               overflow: hidden;
               padding: 0 20px;
               height: 70px;
               line-height: 70px;
+            }
+          }
+          &.active {
+            li {
+              animation: show 0.6s linear both;
+              &:nth-child(1) {
+                animation-delay: 0.3s;
+              }
+              &:nth-child(2) {
+                animation-delay: 0.4s;
+              }
+              &:nth-child(3) {
+                animation-delay: 0.5s;
+              }
+              &:nth-child(4) {
+                animation-delay: 0.6s;
+              }
+              &:nth-child(5) {
+                animation-delay: 0.7s;
+              }
+              &:nth-child(6) {
+                animation-delay: 0.8s;
+              }
+              &:nth-child(7) {
+                animation-delay: 0.9s;
+              }
+              &:nth-child(8) {
+                animation-delay: 1s;
+              }
             }
           }
         }
@@ -413,6 +471,7 @@ header {
       margin-bottom: 185px;
       .event-slider-wrap {
         margin-top: 37px;
+        opacity: 0;
         .event-slider {
           /*슬라이드 내부디자인*/
           .slick-slide {
@@ -441,6 +500,9 @@ header {
               }
             }
           }
+        }
+        &.active {
+          animation: show2 0.3s linear both;
         }
       }
     }

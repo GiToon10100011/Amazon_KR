@@ -189,7 +189,7 @@ const body = document.querySelector("#header");
                 <li><a href="#none">이벤트/쿠폰</a></li>
                 <li><a href="#none">선물하기</a></li>
                 <li><a href="#none">장보기</a></li>
-                <li class="online-pharmacy">
+                <li class="online-pharmacy" data-info = "&#x2022; 온라인 약국이란?&#10;&#10;온라인 약국 서비스는 집에서 간편하게 필요한 약을 주문할 수 있는 혁신적인 플랫폼입니다.&#10;&#10; 최신 기술을 활용하여 사용자는 손쉽게 약품을 검색하고 구매할 수 있으며, 안전하고 신뢰할 수 있는 배송 서비스를 제공합니다.&#10;&#10; 건강 관리의 편리함을 더하고 빠르고 효율적인 서비스로 여러분의 건강을 지원합니다. &#10;&#10;지금 바로 저희와 함께 건강한 생활을 시작해 보세요!">
                   <a href="#none">온라인 약국</a>
                   <i class="fa-regular fa-circle-question"></i>
                 </li>
@@ -577,22 +577,21 @@ const categoryItems = document.querySelectorAll(".categories-large li");
 
 categoryItems.forEach((item, index) => {
   item.addEventListener("mouseover", (e) => {
-    console.log(e.relatedTarget.tagName);
     const middleCategoryItems = item.querySelector(".categories-middle");
     middleCategoryItems.classList.add("active");
 
     for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
       const lis = middleCategoryItems.querySelectorAll("li");
-      if (lis.length >= categories[categoriesKeys[index]].length) {
-        break;
-      } else {
+      if (lis.length < categories[categoriesKeys[index]].length) {
         const li = document.createElement("li");
         li.innerHTML = `<a>${categories[categoriesKeys[index]][i]}</a>`;
         middleCategoryItems.appendChild(li);
+      } else {
+        break;
       }
     }
   });
-  item.addEventListener("mouseout", (e) => {
+  item.addEventListener("mouseout", () => {
     const middleCategoryItems = item.querySelector(".categories-middle");
     middleCategoryItems.classList.remove("active");
   });
@@ -635,4 +634,13 @@ mobileTop.addEventListener("click", function (e) {
     top: 0,
     behavior: "smooth",
   });
+});
+
+// Online pharmacy popup event
+const onlinePharmacy = document.querySelector(".online-pharmacy");
+const onlinePharmacyToggle = onlinePharmacy.querySelector(
+  ".fa-circle-question"
+);
+onlinePharmacyToggle.addEventListener("click", () => {
+  onlinePharmacy.classList.toggle("active");
 });
