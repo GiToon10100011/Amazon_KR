@@ -69,7 +69,7 @@ const body = document.querySelector("#header");
                 <hr class="bar" />
                 <div class="inputBox">
                   <div class="inputBox first">
-                    <span class="material-symbols-outlined"> mic </span>
+                    <span class="material-symbols-outlined micToggle"> mic </span>
                     <input
                       type="search"
                       name="searchBar"
@@ -576,9 +576,11 @@ const categoriesKeys = [
 const categoryItems = document.querySelectorAll(".categories-large li");
 
 categoryItems.forEach((item, index) => {
-  item.addEventListener("mouseover", (e) => {
+  item.addEventListener("mouseover", () => {
     const middleCategoryItems = item.querySelector(".categories-middle");
-    middleCategoryItems.classList.add("active");
+    if(middleCategoryItems){
+      middleCategoryItems.classList.add("active");
+    }
 
     for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
       const lis = middleCategoryItems.querySelectorAll("li");
@@ -591,9 +593,12 @@ categoryItems.forEach((item, index) => {
       }
     }
   });
-  item.addEventListener("mouseout", () => {
+
+  item.addEventListener("mouseout", (e) => {
     const middleCategoryItems = item.querySelector(".categories-middle");
-    middleCategoryItems.classList.remove("active");
+    if(!middleCategoryItems.contains(e.relatedTarget)){
+      middleCategoryItems.classList.remove("active");
+    }
   });
 });
 
@@ -644,3 +649,47 @@ const onlinePharmacyToggle = onlinePharmacy.querySelector(
 onlinePharmacyToggle.addEventListener("click", () => {
   onlinePharmacy.classList.toggle("active");
 });
+
+//Speech Recognition Event
+
+const SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (!SpeechRecognition) {
+  alert("Voice Recognition이 지원되지 않는 브라우저입니다.");
+} else {
+  const recognition = new SpeechRecognition();
+  recognition.lang = "ko-KR";
+  recognition.interimResults = false;
+
+  let isRecognizing = false;
+
+  const searchInput = document.getElementById("main-search");
+  const startButton = document.querySelector(".micToggle");
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    searchInput.value = transcript;
+    console.log("You said: ", transcript);
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Error occurred in recognition:", event.error);
+  };
+
+  startButton.addEventListener("click", () => {
+    if (isRecognizing) {
+      recognition.stop();
+    } else {
+      recognition.start();
+      isRecognizing = true;
+      console.log("Voice Recognition Started");
+    }
+  });
+
+  recognition.onend = () => {
+    isRecognizing = false;
+    console.log("Speech recognition service disconnected");
+  };
+}
+

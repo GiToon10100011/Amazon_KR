@@ -81,7 +81,7 @@ header {
   z-index: 10000;
   position: fixed;
   top: 0;
-  left: -100%;
+  left: -216px;
   background: map-get($map: $color, $key: main-color);
   width: 216px;
   transition: all 0.6s;
@@ -122,6 +122,9 @@ header {
           width: 100%;
           padding: 10px;
           cursor: pointer;
+          .fa-chevron-right {
+            opacity: 0;
+          }
           &:hover {
             background: linear-gradient(
               90deg,
@@ -134,6 +137,7 @@ header {
           &:hover span,
           &:hover i {
             color: map-get($map: $color, $key: main-color);
+            opacity: 1;
           }
           div {
             display: flex;
@@ -150,8 +154,7 @@ header {
             }
           }
           .categories-middle {
-            opacity: 0;
-            max-width: 0;
+            display: none;
             position: absolute;
             top: 0;
             left: 100%;
@@ -174,8 +177,7 @@ header {
               }
             }
             &.active {
-              max-width: 100%;
-              opacity: 1;
+              display: block;
             }
           }
         }
@@ -437,29 +439,29 @@ header {
           &.active {
             li {
               animation: show 0.6s linear both;
-              &:nth-child(1) {
-                animation-delay: 0.3s;
-              }
+              // &:nth-child(1) {
+              //   animation-delay: 0.3s;
+              // }
               &:nth-child(2) {
-                animation-delay: 0.4s;
+                animation-delay: 0.1s;
               }
               &:nth-child(3) {
-                animation-delay: 0.5s;
+                animation-delay: 0.2s;
               }
               &:nth-child(4) {
-                animation-delay: 0.6s;
+                animation-delay: 0.3s;
               }
               &:nth-child(5) {
-                animation-delay: 0.7s;
+                animation-delay: 0.4s;
               }
               &:nth-child(6) {
-                animation-delay: 0.8s;
+                animation-delay: 0.5s;
               }
               &:nth-child(7) {
-                animation-delay: 0.9s;
+                animation-delay: 0.6s;
               }
               &:nth-child(8) {
-                animation-delay: 1s;
+                animation-delay: 0.7s;
               }
             }
           }

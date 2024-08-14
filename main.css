@@ -97,6 +97,9 @@ header .gnb-content .gnb .searchBar form .inputBox {
 header .gnb-content .gnb .searchBar form .inputBox .material-symbols-outlined {
   color: #aaa;
 }
+header .gnb-content .gnb .searchBar form .inputBox .material-symbols-outlined.micToggle {
+  cursor: pointer;
+}
 header .gnb-content .gnb .searchBar form .inputBox input[type=search] {
   padding-left: 4px;
   padding-right: 10px;
@@ -148,6 +151,10 @@ header .gnb-content .gnb .hottest-items .ranking-container .ranking p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  transition: all 0.3s;
+}
+header .gnb-content .gnb .hottest-items .ranking-container .ranking p:hover {
+  color: #ff9900;
 }
 header .gnb-content .gnb .hottest-items .ranking-container .ranking p span {
   color: #ff9900;
@@ -261,6 +268,7 @@ header .banner .lnb-content .lnb-main .lnb .online-pharmacy::before {
   font-size: 12px;
   color: white;
   background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
   opacity: 0;
   transition: all 0.3s;
 }
@@ -484,7 +492,7 @@ header {
   z-index: 10000;
   position: fixed;
   top: 0;
-  left: -100%;
+  left: -216px;
   background: #fff;
   width: 216px;
   transition: all 0.6s;
@@ -528,11 +536,15 @@ header {
   padding: 10px;
   cursor: pointer;
 }
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .fa-chevron-right {
+  opacity: 0;
+}
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover {
   background: linear-gradient(90deg, rgba(255, 216, 20, 0.7) 0%, #ffd814 4%, #ff9900 93.5%, rgba(255, 153, 0, 0.7) 99.5%);
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover span, .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover i {
   color: #fff;
+  opacity: 1;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li div {
   display: flex;
@@ -549,8 +561,7 @@ header {
   font-size: 12px;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle {
-  opacity: 0;
-  max-width: 0;
+  display: none;
   position: absolute;
   top: 0;
   left: 100%;
@@ -574,8 +585,7 @@ header {
   color: #ff9900;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle.active {
-  max-width: 100%;
-  opacity: 1;
+  display: block;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-misc {
   display: flex;
@@ -831,29 +841,26 @@ header {
 #main-contents #container #main-promotions .promotions-items ul.active li {
   animation: show 0.6s linear both;
 }
-#main-contents #container #main-promotions .promotions-items ul.active li:nth-child(1) {
-  animation-delay: 0.3s;
-}
 #main-contents #container #main-promotions .promotions-items ul.active li:nth-child(2) {
-  animation-delay: 0.4s;
+  animation-delay: 0.1s;
 }
 #main-contents #container #main-promotions .promotions-items ul.active li:nth-child(3) {
-  animation-delay: 0.5s;
+  animation-delay: 0.2s;
 }
 #main-contents #container #main-promotions .promotions-items ul.active li:nth-child(4) {
-  animation-delay: 0.6s;
+  animation-delay: 0.3s;
 }
 #main-contents #container #main-promotions .promotions-items ul.active li:nth-child(5) {
-  animation-delay: 0.7s;
+  animation-delay: 0.4s;
 }
 #main-contents #container #main-promotions .promotions-items ul.active li:nth-child(6) {
-  animation-delay: 0.8s;
+  animation-delay: 0.5s;
 }
 #main-contents #container #main-promotions .promotions-items ul.active li:nth-child(7) {
-  animation-delay: 0.9s;
+  animation-delay: 0.6s;
 }
 #main-contents #container #main-promotions .promotions-items ul.active li:nth-child(8) {
-  animation-delay: 1s;
+  animation-delay: 0.7s;
 }
 #main-contents #container #event-coupon {
   margin-bottom: 185px;
