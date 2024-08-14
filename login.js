@@ -17,9 +17,30 @@ faEye.addEventListener("click", () => {
 // 비밀번호가 공란일 경우, 알림창에 "비밀번호를 입력하세요!"
 // 아이디와 비밀번호가 둘 다 공란일 경우, 알림창에 "아이디와 비밀번호를 입력하세요!"
 
-const id = document.querySelector("#id");
-const pw = document.querySelector("#password");
+// const id = document.querySelector("#id");
+// const pw = document.querySelector("#password");
 
-const checkPassword = () => {
-  
-};
+const LogInBtn = document.querySelector("#loginSubmit");
+
+LogInBtn.addEventListener("click", (e) => {
+e.preventDefault();
+
+  const id = document.querySelector("#id").value;
+  const pw = document.querySelector("#password").value;
+
+  let isValid = true;
+
+  if (id === "") {
+    document.querySelector("#error_id").innerText = "아이디를 입력해주세요!";
+    isValid = false;
+  } else {
+    document.querySelector("#error_id").innerText = "";
+  };
+
+  if (pw === "") {
+    document.querySelector("#error_pw").innerText = "비밀번호를 입력해주세요!";
+    isValid = false;
+  } else {
+    document.querySelector("#error_pw").innerText = "";
+  };
+});
