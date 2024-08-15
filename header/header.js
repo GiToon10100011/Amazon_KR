@@ -578,7 +578,7 @@ const categoryItems = document.querySelectorAll(".categories-large li");
 categoryItems.forEach((item, index) => {
   item.addEventListener("mouseover", () => {
     const middleCategoryItems = item.querySelector(".categories-middle");
-    if(middleCategoryItems){
+    if (middleCategoryItems) {
       middleCategoryItems.classList.add("active");
     }
 
@@ -596,7 +596,7 @@ categoryItems.forEach((item, index) => {
 
   item.addEventListener("mouseout", (e) => {
     const middleCategoryItems = item.querySelector(".categories-middle");
-    if(!middleCategoryItems.contains(e.relatedTarget)){
+    if (!middleCategoryItems.contains(e.relatedTarget)) {
       middleCategoryItems.classList.remove("active");
     }
   });

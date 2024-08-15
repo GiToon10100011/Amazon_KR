@@ -105,3 +105,120 @@ window.addEventListener("scroll", () => {
 //   e.preventDefault();
 //   pageFrame.setAttribute("src", myPages[1]);
 // })
+
+//json
+const productInfo = "./data.json";
+fetch(productInfo)
+  .then((response) => response.json())
+  .then((data) => {
+    let idGenerator = Date.now();
+    const products = {
+      data: data.data.map((item) => ({
+        ...item,
+        price: new Intl.NumberFormat("ko-kr", {
+          style: "currency",
+          currency: "KRW",
+        }).format(item.price),
+        id: idGenerator++,
+      })),
+    };
+
+    console.log(products);
+
+    let cateItems = {
+      cateImgs: [],
+      cateDescs: [],
+      catePrices: [],
+    };
+
+    for (let i = 1; i <= 6; i++) {
+      cateItems.cateImgs[
+        `cateImgs${i}`
+      ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content .item img`;
+      cateItems.cateDescs[
+        `cateDescs${i}`
+      ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content .item .item-desc`;
+      cateItems.catePrices[
+        `catePrices${i}`
+      ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content .item .item-price`;
+    }
+
+    console.log(cateItems);
+
+    //Data Filtering Process
+    const filteredElectronics = products.data.filter((product) => {
+      return product.category.includes("전자");
+    });
+    const filteredBeauty = products.data.filter((product) => {
+      return product.category.includes("뷰티 및 퍼스널케어");
+    });
+    const filteredHome = products.data.filter((product) => {
+      return (
+        product.category.includes("가정 및 주방") ||
+        product.category.includes("유아") ||
+        product.category.includes("아동용 의류")
+      );
+    });
+
+    const filteredPets = products.data.filter((product) => {
+      return product.category.includes("애왕동물 용품");
+    });
+    console.log(filteredPets);
+    const filteredInterior = products.data.filter((product) => {
+      return product.category.includes("가정 및 주방");
+    });
+    const filteredGames = products.data.filter((product) => {
+      return product.category.includes("비디오 게임");
+    });
+
+    const cateFilters = [
+      filteredElectronics,
+      filteredBeauty,
+      filteredHome,
+      filteredPets,
+      filteredInterior,
+      filteredGames,
+    ];
+
+    cateFilters.forEach((filter, index) => {
+      document
+        .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
+        .forEach((img, i) => {
+          img.setAttribute("src", filter[i]["image-url"]);
+        });
+      document
+        .querySelectorAll(cateItems.cateDescs[`cateDescs${index + 1}`])
+        .forEach((desc, i) => {
+          desc.innerText = filter[i]["name"];
+        });
+      document
+        .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
+        .forEach((price, i) => {
+          price.innerText = `${filter[i]["price"]}원`;
+        });
+    });
+
+    const filteredFashion = products.data.filter((product) => {
+      return (
+        product.category.includes("남성패션") ||
+        product.category.includes("여성패션")
+      );
+    });
+
+    const mbbItems = {
+      brands: document.querySelectorAll("#mmb-slider-wrap .item .mbb-brands"),
+      names: document.querySelectorAll("#mmb-slider-wrap .item .mbb-name"),
+      prices: document.querySelectorAll("#mmb-slider-wrap .item .mbb-price"),
+    };
+
+    console.log(Object.keys(mbbItems));
+    Object.keys(mbbItems).forEach((key) => {
+      console.log(mbbItems[key]);
+      mbbItems[key].forEach((item, index) => {
+        
+      });
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });

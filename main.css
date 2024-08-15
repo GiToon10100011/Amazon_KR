@@ -803,6 +803,7 @@ header {
   gap: 20px;
 }
 #main-contents #container #main-promotions .promotions-items ul li {
+  height: 270px;
   opacity: 0;
   display: flex;
   flex-direction: column;
@@ -828,15 +829,16 @@ header {
 }
 #main-contents #container #main-promotions .promotions-items ul li div img {
   width: 100%;
-  height: 100%;
+  height: 194px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 #main-contents #container #main-promotions .promotions-items ul li p {
   overflow: hidden;
   padding: 0 20px;
-  height: 70px;
-  line-height: 70px;
+  padding-left: 10px;
+  height: 60px;
+  line-height: 62px;
 }
 #main-contents #container #main-promotions .promotions-items ul.active li {
   animation: show 0.6s linear both;
@@ -882,11 +884,16 @@ header {
 }
 #main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide:has(.item2) {
   background-color: #ff9900;
+  background-image: url(./img/maineventbanner/event2.png);
   background-position: calc(100% - 60px) calc(100% - 50px);
+  background-size: 40% 40%;
 }
 #main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide:has(.item3) {
   background-color: #000;
   background-position: calc(100% - 60px) calc(100% - 50px);
+  background-image: url(./img/maineventbanner/event3.png);
+  background-position: calc(100% - 30px) calc(100% - 10px);
+  background-size: 46% 70%;
 }
 #main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide a.items {
   display: inline-block;
@@ -911,6 +918,7 @@ header {
 }
 #main-contents #container .category-container .categories #category-best {
   width: 100%;
+  height: 590px;
   margin-bottom: 100px;
 }
 #main-contents #container .category-container .categories #category-best:last-child {
@@ -948,6 +956,7 @@ header {
 #main-contents #container .category-container .categories #category-best .inner .category-section {
   border: 1px solid #f1f1f1;
   display: flex;
+  height: 526px;
 }
 #main-contents #container .category-container .categories #category-best .inner .category-section .cate-menu {
   flex-basis: 190px;
@@ -976,6 +985,16 @@ header {
   border-right: 1px solid #f1f1f1;
   overflow: hidden;
 }
+#main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .img {
+  width: 260px;
+  height: 282px;
+}
+#main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 #main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .slick-dots {
   bottom: 0;
 }
@@ -988,6 +1007,9 @@ header {
   padding: 0;
   width: 5px !important;
   height: 5px;
+}
+#main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .slick-arrow {
+  top: 44.6%;
 }
 #main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .mid-banner-slider {
   height: 100%;
@@ -1010,13 +1032,6 @@ header {
   font-size: 15px;
   color: #999999;
 }
-#main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .mid-banner-slider .item .img {
-  height: 280px;
-  overflow: hidden;
-}
-#main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .mid-banner-slider .item .img img {
-  width: 100%;
-}
 #main-contents #container .category-container .categories #category-best .inner .category-section .content {
   padding: 20px;
   grid-gap: 20px;
@@ -1035,8 +1050,19 @@ header {
 }
 #main-contents #container .category-container .categories #category-best .inner .category-section .content .item img {
   width: 150px;
+  height: 160px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+#main-contents #container .category-container .categories #category-best .inner .category-section .content .item-desc {
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+#main-contents #container .category-container .categories #category-best .inner .category-section .content .item-price {
+  font-weight: 600;
 }
 #main-contents #main-bottom-banner {
   margin-top: 140px;
@@ -1061,10 +1087,10 @@ header {
   flex-wrap: nowrap;
 }
 #main-contents #main-bottom-banner .mbb-slider {
-  width: 100vw;
-  padding: 30px 70px;
+  width: 98vw;
+  padding: 30px 64px;
   white-space: nowrap;
-  margin: 0;
+  margin: 0 auto;
 }
 #main-contents #main-bottom-banner .mbb-slider .slick-slider {
   width: 100%;
