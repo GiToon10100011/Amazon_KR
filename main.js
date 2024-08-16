@@ -209,14 +209,21 @@ fetch(productInfo)
       brands: document.querySelectorAll("#mmb-slider-wrap .item .mbb-brands"),
       names: document.querySelectorAll("#mmb-slider-wrap .item .mbb-name"),
       prices: document.querySelectorAll("#mmb-slider-wrap .item .mbb-price"),
+      imgs: document.querySelectorAll("#mmb-slider-wrap .item .img-box img"),
     };
 
-    console.log(Object.keys(mbbItems));
-    Object.keys(mbbItems).forEach((key) => {
-      console.log(mbbItems[key]);
-      mbbItems[key].forEach((item, index) => {
-        
-      });
+    filteredFashion.forEach((filter, index) => {
+      console.log(filter.detail.brands);
+      mbbItems.brands[
+        index
+      ].innerHTML = `<strong>브랜드명 :</strong> ${filter.detail.brands}`;
+      mbbItems.names[
+        index
+      ].innerHTML = `<strong>상품명 : </strong> ${filter.name}`;
+      mbbItems.prices[
+        index
+      ].innerHTML = `<strong>가격 : </strong> ${filter.price}`;
+      mbbItems.imgs[index].setAttribute("src", filter["image-url"]);
     });
   })
   .catch((error) => {
