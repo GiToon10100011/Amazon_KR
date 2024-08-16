@@ -1330,6 +1330,14 @@ header {
     background-size: 260px;
     background-position: calc(100% - 20px) calc(100% - 20px);
   }
+  #main-contents #container #event-coupon .event-slider .slick-list .slick-track .slick-slide:has(.item2) {
+    background-size: 180px;
+    background-position: calc(100% - 20px) calc(100% - 20px);
+  }
+  #main-contents #container #event-coupon .event-slider .slick-list .slick-track .slick-slide:has(.item3) {
+    background-size: 180px;
+    background-position: calc(100% - 20px) calc(100% - 20px);
+  }
   #main-contents #container #event-coupon .event-slider .slick-dots {
     bottom: -30px;
   }
@@ -1344,10 +1352,11 @@ header {
     font-size: 24px !important;
   }
   #main-contents #container .category-container {
-    height: 6400px;
+    height: 6500px;
   }
   #main-contents #container .category-container .categories #category-best {
     margin: 0;
+    margin-bottom: 500px;
   }
   #main-contents #container .category-container .categories #category-best .category-title {
     display: none;
@@ -1355,6 +1364,7 @@ header {
   #main-contents #container .category-container .categories #category-best .inner .category-section {
     flex-direction: column;
     gap: 20px;
+    height: auto;
   }
   #main-contents #container .category-container .categories #category-best .inner .category-section .cate-menu {
     display: flex;
@@ -1425,23 +1435,23 @@ header {
     padding: 10px;
     display: flex;
     overflow-x: scroll;
+    scrollbar-width: none;
   }
   #main-contents #container .category-container .categories #category-best .inner .category-section .content .item {
     height: 100%;
     width: 160px;
   }
   #main-contents #container .category-container .categories #category-best .inner .category-section .content .item img {
-    width: 100%;
+    width: 160px;
     height: 150px;
     -o-object-fit: cover;
        object-fit: cover;
   }
   #main-contents #container .category-container .categories #category-best .inner .category-section .content .item-desc {
-    display: block;
-    overflow: visible;
+    font-size: 14px;
   }
   #main-contents #container .category-container .categories #category-best .inner .category-section .content .item-price {
-    font-weight: normal;
+    font-size: 14px;
   }
   #main-contents #main-bottom-banner {
     display: flex;

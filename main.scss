@@ -958,6 +958,14 @@ header {
                   background-size: 260px;
                   background-position: calc(100% - 20px) calc(100% - 20px);
                 }
+                &:has(.item2) {
+                  background-size: 180px;
+                  background-position: calc(100% - 20px) calc(100% - 20px);
+                }
+                &:has(.item3) {
+                  background-size: 180px;
+                  background-position: calc(100% - 20px) calc(100% - 20px);
+                }
               }
             }
           }
@@ -977,10 +985,11 @@ header {
         }
       }
       .category-container {
-        height: 6400px;
+        height: 6500px;
         .categories {
           #category-best {
             margin: 0;
+            margin-bottom: 500px;
             .category-title {
               display: none;
             }
@@ -988,6 +997,7 @@ header {
               .category-section {
                 flex-direction: column;
                 gap: 20px;
+                height: auto;
                 .cate-menu {
                   display: flex;
                   flex-direction: column;
@@ -1040,7 +1050,7 @@ header {
                 #mid-banner-slider-wrap {
                   height: 390px !important;
                   flex-basis: auto;
-                  .img{
+                  .img {
                     width: 100%;
                     height: 260px;
                     img {
@@ -1063,22 +1073,21 @@ header {
                   padding: 10px;
                   display: flex;
                   overflow-x: scroll;
-                  // scrollbar-width: none;
-                  .item{
+                  scrollbar-width: none;
+                  .item {
                     height: 100%;
                     width: 160px;
                     img {
-                      width: 100%;
+                      width: 160px;
                       height: 150px;
                       object-fit: cover;
                     }
                   }
-                  .item-desc{
-                    display: block;
-                    overflow: visible;
+                  .item-desc {
+                    font-size: 14px;
                   }
-                  .item-price{
-                    font-weight: normal;
+                  .item-price {
+                    font-size: 14px;
                   }
                 }
               }
