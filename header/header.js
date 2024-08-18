@@ -69,7 +69,9 @@ const body = document.querySelector("#header");
                 <hr class="bar" />
                 <div class="inputBox">
                   <div class="inputBox first">
-                    <span class="material-symbols-outlined micToggle"> mic </span>
+                    <span class="material-symbols-outlined micToggle">
+                      mic
+                    </span>
                     <input
                       type="search"
                       name="searchBar"
@@ -84,8 +86,89 @@ const body = document.querySelector("#header");
               </form>
             </div>
             <div class="hottest-items">
-              <div class = "ranking-container">
+              <div class="ranking-container">
                 <div class="ranking">
+                  <p><span>1 </span> 갤럭시 Z플립</p>
+                  <p><span>2 </span> 갤럭시 Z플립Z플립</p>
+                  <p><span>3 </span> 갤럭시 Z플립Z플립Z플립</p>
+                  <p><span>4 </span> 갤럭시 Z플립Z플립Z플립Z플립</p>
+                  <p><span>5 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
+                  <p><span>6 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
+                  <p>
+                    <span>7 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>8 </span> 갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>9 </span> 갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>10 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>11 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>12 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>13 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>14 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>15 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>16 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>17 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>18 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>19 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립플립
+                  </p>
+                  <p>
+                    <span>20 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플Z플립
+                  </p>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-down"></i>
+              <div class="ranking-menu">
+                <div class="ranking-menu-title">
+                  <h4>실시간 쇼핑 검색어</h4>
+                  <span>2024.08.18 09:53 기준</span>
+                </div>
+                <div class="ranking-selection">
+                <input type="radio" name="rankings" id="first-rankings" checked/>
+                    <label for="first-rankings">
+                      1 ~ 10위
+                    </label>
+                    <input type="radio" name="rankings" id = "second-rankings"/>
+                    <label for="second-rankings">
+                      11 ~ 20위
+                    </label>
+                </div>
+                <div class="ranking-content">
+                  <div class = "ranking-content-first">
                     <p><span>1 </span> 갤럭시 Z플립</p>
                     <p><span>2 </span> 갤럭시 Z플립Z플립</p>
                     <p><span>3 </span> 갤럭시 Z플립Z플립Z플립</p>
@@ -107,49 +190,32 @@ const body = document.querySelector("#header");
                       <span>10 </span>갤럭시
                       Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
+                  </div>
+                  <div class = "ranking-content-second">
+                    <p><span>11 </span> 갤럭시 Z플립</p>
+                    <p><span>12 </span> 갤럭시 Z플립Z플립</p>
+                    <p><span>13 </span> 갤럭시 Z플립Z플립Z플립</p>
+                    <p><span>14 </span> 갤럭시 Z플립Z플립Z플립Z플립</p>
+                    <p><span>15 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
+                    <p><span>16 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
                     <p>
-                      <span>11 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                      <span>17 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
                     <p>
-                      <span>12 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                      <span>18 </span> 갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
                     <p>
-                      <span>13 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>14 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>15 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>16 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>17 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>18 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>19 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립플립
+                      <span>19 </span> 갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
                     <p>
                       <span>20 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플Z플립
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
                   </div>
                 </div>
-              <i class="fa-solid fa-chevron-down"></i>
+              </div>
             </div>
           </nav>
           <div class="icon-menu">
@@ -157,6 +223,13 @@ const body = document.querySelector("#header");
               <div class="item">
                 <a href="./my/my.html"><i class="fa-regular fa-user"></i></a>
                 <span>회원정보</span>
+                <ul class="user-menu">
+                  <li><a href="">나의 쿠폰</a></li>
+                  <li><a href="">주문/배송조회</a></li>
+                  <li><a href="">취소/반품/교환</a></li>
+                  <li><a href="">고객센터</a></li>
+                  <li><a href="">회원정보</a></li>
+                </ul>
               </div>
               <div class="item">
                 <a href="#none">
@@ -189,7 +262,10 @@ const body = document.querySelector("#header");
                 <li><a href="#none">이벤트/쿠폰</a></li>
                 <li><a href="#none">선물하기</a></li>
                 <li><a href="#none">장보기</a></li>
-                <li class="online-pharmacy" data-info = "&#x2022; 온라인 약국이란?&#10;&#10;온라인 약국 서비스는 집에서 간편하게 필요한 약을 주문할 수 있는 혁신적인 플랫폼입니다.&#10;&#10; 최신 기술을 활용하여 사용자는 손쉽게 약품을 검색하고 구매할 수 있으며, 안전하고 신뢰할 수 있는 배송 서비스를 제공합니다.&#10;&#10; 건강 관리의 편리함을 더하고 빠르고 효율적인 서비스로 여러분의 건강을 지원합니다. &#10;&#10;지금 바로 저희와 함께 건강한 생활을 시작해 보세요!">
+                <li
+                  class="online-pharmacy"
+                  data-info="&#x2022; 온라인 약국이란?&#10;&#10;온라인 약국 서비스는 집에서 간편하게 필요한 약을 주문할 수 있는 혁신적인 플랫폼입니다.&#10;&#10; 최신 기술을 활용하여 사용자는 손쉽게 약품을 검색하고 구매할 수 있으며, 안전하고 신뢰할 수 있는 배송 서비스를 제공합니다.&#10;&#10; 건강 관리의 편리함을 더하고 빠르고 효율적인 서비스로 여러분의 건강을 지원합니다. &#10;&#10;지금 바로 저희와 함께 건강한 생활을 시작해 보세요!"
+                >
                   <a href="#none">온라인 약국</a>
                   <i class="fa-regular fa-circle-question"></i>
                 </li>
@@ -205,18 +281,16 @@ const body = document.querySelector("#header");
       </div>
     </header>
     <div class="Top">
-      <a href = "#" class = "desktop-top">
+      <a href="#" class="desktop-top">
         <i class="fa-solid fa-chevron-up"></i>
         <span>TOP</span>
       </a>
-      <div class = "mobile-top">
-        <div class = "mobile-top-menu">
-        <span class="material-symbols-outlined">
-        schedule
-        </span>
-        <a class = "mobile-top-btn" href = "#">
-        <span class="material-symbols-outlined">north</span>
-        </a>
+      <div class="mobile-top">
+        <div class="mobile-top-menu">
+          <span class="material-symbols-outlined"> schedule </span>
+          <a class="mobile-top-btn" href="#">
+            <span class="material-symbols-outlined">north</span>
+          </a>
         </div>
       </div>
     </div>`;
@@ -274,6 +348,36 @@ sideMenu_close.addEventListener("click", () => {
 bgFilter.addEventListener("click", () => {
   sideMenu.classList.remove("active");
   bgFilter.classList.remove("active");
+});
+
+//ranking menu
+const rankingToggle = document.querySelector(".hottest-items .fa-chevron-down");
+rankingToggle.addEventListener("click", () => {
+  const rankingMenu = document.querySelector(".ranking-menu");
+  rankingMenu.classList.toggle("active");
+  rankingToggle.classList.toggle("active");
+});
+
+const rankingRadios = document.querySelectorAll(
+  ".ranking-selection input[type = 'radio']"
+);
+
+rankingRadios.forEach((btn) => {
+  btn.addEventListener("change", () => {
+    const rankingContent1 = document.querySelector(".ranking-content-first");
+    const rankingContent2 = document.querySelector(".ranking-content-second");
+    const rankingRadioBtn1 = document.querySelector("#first-rankings");
+    const rankingRadioBtn2 = document.querySelector("#second-rankings");
+    if (rankingRadioBtn1.checked) {
+      rankingContent1.classList.remove("active");
+      rankingContent2.classList.remove("active");
+    }
+
+    if (rankingRadioBtn2.checked) {
+      rankingContent1.classList.add("active");
+      rankingContent2.classList.add("active");
+    }
+  });
 });
 
 const categories = {
@@ -692,4 +796,3 @@ if (!SpeechRecognition) {
     console.log("Speech recognition service disconnected");
   };
 }
-

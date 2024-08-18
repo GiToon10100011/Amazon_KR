@@ -159,10 +159,105 @@ header .gnb-content .gnb .hottest-items .ranking-container .ranking p:hover {
 header .gnb-content .gnb .hottest-items .ranking-container .ranking p span {
   color: #ff9900;
 }
+header .gnb-content .gnb .hottest-items .ranking-menu {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+  height: 580px;
+  position: absolute;
+  z-index: 10;
+  padding: 20px;
+  top: 54px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-menu-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-menu-title span {
+  font-size: 12px;
+  color: #333;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection label {
+  text-align: center;
+  width: 50%;
+  border: 1px solid;
+  padding: 4px 14px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  color: #aaa;
+  cursor: pointer;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection label:first-of-type {
+  border-right: none;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection input[type=radio] {
+  display: none;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection input[type=radio]:first-of-type:checked + label:first-of-type {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection input[type=radio]:last-of-type:checked + label:last-of-type {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content {
+  position: relative;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content .ranking-content-first {
+  z-index: 1;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content .ranking-content-first.active {
+  display: none;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content .ranking-content-second {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  display: none;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content .ranking-content-second.active {
+  display: block;
+  z-index: 2;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content p {
+  font-weight: 500;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all 0.3s;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content p:hover {
+  color: #ff9900;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content p span {
+  color: #ff9900;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu.active {
+  display: flex;
+}
 header .gnb-content .gnb .hottest-items .fa-chevron-down {
   align-self: flex-start;
   padding: 20px;
   font-size: 14px;
+}
+header .gnb-content .gnb .hottest-items .fa-chevron-down.active {
+  transform: scaleY(-1);
 }
 header .gnb-content .icon-menu .items {
   align-items: center;
@@ -175,20 +270,51 @@ header .gnb-content .icon-menu .items .item {
   justify-content: center;
   align-items: center;
   gap: 4px;
-  transition: all 0.3s;
   cursor: pointer;
 }
-header .gnb-content .icon-menu .items .item:hover {
+header .gnb-content .icon-menu .items .item:hover .fa-regular,
+header .gnb-content .icon-menu .items .item:hover span {
   color: #ff9900;
 }
+header .gnb-content .icon-menu .items .item:hover ul {
+  height: 170px;
+  padding: 10px 14px;
+}
 header .gnb-content .icon-menu .items .item .fa-regular {
+  transition: all 0.3s;
   font-size: 26px;
 }
 header .gnb-content .icon-menu .items .item .material-symbols-outlined {
+  transition: all 0.3s;
   font-size: 26px;
 }
 header .gnb-content .icon-menu .items .item span {
+  transition: all 0.3s;
   font-size: 10px;
+}
+header .gnb-content .icon-menu .items .item ul {
+  overflow: hidden;
+  height: 0;
+  position: absolute;
+  top: 60px;
+  background: white;
+  box-shadow: 0 0 4px #000;
+  border-radius: 8px;
+  padding: 0;
+  font-size: 14px;
+  transform-origin: top;
+  transition: all 0.3s;
+}
+header .gnb-content .icon-menu .items .item ul li {
+  margin-bottom: 10px;
+  transition: all 0.3s;
+}
+header .gnb-content .icon-menu .items .item ul li:hover {
+  color: #ff9900;
+}
+header .gnb-content .icon-menu .items .item ul:hover {
+  max-height: 170px;
+  padding: 10px 14px;
 }
 header .banner {
   margin-top: 10px;
