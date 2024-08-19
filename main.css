@@ -1000,8 +1000,21 @@ header {
 #main-contents #container #event-coupon .event-slider-wrap .event-slider {
   /*슬라이드 내부디자인*/
 }
+#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-prev {
+  transition: all 0.3s;
+}
+#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-prev:hover {
+  left: -34px;
+}
+#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-next {
+  transition: all 0.3s;
+}
+#main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-next:hover {
+  right: -34px;
+}
 #main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide {
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 #main-contents #container #event-coupon .event-slider-wrap .event-slider .slick-slide:has(.item1) {
   background-color: #000;
@@ -1061,7 +1074,7 @@ header {
   display: flex;
   gap: 6px;
 }
-#main-contents #container .category-container .categories #category-best .category-title .pageIndex span {
+#main-contents #container .category-container .categories #category-best .category-title .pageIndex label {
   text-align: center;
   line-height: 20px;
   width: 22px;
@@ -1070,7 +1083,18 @@ header {
   font-size: 14px;
   cursor: pointer;
 }
-#main-contents #container .category-container .categories #category-best .category-title .pageIndex span:first-child {
+#main-contents #container .category-container .categories #category-best .category-title .pageIndex input[type=radio] {
+  display: none;
+}
+#main-contents #container .category-container .categories #category-best .category-title .pageIndex input[type=radio]:first-of-type:checked ~ label:first-of-type {
+  background: #000;
+  color: #fff;
+}
+#main-contents #container .category-container .categories #category-best .category-title .pageIndex input[type=radio]:nth-of-type(2):checked ~ label:nth-of-type(2) {
+  background: #000;
+  color: #fff;
+}
+#main-contents #container .category-container .categories #category-best .category-title .pageIndex input[type=radio]:last-of-type:checked ~ label:last-of-type {
   background: #000;
   color: #fff;
 }

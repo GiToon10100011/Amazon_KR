@@ -478,8 +478,21 @@ header {
         opacity: 0;
         .event-slider {
           /*슬라이드 내부디자인*/
+          .slick-prev {
+            transition: all 0.3s;
+            &:hover {
+              left: -34px;
+            }
+          }
+          .slick-next {
+            transition: all 0.3s;
+            &:hover {
+              right: -34px;
+            }
+          }
           .slick-slide {
             background-repeat: no-repeat;
+            cursor: pointer;
             &:has(.item1) {
               background-color: #000;
               background-image: url(./img/maineventbanner/event1.png);
@@ -538,7 +551,7 @@ header {
             .pageIndex {
               display: flex;
               gap: 6px;
-              span {
+              label {
                 text-align: center;
                 line-height: 20px;
                 width: 22px;
@@ -546,7 +559,18 @@ header {
                 @include border-style($color: #b6bdc7);
                 font-size: 14px;
                 cursor: pointer;
-                &:first-child {
+              }
+              input[type="radio"] {
+                display: none;
+                &:first-of-type:checked ~ label:first-of-type{
+                  background: #000;
+                  color: #fff;
+                }
+                &:nth-of-type(2):checked ~ label:nth-of-type(2){
+                  background: #000;
+                  color: #fff;
+                }
+                &:last-of-type:checked ~ label:last-of-type{
                   background: #000;
                   color: #fff;
                 }
