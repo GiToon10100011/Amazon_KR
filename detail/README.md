@@ -1,1 +1,1 @@
-팀원분들께서는 앞으로 merge 요청을  main브랜치가 아닌 이 브랜치로 해주시면 감사하겠습니다.
+This is the Develop Branch of Amazon_KR
