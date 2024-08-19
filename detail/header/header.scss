@@ -121,23 +121,6 @@ header {
             transition: all 0.6s;
             &.active {
               opacity: 0;
-<<<<<<< HEAD:detail/header/header.scss
-            }
-            p {
-              font-weight: 500;
-              width: 128px;
-              padding: 16px 0;
-              position: relative;
-              // 54px마다 순위 변경
-              bottom: 0;
-              overflow: hidden;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-              span {
-                color: map-get($map: $color, $key: main-amazon-color);
-              }
-=======
->>>>>>> 4796e0146584944f8b84b5fb09e38187aed16389:header/header.scss
             }
             p {
               font-weight: 500;

@@ -152,11 +152,7 @@ header .gnb-content .gnb .hottest-items .ranking-container .ranking p {
   text-overflow: ellipsis;
   transition: all 0.3s;
 }
-<<<<<<< HEAD:detail/header/header.css
-header .gnb-content .gnb .hottest-items .ranking-container .ranking p span {
-=======
 header .gnb-content .gnb .hottest-items .ranking-container .ranking p:hover {
->>>>>>> 4796e0146584944f8b84b5fb09e38187aed16389:header/header.css
   color: #ff9900;
 }
 header .gnb-content .gnb .hottest-items .ranking-container .ranking p span {
