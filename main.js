@@ -123,13 +123,33 @@ fetch(productInfo)
       })),
     };
 
-    console.log(products);
-
     let cateItems = {
       cateImgs: [],
       cateDescs: [],
       catePrices: [],
     };
+
+    let catePages = {};
+
+    const pageIndex = document.querySelectorAll(".pageIndex");
+
+    console.log(pageIndex);
+
+    for (let i = 1; i < pageIndex.length + 1; i++) {
+      catePages[`catePage${i}`] = `input[name = "cate${i}"]`;
+    }
+
+    console.log(catePages);
+
+    let cateRadios = [];
+
+    pageIndex.forEach((page, i) => {
+      page.querySelectorAll(catePages[`catePage${i + 1}`]).forEach((btn) => {
+        btn.addEventListener("click", () => {
+          console.log("click");
+        });
+      });
+    });
 
     for (let i = 1; i <= 6; i++) {
       cateItems.cateImgs[
@@ -142,8 +162,6 @@ fetch(productInfo)
         `catePrices${i}`
       ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content .item .item-price`;
     }
-
-    console.log(cateItems);
 
     //Data Filtering Process
     const filteredElectronics = products.data.filter((product) => {
@@ -163,7 +181,6 @@ fetch(productInfo)
     const filteredPets = products.data.filter((product) => {
       return product.category.includes("애왕동물 용품");
     });
-    console.log(filteredPets);
     const filteredInterior = products.data.filter((product) => {
       return product.category.includes("가정 및 주방");
     });
@@ -213,7 +230,6 @@ fetch(productInfo)
     };
 
     filteredFashion.forEach((filter, index) => {
-      console.log(filter.detail.brands);
       mbbItems.brands[
         index
       ].innerHTML = `<strong>브랜드명 :</strong> ${filter.detail.brands}`;
@@ -236,7 +252,6 @@ const categorySidetabs = document.querySelectorAll(
 );
 
 const categorySections = document.querySelectorAll("#category-best");
-console.log(categorySections);
 
 categorySidetabs.forEach((tab, index, arr) => {
   tab.addEventListener("click", () => {
@@ -253,8 +268,6 @@ categorySidetabs.forEach((tab, index, arr) => {
 const handleIntersection = (entries) => {
   entries.forEach((entry) => {
     const index = Array.from(categorySections).indexOf(entry.target);
-    console.log(entry.target);
-    console.log(index);
     if (entry.isIntersecting) {
       categorySidetabs.forEach((tab, i) => {
         if (i === index) {
