@@ -386,7 +386,7 @@ header {
           background: map-get($map: $color, $key: main-amazon-color);
           color: map-get($map: $color, $key: main-color);
         }
-        &:hover {
+        &:hover:not(:last-child) {
           background: map-get($map: $color, $key: main-amazon-color);
           color: map-get($map: $color, $key: main-color);
         }

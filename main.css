@@ -905,7 +905,7 @@ header {
   background: #ff9900;
   color: #fff;
 }
-#main-contents .category-sideBar ul li:hover {
+#main-contents .category-sideBar ul li:hover:not(:last-child) {
   background: #ff9900;
   color: #fff;
 }
