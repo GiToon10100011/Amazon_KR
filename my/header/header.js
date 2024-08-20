@@ -69,7 +69,9 @@ const body = document.querySelector("#header");
                 <hr class="bar" />
                 <div class="inputBox">
                   <div class="inputBox first">
-                    <span class="material-symbols-outlined"> mic </span>
+                    <span class="material-symbols-outlined micToggle">
+                      mic
+                    </span>
                     <input
                       type="search"
                       name="searchBar"
@@ -84,8 +86,89 @@ const body = document.querySelector("#header");
               </form>
             </div>
             <div class="hottest-items">
-              <div class = "ranking-container">
+              <div class="ranking-container">
                 <div class="ranking">
+                  <p><span>1 </span> 갤럭시 Z플립</p>
+                  <p><span>2 </span> 갤럭시 Z플립Z플립</p>
+                  <p><span>3 </span> 갤럭시 Z플립Z플립Z플립</p>
+                  <p><span>4 </span> 갤럭시 Z플립Z플립Z플립Z플립</p>
+                  <p><span>5 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
+                  <p><span>6 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
+                  <p>
+                    <span>7 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>8 </span> 갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>9 </span> 갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>10 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>11 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>12 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>13 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>14 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>15 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>16 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>17 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>18 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                  </p>
+                  <p>
+                    <span>19 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립플립
+                  </p>
+                  <p>
+                    <span>20 </span>갤럭시
+                    Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플Z플립
+                  </p>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-down"></i>
+              <div class="ranking-menu">
+                <div class="ranking-menu-title">
+                  <h4>실시간 쇼핑 검색어</h4>
+                  <span>2024.08.18 09:53 기준</span>
+                </div>
+                <div class="ranking-selection">
+                <input type="radio" name="rankings" id="first-rankings" checked/>
+                    <label for="first-rankings">
+                      1 ~ 10위
+                    </label>
+                    <input type="radio" name="rankings" id = "second-rankings"/>
+                    <label for="second-rankings">
+                      11 ~ 20위
+                    </label>
+                </div>
+                <div class="ranking-content">
+                  <div class = "ranking-content-first">
                     <p><span>1 </span> 갤럭시 Z플립</p>
                     <p><span>2 </span> 갤럭시 Z플립Z플립</p>
                     <p><span>3 </span> 갤럭시 Z플립Z플립Z플립</p>
@@ -107,49 +190,32 @@ const body = document.querySelector("#header");
                       <span>10 </span>갤럭시
                       Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
+                  </div>
+                  <div class = "ranking-content-second">
+                    <p><span>11 </span> 갤럭시 Z플립</p>
+                    <p><span>12 </span> 갤럭시 Z플립Z플립</p>
+                    <p><span>13 </span> 갤럭시 Z플립Z플립Z플립</p>
+                    <p><span>14 </span> 갤럭시 Z플립Z플립Z플립Z플립</p>
+                    <p><span>15 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
+                    <p><span>16 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
                     <p>
-                      <span>11 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                      <span>17 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
                     <p>
-                      <span>12 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
+                      <span>18 </span> 갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
                     <p>
-                      <span>13 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>14 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>15 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>16 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>17 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>18 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
-                    </p>
-                    <p>
-                      <span>19 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립플립
+                      <span>19 </span> 갤럭시
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
                     <p>
                       <span>20 </span>갤럭시
-                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플Z플립
+                      Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플립
                     </p>
                   </div>
                 </div>
-              <i class="fa-solid fa-chevron-down"></i>
+              </div>
             </div>
           </nav>
           <div class="icon-menu">
@@ -157,6 +223,13 @@ const body = document.querySelector("#header");
               <div class="item">
                 <a href="./my/my.html"><i class="fa-regular fa-user"></i></a>
                 <span>회원정보</span>
+                <ul class="user-menu">
+                  <li><a href="">나의 쿠폰</a></li>
+                  <li><a href="">주문/배송조회</a></li>
+                  <li><a href="">취소/반품/교환</a></li>
+                  <li><a href="">고객센터</a></li>
+                  <li><a href="">회원정보</a></li>
+                </ul>
               </div>
               <div class="item">
                 <a href="#none">
@@ -189,7 +262,10 @@ const body = document.querySelector("#header");
                 <li><a href="#none">이벤트/쿠폰</a></li>
                 <li><a href="#none">선물하기</a></li>
                 <li><a href="#none">장보기</a></li>
-                <li class="online-pharmacy">
+                <li
+                  class="online-pharmacy"
+                  data-info="&#x2022; 온라인 약국이란?&#10;&#10;온라인 약국 서비스는 집에서 간편하게 필요한 약을 주문할 수 있는 혁신적인 플랫폼입니다.&#10;&#10; 최신 기술을 활용하여 사용자는 손쉽게 약품을 검색하고 구매할 수 있으며, 안전하고 신뢰할 수 있는 배송 서비스를 제공합니다.&#10;&#10; 건강 관리의 편리함을 더하고 빠르고 효율적인 서비스로 여러분의 건강을 지원합니다. &#10;&#10;지금 바로 저희와 함께 건강한 생활을 시작해 보세요!"
+                >
                   <a href="#none">온라인 약국</a>
                   <i class="fa-regular fa-circle-question"></i>
                 </li>
@@ -205,18 +281,16 @@ const body = document.querySelector("#header");
       </div>
     </header>
     <div class="Top">
-      <a href = "#" class = "desktop-top">
+      <a href="#" class="desktop-top">
         <i class="fa-solid fa-chevron-up"></i>
         <span>TOP</span>
       </a>
-      <div class = "mobile-top">
-        <div class = "mobile-top-menu">
-        <span class="material-symbols-outlined">
-        schedule
-        </span>
-        <a class = "mobile-top-btn" href = "#">
-        <span class="material-symbols-outlined">north</span>
-        </a>
+      <div class="mobile-top">
+        <div class="mobile-top-menu">
+          <span class="material-symbols-outlined"> schedule </span>
+          <a class="mobile-top-btn" href="#">
+            <span class="material-symbols-outlined">north</span>
+          </a>
         </div>
       </div>
     </div>`;
@@ -276,8 +350,62 @@ bgFilter.addEventListener("click", () => {
   bgFilter.classList.remove("active");
 });
 
+//ranking menu
+const rankingToggle = document.querySelector(".hottest-items .fa-chevron-down");
+rankingToggle.addEventListener("click", () => {
+  const rankingMenu = document.querySelector(".ranking-menu");
+  rankingMenu.classList.toggle("active");
+  rankingToggle.classList.toggle("active");
+});
+
+const rankingMenuTitle = document.querySelector(".ranking-menu-title span");
+console.log(rankingMenuTitle);
+
+const updateDate = () => {
+  const rankingDateTime = new Date();
+  
+  let rankingYear = rankingDateTime.getFullYear();
+  let rankingMonth = rankingDateTime.getMonth() + 1;
+  let rankingDate = rankingDateTime.getDate();
+  let rankingHour = rankingDateTime.getHours();
+  let rankingMin = rankingDateTime.getMinutes();
+  
+  rankingMonth < 10 ? (rankingMonth = `0${rankingMonth}`) : rankingMonth;
+  rankingDate < 10 ? (rankingDate = `0${rankingDate}`) : rankingDate;
+  rankingHour < 10 ? (rankingHour = `0${rankingHour}`) : rankingHour;
+  rankingMin < 10 ? (rankingMin = `0${rankingMin}`) : rankingMin;
+  
+  rankingMenuTitle.innerText = `${rankingYear}.${rankingMonth}.${rankingDate} ${rankingHour}:${rankingMin} 기준`;
+}
+
+updateDate();
+
+setInterval(updateDate, 60000);
+
+const rankingRadios = document.querySelectorAll(
+  ".ranking-selection input[type = 'radio']"
+);
+
+rankingRadios.forEach((btn) => {
+  btn.addEventListener("change", () => {
+    const rankingContent1 = document.querySelector(".ranking-content-first");
+    const rankingContent2 = document.querySelector(".ranking-content-second");
+    const rankingRadioBtn1 = document.querySelector("#first-rankings");
+    const rankingRadioBtn2 = document.querySelector("#second-rankings");
+    if (rankingRadioBtn1.checked) {
+      rankingContent1.classList.remove("active");
+      rankingContent2.classList.remove("active");
+    }
+
+    if (rankingRadioBtn2.checked) {
+      rankingContent1.classList.add("active");
+      rankingContent2.classList.add("active");
+    }
+  });
+});
+
 const categories = {
-  "전자": [
+  전자: [
     "엑세서리 및 용품",
     "카메라 및 사진",
     "자동차 및 엑세서리",
@@ -294,7 +422,7 @@ const categories = {
     "웨어러블 테크 제품",
     "전자책 리더 및 액세서리",
   ],
-  "컴퓨터": [
+  컴퓨터: [
     "컴퓨터 액세서리 및 주변기기",
     "컴퓨터 구성품",
     "컴퓨터 및 태블릿",
@@ -342,7 +470,7 @@ const categories = {
     "자동차 매니아용 상품",
     "대형차 및 상용차 장비",
   ],
-  "유아": [
+  유아: [
     "놀이 및 오락",
     "의류 및 액세서리",
     "유아 및 아기 장난감",
@@ -370,8 +498,8 @@ const categories = {
     "퍼스널 케어",
     "구강 케어",
   ],
-  "여성패션": ["의류", "신발", "보석", "시계", "핸드백", "액세서리"],
-  "남성패션": ["의류", "신발", "시계", "액세서리"],
+  여성패션: ["의류", "신발", "보석", "시계", "핸드백", "액세서리"],
+  남성패션: ["의류", "신발", "시계", "액세서리"],
   "아동용 의류": ["의류", "신발", "보석", "시계", "액세서리", "교복"],
   "건강 및 가정용품": [
     "케어",
@@ -465,7 +593,7 @@ const categories = {
     "파충류 및 양서류",
     "소형 동물",
   ],
-  "소프트웨어": [
+  소프트웨어: [
     "회계 및 재무",
     "안티바이러스 및 보안",
     "기업 및 사무소",
@@ -550,31 +678,57 @@ const categories = {
   ],
 };
 
-const categoriesKeys = ["전자", "컴퓨터", "예술 및 공예", "자동차 용품", "유아", "뷰티 및 퍼스널케어", "여성패션", "남성패션", "아동용 의류", "건강 및 가정용품", "가정 및 주방", "산업용 및 과학용", "여행 가방", "영화 및 TV", "애왕동물 용품", "소프트웨어", "스포츠 및 야외 활동", "공구 및 주택 개조", "장난감 및 게임", "비디오 게임"];
+const categoriesKeys = [
+  "전자",
+  "컴퓨터",
+  "예술 및 공예",
+  "자동차 용품",
+  "유아",
+  "뷰티 및 퍼스널케어",
+  "여성패션",
+  "남성패션",
+  "아동용 의류",
+  "건강 및 가정용품",
+  "가정 및 주방",
+  "산업용 및 과학용",
+  "여행 가방",
+  "영화 및 TV",
+  "애왕동물 용품",
+  "소프트웨어",
+  "스포츠 및 야외 활동",
+  "공구 및 주택 개조",
+  "장난감 및 게임",
+  "비디오 게임",
+];
 
 const categoryItems = document.querySelectorAll(".categories-large li");
 
-const middleSidebar = document.querySelector(".middle-sideMenu");
-
 categoryItems.forEach((item, index) => {
-  
   item.addEventListener("mouseover", () => {
-    middleSidebar.classList.add("active");
-    const middleSidebarItems = middleSidebar.querySelector("ul");
-    const li = document.createElement("li");
-    middleSidebarItems.appendChild(li);
-  })
-})
-middleSidebar.addEventListener("mouseover", () => {
-  middleSidebar.classList.add("active");
-})
-middleSidebar.addEventListener("mouseout", () => {
-  middleSidebar.classList.remove("active");
-})
+    const middleCategoryItems = item.querySelector(".categories-middle");
+    if (middleCategoryItems) {
+      middleCategoryItems.classList.add("active");
+    }
 
-// categoriesKeys.forEach((key, index) => {
-//   console.log(categories[categoriesKeys[index]]);
-// })
+    for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
+      const lis = middleCategoryItems.querySelectorAll("li");
+      if (lis.length < categories[categoriesKeys[index]].length) {
+        const li = document.createElement("li");
+        li.innerHTML = `<a>${categories[categoriesKeys[index]][i]}</a>`;
+        middleCategoryItems.appendChild(li);
+      } else {
+        break;
+      }
+    }
+  });
+
+  item.addEventListener("mouseout", (e) => {
+    const middleCategoryItems = item.querySelector(".categories-middle");
+    if (!middleCategoryItems.contains(e.relatedTarget)) {
+      middleCategoryItems.classList.remove("active");
+    }
+  });
+});
 
 // ranking auto scroll
 let scrollIndex = 0;
@@ -614,3 +768,55 @@ mobileTop.addEventListener("click", function (e) {
     behavior: "smooth",
   });
 });
+
+// Online pharmacy popup event
+const onlinePharmacy = document.querySelector(".online-pharmacy");
+const onlinePharmacyToggle = onlinePharmacy.querySelector(
+  ".fa-circle-question"
+);
+onlinePharmacyToggle.addEventListener("click", () => {
+  onlinePharmacy.classList.toggle("active");
+});
+
+//Speech Recognition Event
+
+const SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (!SpeechRecognition) {
+  alert("Voice Recognition이 지원되지 않는 브라우저입니다.");
+} else {
+  const recognition = new SpeechRecognition();
+  recognition.lang = "ko-KR";
+  recognition.interimResults = false;
+
+  let isRecognizing = false;
+
+  const searchInput = document.getElementById("main-search");
+  const startButton = document.querySelector(".micToggle");
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    searchInput.value = transcript;
+    console.log("You said: ", transcript);
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Error occurred in recognition:", event.error);
+  };
+
+  startButton.addEventListener("click", () => {
+    if (isRecognizing) {
+      recognition.stop();
+    } else {
+      recognition.start();
+      isRecognizing = true;
+      console.log("Voice Recognition Started");
+    }
+  });
+
+  recognition.onend = () => {
+    isRecognizing = false;
+    console.log("Speech recognition service disconnected");
+  };
+}

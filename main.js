@@ -229,3 +229,53 @@ fetch(productInfo)
   .catch((error) => {
     console.log(error);
   });
+
+//category sidebar
+const categorySidetabs = document.querySelectorAll(
+  ".category-sideBar ul li:not(:last-child)"
+);
+
+const categorySections = document.querySelectorAll("#category-best");
+console.log(categorySections);
+
+categorySidetabs.forEach((tab, index, arr) => {
+  tab.addEventListener("click", () => {
+    arr.forEach((el, i) => {
+      if (index !== i) {
+        el.classList.remove("active");
+      } else {
+        el.classList.add("active");
+      }
+    });
+  });
+});
+
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    const index = Array.from(categorySections).indexOf(entry.target);
+    console.log(entry.target);
+    console.log(index);
+    if (entry.isIntersecting) {
+      categorySidetabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.classList.add("active");
+        } else {
+          tab.classList.remove("active");
+        }
+      });
+    }
+  });
+};
+
+// Options for the observer
+const options = {
+  root: null, // null means the viewport
+  rootMargin: "0px 0px 10% 0px",
+  threshold: 1, // 0.1 means 10% of the section needs to be visible
+};
+
+const observer = new IntersectionObserver(handleIntersection, options);
+
+categorySections.forEach((section) => {
+  observer.observe(section);
+});

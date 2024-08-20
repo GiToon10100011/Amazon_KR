@@ -376,14 +376,19 @@ header {
         background: map-get($map: $color, $key: main-color);
         @include border-style($color: map-get($color, main-border-color));
         border-bottom: none;
-        &:first-child {
-          background: map-get($map: $color, $key: main-amazon-color);
-          color: map-get($map: $color, $key: main-color);
-        }
+        transition: all 0.3s;
         &:last-child {
           background: map-get($map: $color, $key: searchBar-bg-color);
           color: map-get($map: $color, $key: placeholder-color);
           border-bottom: 1px solid #ccc;
+        }
+        &.active {
+          background: map-get($map: $color, $key: main-amazon-color);
+          color: map-get($map: $color, $key: main-color);
+        }
+        &:hover {
+          background: map-get($map: $color, $key: main-amazon-color);
+          color: map-get($map: $color, $key: main-color);
         }
       }
     }
@@ -562,15 +567,15 @@ header {
               }
               input[type="radio"] {
                 display: none;
-                &:first-of-type:checked ~ label:first-of-type{
+                &:first-of-type:checked ~ label:first-of-type {
                   background: #000;
                   color: #fff;
                 }
-                &:nth-of-type(2):checked ~ label:nth-of-type(2){
+                &:nth-of-type(2):checked ~ label:nth-of-type(2) {
                   background: #000;
                   color: #fff;
                 }
-                &:last-of-type:checked ~ label:last-of-type{
+                &:last-of-type:checked ~ label:last-of-type {
                   background: #000;
                   color: #fff;
                 }

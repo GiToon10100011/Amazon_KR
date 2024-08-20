@@ -894,15 +894,20 @@ header {
   background: #fff;
   border: 1px solid #ccc;
   border-bottom: none;
-}
-#main-contents .category-sideBar ul li:first-child {
-  background: #ff9900;
-  color: #fff;
+  transition: all 0.3s;
 }
 #main-contents .category-sideBar ul li:last-child {
   background: #eee;
   color: #aaa;
   border-bottom: 1px solid #ccc;
+}
+#main-contents .category-sideBar ul li.active {
+  background: #ff9900;
+  color: #fff;
+}
+#main-contents .category-sideBar ul li:hover {
+  background: #ff9900;
+  color: #fff;
 }
 #main-contents .category-sideBar.fixed {
   display: block;
