@@ -79,6 +79,9 @@ header {
             align-items: center;
             .material-symbols-outlined {
               color: map-get($map: $color, $key: placeholder-color);
+              &.micToggle {
+                cursor: pointer;
+              }
             }
             input[type="search"] {
               padding-left: 4px;
@@ -129,16 +132,116 @@ header {
               overflow: hidden;
               white-space: nowrap;
               text-overflow: ellipsis;
+              transition: all 0.3s;
+              &:hover {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
               span {
                 color: map-get($map: $color, $key: main-amazon-color);
               }
             }
           }
         }
+        .ranking-menu {
+          display: none;
+          flex-direction: column;
+          gap: 20px;
+          width: 350px;
+          height: 580px;
+          position: absolute;
+          z-index: 10;
+          padding: 20px;
+          top: 54px;
+          background: map-get($map: $color, $key: main-color);
+          @include border-style($color: map-get($color, main-border-color));
+          .ranking-menu-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            span {
+              font-size: 12px;
+              color: map-get($map: $color, $key: main-desc-color);
+            }
+          }
+          .ranking-selection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            label {
+              text-align: center;
+              width: 50%;
+              border: 1px solid;
+              padding: 4px 14px;
+              @include border-style($color: map-get($color, main-border-color));
+              background: #fafafa;
+              color: map-get($map: $color, $key: placeholder-color);
+              cursor: pointer;
+              &:first-of-type {
+                border-right: none;
+              }
+            }
+            input[type="radio"] {
+              display: none;
+              &:first-of-type:checked + label:first-of-type {
+                background: map-get($map: $color, $key: main-color);
+                color: map-get($map: $color, $key: main-dark-color);
+                font-weight: 600;
+              }
+              &:last-of-type:checked + label:last-of-type {
+                background: map-get($map: $color, $key: main-color);
+                color: map-get($map: $color, $key: main-dark-color);
+                font-weight: 600;
+              }
+            }
+          }
+          .ranking-content {
+            position: relative;
+            .ranking-content-first {
+              z-index: 1;
+              &.active {
+                display: none;
+              }
+            }
+            .ranking-content-second {
+              width: 100%;
+              position: absolute;
+              top: 0;
+              z-index: -1;
+              display: none;
+              &.active {
+                display: block;
+                z-index: 2;
+              }
+            }
+            p {
+              font-weight: 500;
+              padding: 10px 0;
+              position: relative;
+              // 54px마다 순위 변경
+              bottom: 0;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              transition: all 0.3s;
+              &:hover {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+              span {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+          }
+          &.active {
+            display: flex;
+          }
+        }
         .fa-chevron-down {
           align-self: flex-start;
           padding: 20px;
           font-size: 14px;
+          &.active {
+            transform: scaleY(-1);
+          }
         }
       }
     }
@@ -153,19 +256,52 @@ header {
           justify-content: center;
           align-items: center;
           gap: 4px;
-          transition: all 0.3s;
           cursor: pointer;
           &:hover {
-            color: map-get($map: $color, $key: main-amazon-color);
+            .fa-regular,
+            span {
+              color: map-get($map: $color, $key: main-amazon-color);
+            }
+            ul {
+              height: 170px;
+              padding: 10px 14px;
+            }
           }
           .fa-regular {
+            transition: all 0.3s;
             font-size: 26px;
           }
           .material-symbols-outlined {
+            transition: all 0.3s;
             font-size: 26px;
           }
           span {
+            transition: all 0.3s;
             font-size: 10px;
+          }
+          ul {
+            overflow: hidden;
+            height: 0;
+            position: absolute;
+            top: 60px;
+            background: white;
+            box-shadow: 0 0 4px #000;
+            border-radius: 8px;
+            padding: 0;
+            font-size: 14px;
+            transform-origin: top;
+            transition: all 0.3s;
+            li {
+              margin-bottom: 10px;
+              transition: all 0.3s;
+              &:hover {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+            &:hover {
+              max-height: 170px;
+              padding: 10px 14px;
+            }
           }
         }
       }
@@ -225,9 +361,43 @@ header {
           gap: 20px;
           padding: 10px;
           .online-pharmacy {
+            position: relative;
             cursor: pointer;
             .fa-circle-question {
               font-size: 14px;
+            }
+            &.active::after,
+            &.active::before {
+              opacity: 1;
+            }
+            &::before {
+              content: attr(data-info);
+              position: absolute;
+              white-space: pre-wrap;
+              bottom: -334px;
+              width: 180px;
+              height: auto;
+              padding: 20px;
+              font-size: 12px;
+              color: white;
+              background: rgba($color: #000000, $alpha: 0.8);
+              border-radius: 10px;
+              opacity: 0;
+              transition: all 0.3s;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -5px;
+              right: 2.5px;
+              width: 0;
+              height: 0;
+              border-top: 0;
+              border-left: 4px solid transparent;
+              border-right: 4px solid transparent;
+              border-bottom: 8px solid;
+              opacity: 0;
+              transition: all 0.3s;
             }
           }
           a {
