@@ -131,26 +131,6 @@ fetch(productInfo)
 
     let catePages = {};
 
-    const pageIndex = document.querySelectorAll(".pageIndex");
-
-    console.log(pageIndex);
-
-    for (let i = 1; i < pageIndex.length + 1; i++) {
-      catePages[`catePage${i}`] = `input[name = "cate${i}"]`;
-    }
-
-    console.log(catePages);
-
-    let cateRadios = [];
-
-    pageIndex.forEach((page, i) => {
-      page.querySelectorAll(catePages[`catePage${i + 1}`]).forEach((btn) => {
-        btn.addEventListener("click", () => {
-          console.log("click");
-        });
-      });
-    });
-
     for (let i = 1; i <= 6; i++) {
       cateItems.cateImgs[
         `cateImgs${i}`
@@ -196,6 +176,7 @@ fetch(productInfo)
       filteredInterior,
       filteredGames,
     ];
+    console.log(cateFilters[0]);
 
     cateFilters.forEach((filter, index) => {
       document
@@ -214,6 +195,118 @@ fetch(productInfo)
           price.innerText = `${filter[i]["price"]}원`;
         });
     });
+
+    const pageIndex = document.querySelectorAll(".pageIndex");
+
+    console.log(pageIndex);
+
+    for (let i = 1; i < pageIndex.length + 1; i++) {
+      catePages[`catePage${i}`] = `input[name = "cate${i}"]`;
+    }
+
+    console.log(catePages);
+
+    let cateRadios = [];
+
+    pageIndex.forEach((page, i) => {
+      cateRadios.push(page.querySelectorAll(catePages[`catePage${i + 1}`]));
+      // page.querySelectorAll(catePages[`catePage${i + 1}`]).forEach((btn) => {
+      //   btn.addEventListener("click", () => {
+      //     console.log("click");
+      //   });
+      // });
+    });
+
+    cateRadios.forEach((cateRadio, index) => {
+      cateRadio.forEach((radio, i) => {
+        radio.addEventListener("click", (e) => {
+          const secondPageIndex = document.querySelectorAll(
+            cateItems.cateImgs.cateImgs1
+          );
+          const thirdPageIndex =
+            document.querySelectorAll(cateItems.cateImgs.cateImgs1).length +
+            secondPageIndex.length;
+
+          let [secondPageIndex1, secondPageIndex2, secondPageIndex3] = [
+            secondPageIndex.length,
+            secondPageIndex.length,
+            secondPageIndex.length,
+          ];
+
+          let [thirdPageIndex1, thirdPageIndex2, thirdPageIndex3] = [
+            thirdPageIndex,
+            thirdPageIndex,
+            thirdPageIndex,
+          ];
+
+          console.log(thirdPageIndex1, thirdPageIndex2, thirdPageIndex3);
+
+          if (e.target.id.includes("second")) {
+            document
+              .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
+              .forEach((img) => {
+                img.setAttribute(
+                  "src",
+                  cateFilters[index][secondPageIndex1]["image-url"]
+                );
+                secondPageIndex1++;
+              });
+            document
+              .querySelectorAll(cateItems.cateDescs[`cateDescs${index + 1}`])
+              .forEach((desc) => {
+                desc.innerText = cateFilters[index][secondPageIndex2]["name"];
+                secondPageIndex2++;
+              });
+            document
+              .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
+              .forEach((price) => {
+                price.innerText = `${cateFilters[index][secondPageIndex3]["price"]}원`;
+                secondPageIndex3++;
+              });
+          } else if (e.target.id.includes("third")) {
+            document
+              .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
+              .forEach((img) => {
+                img.setAttribute(
+                  "src",
+                  cateFilters[index][thirdPageIndex1]["image-url"]
+                );
+                thirdPageIndex1++;
+              });
+            document
+              .querySelectorAll(cateItems.cateDescs[`cateDescs${index + 1}`])
+              .forEach((desc) => {
+                desc.innerText = cateFilters[index][thirdPageIndex2]["name"];
+                thirdPageIndex2++;
+              });
+            document
+              .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
+              .forEach((price) => {
+                price.innerText = `${cateFilters[index][thirdPageIndex3]["price"]}원`;
+                thirdPageIndex3++;
+              });
+          } else {
+            document
+              .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
+              .forEach((img, i) => {
+                img.setAttribute("src", cateFilters[index][i]["image-url"]);
+              });
+            document
+              .querySelectorAll(cateItems.cateDescs[`cateDescs${index + 1}`])
+              .forEach((desc, i) => {
+                desc.innerText = cateFilters[index][i]["name"];
+              });
+            document
+              .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
+              .forEach((price, i) => {
+                price.innerText = `${cateFilters[index][i]["price"]}원`;
+              });
+          }
+        });
+      });
+    });
+
+    console.log(cateRadios);
 
     const filteredFashion = products.data.filter((product) => {
       return (
