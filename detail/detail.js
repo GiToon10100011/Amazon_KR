@@ -1,9 +1,31 @@
 import "./header/header.js";
 
+fetch('./data.json')
+.then(response => response.json())
+.then(data => {
+  let idGenerator = Date.now();
+    const products = {
+      data: data.data.map((item) => ({
+        ...item,
+        price: new Intl.NumberFormat("ko-kr", {
+          style: "currency",
+          currency: "KRW",
+        }).format(item.price),
+        id: idGenerator++,
+      })),
+    };
+
+    console.log(products)
+})
+.catch(error => console.error('Error loading JSON:', error));
+
+
+
+
 //like
 const like = document.querySelector("#fav");
 const M_like = document.querySelector("#m_heart");
-const bar_like = document.querySelector("#M_fav")
+const bar_like = document.querySelector("#M_fav");
 
 like.addEventListener("click", () => {
  like.classList.toggle("active");
@@ -55,10 +77,10 @@ const imgarea = document.querySelector(".img_area")
 const moreBtn = document.querySelector(".moreimg_slide")
 const infoIc = document.querySelector(".info_slideic")
 
-console.log(moreBtn, imgarea)
+// console.log(moreBtn, imgarea)
 
 moreBtn.addEventListener("click",()=>{
-  console.log("click")
+  // console.log("click")
   imgarea.classList.toggle("infomore")
   infoIc.classList.toggle("infomore")
 })
@@ -153,3 +175,39 @@ function previousImage() {
 
 btnRight.addEventListener('click', nextImage);
 btnLeft.addEventListener('click', previousImage);
+
+
+//reviwe photo
+const slideList = document.querySelector('.slied_list');
+const slideItems = document.querySelectorAll('.slied_list li');
+const slideBtnLeft = document.querySelector('.slide_btn_L');
+const slideBtnRight = document.querySelector('.slide_btn_R');
+
+let currentOffset = 0;
+const slideAmount = 125; // 슬라이드할 픽셀 수
+const maxOffset = (slideItems.length * slideAmount) - slideList.parentElement.offsetWidth;
+
+function updateSlidePosition() {
+    slideList.style.transform = `translateX(${currentOffset}px)`;
+}
+
+slideBtnLeft.addEventListener('click', () => {
+    if (currentOffset < 0) {
+        currentOffset += slideAmount;
+    } else {
+        currentOffset = -maxOffset; // 첫 번째 슬라이드에서 마지막 슬라이드로 이동
+    }
+    updateSlidePosition();
+});
+
+slideBtnRight.addEventListener('click', () => {
+    if (Math.abs(currentOffset) < maxOffset) {
+        currentOffset -= slideAmount;
+    } else {
+        currentOffset = 0; // 마지막 슬라이드에서 첫 번째 슬라이드로 이동
+    }
+    updateSlidePosition();
+});
+
+
+

@@ -286,6 +286,7 @@ main {
         border: none;
         background: #d4d4d4;
         transition: all 0.2s;
+        cursor: pointer;
         &:hover{
           background: #989898;
         }
@@ -308,6 +309,7 @@ main {
         border: none;
         background: #d4d4d4;
         transition: all 0.2s;
+        cursor: pointer;
         &:hover{
           background: #989898;
         }
@@ -567,22 +569,26 @@ main {
     .photos {
       overflow: hidden;
       width: auto;
-      height: auto;
+      height: 100%;
       display: flex;
       margin-top: 5px;
       margin-left: 62px;
+      transition: transform all ease-in-out;
       ul {
         gap: 5px;
         display: flex;
+        transition: transform all ease-in-out;
         li {
           width: 120px;
           height: 120px;
           background: map-get($map: $color, $key: main-border-color);
-          // @include border-style;
-          img{
-            width: 100%;
-            height: 100%;
-            background: center/cover no-repeat;
+          a{
+          transition: all 0.3s;
+            img{
+              width: 100%;
+              height: 100%;
+              background: center/cover no-repeat;
+            }
           }
         }
       }
@@ -1165,7 +1171,7 @@ main {
         justify-content: center;
         align-items: center;
         background: map-get($color, $key: main-color);
-        box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.1);
+        box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.3);
         transform: translateY(150%);
         transition: all 0.3s;
         &.popupaction{
