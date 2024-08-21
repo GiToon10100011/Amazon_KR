@@ -18,6 +18,8 @@
     <!-- Custom CSS & JS -->
     <link rel="stylesheet" href="./cart02.css" />
     <script defer type="module" src="./cart02.js"></script>
+    <!-- kakao -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </head>
   <body>
     <header id="header"></header>
@@ -277,7 +279,6 @@
                   placeholder="이름을 입력하세요"
                 />
               </div>
-
               <div class="form-group">
                 <label for="order-email">이메일</label>
                 <div class="email-input-group">
@@ -296,6 +297,7 @@
                     <option value="custom">직접 입력</option>
                   </select>
                 </div>
+                <p id="email-error"></p>
               </div>
 
               <div class="form-group">
@@ -313,6 +315,7 @@
                     placeholder="전화번호를 입력하세요"
                   />
                 </div>
+                <p id="phone-error"></p>
               </div>
             </form>
           </article>
@@ -355,6 +358,7 @@
                     placeholder="전화번호를 입력하세요"
                   />
                 </div>
+                <p id="recipient-phone-error"></p>
               </div>
 
               <div class="form-group">
@@ -364,15 +368,26 @@
                     <button type="button" class="btn-find-postal-code">
                       주소찾기
                     </button>
-                    <input type="text" id="postal-code1" name="postal-code1" />
+                    <input
+                      type="text"
+                      id="postal-code1"
+                      name="postal-code1"
+                      placeholder="우편번호"
+                    />
+                    <input
+                      type="text"
+                      id="address"
+                      name="address"
+                      placeholder="주소"
+                    />
+                    <input
+                      type="text"
+                      id="address-detail"
+                      name="address-detail"
+                      placeholder="상세주소"
+                    />
                   </div>
                 </div>
-                <input
-                  type="text"
-                  id="address-detail"
-                  name="address-detail"
-                  placeholder="상세 주소를 입력하세요"
-                />
               </div>
               <div class="form-group">
                 <div class="save-default-address">

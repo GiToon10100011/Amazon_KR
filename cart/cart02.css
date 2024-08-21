@@ -876,6 +876,16 @@ main .order-section .order-info .form-group .phone-input-group span {
   font-size: 16px;
   padding: 0 5px;
 }
+main .order-section .order-info #email-error {
+  font-size: 13px;
+  color: #f00;
+}
+main .order-section .order-info #phone-error {
+  position: relative;
+  left: 5px;
+  font-size: 13px;
+  color: #f00;
+}
 main .order-section .order-info #order-name {
   width: 700px;
 }
@@ -938,6 +948,15 @@ main .delivery-section .form-group .address-input-group .btn-find-postal-code {
   border-radius: 4px;
   cursor: pointer;
 }
+main .delivery-section input[type=text] {
+  margin-bottom: 4px;
+}
+main .delivery-section #recipient-phone-error {
+  position: relative;
+  left: 160px;
+  color: #f00;
+  font-size: 13px;
+}
 main .delivery-section #recipient-name {
   width: 700px;
 }
@@ -948,6 +967,7 @@ main .delivery-section #postal-code1 {
   width: 610px;
 }
 main .delivery-section #address-detail {
+  margin-bottom: 4px;
   width: 700px;
 }
 main .delivery-section #phone-prefix {

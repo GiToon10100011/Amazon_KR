@@ -613,7 +613,7 @@ main {
 }
 
 // Mobile
-o {
+@media screen and (max-width: 768px) {
   html,
   body {
     height: 3000px;

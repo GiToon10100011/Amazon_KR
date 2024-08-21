@@ -200,7 +200,6 @@ header {
   }
 }
 
-
 #footer {
   width: 100%;
   position: absolute;
@@ -318,7 +317,16 @@ main {
           }
         }
       }
-
+      #email-error {
+        font-size: 13px;
+        color: #f00;
+      }
+      #phone-error {
+        position: relative;
+        left: 5px;
+        font-size: 13px;
+        color: #f00;
+      }
       // 개별 스타일 주는곳 인풋영역 이름 ,이메일 , 전화번호
       #order-name {
         width: 700px;
@@ -389,6 +397,17 @@ main {
       }
     }
 
+    input[type="text"] {
+      margin-bottom: 4px;
+    }
+
+    #recipient-phone-error {
+      position: relative;
+      left: 160px;
+      color: #f00;
+      font-size: 13px;
+    }
+
     // 개별 스타일을 주는 곳
     #recipient-name {
       width: 700px;
@@ -403,6 +422,7 @@ main {
     }
 
     #address-detail {
+      margin-bottom: 4px;
       width: 700px;
     }
 

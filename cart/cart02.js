@@ -1,2 +1,73 @@
 // header
 import "./header/header.js";
+
+// 홈페이지 이동
+document
+  .querySelector(".checkout-button")
+  .addEventListener("click", function () {
+    window.location.href = "cart03.html";
+  });
+
+// 이메일 유효성검사
+const emailInput = document.querySelector("#order-email");
+const emailError = document.querySelector("#email-error");
+
+// 이메일 입력 시 유효성 검사
+emailInput.addEventListener("input", function () {
+  // 인풋칸에 영어와 숫자만 허용하는 패턴
+  const emailPattern = /^[a-zA-Z0-9._%+-]+$/;
+
+  if (!emailPattern.test(emailInput.value)) {
+    emailError.textContent = "올바른 이메일을 입력하세요. (영어와 숫자만 허용)";
+    emailError.style.display = "block";
+  } else {
+    emailError.textContent = "";
+    emailError.style.display = "none";
+  }
+});
+
+//  아래 비효율 코드를 효율성 코드로 변경.
+// 전화번호 유효성 검사 함수
+function validatePhoneInput(inputElement, errorElement) {
+  const phonePattern = /^[0-9]*$/; // 숫자만 허용하는 패턴
+
+  if (!phonePattern.test(inputElement.value)) {
+    errorElement.textContent = "올바른 전화번호를 입력해주세요. (숫자만 허용)";
+    errorElement.style.display = "block";
+  } else {
+    errorElement.textContent = "";
+    errorElement.style.display = "none";
+  }
+}
+
+const phoneInputs = [
+  {
+    input: document.querySelector("#order-phone"),
+    error: document.querySelector("#phone-error"),
+  },
+  {
+    input: document.querySelector("#recipient-phone"),
+    error: document.querySelector("#recipient-phone-error"),
+  },
+];
+
+phoneInputs.forEach(({ input, error }) => {
+  console.log(input, error);
+  input.addEventListener("input", function () {
+    validatePhoneInput(input, error);
+  });
+});
+
+// 카카오 우편번호 서비스 API 불러오기
+document
+  .querySelector(".btn-find-postal-code")
+  .addEventListener("click", function () {
+    new daum.Postcode({
+      oncomplete: function (data) {
+        // 검색 결과에서 우편번호와 주소를 해당 필드에 자동 입력
+        document.querySelector("#postal-code1").value = data.zonecode;
+        document.querySelector("#address").value = data.address;
+        document.querySelector("#address-detail").focus(); // 상세주소 필드로 포커스 이동
+      },
+    }).open();
+  });

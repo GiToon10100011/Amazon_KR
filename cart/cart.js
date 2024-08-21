@@ -1,6 +1,13 @@
 // header
 import "./header/header.js";
 
+// 홈페이지 이동
+document
+  .querySelector(".checkout-button")
+  .addEventListener("click", function () {
+    window.location.href = "cart02.html";
+  });
+
 // cart price 업데이트 및 수량증가 및 감소 기능
 const quantityControls = document.querySelectorAll(".cart-options-control");
 
