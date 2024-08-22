@@ -1,3 +1,6 @@
+// 해당 파일은 아마존코리아의 헤더 스크립트 파일입니다.
+// This is the header script file of our Amazon.KR website.
+
 //Ascii Art
 console.log(`
   @          @@@                  @@@@          @@@           @@         @@@           @@@@@@@@@@@@@@@

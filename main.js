@@ -1,5 +1,10 @@
+// 해당 파일은 아마존코리아의 메인 스크립트 파일입니다.
+// This is the main script file of our Amazon.KR website.
+
+// Import Header 
 import "./header/header.js";
 
+//Slick Sliders
 $(".main-slider").slick({
   dots: true,
   infinite: true,
@@ -97,15 +102,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-//wishlist event
-// import {pageFrame, myPages} from "./my.js";
-// const wishlistShortcut = document.querySelector(".icon-menu .item:last-child");
-// console.log(wishlistShortcut);
-// wishlistShortcut.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   pageFrame.setAttribute("src", myPages[1]);
-// })
-
 //json
 const productInfo = "./data.json";
 fetch(productInfo)
@@ -176,8 +172,8 @@ fetch(productInfo)
       filteredInterior,
       filteredGames,
     ];
-    console.log(cateFilters[0]);
 
+    // Import Data to the category sections
     cateFilters.forEach((filter, index) => {
       document
         .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
@@ -196,30 +192,46 @@ fetch(productInfo)
         });
     });
 
+    //Change the items per page
     const pageIndex = document.querySelectorAll(".pageIndex");
-
-    console.log(pageIndex);
 
     for (let i = 1; i < pageIndex.length + 1; i++) {
       catePages[`catePage${i}`] = `input[name = "cate${i}"]`;
     }
 
-    console.log(catePages);
-
     let cateRadios = [];
 
     pageIndex.forEach((page, i) => {
       cateRadios.push(page.querySelectorAll(catePages[`catePage${i + 1}`]));
-      // page.querySelectorAll(catePages[`catePage${i + 1}`]).forEach((btn) => {
-      //   btn.addEventListener("click", () => {
-      //     console.log("click");
-      //   });
-      // });
     });
 
+    const changeCatePageItems = (currentIdx, itemIdx1, itemIdx2, itemIdx3) => {
+      document
+        .querySelectorAll(cateItems.cateImgs[`cateImgs${currentIdx + 1}`])
+        .forEach((img) => {
+          img.setAttribute(
+            "src",
+            cateFilters[currentIdx][itemIdx1]["image-url"]
+          );
+          itemIdx1++;
+        });
+      document
+        .querySelectorAll(cateItems.cateDescs[`cateDescs${currentIdx + 1}`])
+        .forEach((desc) => {
+          desc.innerText = cateFilters[currentIdx][itemIdx2]["name"];
+          itemIdx2++;
+        });
+      document
+        .querySelectorAll(cateItems.catePrices[`catePrices${currentIdx + 1}`])
+        .forEach((price) => {
+          price.innerText = `${cateFilters[currentIdx][itemIdx3]["price"]}원`;
+          itemIdx3++;
+        });
+    };
+
     cateRadios.forEach((cateRadio, index) => {
-      cateRadio.forEach((radio, i) => {
-        radio.addEventListener("click", (e) => {
+      cateRadio.forEach((radio) => {
+        radio.addEventListener("change", (e) => {
           const secondPageIndex = document.querySelectorAll(
             cateItems.cateImgs.cateImgs1
           );
@@ -239,74 +251,28 @@ fetch(productInfo)
             thirdPageIndex,
           ];
 
-          console.log(thirdPageIndex1, thirdPageIndex2, thirdPageIndex3);
-
           if (e.target.id.includes("second")) {
-            document
-              .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
-              .forEach((img) => {
-                img.setAttribute(
-                  "src",
-                  cateFilters[index][secondPageIndex1]["image-url"]
-                );
-                secondPageIndex1++;
-              });
-            document
-              .querySelectorAll(cateItems.cateDescs[`cateDescs${index + 1}`])
-              .forEach((desc) => {
-                desc.innerText = cateFilters[index][secondPageIndex2]["name"];
-                secondPageIndex2++;
-              });
-            document
-              .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
-              .forEach((price) => {
-                price.innerText = `${cateFilters[index][secondPageIndex3]["price"]}원`;
-                secondPageIndex3++;
-              });
+            changeCatePageItems(
+              index,
+              secondPageIndex1,
+              secondPageIndex2,
+              secondPageIndex3
+            );
           } else if (e.target.id.includes("third")) {
-            document
-              .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
-              .forEach((img) => {
-                img.setAttribute(
-                  "src",
-                  cateFilters[index][thirdPageIndex1]["image-url"]
-                );
-                thirdPageIndex1++;
-              });
-            document
-              .querySelectorAll(cateItems.cateDescs[`cateDescs${index + 1}`])
-              .forEach((desc) => {
-                desc.innerText = cateFilters[index][thirdPageIndex2]["name"];
-                thirdPageIndex2++;
-              });
-            document
-              .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
-              .forEach((price) => {
-                price.innerText = `${cateFilters[index][thirdPageIndex3]["price"]}원`;
-                thirdPageIndex3++;
-              });
+            changeCatePageItems(
+              index,
+              thirdPageIndex1,
+              thirdPageIndex2,
+              thirdPageIndex3
+            );
           } else {
-            document
-              .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
-              .forEach((img, i) => {
-                img.setAttribute("src", cateFilters[index][i]["image-url"]);
-              });
-            document
-              .querySelectorAll(cateItems.cateDescs[`cateDescs${index + 1}`])
-              .forEach((desc, i) => {
-                desc.innerText = cateFilters[index][i]["name"];
-              });
-            document
-              .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
-              .forEach((price, i) => {
-                price.innerText = `${cateFilters[index][i]["price"]}원`;
-              });
+            changeCatePageItems(index, 0, 0, 0);
           }
         });
       });
     });
 
-    console.log(cateRadios);
+    //Import data to mbb slider
 
     const filteredFashion = products.data.filter((product) => {
       return (
@@ -339,7 +305,7 @@ fetch(productInfo)
     console.log(error);
   });
 
-//category sidebar
+//Category sidebar event
 const categorySidetabs = document.querySelectorAll(
   ".category-sideBar ul li:not(:last-child)"
 );
@@ -385,3 +351,12 @@ const observer = new IntersectionObserver(handleIntersection, options);
 categorySections.forEach((section) => {
   observer.observe(section);
 });
+
+//wishlist event
+// import {pageFrame, myPages} from "./my.js";
+// const wishlistShortcut = document.querySelector(".icon-menu .item:last-child");
+// console.log(wishlistShortcut);
+// wishlistShortcut.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   pageFrame.setAttribute("src", myPages[1]);
+// })

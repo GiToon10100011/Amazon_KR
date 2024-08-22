@@ -295,8 +295,7 @@ const body = document.querySelector("#header");
       </div>
     </div>`;
 
-// Header
-
+// Header events
 const lnb = document.querySelector(".lnb-content");
 
 const Top = document.querySelector(".Top");
@@ -404,6 +403,8 @@ rankingRadios.forEach((btn) => {
   });
 });
 
+
+//Generate Main sideMenu category
 const categories = {
   전자: [
     "엑세서리 및 용품",

@@ -1,3 +1,6 @@
+// 해당 파일은 아마존코리아의 메인 스타일시트입니다.
+// This is the main stylesheet of our Amazon.KR website.
+
 @import "./header/header.scss";
 
 // &.active .about_box .about_img,
@@ -52,7 +55,7 @@ html,
 body {
   position: relative;
   width: 100%;
-  height: 7960px;
+  height: 7940px;
   overflow-x: hidden;
 }
 
