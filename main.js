@@ -1,7 +1,7 @@
 // 해당 파일은 아마존코리아의 메인 스크립트 파일입니다.
 // This is the main script file of our Amazon.KR website.
 
-// Import Header 
+// Import Header
 import "./header/header.js";
 
 //Slick Sliders
@@ -172,6 +172,23 @@ fetch(productInfo)
       filteredInterior,
       filteredGames,
     ];
+
+    console.log(cateFilters[0][0].category);
+
+    //Create URL for each items
+    categorySections.forEach((section, index) => {
+      const categoryItems = section.querySelectorAll(".inner .content .item");
+      categoryItems.forEach((item, i) => {
+        item.addEventListener("click", (e) => {
+          console.log(e);
+          const url = `./detail/detail.html?category=${
+            cateFilters[index][i].category
+          }&name=${encodeURIComponent(cateFilters[index][i].name)}`;
+          console.log(url);
+          window.location.href = url;
+        });
+      });
+    });
 
     // Import Data to the category sections
     cateFilters.forEach((filter, index) => {
