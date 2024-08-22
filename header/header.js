@@ -295,8 +295,7 @@ const body = document.querySelector("#header");
       </div>
     </div>`;
 
-// Header
-
+// Header events
 const lnb = document.querySelector(".lnb-content");
 
 const Top = document.querySelector(".Top");
@@ -358,6 +357,30 @@ rankingToggle.addEventListener("click", () => {
   rankingToggle.classList.toggle("active");
 });
 
+const rankingMenuTitle = document.querySelector(".ranking-menu-title span");
+console.log(rankingMenuTitle);
+
+const updateDate = () => {
+  const rankingDateTime = new Date();
+  
+  let rankingYear = rankingDateTime.getFullYear();
+  let rankingMonth = rankingDateTime.getMonth() + 1;
+  let rankingDate = rankingDateTime.getDate();
+  let rankingHour = rankingDateTime.getHours();
+  let rankingMin = rankingDateTime.getMinutes();
+  
+  rankingMonth < 10 ? (rankingMonth = `0${rankingMonth}`) : rankingMonth;
+  rankingDate < 10 ? (rankingDate = `0${rankingDate}`) : rankingDate;
+  rankingHour < 10 ? (rankingHour = `0${rankingHour}`) : rankingHour;
+  rankingMin < 10 ? (rankingMin = `0${rankingMin}`) : rankingMin;
+  
+  rankingMenuTitle.innerText = `${rankingYear}.${rankingMonth}.${rankingDate} ${rankingHour}:${rankingMin} 기준`;
+}
+
+updateDate();
+
+setInterval(updateDate, 60000);
+
 const rankingRadios = document.querySelectorAll(
   ".ranking-selection input[type = 'radio']"
 );
@@ -380,6 +403,8 @@ rankingRadios.forEach((btn) => {
   });
 });
 
+
+//Generate Main sideMenu category
 const categories = {
   전자: [
     "엑세서리 및 용품",

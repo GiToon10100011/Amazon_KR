@@ -1,0 +1,549 @@
+// 해당 파일은 헤더 스타일 시트입니다.
+// This is the stylesheet of our website's Header
+
+@import "../reset.scss";
+
+// Common
+body {
+  font-family: map-get($map: $family, $key: kr-font);
+}
+
+.inner {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+//Header
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: map-get($map: $color, $key: main-color);
+  .gnb-content {
+    width: 100%;
+    overflow: hidden;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .gnb {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      .logo_container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .sideMenu-trigger-btn {
+          display: none;
+          font-size: 24px;
+          cursor: pointer;
+          &.active {
+            display: block;
+          }
+        }
+        img {
+          width: 130px;
+          object-fit: cover;
+        }
+      }
+      .searchBar {
+        @include border-style(
+          $color: map-get($color, main-border-color),
+          $weight: 2px
+        );
+        border-radius: 40px;
+        form {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          select {
+            outline: none;
+            border: none;
+            height: 18px;
+            margin-right: 4px;
+            color: map-get($map: $color, $key: placeholder-color);
+            option {
+              color: map-get($map: $color, $key: main-dark-color);
+            }
+          }
+          .bar {
+            width: 12px;
+            transform: rotate(90deg);
+          }
+          .inputBox {
+            display: flex;
+            align-items: center;
+            .material-symbols-outlined {
+              color: map-get($map: $color, $key: placeholder-color);
+              &.micToggle {
+                cursor: pointer;
+              }
+            }
+            input[type="search"] {
+              padding-left: 4px;
+              padding-right: 10px;
+              width: 420px;
+              border: none;
+              &:focus {
+                outline: none;
+              }
+              &::placeholder {
+                color: map-get($map: $color, $key: placeholder-color);
+              }
+            }
+            .fa-magnifying-glass {
+              color: map-get($map: $color, $key: main-amazon-color);
+            }
+          }
+        }
+      }
+      .hottest-items {
+        display: flex;
+        justify-content: space-between;
+        align-self: start;
+        cursor: pointer;
+        &.active {
+          display: none;
+        }
+        .ranking-container {
+          width: 128px;
+          height: 100%;
+          position: relative;
+          .ranking {
+            position: relative;
+            height: 100%;
+            bottom: 0;
+            opacity: 1;
+            transition: all 0.6s;
+            &.active {
+              opacity: 0;
+            }
+            p {
+              font-weight: 500;
+              width: 128px;
+              padding: 16px 0;
+              position: relative;
+              // 54px마다 순위 변경
+              bottom: 0;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              transition: all 0.3s;
+              &:hover {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+              span {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+          }
+        }
+        .ranking-menu {
+          display: none;
+          flex-direction: column;
+          gap: 20px;
+          width: 350px;
+          height: 580px;
+          position: absolute;
+          z-index: 10;
+          padding: 20px;
+          top: 54px;
+          background: map-get($map: $color, $key: main-color);
+          @include border-style($color: map-get($color, main-border-color));
+          .ranking-menu-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            span {
+              font-size: 12px;
+              color: map-get($map: $color, $key: main-desc-color);
+            }
+          }
+          .ranking-selection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            label {
+              text-align: center;
+              width: 50%;
+              border: 1px solid;
+              padding: 4px 14px;
+              @include border-style($color: map-get($color, main-border-color));
+              background: #fafafa;
+              color: map-get($map: $color, $key: placeholder-color);
+              cursor: pointer;
+              &:first-of-type {
+                border-right: none;
+              }
+            }
+            input[type="radio"] {
+              display: none;
+              &:first-of-type:checked + label:first-of-type {
+                background: map-get($map: $color, $key: main-color);
+                color: map-get($map: $color, $key: main-dark-color);
+                font-weight: 600;
+              }
+              &:last-of-type:checked + label:last-of-type {
+                background: map-get($map: $color, $key: main-color);
+                color: map-get($map: $color, $key: main-dark-color);
+                font-weight: 600;
+              }
+            }
+          }
+          .ranking-content {
+            position: relative;
+            .ranking-content-first {
+              z-index: 1;
+              &.active {
+                display: none;
+              }
+            }
+            .ranking-content-second {
+              width: 100%;
+              position: absolute;
+              top: 0;
+              z-index: -1;
+              display: none;
+              &.active {
+                display: block;
+                z-index: 2;
+              }
+            }
+            p {
+              font-weight: 500;
+              padding: 10px 0;
+              position: relative;
+              // 54px마다 순위 변경
+              bottom: 0;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              transition: all 0.3s;
+              &:hover {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+              span {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+          }
+          &.active {
+            display: flex;
+          }
+        }
+        .fa-chevron-down {
+          align-self: flex-start;
+          padding: 20px;
+          font-size: 14px;
+          &.active {
+            transform: scaleY(-1);
+          }
+        }
+      }
+    }
+    .icon-menu {
+      .items {
+        align-items: center;
+        display: flex;
+        gap: 26px;
+        .item {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+          cursor: pointer;
+          &:hover {
+            .fa-regular,
+            span {
+              color: map-get($map: $color, $key: main-amazon-color);
+            }
+            ul {
+              height: 170px;
+              padding: 10px 14px;
+            }
+          }
+          .fa-regular {
+            transition: all 0.3s;
+            font-size: 26px;
+          }
+          .material-symbols-outlined {
+            transition: all 0.3s;
+            font-size: 26px;
+          }
+          span {
+            transition: all 0.3s;
+            font-size: 10px;
+          }
+          ul {
+            overflow: hidden;
+            height: 0;
+            position: absolute;
+            top: 60px;
+            background: white;
+            box-shadow: 0 0 4px #000;
+            border-radius: 8px;
+            padding: 0;
+            font-size: 14px;
+            transform-origin: top;
+            transition: all 0.3s;
+            li {
+              margin-bottom: 10px;
+              transition: all 0.3s;
+              &:hover {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+            &:hover {
+              max-height: 170px;
+              padding: 10px 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .banner {
+    margin-top: 10px;
+    .lnb-content {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      justify-content: space-between;
+      white-space: nowrap;
+      transition: all 0.3s;
+      &.active {
+        height: 0;
+        overflow: hidden;
+        border: none;
+      }
+      .lnb-main {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .main-category-menu {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          width: 190px;
+          padding: 10px;
+          background: map-get($map: $color, $key: main-amazon-color);
+          color: map-get($map: $color, $key: main-color);
+          .category-trigger {
+            cursor: pointer;
+            position: relative;
+            width: 18px;
+            height: 12px;
+            span {
+              position: absolute;
+              background: map-get($map: $color, $key: main-color);
+              width: 18px;
+              height: 1px;
+              &:first-child {
+                top: 0;
+              }
+              &:nth-child(2) {
+                top: 50%;
+              }
+              &:last-child {
+                top: 100%;
+              }
+            }
+          }
+        }
+        .lnb {
+          display: flex;
+          gap: 20px;
+          padding: 10px;
+          .online-pharmacy {
+            position: relative;
+            cursor: pointer;
+            .fa-circle-question {
+              font-size: 14px;
+            }
+            &.active::after,
+            &.active::before {
+              opacity: 1;
+            }
+            &::before {
+              content: attr(data-info);
+              position: absolute;
+              white-space: pre-wrap;
+              bottom: -334px;
+              width: 180px;
+              height: auto;
+              padding: 20px;
+              font-size: 12px;
+              color: white;
+              background: rgba($color: #000000, $alpha: 0.8);
+              border-radius: 10px;
+              opacity: 0;
+              transition: all 0.3s;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -5px;
+              right: 2.5px;
+              width: 0;
+              height: 0;
+              border-top: 0;
+              border-left: 4px solid transparent;
+              border-right: 4px solid transparent;
+              border-bottom: 8px solid;
+              opacity: 0;
+              transition: all 0.3s;
+            }
+          }
+          a {
+            transition: all 0.3s;
+            &:hover {
+              color: map-get($map: $color, $key: main-amazon-color);
+            }
+          }
+        }
+      }
+      .lnb-user-menu {
+        display: flex;
+        gap: 4px;
+        li {
+          padding-right: 6px;
+          border-right: 1px solid map-get($map: $color, $key: placeholder-color);
+          a {
+            color: map-get($map: $color, $key: placeholder-color);
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Top Button
+.Top {
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+  opacity: 0;
+  transition: all 0.3s;
+  .desktop-top {
+    width: 56px;
+    height: 56px;
+    padding: 8px;
+    background: #5c5a5a;
+    color: map-get($map: $color, $key: main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    cursor: pointer;
+    .fa-chevron-up {
+      font-size: 24px;
+    }
+  }
+  .mobile-top {
+    display: none;
+    .mobile-top-menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 14px;
+      span {
+        text-align: center;
+        line-height: 38px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba($color: #eee, $alpha: 0.8);
+        color: map-get($map: $color, $key: main-dark-color);
+        font-size: 24px;
+      }
+    }
+  }
+  &.active {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .inner {
+    width: 100%;
+  }
+
+  header {
+    padding: 10px;
+    width: 100%;
+    .gnb-content {
+      width: 100%;
+      justify-content: center;
+      .gnb {
+        width: 100%;
+        .logo_container {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .sideMenu-trigger-btn {
+            display: block;
+            order: 2;
+          }
+        }
+        .searchBar {
+          display: none;
+        }
+        .hottest-items {
+          display: none;
+        }
+      }
+      .icon-menu {
+        display: none;
+      }
+    }
+    .banner {
+      margin: 0;
+      .lnb-content {
+        border-top: 1px solid map-get($map: $color, $key: main-border-color);
+        width: 100%;
+        justify-content: center;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        user-select: none;
+        overflow-y: hidden;
+        .lnb-main {
+          width: 100%;
+          .main-category-menu {
+            display: none;
+            .lnb {
+              width: 100%;
+              justify-content: space-evenly;
+            }
+          }
+        }
+        .lnb-user-menu {
+          display: none;
+        }
+      }
+    }
+  }
+  .Top {
+    right: 25px;
+    .desktop-top {
+      display: none;
+    }
+    .mobile-top {
+      display: block;
+    }
+  }
+}

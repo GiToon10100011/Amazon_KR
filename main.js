@@ -1,5 +1,10 @@
+// 해당 파일은 아마존코리아의 메인 스크립트 파일입니다.
+// This is the main script file of our Amazon.KR website.
+
+// Import Header 
 import "./header/header.js";
 
+//Slick Sliders
 $(".main-slider").slick({
   dots: true,
   infinite: true,
@@ -97,15 +102,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-//wishlist event
-// import {pageFrame, myPages} from "./my.js";
-// const wishlistShortcut = document.querySelector(".icon-menu .item:last-child");
-// console.log(wishlistShortcut);
-// wishlistShortcut.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   pageFrame.setAttribute("src", myPages[1]);
-// })
-
 //json
 const productInfo = "./data.json";
 fetch(productInfo)
@@ -123,13 +119,13 @@ fetch(productInfo)
       })),
     };
 
-    console.log(products);
-
     let cateItems = {
       cateImgs: [],
       cateDescs: [],
       catePrices: [],
     };
+
+    let catePages = {};
 
     for (let i = 1; i <= 6; i++) {
       cateItems.cateImgs[
@@ -142,8 +138,6 @@ fetch(productInfo)
         `catePrices${i}`
       ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content .item .item-price`;
     }
-
-    console.log(cateItems);
 
     //Data Filtering Process
     const filteredElectronics = products.data.filter((product) => {
@@ -163,7 +157,6 @@ fetch(productInfo)
     const filteredPets = products.data.filter((product) => {
       return product.category.includes("애왕동물 용품");
     });
-    console.log(filteredPets);
     const filteredInterior = products.data.filter((product) => {
       return product.category.includes("가정 및 주방");
     });
@@ -180,6 +173,7 @@ fetch(productInfo)
       filteredGames,
     ];
 
+    // Import Data to the category sections
     cateFilters.forEach((filter, index) => {
       document
         .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
@@ -198,6 +192,88 @@ fetch(productInfo)
         });
     });
 
+    //Change the items per page
+    const pageIndex = document.querySelectorAll(".pageIndex");
+
+    for (let i = 1; i < pageIndex.length + 1; i++) {
+      catePages[`catePage${i}`] = `input[name = "cate${i}"]`;
+    }
+
+    let cateRadios = [];
+
+    pageIndex.forEach((page, i) => {
+      cateRadios.push(page.querySelectorAll(catePages[`catePage${i + 1}`]));
+    });
+
+    const changeCatePageItems = (currentIdx, itemIdx1, itemIdx2, itemIdx3) => {
+      document
+        .querySelectorAll(cateItems.cateImgs[`cateImgs${currentIdx + 1}`])
+        .forEach((img) => {
+          img.setAttribute(
+            "src",
+            cateFilters[currentIdx][itemIdx1]["image-url"]
+          );
+          itemIdx1++;
+        });
+      document
+        .querySelectorAll(cateItems.cateDescs[`cateDescs${currentIdx + 1}`])
+        .forEach((desc) => {
+          desc.innerText = cateFilters[currentIdx][itemIdx2]["name"];
+          itemIdx2++;
+        });
+      document
+        .querySelectorAll(cateItems.catePrices[`catePrices${currentIdx + 1}`])
+        .forEach((price) => {
+          price.innerText = `${cateFilters[currentIdx][itemIdx3]["price"]}원`;
+          itemIdx3++;
+        });
+    };
+
+    cateRadios.forEach((cateRadio, index) => {
+      cateRadio.forEach((radio) => {
+        radio.addEventListener("change", (e) => {
+          const secondPageIndex = document.querySelectorAll(
+            cateItems.cateImgs.cateImgs1
+          );
+          const thirdPageIndex =
+            document.querySelectorAll(cateItems.cateImgs.cateImgs1).length +
+            secondPageIndex.length;
+
+          let [secondPageIndex1, secondPageIndex2, secondPageIndex3] = [
+            secondPageIndex.length,
+            secondPageIndex.length,
+            secondPageIndex.length,
+          ];
+
+          let [thirdPageIndex1, thirdPageIndex2, thirdPageIndex3] = [
+            thirdPageIndex,
+            thirdPageIndex,
+            thirdPageIndex,
+          ];
+
+          if (e.target.id.includes("second")) {
+            changeCatePageItems(
+              index,
+              secondPageIndex1,
+              secondPageIndex2,
+              secondPageIndex3
+            );
+          } else if (e.target.id.includes("third")) {
+            changeCatePageItems(
+              index,
+              thirdPageIndex1,
+              thirdPageIndex2,
+              thirdPageIndex3
+            );
+          } else {
+            changeCatePageItems(index, 0, 0, 0);
+          }
+        });
+      });
+    });
+
+    //Import data to mbb slider
+
     const filteredFashion = products.data.filter((product) => {
       return (
         product.category.includes("남성패션") ||
@@ -213,7 +289,6 @@ fetch(productInfo)
     };
 
     filteredFashion.forEach((filter, index) => {
-      console.log(filter.detail.brands);
       mbbItems.brands[
         index
       ].innerHTML = `<strong>브랜드명 :</strong> ${filter.detail.brands}`;
@@ -229,3 +304,59 @@ fetch(productInfo)
   .catch((error) => {
     console.log(error);
   });
+
+//Category sidebar event
+const categorySidetabs = document.querySelectorAll(
+  ".category-sideBar ul li:not(:last-child)"
+);
+
+const categorySections = document.querySelectorAll("#category-best");
+
+categorySidetabs.forEach((tab, index, arr) => {
+  tab.addEventListener("click", () => {
+    arr.forEach((el, i) => {
+      if (index !== i) {
+        el.classList.remove("active");
+      } else {
+        el.classList.add("active");
+      }
+    });
+  });
+});
+
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    const index = Array.from(categorySections).indexOf(entry.target);
+    if (entry.isIntersecting) {
+      categorySidetabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.classList.add("active");
+        } else {
+          tab.classList.remove("active");
+        }
+      });
+    }
+  });
+};
+
+// Options for the observer
+const options = {
+  root: null, // null means the viewport
+  rootMargin: "0px 0px 10% 0px",
+  threshold: 1, // 0.1 means 10% of the section needs to be visible
+};
+
+const observer = new IntersectionObserver(handleIntersection, options);
+
+categorySections.forEach((section) => {
+  observer.observe(section);
+});
+
+//wishlist event
+// import {pageFrame, myPages} from "./my.js";
+// const wishlistShortcut = document.querySelector(".icon-menu .item:last-child");
+// console.log(wishlistShortcut);
+// wishlistShortcut.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   pageFrame.setAttribute("src", myPages[1]);
+// })
