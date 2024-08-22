@@ -525,9 +525,12 @@ header {
           width: 100%;
           .main-category-menu {
             display: none;
-            .lnb {
-              width: 100%;
-              justify-content: space-evenly;
+          }
+          .lnb {
+            width: 100%;
+            justify-content: space-evenly;
+            .online-pharmacy{
+              display: none;
             }
           }
         }
