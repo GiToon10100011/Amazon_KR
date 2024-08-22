@@ -277,7 +277,7 @@ const body = document.querySelector("#header");
             <ul class="lnb-user-menu">
               <li><a href="#none">로그인</a></li>
               <li><a href="#none">회원가입</a></li>
-              <li><a href="#none">고객센터</a></li>
+              <li><a  href="#none">고객센터</a></li>
             </ul>
           </div>
         </div>

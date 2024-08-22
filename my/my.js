@@ -128,4 +128,9 @@ window.addEventListener("scroll", () => {
   }
 });
 
+const params = new URLSearchParams(location.search);
+const iframeSrc = params.get("iframesrc");
 
+if (iframeSrc) {
+  pageFrame.setAttribute("src", `./wishlist/wishlist.html`);
+}
