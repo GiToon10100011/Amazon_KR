@@ -295,6 +295,20 @@ fetch(productInfo)
       imgs: document.querySelectorAll("#mmb-slider-wrap .item .img-box img"),
     };
 
+    const mbbContents = document.querySelectorAll("#mmb-slider-wrap .item");
+    console.log(mbbContents);
+
+    mbbContents.forEach((content, index) => {
+      content.style.cursor = "pointer";
+      content.addEventListener("click", (e) => {
+        const url = `./detail/detail.html?category=${
+          filteredFashion[index].category
+        }&name=${encodeURIComponent(filteredFashion[index].name)}`;
+        console.log(url);
+        window.location.href = url;
+      });
+    });
+
     filteredFashion.forEach((filter, index) => {
       mbbItems.brands[
         index
@@ -307,6 +321,7 @@ fetch(productInfo)
       ].innerHTML = `<strong>가격 : </strong> ${filter.price}`;
       mbbItems.imgs[index].setAttribute("src", filter["image-url"]);
     });
+
   })
   .catch((error) => {
     console.log(error);
