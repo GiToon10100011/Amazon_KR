@@ -1,7 +1,7 @@
 // 해당 파일은 아마존코리아의 마이페이지 스크립트 파일입니다.
 // This is the myPage script file of our Amazon.KR website.
 
-import "../header/header.js";
+import "./header/header.js";
 
 export const myPages = [
   "./order/order.html",
@@ -131,6 +131,9 @@ window.addEventListener("scroll", () => {
 const params = new URLSearchParams(location.search);
 const iframeSrc = params.get("iframesrc");
 
-if (iframeSrc) {
+if (iframeSrc === "wishlist") {
+  pageFrame.setAttribute("src", `./wishlist/wishlist.html`);
+}
+if (iframeSrc === "my") {
   pageFrame.setAttribute("src", `./wishlist/wishlist.html`);
 }

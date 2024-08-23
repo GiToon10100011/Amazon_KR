@@ -230,6 +230,12 @@ fetch(productInfo)
             "src",
             cateFilters[currentIdx][itemIdx1]["image-url"]
           );
+
+          const url = `./detail/detail.html?category=${
+            cateFilters[currentIdx][itemIdx1].category
+          }&name=${encodeURIComponent(cateFilters[currentIdx][itemIdx1].name)}`;
+          console.log(url);
+
           itemIdx1++;
         });
       document
