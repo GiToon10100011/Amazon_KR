@@ -576,7 +576,8 @@ html,
 body {
   position: relative;
   width: 100%;
-  height: 15000px;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 #header {
@@ -778,24 +779,7 @@ main {
   position: absolute;
   top: 140px;
   width: 100%;
-  height: 100%;
   display: flex;
-}
-
-.category {
-  width: 100%;
-  height: auto;
-  margin-bottom: 14px;
-}
-.category ul {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.category ul li {
-  color: #bdbdbd;
-  font-size: 12px;
-  font-weight: normal;
 }
 
 .contents_all {
@@ -803,6 +787,24 @@ main {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+}
+
+/*category*/
+.topcategory {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+.topcategory .category_content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(178, 178, 178);
+  font-size: 14px;
 }
 
 .left_area {
@@ -815,16 +817,6 @@ main {
   /*main_info*/
   /*subinfo*/
   /*reviw*/
-}
-.left_area .category {
-  width: 100%;
-  height: auto;
-}
-.left_area .category ul {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0;
-  gap: 20px;
 }
 .left_area .main {
   width: 100%;
@@ -955,6 +947,7 @@ main {
   width: 100%;
   height: auto;
   margin-top: 50px;
+  transition: all 0.5s;
 }
 .left_area .subinfo_all .content {
   padding: 2px 0;
@@ -970,6 +963,7 @@ main {
   font-size: 14px;
   background-color: #eee;
   gap: 20px;
+  transition: all 0.5s;
 }
 .left_area .subinfo_all .content .subinfo .sub_plus_1 i {
   transform: rotate(180deg);
@@ -1010,7 +1004,7 @@ main {
   width: 100%;
   height: auto;
   background: #ccc;
-  transition: all 0.5s;
+  transition: max-height 0.5s ease;
 }
 .left_area .subinfo_all .content .subinfo_area_1 ul {
   display: flex;
@@ -1033,7 +1027,7 @@ main {
   width: 100%;
   height: auto;
   background: #ccc;
-  transition: all 0.5s;
+  transition: max-height 0.5s ease;
 }
 .left_area .subinfo_all .content .subinfo_area_2 ul {
   display: flex;
@@ -1056,7 +1050,7 @@ main {
   width: 100%;
   height: auto;
   background: #ccc;
-  transition: all 0.5s;
+  transition: max-height 0.5s ease;
 }
 .left_area .subinfo_all .content .subinfo_area_3 ul {
   display: flex;
@@ -1244,6 +1238,11 @@ main {
   width: 180px;
   height: 180px;
   background: #ccc;
+  cursor: pointer;
+}
+.left_area .reviw_all .user_reviw_warpper .reviw_userdetail .reviw_img_ic .img:focus {
+  width: 280px;
+  height: 280px;
 }
 .left_area .reviw_all .user_reviw_warpper .reviw_userdetail .reviw_img_ic .img img {
   width: 100%;
@@ -1487,6 +1486,7 @@ main {
 .another_service .same_brand .title_box .more {
   font-size: 16px;
   color: #acacac;
+  cursor: pointer;
 }
 .another_service .same_brand .title_box .more i {
   transform: rotate(90deg);
@@ -1506,6 +1506,7 @@ main {
   width: 285px;
   height: 330px;
   background: center/cover no-repeat;
+  cursor: pointer;
 }
 .another_service .same_brand .info_box .ap_desc .txtbox {
   display: flex;
@@ -1544,6 +1545,7 @@ main {
 .another_service .another_brand .title_box .more {
   font-size: 16px;
   color: #acacac;
+  cursor: pointer;
 }
 .another_service .another_brand .title_box .more i {
   transform: rotate(90deg);
@@ -1563,6 +1565,7 @@ main {
   width: 285px;
   height: 330px;
   background: center/cover no-repeat;
+  cursor: pointer;
 }
 .another_service .another_brand .info_box .ap_desc .txtbox {
   display: flex;
@@ -1602,6 +1605,7 @@ main {
 .another_service .another_Recommend .title_box .more {
   font-size: 16px;
   color: #acacac;
+  cursor: pointer;
 }
 .another_service .another_Recommend .title_box .more i {
   transform: rotate(90deg);
@@ -1621,6 +1625,7 @@ main {
   width: 285px;
   height: 330px;
   background: center/cover no-repeat;
+  cursor: pointer;
 }
 .another_service .another_Recommend .info_box .ap_desc .txtbox {
   display: flex;
@@ -1643,9 +1648,10 @@ main {
 
 #footer {
   position: absolute;
-  bottom: 0;
+  left: 0;
+  bottom: -400px;
+  height: 400px;
   width: 100%;
-  height: 360px;
   z-index: 4;
 }
 
@@ -1656,7 +1662,6 @@ main {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    height: 3000px;
     display: flex;
   }
   #M_bottom_bar {
@@ -1985,7 +1990,7 @@ main {
     font-size: 14px;
     padding-top: 6px;
   }
-  #M_reviw .header .Bigtxt {
+  #M_reviw .header .avg {
     font-size: 38px;
   }
   #M_reviw .photos {
@@ -2297,6 +2302,9 @@ main {
     height: auto;
     margin-top: 50px;
   }
+  .left_area .subinfo_all .content {
+    transition: all 0.3s;
+  }
   .left_area .subinfo_all .content .subinfo {
     width: 100%;
     height: 70px;
@@ -2528,6 +2536,7 @@ main {
   .another_service .same_brand .title_box .more {
     font-size: 14px;
     color: #acacac;
+    cursor: pointer;
   }
   .another_service .same_brand .title_box .more i {
     transform: rotate(90deg);
@@ -2586,6 +2595,7 @@ main {
   .another_service .another_brand .title_box .more {
     font-size: 14px;
     color: #acacac;
+    cursor: pointer;
   }
   .another_service .another_brand .title_box .more i {
     font-size: 13px;
@@ -2644,6 +2654,7 @@ main {
   .another_service .another_Recommend .title_box .more {
     font-size: 14px;
     color: #acacac;
+    cursor: pointer;
   }
   .another_service .another_Recommend .title_box .more i {
     font-size: 13px;
@@ -2849,6 +2860,7 @@ main {
     cursor: pointer;
   }
   #footer {
-    height: 900px;
+    bottom: -900px;
+    height: 1000px;
   }
 }

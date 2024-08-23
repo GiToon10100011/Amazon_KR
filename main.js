@@ -173,42 +173,6 @@ fetch(productInfo)
       filteredGames,
     ];
 
-    console.log(cateFilters[0][0].category);
-
-    //Create URL for each items
-    categorySections.forEach((section, index) => {
-      const categoryItems = section.querySelectorAll(".inner .content .item");
-      categoryItems.forEach((item, i) => {
-        item.addEventListener("click", (e) => {
-          console.log(e);
-          const url = `./detail/detail.html?category=${
-            cateFilters[index][i].category
-          }&name=${encodeURIComponent(cateFilters[index][i].name)}`;
-          console.log(url);
-          window.location.href = url;
-        });
-      });
-    });
-
-    // Import Data to the category sections
-    cateFilters.forEach((filter, index) => {
-      document
-        .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
-        .forEach((img, i) => {
-          img.setAttribute("src", filter[i]["image-url"]);
-        });
-      document
-        .querySelectorAll(cateItems.cateDescs[`cateDescs${index + 1}`])
-        .forEach((desc, i) => {
-          desc.innerText = filter[i]["name"];
-        });
-      document
-        .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
-        .forEach((price, i) => {
-          price.innerText = `${filter[i]["price"]}원`;
-        });
-    });
-
     //Change the items per page
     const pageIndex = document.querySelectorAll(".pageIndex");
 
@@ -287,6 +251,40 @@ fetch(productInfo)
           }
         });
       });
+    });
+
+    //Create URL for each items
+    categorySections.forEach((section, index) => {
+      const categoryItems = section.querySelectorAll(".inner .content .item");
+      categoryItems.forEach((item, i) => {
+        item.addEventListener("click", (e) => {
+          console.log(e);
+          const url = `./detail/detail.html?category=${
+            cateFilters[index][i].category
+          }&name=${encodeURIComponent(cateFilters[index][i].name)}`;
+          console.log(url);
+          window.location.href = url;
+        });
+      });
+    });
+
+    // Import Data to the category sections
+    cateFilters.forEach((filter, index) => {
+      document
+        .querySelectorAll(cateItems.cateImgs[`cateImgs${index + 1}`])
+        .forEach((img, i) => {
+          img.setAttribute("src", filter[i]["image-url"]);
+        });
+      document
+        .querySelectorAll(cateItems.cateDescs[`cateDescs${index + 1}`])
+        .forEach((desc, i) => {
+          desc.innerText = filter[i]["name"];
+        });
+      document
+        .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
+        .forEach((price, i) => {
+          price.innerText = `${filter[i]["price"]}원`;
+        });
     });
 
     //Import data to mbb slider

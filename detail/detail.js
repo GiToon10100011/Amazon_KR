@@ -1,4 +1,6 @@
+
 import "./header/header.js";
+
 
 fetch('./data.json')
 .then(response => response.json())
@@ -15,8 +17,74 @@ fetch('./data.json')
       })),
     };
 
-    console.log(products)
-})
+    //내장객체 함수를 통해 현 url의 파라미터를 가져옴
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+    const names = params.get("name");
+
+    const product = products.data.find(
+      (product) => product.category === category && product.name === names
+    );
+
+    console.log(product)
+    
+    if (product) {
+      const category = document.querySelector(".category_content")
+      category.innerHTML = product.detail["category-path"]
+
+      const productTitles = document.querySelectorAll(".main_desc .product-name");
+      productTitles.forEach((title)=> {
+        title.innerText = product.name
+      })
+
+      const prices = document.querySelectorAll(".amount .price")
+      prices.forEach((price)=>{
+        price.innerHTML = `${product.price} ${product.detail.currency}`
+      })
+      
+      const brands = document.querySelectorAll(".brand_heart")
+      brands.forEach((brand)=>{
+        brand.innerHTML = product.detail.brands
+      })
+      
+      const discounts = document.querySelectorAll(".amount .discount")
+      discounts.forEach((discount)=>{
+        discount.innerHTML = product.detail.discount
+      })
+      
+      const pro_code = document.querySelector(".pro_code .code")
+      pro_code.innerHTML = `상품번호 ${product.detail["product-num"]}`
+      
+
+      const selecoptions = document.querySelectorAll(".selectoption")
+      selecoptions.forEach((selecoption) => {
+        const options = selecoption.querySelectorAll("#option");
+        options.forEach((option, i) => {
+
+          option.innerText = product.detail.options[i]
+        })
+      })
+
+      const mainImage = document.querySelector(".main_img")
+        mainImage.style.backgroundImage = `url(${product["image-url"]})`
+        
+      const main_infoimgs = document.querySelectorAll(".img_area img")
+      main_infoimgs.forEach((img, i) => {
+        img.setAttribute("src", product.detail["more-img"][i])
+      })
+      
+      const ratings = document.querySelectorAll(".avg")
+      ratings.forEach((rating)=>{
+        rating.innerHTML = product.detail.ratings
+      })
+      
+      const reviews = document.querySelectorAll(".title_txtr")
+      reviews.forEach((review)=>{
+        review.innerHTML = `(${product.detail.reviews})`
+      })
+    } else{
+    }
+  })
 .catch(error => console.error('Error loading JSON:', error));
 
 
@@ -94,6 +162,7 @@ const sub_ic =document.querySelector("#sub_ic")
 
 plusBtn1.addEventListener("click",()=>{
   subInfoArea1.classList.toggle("subinfoMore")
+  subInfoArea1.style.transition = "all 0.3s";
   sub_ic.classList.toggle("subinfoMore")
 })
 
@@ -149,32 +218,32 @@ M_reviwBtn.addEventListener("click",()=>{
 
 
 //reviw slide
-const images = ['./img/main1.jpg', './img/main2.jpg','./img/main_info3.png']; // 이미지 경로들
-let currentIndex = 0;
+// const images = ['./img/main1.jpg', './img/main2.jpg','./img/main_info3.png']; // 이미지 경로들
+// let currentIndex = 0;
 
-const mainImg = document.querySelector('.main_img');
-const btnLeft = document.querySelector('.mainBtn_L');
-const btnRight = document.querySelector('.mainBtn_R');
+// const mainImg = document.querySelector('.main_img');
+// const btnLeft = document.querySelector('.mainBtn_L');
+// const btnRight = document.querySelector('.mainBtn_R');
 
-// 초기 이미지 설정
-mainImg.style.backgroundImage = `url(${images[currentIndex]})`;
+// // 초기 이미지 설정
+// mainImg.style.backgroundImage = `url(${images[currentIndex]})`;
 
-function showImage(index) {
-    mainImg.style.backgroundImage = `url(${images[index]})`;
-}
+// function showImage(index) {
+//     mainImg.style.backgroundImage = `url(${images[index]})`;
+// }
 
-function nextImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage(currentIndex);
-}
+// function nextImage() {
+//     currentIndex = (currentIndex + 1) % images.length;
+//     showImage(currentIndex);
+// }
 
-function previousImage() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage(currentIndex);
-}
+// function previousImage() {
+//     currentIndex = (currentIndex - 1 + images.length) % images.length;
+//     showImage(currentIndex);
+// }
 
-btnRight.addEventListener('click', nextImage);
-btnLeft.addEventListener('click', previousImage);
+// btnRight.addEventListener('click', nextImage);
+// btnLeft.addEventListener('click', previousImage);
 
 
 //reviwe photo
@@ -210,4 +279,20 @@ slideBtnRight.addEventListener('click', () => {
 });
 
 
+//JSON DATA
 
+// const xhr = new XMLHttpRequest()
+
+// xhr.open("GET","data.json")
+// xhr.send()
+
+// xhr.onreadystatechange = function(){
+//   if(xhr.readyState === 4 && xhr.status === 200){
+//   const dataJson = JSON.parse(xhr.responseText)
+
+//   const productName = document.querySelector(".product-name")
+  
+//   productName.innerHTML = 
+//   `<p>${dataJson.data.name}</p>`
+//   }
+// }

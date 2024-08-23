@@ -5,7 +5,7 @@ html,
 body {
   position: relative;
   width: 100%;
-  height: 15000px;
+  height: fit-content;
 }
 
 #header {
@@ -218,45 +218,46 @@ main {
   position: absolute;
   top: 140px;
   width: 100%;
-  height: 100%;
+  // height: fit-content;
   display: flex;
 }
-.category {
-  width: 100%;
-  height: auto;
-  margin-bottom: 14px;
-  ul {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    li {
-      color: #bdbdbd;
-      font-size: 12px;
-      font-weight: normal;
-    }
-  }
-}
+// .category {
+//   width: 100%;
+//   height: auto;
+//   margin-bottom: 14px;
+//   .category_content{
+//     display: flex;
+//     height: auto;
+//   }
+// }
 .contents_all {
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 0 auto;
 }
+/*category*/
+.topcategory {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  .category_content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(178, 178, 178);
+    font-size: 14px;
+  }
+}
 .left_area {
   flex: 2;
   height: 100%;
   width: 60%;
   /*category*/
-  .category {
-    width: 100%;
-    height: auto;
-    ul {
-      display: flex;
-      justify-content: center;
-      margin: 30px 0;
-      gap: 20px;
-    }
-  }
   /*main*/
   .main {
     width: 100%;
@@ -393,6 +394,7 @@ main {
     width: 100%;
     height: auto;
     margin-top: 50px;
+    transition: all 0.5s;
     .content {
       padding: 2px 0;
       transition: all 0.5s;
@@ -406,6 +408,7 @@ main {
         font-size: 14px;
         background-color: #eee;
         gap: 20px;
+        transition: all 0.5s;
         .sub_plus_1{
           i {
             transform: rotate(180deg);
@@ -452,7 +455,7 @@ main {
         width: 100%;
         height: auto;
         background: map-get($map: $color, $key: main-border-color);
-        transition: all 0.5s;
+        transition: max-height 0.5s ease;
         ul {
           display: flex;
           flex-direction: column;
@@ -475,7 +478,7 @@ main {
         width: 100%;
         height: auto;
         background: map-get($map: $color, $key: main-border-color);
-        transition: all 0.5s;
+        transition: max-height 0.5s ease;
         ul {
           display: flex;
           flex-direction: column;
@@ -498,7 +501,7 @@ main {
         width: 100%;
         height: auto;
         background: map-get($map: $color, $key: main-border-color);
-        transition: all 0.5s;
+        transition: max-height 0.5s ease;
         ul {
           display: flex;
           flex-direction: column;
@@ -583,7 +586,7 @@ main {
           height: 120px;
           background: map-get($map: $color, $key: main-border-color);
           a{
-          transition: all 0.3s;
+            transition: all 0.3s;
             img{
               width: 100%;
               height: 100%;
@@ -688,6 +691,11 @@ main {
             width: 180px;
             height: 180px;
             background: map-get($map: $color, $key: main-border-color);
+            cursor: pointer;
+            &:focus{
+              width: 280px;
+              height: 280px;
+            }
             img{
               width: 100%;
               height: 100%;
@@ -933,6 +941,7 @@ main {
       .more {
         font-size: 16px;
         color: #acacac;
+        cursor: pointer;
         i {
           transform: rotate(90deg);
           font-size: 13px;
@@ -951,6 +960,7 @@ main {
           width: 285px;
           height: 330px;
           background: center/cover no-repeat;
+          cursor: pointer;
         }
         .txtbox {
           display: flex;
@@ -991,6 +1001,7 @@ main {
       .more {
         font-size: 16px;
         color: #acacac;
+        cursor: pointer;
         i {
           transform: rotate(90deg);
           font-size: 13px;
@@ -1009,6 +1020,7 @@ main {
           width: 285px;
           height: 330px;
           background: center/cover no-repeat;
+          cursor: pointer;
         }
         .txtbox {
           display: flex;
@@ -1050,6 +1062,7 @@ main {
       .more {
         font-size: 16px;
         color: #acacac;
+        cursor: pointer;
         i {
           transform: rotate(90deg);
           font-size: 13px;
@@ -1068,6 +1081,7 @@ main {
           width: 285px;
           height: 330px;
           background: center/cover no-repeat;
+          cursor: pointer;
         }
         .txtbox {
           display: flex;
@@ -1094,9 +1108,10 @@ main {
 
 #footer {
   position: absolute;
-  bottom: 0;
+  left: 0;
+  bottom: -400px;
+  height: 400px;
   width: 100%;
-  height: 360px;
   z-index: 4;
 }
 
@@ -1108,7 +1123,7 @@ main {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    height: 3000px;
+    // height: f/;
     display: flex;
   }
 
@@ -1442,7 +1457,7 @@ main {
           padding-top: 6px;
         }
       }
-      .Bigtxt {
+      .avg{
         font-size: 38px;
       }
     }
@@ -1779,6 +1794,7 @@ main {
       height: auto;
       margin-top: 50px;
       .content {
+        transition: all 0.3s;
         .subinfo {
           width: 100%;
           height: 70px;
@@ -2014,6 +2030,7 @@ main {
         .more {
           font-size: 14px;
           color: #acacac;
+          cursor: pointer;
           i {
             transform: rotate(90deg);
             font-size: 13px;
@@ -2073,6 +2090,7 @@ main {
         .more {
           font-size: 14px;
           color: #acacac;
+          cursor: pointer;
           i {
             font-size: 13px;
             line-height: 20px;
@@ -2132,6 +2150,7 @@ main {
         .more {
           font-size: 14px;
           color: #acacac;
+          cursor: pointer;
           i {
             font-size: 13px;
             line-height: 20px;
@@ -2343,6 +2362,7 @@ main {
     }
   }
   #footer{
-    height: 900px;
+    bottom: -900px;
+    height: 1000px;
   }
 }
