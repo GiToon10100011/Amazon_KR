@@ -1031,12 +1031,14 @@ header {
         .categories {
           #category-best {
             margin: 0;
+            overflow: visible;
             margin-bottom: 500px;
             .category-title {
               display: none;
             }
             .inner {
               .category-section {
+                overflow: hidden;
                 flex-direction: column;
                 gap: 20px;
                 height: auto;
@@ -1110,26 +1112,37 @@ header {
                     }
                   }
                 }
-                .content {
+                .content-box{
+                  position: static;
+                  overflow: visible;
                   height: 240px !important;
-                  padding: 10px;
-                  display: flex;
-                  overflow-x: scroll;
-                  scrollbar-width: none;
-                  .item {
+                  .content {
+                    width: 90%;
+                    position: static;
                     height: 100%;
-                    width: 160px;
-                    img {
+                    padding: 10px;
+                    display: flex;
+                    overflow-x: scroll;
+                    scrollbar-width: none;
+                    grid-gap: 10px;
+                    .item {
+                      height: 100%;
                       width: 160px;
-                      height: 150px;
-                      object-fit: cover;
+                      &:nth-of-type(4n){
+                        margin-right: 0;
+                      }
+                      img {
+                        width: 160px;
+                        height: 150px;
+                        object-fit: cover;
+                      }
                     }
-                  }
-                  .item-desc {
-                    font-size: 14px;
-                  }
-                  .item-price {
-                    font-size: 14px;
+                    .item-desc {
+                      font-size: 14px;
+                    }
+                    .item-price {
+                      font-size: 14px;
+                    }
                   }
                 }
               }

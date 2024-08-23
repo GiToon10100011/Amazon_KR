@@ -1525,12 +1525,14 @@ header {
   }
   #main-contents #container .category-container .categories #category-best {
     margin: 0;
+    overflow: visible;
     margin-bottom: 500px;
   }
   #main-contents #container .category-container .categories #category-best .category-title {
     display: none;
   }
   #main-contents #container .category-container .categories #category-best .inner .category-section {
+    overflow: hidden;
     flex-direction: column;
     gap: 20px;
     height: auto;
@@ -1599,27 +1601,38 @@ header {
   #main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .mid-banner-slider .slick-dots {
     bottom: 20px;
   }
-  #main-contents #container .category-container .categories #category-best .inner .category-section .content {
+  #main-contents #container .category-container .categories #category-best .inner .category-section .content-box {
+    position: static;
+    overflow: visible;
     height: 240px !important;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content {
+    width: 90%;
+    position: static;
+    height: 100%;
     padding: 10px;
     display: flex;
     overflow-x: scroll;
     scrollbar-width: none;
+    grid-gap: 10px;
   }
-  #main-contents #container .category-container .categories #category-best .inner .category-section .content .item {
+  #main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item {
     height: 100%;
     width: 160px;
   }
-  #main-contents #container .category-container .categories #category-best .inner .category-section .content .item img {
+  #main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item:nth-of-type(4n) {
+    margin-right: 0;
+  }
+  #main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item img {
     width: 160px;
     height: 150px;
     -o-object-fit: cover;
        object-fit: cover;
   }
-  #main-contents #container .category-container .categories #category-best .inner .category-section .content .item-desc {
+  #main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item-desc {
     font-size: 14px;
   }
-  #main-contents #container .category-container .categories #category-best .inner .category-section .content .item-price {
+  #main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item-price {
     font-size: 14px;
   }
   #main-contents #main-bottom-banner {
