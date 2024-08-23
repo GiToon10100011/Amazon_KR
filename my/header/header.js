@@ -1,6 +1,3 @@
-// 해당 파일은 아마존코리아의 헤더 스크립트 파일입니다.
-// This is the header script file of our Amazon.KR website.
-
 //Ascii Art
 console.log(`
   @          @@@                  @@@@          @@@           @@         @@@           @@@@@@@@@@@@@@@
@@ -224,7 +221,7 @@ const body = document.querySelector("#header");
           <div class="icon-menu">
             <div class="items">
               <div class="item">
-                <a href="./my/my.html"><i class="fa-regular fa-user"></i></a>
+                <a href=""><i class="fa-regular fa-user"></i></a>
                 <span>회원정보</span>
                 <ul class="user-menu">
                   <li><a href="">나의 쿠폰</a></li>
@@ -241,7 +238,7 @@ const body = document.querySelector("#header");
                 <span>장바구니</span>
               </div>
               <div class="item">
-                <a href="./my/my.html"><i class="fa-regular fa-heart"></i></a>
+                <a href="#iframesrc=wishlist"><i class="fa-regular fa-heart"></i></a>
                 <span>찜목록</span>
               </div>
             </div>
@@ -298,8 +295,7 @@ const body = document.querySelector("#header");
       </div>
     </div>`;
 
-// Header
-
+// Header events
 const lnb = document.querySelector(".lnb-content");
 
 const Top = document.querySelector(".Top");
@@ -366,20 +362,20 @@ console.log(rankingMenuTitle);
 
 const updateDate = () => {
   const rankingDateTime = new Date();
-  
+
   let rankingYear = rankingDateTime.getFullYear();
   let rankingMonth = rankingDateTime.getMonth() + 1;
   let rankingDate = rankingDateTime.getDate();
   let rankingHour = rankingDateTime.getHours();
   let rankingMin = rankingDateTime.getMinutes();
-  
+
   rankingMonth < 10 ? (rankingMonth = `0${rankingMonth}`) : rankingMonth;
   rankingDate < 10 ? (rankingDate = `0${rankingDate}`) : rankingDate;
   rankingHour < 10 ? (rankingHour = `0${rankingHour}`) : rankingHour;
   rankingMin < 10 ? (rankingMin = `0${rankingMin}`) : rankingMin;
-  
+
   rankingMenuTitle.innerText = `${rankingYear}.${rankingMonth}.${rankingDate} ${rankingHour}:${rankingMin} 기준`;
-}
+};
 
 updateDate();
 
@@ -407,6 +403,7 @@ rankingRadios.forEach((btn) => {
   });
 });
 
+//Generate Main sideMenu category
 const categories = {
   전자: [
     "엑세서리 및 용품",
@@ -823,3 +820,4 @@ if (!SpeechRecognition) {
     console.log("Speech recognition service disconnected");
   };
 }
+

@@ -238,7 +238,7 @@ const body = document.querySelector("#header");
                 <span>장바구니</span>
               </div>
               <div class="item">
-                <a href="./my/my.html"><i class="fa-regular fa-heart"></i></a>
+                <a href="./my/my.html?iframesrc=wishlist"><i class="fa-regular fa-heart"></i></a>
                 <span>찜목록</span>
               </div>
             </div>
@@ -362,20 +362,20 @@ console.log(rankingMenuTitle);
 
 const updateDate = () => {
   const rankingDateTime = new Date();
-  
+
   let rankingYear = rankingDateTime.getFullYear();
   let rankingMonth = rankingDateTime.getMonth() + 1;
   let rankingDate = rankingDateTime.getDate();
   let rankingHour = rankingDateTime.getHours();
   let rankingMin = rankingDateTime.getMinutes();
-  
+
   rankingMonth < 10 ? (rankingMonth = `0${rankingMonth}`) : rankingMonth;
   rankingDate < 10 ? (rankingDate = `0${rankingDate}`) : rankingDate;
   rankingHour < 10 ? (rankingHour = `0${rankingHour}`) : rankingHour;
   rankingMin < 10 ? (rankingMin = `0${rankingMin}`) : rankingMin;
-  
+
   rankingMenuTitle.innerText = `${rankingYear}.${rankingMonth}.${rankingDate} ${rankingHour}:${rankingMin} 기준`;
-}
+};
 
 updateDate();
 
@@ -402,7 +402,6 @@ rankingRadios.forEach((btn) => {
     }
   });
 });
-
 
 //Generate Main sideMenu category
 const categories = {
@@ -821,3 +820,4 @@ if (!SpeechRecognition) {
     console.log("Speech recognition service disconnected");
   };
 }
+

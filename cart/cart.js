@@ -7,6 +7,11 @@ document
   .addEventListener("click", function () {
     window.location.href = "cart02.html";
   });
+document.querySelectorAll(".cart-change-options").forEach(function (element) {
+  element.addEventListener("click", function () {
+    window.location.href = "cart02.html";
+  });
+});
 
 // cart price 업데이트 및 수량증가 및 감소 기능
 const quantityControls = document.querySelectorAll(".cart-options-control");
@@ -20,15 +25,19 @@ quantityControls.forEach((control) => {
   minusButton.addEventListener("click", () => {
     let currentQuantity = parseInt(quantityDisplay.textContent);
     if (currentQuantity > 1) {
-      quantityDisplay.textContent = currentQuantity - 1;
-      updateCartItemPrice(control, currentQuantity - 1);
+      currentQuantity -= 1;
+      quantityDisplay.textContent = currentQuantity;
+      updateCartItemPrice(control, currentQuantity);
+      updateTotalPrice(); // 총 가격 업데이트
     }
   });
 
   plusButton.addEventListener("click", () => {
     let currentQuantity = parseInt(quantityDisplay.textContent);
-    quantityDisplay.textContent = currentQuantity + 1;
-    updateCartItemPrice(control, currentQuantity + 1);
+    currentQuantity += 1;
+    quantityDisplay.textContent = currentQuantity;
+    updateCartItemPrice(control, currentQuantity);
+    updateTotalPrice(); // 총 가격 업데이트
   });
 });
 
@@ -38,11 +47,31 @@ function updateCartItemPrice(control, quantity) {
     .closest(".cart-item")
     .querySelector(".cart-item-price");
   const unitPrice = parseFloat(
-    itemPriceElement.getAttribute("data-unit-price")
+    itemPriceElement.getAttribute("data-unit-price").replace(/[^0-9.-]+/g, "")
   );
   const newPrice = unitPrice * quantity;
-  itemPriceElement.textContent = newPrice.toLocaleString() + "원";
+  itemPriceElement.textContent = `${newPrice.toLocaleString()}원`;
 }
+
+// 총 가격 업데이트 함수
+function updateTotalPrice() {
+  const totalPriceElement = document.querySelectorAll("#total-price");
+  let total = 0;
+
+  document.querySelectorAll(".cart-item-price").forEach((priceElement) => {
+    const itemPrice = parseFloat(
+      priceElement.textContent.replace(/[^0-9.-]+/g, "")
+    );
+    total += itemPrice;
+  });
+
+  totalPriceElement.forEach((element) => {
+    element.textContent = `${total.toLocaleString()}원`;
+  });
+}
+
+// 페이지 로드 시 초기 총 가격 계산
+updateTotalPrice();
 
 // modal
 
@@ -67,6 +96,7 @@ document
 confirmDeleteBtn.addEventListener("click", () => {
   if (itemToDelete) {
     itemToDelete.remove(); // 해당 항목 삭제
+    updateTotalPrice(); // 총 가격 업데이트
     itemToDelete = null;
     deleteModal.style.display = "none"; // 모달창 숨기기
     modalBackground.style.display = "none"; // 배경 숨기기

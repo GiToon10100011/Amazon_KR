@@ -1,7 +1,7 @@
 // 해당 파일은 헤더 스타일 시트입니다.
 // This is the stylesheet of our website's Header
 
-@import "../reset.scss";
+@import "../../reset.scss";
 
 // Common
 body {
@@ -198,7 +198,7 @@ header {
             position: relative;
             .ranking-content-first {
               z-index: 1;
-              &.active{
+              &.active {
                 display: none;
               }
             }
@@ -208,7 +208,7 @@ header {
               top: 0;
               z-index: -1;
               display: none;
-              &.active{
+              &.active {
                 display: block;
                 z-index: 2;
               }
@@ -525,9 +525,12 @@ header {
           width: 100%;
           .main-category-menu {
             display: none;
-            .lnb {
-              width: 100%;
-              justify-content: space-evenly;
+          }
+          .lnb {
+            width: 100%;
+            justify-content: space-evenly;
+            .online-pharmacy {
+              display: none;
             }
           }
         }

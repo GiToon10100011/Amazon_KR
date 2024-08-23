@@ -8,6 +8,39 @@ document
     window.location.href = "cart03.html";
   });
 
+// 이름 유효성 검사 코드
+const nameInput = document.querySelector("#order-name");
+const nameError = document.querySelector("#name-error");
+
+const recipientNameInput = document.querySelector("#recipient-name");
+const recipientNameError = document.querySelector("#recipient-name-error2");
+
+// 정규식 패턴: 영어와 한글만 허용
+const namePattern = /^[a-zA-Z가-힣ㄱ-ㅎ]+$/;
+
+// 주문자 이름 입력 시 유효성 검사
+nameInput.addEventListener("input", function () {
+  if (!namePattern.test(nameInput.value)) {
+    nameError.textContent = "올바른 이름을 입력하세요. (영어와 한글만 허용)";
+    nameError.style.display = "block";
+  } else {
+    nameError.textContent = "";
+    nameError.style.display = "none";
+  }
+});
+
+// 수령인 이름 입력 시 유효성 검사
+recipientNameInput.addEventListener("input", function () {
+  if (!namePattern.test(recipientNameInput.value)) {
+    recipientNameError.textContent =
+      "올바른 이름을 입력하세요. (영어와 한글만 허용)";
+    recipientNameError.style.display = "block";
+  } else {
+    recipientNameError.textContent = "";
+    recipientNameError.style.display = "none";
+  }
+});
+
 // 이메일 유효성검사
 const emailInput = document.querySelector("#order-email");
 const emailError = document.querySelector("#email-error");
@@ -26,7 +59,6 @@ emailInput.addEventListener("input", function () {
   }
 });
 
-//  아래 비효율 코드를 효율성 코드로 변경.
 // 전화번호 유효성 검사 함수
 function validatePhoneInput(inputElement, errorElement) {
   const phonePattern = /^[0-9]*$/; // 숫자만 허용하는 패턴
@@ -57,6 +89,33 @@ phoneInputs.forEach(({ input, error }) => {
     validatePhoneInput(input, error);
   });
 });
+
+// 총 가격 계산 함수
+function calculateTotalPrice() {
+  const priceElements = document.querySelectorAll(".product-price");
+  let totalPrice = 0;
+
+  priceElements.forEach((priceElement) => {
+    const unitPrice = parseInt(
+      priceElement.getAttribute("data-unit-price"),
+      10
+    );
+    const quantityElement = priceElement.querySelector(".product-quantity");
+    const quantityText = quantityElement.textContent.trim();
+    const quantity = parseInt(quantityText.replace(/[^0-9]/g, ""), 10);
+
+    totalPrice += unitPrice * quantity;
+  });
+
+  const formattedTotalPrice = totalPrice.toLocaleString("ko-KR") + "원";
+
+  // 두 개의 다른 요소에 동일한 총 가격을 설정합니다.
+  document.querySelector("#total-price").textContent = formattedTotalPrice;
+  document.querySelector("#final-price").textContent = formattedTotalPrice; // 'final-price'에도 동일한 값을 설정
+}
+
+// 페이지가 로드될 때 총 가격을 계산하여 표시합니다.
+document.addEventListener("DOMContentLoaded", calculateTotalPrice);
 
 // 카카오 우편번호 서비스 API 불러오기
 document

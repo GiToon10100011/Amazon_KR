@@ -269,6 +269,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 40px;
+    position: relative;
     h2 {
       font-size: 30px;
       font-weight: normal;
@@ -316,6 +317,12 @@ main {
             padding: 0 5px;
           }
         }
+      }
+      #name-error {
+        position: relative;
+        font-size: 13px;
+        color: #f00;
+        left: 5px;
       }
       #email-error {
         font-size: 13px;
@@ -400,7 +407,12 @@ main {
     input[type="text"] {
       margin-bottom: 4px;
     }
-
+    #recipient-name-error2 {
+      position: relative;
+      left: 5px;
+      color: #f00;
+      font-size: 13px;
+    }
     #recipient-phone-error {
       position: relative;
       left: 160px;

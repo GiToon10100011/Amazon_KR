@@ -536,9 +536,12 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
   header .banner .lnb-content .lnb-main .main-category-menu {
     display: none;
   }
-  header .banner .lnb-content .lnb-main .main-category-menu .lnb {
+  header .banner .lnb-content .lnb-main .lnb {
     width: 100%;
     justify-content: space-evenly;
+  }
+  header .banner .lnb-content .lnb-main .lnb .online-pharmacy {
+    display: none;
   }
   header .banner .lnb-content .lnb-user-menu {
     display: none;
