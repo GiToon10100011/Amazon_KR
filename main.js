@@ -179,6 +179,7 @@ fetch(productInfo)
     categorySections.forEach((section, index) => {
       const categoryItems = section.querySelectorAll(".inner .content .item");
       categoryItems.forEach((item, i) => {
+        item.style.cursor = "pointer";
         item.addEventListener("click", (e) => {
           console.log(e);
           const url = `./detail/detail.html?category=${
