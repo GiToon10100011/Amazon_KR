@@ -278,6 +278,7 @@
                   id="order-name"
                   placeholder="이름을 입력하세요"
                 />
+                <p id="name-error"></p>
               </div>
               <div class="form-group">
                 <label for="order-email">이메일</label>
@@ -341,6 +342,7 @@
                   name="recipient-name"
                   placeholder="받는사람의 이름을입력하세요"
                 />
+                <p id="recipient-name-error2"></p>
               </div>
 
               <div class="form-group">
@@ -417,7 +419,7 @@
           </article>
           <article class="order-products">
             <h2>주문상품 <span>2건</span></h2>
-            <!-- 첫 번째 주문 상품 -->
+            <!-- 1번째 주문 상품 -->
             <div class="product-item">
               <div class="product-header">
                 <h3>주식회사코딩반란군</h3>
@@ -432,19 +434,18 @@
                 <div class="product-details">
                   <p>코딩반란군이 제작하는 이젠아카데미frontend-class</p>
                   <p>추가상품 - This is best option</p>
-                  <p class="product-price">
-                    58,900원 <span class="product-quantity">| 1개</span>
+                  <p class="product-price" data-unit-price="10100">
+                    10,100원 <span class="product-quantity">| 1개</span>
                   </p>
                 </div>
               </div>
             </div>
-            <!-- 두 번째 주문 상품 -->
+            <!-- 2-1번째 주문 상품 -->
             <div class="product-item">
               <div class="product-header">
                 <h3>주식회사코딩반란군</h3>
                 <span class="shipping-info">무료배송</span>
               </div>
-              <!-- 첫 번째 상품 -->
               <div class="product-content">
                 <img
                   src="./cartimg/product03.jpg"
@@ -454,12 +455,12 @@
                 <div class="product-details">
                   <p>코딩반란군이 제작하는 이젠아카데미frontend-class</p>
                   <p>추가상품 - This is best option</p>
-                  <p class="product-price">
-                    58,900원 <span class="product-quantity">| 1개</span>
+                  <p class="product-price" data-unit-price="25900">
+                    25,900원 <span class="product-quantity">| 1개</span>
                   </p>
                 </div>
               </div>
-              <!-- 두 번째 상품 -->
+              <!--  2-2번째 상품 -->
               <div class="product-content">
                 <img
                   src="./cartimg/product02.jpg"
@@ -469,8 +470,8 @@
                 <div class="product-details">
                   <p>코딩반란군이 제작하는 이젠아카데미frontend-class</p>
                   <p>추가상품 - This is best option</p>
-                  <p class="product-price">
-                    58,900원 <span class="product-quantity">| 1개</span>
+                  <p class="product-price" data-unit-price="25000">
+                    25,000원 <span class="product-quantity">| 1개</span>
                   </p>
                 </div>
               </div>
@@ -522,10 +523,10 @@
         <aside class="checkout-summary">
           <div class="summary-box">
             <h3>주문금액</h3>
-            <p>총 주문금액: <span>13,745원</span></p>
+            <p>총 주문금액: <span id="total-price"></span></p>
             <p>총 배송비: <span>3,000원</span></p>
-            <p>총 할인금액: <span>-13,745원</span></p>
-            <p class="total">결제금액: <span>43,654원</span></p>
+            <p>총 할인금액: <span>-3,000원</span></p>
+            <p class="total">결제금액: <span id="final-price"></span></p>
             <button class="checkout-button">구매하기</button>
           </div>
         </aside>

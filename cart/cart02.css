@@ -824,6 +824,7 @@ main .order-section {
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 40px;
+  position: relative;
 }
 main .order-section h2 {
   font-size: 30px;
@@ -875,6 +876,12 @@ main .order-section .order-info .form-group .email-input-group span,
 main .order-section .order-info .form-group .phone-input-group span {
   font-size: 16px;
   padding: 0 5px;
+}
+main .order-section .order-info #name-error {
+  position: relative;
+  font-size: 13px;
+  color: #f00;
+  left: 5px;
 }
 main .order-section .order-info #email-error {
   font-size: 13px;
@@ -950,6 +957,12 @@ main .delivery-section .form-group .address-input-group .btn-find-postal-code {
 }
 main .delivery-section input[type=text] {
   margin-bottom: 4px;
+}
+main .delivery-section #recipient-name-error2 {
+  position: relative;
+  left: 5px;
+  color: #f00;
+  font-size: 13px;
 }
 main .delivery-section #recipient-phone-error {
   position: relative;
