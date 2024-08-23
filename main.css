@@ -1066,6 +1066,7 @@ header {
 #main-contents #container .category-container .categories #category-best {
   width: 100%;
   height: 590px;
+  overflow: hidden;
   margin-bottom: 100px;
 }
 #main-contents #container .category-container .categories #category-best:last-child {
@@ -1117,6 +1118,7 @@ header {
   height: 526px;
 }
 #main-contents #container .category-container .categories #category-best .inner .category-section .cate-menu {
+  background: #fff;
   flex-basis: 190px;
   flex-grow: 0;
   flex-shrink: 0;
@@ -1142,6 +1144,7 @@ header {
   align-items: stretch;
   border-right: 1px solid #f1f1f1;
   overflow: hidden;
+  background: #fff;
 }
 #main-contents #container .category-container .categories #category-best .inner .category-section #mid-banner-slider-wrap .img {
   width: 260px;
@@ -1190,36 +1193,44 @@ header {
   font-size: 15px;
   color: #999999;
 }
-#main-contents #container .category-container .categories #category-best .inner .category-section .content {
+#main-contents #container .category-container .categories #category-best .inner .category-section .content-box {
+  position: relative;
+  overflow: hidden;
+  width: 750px;
+}
+#main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content {
+  position: absolute;
+  right: 0;
   padding: 20px;
-  grid-gap: 20px;
+  grid-gap: 40px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  transition: all 0.3s;
 }
-#main-contents #container .category-container .categories #category-best .inner .category-section .content .item {
+#main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-#main-contents #container .category-container .categories #category-best .inner .category-section .content .item:nth-of-type(4) {
-  flex-basis: 100%;
+#main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item:nth-of-type(4n) {
+  margin-right: 50px;
 }
-#main-contents #container .category-container .categories #category-best .inner .category-section .content .item img {
+#main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item img {
   width: 150px;
   height: 160px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-#main-contents #container .category-container .categories #category-best .inner .category-section .content .item-desc {
+#main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item-desc {
   text-align: left;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
 }
-#main-contents #container .category-container .categories #category-best .inner .category-section .content .item-price {
+#main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item-price {
   font-weight: 600;
 }
 #main-contents #main-bottom-banner {

@@ -546,6 +546,7 @@ header {
         #category-best {
           width: 100%;
           height: 590px;
+          overflow: hidden;
           margin-bottom: 100px;
           &:last-child {
             margin-bottom: 0;
@@ -597,6 +598,7 @@ header {
               display: flex;
               height: 526px;
               .cate-menu {
+                background: map-get($map: $color, $key: main-color);
                 flex-basis: 190px;
                 flex-grow: 0;
                 flex-shrink: 0;
@@ -626,6 +628,7 @@ header {
                 align-items: stretch;
                 border-right: 1px solid #f1f1f1;
                 overflow: hidden;
+                background: map-get($map: $color, $key: main-color);
                 .img {
                   width: 260px;
                   height: 282px;
@@ -673,36 +676,43 @@ header {
                   }
                 }
               }
-              .content {
-                padding: 20px;
-                grid-gap: 20px;
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                // gap: 10px;
-                .item {
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  text-align: center;
-                  &:nth-of-type(4) {
-                    flex-basis: 100%;
+              .content-box {
+                position: relative;
+                overflow: hidden;
+                width: 750px;
+                .content {
+                  position: absolute;
+                  right: 0;
+                  padding: 20px;
+                  grid-gap: 40px;
+                  width: 100%;
+                  display: grid;
+                  grid-template-columns: repeat(12, 1fr);
+                  transition: all 0.3s;
+                  .item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    &:nth-of-type(4n) {
+                      margin-right: 50px;
+                    }
+                    img {
+                      width: 150px;
+                      height: 160px;
+                      object-fit: cover;
+                    }
                   }
-                  img {
-                    width: 150px;
-                    height: 160px;
-                    object-fit: cover;
+                  .item-desc {
+                    text-align: left;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    overflow: hidden;
                   }
-                }
-                .item-desc {
-                  text-align: left;
-                  display: -webkit-box;
-                  -webkit-box-orient: vertical;
-                  -webkit-line-clamp: 1;
-                  overflow: hidden;
-                }
-                .item-price {
-                  font-weight: 600;
+                  .item-price {
+                    font-weight: 600;
+                  }
                 }
               }
             }

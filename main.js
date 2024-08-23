@@ -130,13 +130,13 @@ fetch(productInfo)
     for (let i = 1; i <= 6; i++) {
       cateItems.cateImgs[
         `cateImgs${i}`
-      ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content .item img`;
+      ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content-box .content .item img`;
       cateItems.cateDescs[
         `cateDescs${i}`
-      ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content .item .item-desc`;
+      ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content-box .content .item .item-desc`;
       cateItems.catePrices[
         `catePrices${i}`
-      ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content .item .item-price`;
+      ] = `#mid-banner-slider-wrap:has(#cate${i}-count) + .content-box .content .item .item-price`;
     }
 
     //Data Filtering Process
@@ -223,74 +223,23 @@ fetch(productInfo)
       cateRadios.push(page.querySelectorAll(catePages[`catePage${i + 1}`]));
     });
 
-    const changeCatePageItems = (currentIdx, itemIdx1, itemIdx2, itemIdx3) => {
-      document
-        .querySelectorAll(cateItems.cateImgs[`cateImgs${currentIdx + 1}`])
-        .forEach((img) => {
-          img.setAttribute(
-            "src",
-            cateFilters[currentIdx][itemIdx1]["image-url"]
-          );
+    console.log(cateRadios);
 
-          const url = `./detail/detail.html?category=${
-            cateFilters[currentIdx][itemIdx1].category
-          }&name=${encodeURIComponent(cateFilters[currentIdx][itemIdx1].name)}`;
-          console.log(url);
-
-          itemIdx1++;
-        });
-      document
-        .querySelectorAll(cateItems.cateDescs[`cateDescs${currentIdx + 1}`])
-        .forEach((desc) => {
-          desc.innerText = cateFilters[currentIdx][itemIdx2]["name"];
-          itemIdx2++;
-        });
-      document
-        .querySelectorAll(cateItems.catePrices[`catePrices${currentIdx + 1}`])
-        .forEach((price) => {
-          price.innerText = `${cateFilters[currentIdx][itemIdx3]["price"]}원`;
-          itemIdx3++;
-        });
-    };
-
-    cateRadios.forEach((cateRadio, index) => {
-      cateRadio.forEach((radio) => {
+    cateRadios.forEach((radios) => {
+      radios.forEach((radio) => {
         radio.addEventListener("change", (e) => {
-          const secondPageIndex = document.querySelectorAll(
-            cateItems.cateImgs.cateImgs1
-          );
-          const thirdPageIndex =
-            document.querySelectorAll(cateItems.cateImgs.cateImgs1).length +
-            secondPageIndex.length;
-
-          let [secondPageIndex1, secondPageIndex2, secondPageIndex3] = [
-            secondPageIndex.length,
-            secondPageIndex.length,
-            secondPageIndex.length,
-          ];
-
-          let [thirdPageIndex1, thirdPageIndex2, thirdPageIndex3] = [
-            thirdPageIndex,
-            thirdPageIndex,
-            thirdPageIndex,
-          ];
-
-          if (e.target.id.includes("second")) {
-            changeCatePageItems(
-              index,
-              secondPageIndex1,
-              secondPageIndex2,
-              secondPageIndex3
-            );
-          } else if (e.target.id.includes("third")) {
-            changeCatePageItems(
-              index,
-              thirdPageIndex1,
-              thirdPageIndex2,
-              thirdPageIndex3
-            );
+          if (Number(e.target.nextElementSibling.innerText) === 2) {
+            e.target.parentElement.parentElement.parentElement.querySelector(
+              ".content"
+            ).style.right = `810px`;
+          } else if (Number(e.target.nextElementSibling.innerText) === 3) {
+            e.target.parentElement.parentElement.parentElement.querySelector(
+              ".content"
+            ).style.right = `1620px`;
           } else {
-            changeCatePageItems(index, 0, 0, 0);
+            e.target.parentElement.parentElement.parentElement.querySelector(
+              ".content"
+            ).style.right = "";
           }
         });
       });
