@@ -1206,7 +1206,6 @@ header {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  transition: all 0.3s;
 }
 #main-contents #container .category-container .categories #category-best .inner .category-section .content-box .content .item {
   display: flex;

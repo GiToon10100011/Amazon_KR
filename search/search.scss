@@ -1,0 +1,497 @@
+@import "./header/header.scss";
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 7000px;
+  overflow-x: hidden;
+}
+
+header {
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 12;
+}
+
+.bgFilter {
+  position: relative;
+  z-index: 13;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.1);
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.main-sideMenu-container {
+  height: 100%;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: -216px;
+  background: map-get($map: $color, $key: main-color);
+  width: 216px;
+  transition: all 0.6s;
+  .sideMenu-header {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
+    .sideMenu-login {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .fa-x {
+      cursor: pointer;
+    }
+  }
+  .main-sideMenu {
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+    .sideMenu-category {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
+      .category-title {
+        padding: 10px;
+        font-weight: bold;
+      }
+      .categories-large {
+        li {
+          width: 100%;
+          padding: 10px;
+          cursor: pointer;
+          .fa-chevron-right {
+            opacity: 0;
+          }
+          &:hover {
+            background: linear-gradient(
+              90deg,
+              rgba(255, 216, 20, 0.7) 0%,
+              #ffd814 4%,
+              #ff9900 93.5%,
+              rgba(255, 153, 0, 0.7) 99.5%
+            );
+          }
+          &:hover span,
+          &:hover i {
+            color: map-get($map: $color, $key: main-color);
+            opacity: 1;
+          }
+          div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            span {
+              display: flex;
+              gap: 4px;
+              align-items: center;
+              &.material-symbols-outlined {
+                font-size: 12px;
+              }
+            }
+          }
+          .categories-middle {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            overflow-y: scroll;
+            transition: opacity 0.3s;
+            li {
+              width: 100%;
+              padding: 10px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              font-size: 14px;
+              cursor: pointer;
+              &:hover {
+                background: #fafafa;
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+            &.active {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .sideMenu-misc {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
+      .misc-title {
+        padding: 10px;
+        font-weight: bold;
+      }
+      .misc-list {
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          font-size: 14px;
+          cursor: pointer;
+          &:hover {
+            background: #fafafa;
+            color: map-get($map: $color, $key: main-amazon-color);
+          }
+        }
+      }
+    }
+    .sideMenu-settings {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .settings-title {
+        padding: 10px;
+        font-weight: bold;
+      }
+      .settings-list {
+        li {
+          padding: 10px;
+          font-size: 14px;
+          &.darkmode {
+            display: none;
+          }
+          a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            .material-symbols-outlined {
+              font-size: 14px;
+            }
+          }
+          &:hover {
+            background: #fafafa;
+          }
+          &:hover:not(.material-symbols-outlined) {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  &.active {
+    left: 0;
+  }
+}
+
+#container {
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 140px;
+}
+
+.main-contents {
+  width: 100%;
+  display: flex;
+  height: fit-content;
+  .filter-sidebar {
+    overflow-y: scroll;
+    width: 200px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    @include border-style($color: map-get($color, searchBar-bg-color));
+    border-right: none;
+    font-size: 14px;
+    h4 {
+      padding: 10px;
+      padding-bottom: none;
+    }
+    ul {
+      padding-top: none;
+      padding: 10px;
+      border-bottom: 1px solid map-get($map: $color, $key: searchBar-bg-color);
+      &.colors {
+        .color {
+          display: inline-block;
+          background: attr(data-color);
+          border-radius: 50%;
+          width: 14px;
+          height: 14px;
+        }
+        li {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 10px;
+        }
+        li:hover {
+          .color {
+            @include border-style($color: map-get($color, main-border-color));
+          }
+        }
+      }
+      &.price {
+        li:last-child {
+          &:hover {
+            color: map-get($map: $color, $key: main-dark-color);
+          }
+        }
+        input[type="text"] {
+          width: 40px;
+          padding: 6px;
+          @include border-style($color: map-get($color, searchBar-bg-color));
+          &:focus {
+            outline: none;
+            @include border-style($color: map-get($color, main-amazon-color));
+          }
+        }
+        input[type="submit"] {
+          padding: 4px 6px;
+          @include border-style($color: transparent);
+          background: map-get($map: $color, $key: main-amazon-color);
+          color: map-get($map: $color, $key: main-color);
+          font-size: 14px;
+          font-family: map-get($map: $family, $key: kr-font);
+          cursor: pointer;
+          transition: all 0.3s;
+          &:hover {
+            background: map-get($map: $color, $key: main-color);
+            color: map-get($map: $color, $key: main-amazon-color);
+            @include border-style($color: map-get($color, main-amazon-color));
+          }
+        }
+      }
+      li {
+        margin-bottom: 6px;
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+          color: map-get($map: $color, $key: main-amazon-color);
+        }
+        &.active {
+          color: map-get($map: $color, $key: main-amazon-color);
+        }
+        label {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .products {
+    @include border-style($color: map-get($color, searchBar-bg-color));
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    .products-heading {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .sort-menu {
+      ul {
+        display: flex;
+        gap: 4px;
+        font-size: 14px;
+        li {
+          border-right: 1px solid map-get($map: $color, $key: main-border-color);
+          padding-right: 4px;
+          cursor: pointer;
+          &:last-child {
+            border-right: none;
+          }
+          &::before {
+            content: "\f00c";
+            font-family: fontawesome;
+            padding-right: 4px;
+            display: none;
+          }
+          &:hover{
+            text-decoration: underline;
+          }
+          &.active {
+            color: map-get($map: $color, $key: main-amazon-color);
+            &::before {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+    .content {
+      width: 100%;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 30px;
+        background: #fafafa;
+        cursor: pointer;
+        .img-box {
+          overflow: hidden;
+          width: 160px;
+          height: 160px;
+          margin-bottom: 10px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s;
+          }
+        }
+        .item-brand {
+          font-size: 12px;
+          color: map-get($map: $color, $key: dark-placeholder-color);
+        }
+        .item-desc {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          line-height: 1;
+          margin-bottom: 4px;
+        }
+        .product-price {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 6px;
+          .item-discount {
+            font-size: 12px;
+            .discount-price {
+              color: map-get($map: $color, $key: placeholder-color);
+              text-decoration: line-through;
+            }
+          }
+          .item-price {
+            color: map-get($map: $color, $key: main-amazon-color);
+            font-weight: 550;
+          }
+          .price-detail {
+            color: map-get($map: $color, $key: main-amazon-color);
+            font-size: 12px;
+            font-weight: 400;
+          }
+        }
+        .estimated-date {
+          font-size: 14px;
+        }
+        .item-reviews {
+          font-size: 12px;
+          color: map-get($map: $color, $key: dark-placeholder-color);
+          margin-bottom: 4px;
+        }
+        .item-points {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          font-size: 12px;
+          width: fit-content;
+          padding: 1px 6px;
+          @include border-style($color: #aaa);
+          border-radius: 20px;
+          color: #444;
+          span {
+            color: map-get($map: $color, $key: main-amazon-color);
+            font-size: 14px;
+            margin-right: 2px;
+          }
+        }
+        &:hover {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          .img-box {
+            img {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  position: absolute;
+  bottom: -400px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 360px;
+}
+
+@media screen and (max-width: 768px) {
+  body,
+  html {
+    height: 9460px;
+  }
+
+  header {
+    right: 0;
+  }
+
+  .main-sideMenu-container {
+    display: none;
+    position: fixed;
+    left: 100%;
+    &.active {
+      display: block;
+      left: auto;
+      right: 0;
+    }
+    .main-sideMenu {
+      scrollbar-width: none;
+      overscroll-behavior: contain;
+      .sideMenu-category {
+        .categories-large {
+          li {
+            .fa-chevron-right {
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+      .sideMenu-misc {
+        .misc-list {
+          .fa-chevron-right {
+            transform: rotate(90deg);
+          }
+        }
+      }
+      .sideMenu-settings {
+        .settings-list {
+          li {
+            &.darkmode {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #footer {
+    position: absolute;
+    bottom: 0;
+    height: 840px;
+    width: 100%;
+    z-index: 1;
+  }
+}

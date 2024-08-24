@@ -688,7 +688,6 @@ header {
                   width: 100%;
                   display: grid;
                   grid-template-columns: repeat(12, 1fr);
-                  transition: all 0.3s;
                   .item {
                     display: flex;
                     flex-direction: column;

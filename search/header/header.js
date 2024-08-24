@@ -37,8 +37,8 @@ const body = document.querySelector("#header");
           <nav class="gnb">
             <div class="logo_container">
               <i class="fa-solid fa-bars sideMenu-trigger-btn"></i>
-              <a href=""
-                ><img src="./logo/png/amazon_kr_ezen2.png" alt="logo"
+              <a href="../main.html"
+                ><img src="../logo/png/amazon_kr_ezen2.png" alt="logo"
               /></a>
             </div>
             <div class="searchBar">
