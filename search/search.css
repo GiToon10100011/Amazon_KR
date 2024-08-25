@@ -560,7 +560,7 @@ html,
 body {
   position: relative;
   width: 100%;
-  height: 7000px;
+  height: 1000px;
   overflow-x: hidden;
 }
 
@@ -767,6 +767,9 @@ header {
   padding: 10px;
   padding-bottom: none;
 }
+.main-contents .filter-sidebar h4 .fa-x {
+  display: none;
+}
 .main-contents .filter-sidebar ul {
   padding-top: none;
   padding: 10px;
@@ -834,13 +837,16 @@ header {
   width: 1000px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   padding: 10px;
 }
 .main-contents .products .products-heading {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+.main-contents .products .sort-menu .mobile-sort-menu {
+  display: none;
 }
 .main-contents .products .sort-menu ul {
   display: flex;
@@ -938,6 +944,9 @@ header {
   color: #888;
   margin-bottom: 4px;
 }
+.main-contents .products .content .item .item-reviews .fa-star {
+  color: #ff9900;
+}
 .main-contents .products .content .item .item-points {
   display: flex;
   justify-content: flex-start;
@@ -974,7 +983,7 @@ header {
 @media screen and (max-width: 768px) {
   body,
   html {
-    height: 9460px;
+    height: 15000px;
   }
   header {
     right: 0;
@@ -1002,9 +1011,87 @@ header {
   .main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li.darkmode {
     display: block;
   }
+  .inner {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .main-contents .filter-sidebar {
+    position: fixed;
+    right: -200px;
+    background: #fff;
+    transition: all 0.3s;
+  }
+  .main-contents .filter-sidebar h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .main-contents .filter-sidebar h4 .fa-x {
+    display: block;
+    cursor: pointer;
+  }
+  .main-contents .filter-sidebar.active {
+    top: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 10000;
+  }
+  .main-contents .products {
+    width: 100%;
+  }
+  .main-contents .products .products-heading {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .main-contents .products .products-heading span {
+    display: none;
+  }
+  .main-contents .products .sort-menu > ul {
+    display: none;
+  }
+  .main-contents .products .sort-menu .mobile-sort-menu {
+    display: flex;
+    justify-content: space-between;
+  }
+  .main-contents .products .sort-menu .mobile-sort-menu .mobile-filter {
+    display: flex;
+    gap: 4px;
+  }
+  .main-contents .products .sort-menu .mobile-sort-menu select {
+    border: none;
+    font-family: "Noto Sans KR";
+  }
+  .main-contents .products .sort-menu .mobile-sort-menu select:focus {
+    outline: none;
+  }
+  .main-contents .products .sort-menu .mobile-sort-menu .fa-sliders {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px;
+    color: #888;
+    cursor: pointer;
+  }
+  .main-contents .products .content {
+    width: 100%;
+    grid-gap: 0;
+    grid-template-columns: repeat(2, 50%);
+  }
+  .main-contents .products .content .item {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  .main-contents .products .content .item .img-box {
+    width: 140px;
+    height: 140px;
+  }
+  .main-contents .products .content .item .item-desc {
+    -webkit-line-clamp: 2;
+  }
   #footer {
     position: absolute;
-    bottom: 0;
+    bottom: -840px;
     height: 840px;
     width: 100%;
     z-index: 1;

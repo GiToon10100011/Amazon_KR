@@ -42,7 +42,7 @@ const body = document.querySelector("#header");
               /></a>
             </div>
             <div class="searchBar">
-              <form action="https://localhost:3000" method="get">
+              <form action="#" method="get">
                 <select name="search_type" id="search_type">
                   <option value="" selected>카테고리</option>
                   <option value="">전자</option>
@@ -345,8 +345,10 @@ sideMenu_close.addEventListener("click", () => {
 });
 
 bgFilter.addEventListener("click", () => {
+  const filterSidebar = document.querySelector(".filter-sidebar");
   sideMenu.classList.remove("active");
   bgFilter.classList.remove("active");
+  filterSidebar.classList.remove("active");
 });
 
 //ranking menu
