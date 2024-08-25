@@ -755,6 +755,7 @@ header {
 }
 .main-contents .filter-sidebar {
   overflow-y: scroll;
+  scrollbar-width: thin;
   width: 200px;
   height: 80vh;
   display: flex;

@@ -1,10 +1,12 @@
 import "./header/header.js";
 
+//Apply colors for filter menus
 const colors = document.querySelectorAll(".color");
 colors.forEach((color) => {
   color.style.background = color.getAttribute("data-color");
 });
 
+//Filter Menu Toggle Event
 const filterTriggerBtn = document.querySelector(".fa-sliders");
 const filterSidebar = document.querySelector(".filter-sidebar");
 const bgFilter = document.querySelector(".bgFilter");
@@ -43,6 +45,7 @@ fetch("./data.json")
     const searchKey = document.querySelector(".products-heading h4");
     searchKey.innerText = `'${keyword}'에 대한 검색결과`;
 
+    //Filter out the Items that matches the Search Query
     const searchProducts = products.data.filter((product) => {
       return (
         product.name.toLowerCase().includes(filteredKeyword) ||
@@ -54,11 +57,15 @@ fetch("./data.json")
       );
     });
 
+    //Get all the brands data from the json file in a object structure for Set usages
+    const brandsData = searchProducts.map(item => item.detail.brands);
+
     const productLength = document.querySelector(".products-heading span");
     productLength.innerText = `검색결과 ${searchProducts.length}건`;
 
     const productContent = document.querySelector(".content");
 
+    //Calculate the height and apply it to the body for dynamic height applications
     setTimeout(() => {
       const contentHeight = getComputedStyle(productContent).height;
       document.body.style.height = `${
@@ -68,6 +75,7 @@ fetch("./data.json")
 
     const current = new Date();
 
+    //Get estimated delivery dates
     const future = new Date(current);
     future.setDate(current.getDate() + 2);
 
@@ -99,6 +107,9 @@ fetch("./data.json")
         break;
     }
 
+    const brands = document.querySelectorAll(".brands li label");
+
+    //Create Items from the Search Query
     if (searchProducts.length !== 0) {
       searchProducts.forEach((product, productIdx) => {
         const numericPrice = parseFloat(
@@ -140,8 +151,13 @@ fetch("./data.json")
                     ${Math.abs(product.detail.coupon)}원 적립</span
                   >
                 `;
-
         productContent.appendChild(productItem);
+
+        const setdataBrands = [...new Set(brandsData)];
+
+        brands.forEach((brand, i) => {
+          brand.innerText = setdataBrands[i];
+        });
 
         productItem.addEventListener("click", () => {
           const url = `../detail/detail.html?category=${
