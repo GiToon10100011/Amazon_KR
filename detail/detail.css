@@ -1832,6 +1832,7 @@ main {
   #M_proinfo .main_desc .Amount_info .sale {
     font-size: 16px;
     text-decoration: line-through;
+    opacity: 0.6;
   }
   #M_proinfo .main_desc .Amount_info .amount-cupon {
     width: 100%;
