@@ -24,7 +24,6 @@ fetch("./data.json")
       (product) => product.category === category && product.name === names
     );
 
-
     if (product) {
       const category = document.querySelector(".category_content");
       category.innerHTML = product.detail["category-path"];
@@ -36,7 +35,6 @@ fetch("./data.json")
         title.innerText = product.name;
       });
 
-
       //버튼 click 시 금액 변경
       const prices = document.querySelectorAll(".amount .price");
       prices.forEach((price) => {
@@ -44,23 +42,25 @@ fetch("./data.json")
         currency.textContent = product.detail.currency;
         currency.style.color = "#333";
         currency.style.fontSize = "16px";
-      
+
         // 첫 가격 설정
         price.innerHTML = `${product.price} `; // 금액
         price.appendChild(currency); // 통화 기호 추가
-      
+
         const minus = document.querySelector(".button_minus");
         const plus = document.querySelector(".button_plus");
         const result = document.querySelector(".count_result");
         let i = 1;
-      
+
         console.log(product.price);
-        
+
         const updatePriceDisplay = () => {
           // 숫자만 추출하여 가격 계산
-          const priceValue = parseFloat(product.price.replace(/[^0-9.-]+/g, "")); // 숫자만 남기기
+          const priceValue = parseFloat(
+            product.price.replace(/[^0-9.-]+/g, "")
+          ); // 숫자만 남기기
           console.log(priceValue);
-      
+
           if (!isNaN(priceValue)) {
             const totalPrice = priceValue * i;
             price.innerHTML = `${totalPrice.toLocaleString()}`; // 천단위 구분 추가
@@ -69,13 +69,13 @@ fetch("./data.json")
             console.error("금액을 처리할 수 없습니다.");
           }
         };
-      
+
         plus.addEventListener("click", () => {
           i++;
           result.textContent = `${i}`;
           updatePriceDisplay();
         });
-      
+
         minus.addEventListener("click", () => {
           if (i > 1) {
             i--;
@@ -84,11 +84,6 @@ fetch("./data.json")
           }
         });
       });
-      
-      
-      
-
-
 
       const brands = document.querySelectorAll(".brand_heart");
       brands.forEach((brand) => {
@@ -131,9 +126,43 @@ fetch("./data.json")
 
       document.querySelectorAll(".mylist").forEach(function (element) {
         element.addEventListener("click", function () {
+          const cnt = document.querySelector(".count_result");
           const url = `../cart/cart.html?category=${
             product.category
           }&name=${encodeURIComponent(product.name)}`;
+
+          let cartItems = localStorage.getItem("cartItems")
+            ? JSON.parse(localStorage.getItem("cartItems"))
+            : [];
+
+          // 이미 존재하는 아이템을 찾고, 수량을 업데이트
+          let isItemUpdated = false;
+
+          cartItems = cartItems.map((item) => {
+            if (
+              item.name === product.name &&
+              item.brand === product.detail.brands
+            ) {
+              item.quantity += Number(cnt.innerText);
+              isItemUpdated = true;
+            }
+            return item;
+          });
+
+          // 동일한 아이템이 없으면 새로운 아이템 추가
+          if (!isItemUpdated) {
+            const cartItem = {
+              name: product.name,
+              brand: product.detail.brands,
+              quantity: Number(cnt.innerText),
+            };
+            cartItems.push(cartItem);
+          }
+
+          // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+          // 필요 시 페이지 이동
           window.location.href = url;
         });
       });
@@ -145,7 +174,6 @@ fetch("./data.json")
           window.location.href = "../cart/cart02.html";
         });
       });
-      
     }
   })
   .catch((error) => console.error("Error loading JSON:", error));
@@ -180,31 +208,12 @@ M_shareIC.addEventListener("click", function () {
   M_shareIC.classList.toggle("popupaction");
 });
 
-// //count
-// const cost = document.querySelectorAll(".amount .price");
-// const minus = document.querySelector(".button_minus");
-// const plus = document.querySelector(".button_plus");
-// const result = document.querySelector(".count_result");
-// let i = 1;
-// plus.addEventListener("click", () => {
-//   i++;
-//   result.textContent = `${i}`;
-// });
-// minus.addEventListener("click", () => {
-//   if (i > 1) {
-//     i--;
-//     result.textContent = `${i}`;
-//   } else {
-//   }
-// });
-
-
+//cartmodal
 
 //main info
 const imgarea = document.querySelector(".img_area");
 const moreBtn = document.querySelector(".moreimg_slide");
 const infoIc = document.querySelector(".info_slideic");
-
 
 moreBtn.addEventListener("click", () => {
   // console.log("click")
@@ -268,7 +277,6 @@ M_reviwBtn.addEventListener("click", () => {
     M_reviwBtn.innerText = `리뷰 더 보기`;
   }
 });
-
 
 //reviwe photo
 const slideList = document.querySelector(".slied_list");
