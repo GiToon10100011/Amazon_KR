@@ -560,9 +560,7 @@ header {
           }
           &.mobile-my-shortcut {
             .fa-user {
-              &.active {
-                color: map-get($map: $color, $key: main-amazon-color);
-              }
+              color: map-get($map: $color, $key: main-amazon-color);
             }
           }
           &.mobile-search-shortcut {

@@ -989,42 +989,45 @@ header {
           font-size: 26px;
         }
         margin-bottom: 250px;
-        .event-slider {
-          height: 300px;
-          .slick-list {
-            height: 280px;
-            .slick-track {
-              height: 100%;
-              .slick-slide {
-                padding: 40px 40px;
-                min-height: auto !important;
+        .event-slider-wrap{
+          animation: show2 0.3s linear both;
+          .event-slider {
+            height: 300px;
+            .slick-list {
+              height: 280px;
+              .slick-track {
                 height: 100%;
-                &:has(.item1) {
-                  background-size: 260px;
-                  background-position: calc(100% - 20px) calc(100% - 20px);
-                }
-                &:has(.item2) {
-                  background-size: 180px;
-                  background-position: calc(100% - 20px) calc(100% - 20px);
-                }
-                &:has(.item3) {
-                  background-size: 180px;
-                  background-position: calc(100% - 20px) calc(100% - 20px);
+                .slick-slide {
+                  padding: 40px 40px;
+                  min-height: auto !important;
+                  height: 100%;
+                  &:has(.item1) {
+                    background-size: 260px;
+                    background-position: calc(100% - 20px) calc(100% - 20px);
+                  }
+                  &:has(.item2) {
+                    background-size: 180px;
+                    background-position: calc(100% - 20px) calc(100% - 20px);
+                  }
+                  &:has(.item3) {
+                    background-size: 180px;
+                    background-position: calc(100% - 20px) calc(100% - 20px);
+                  }
                 }
               }
             }
-          }
-          .slick-dots {
-            bottom: -30px;
-            * {
-              padding: 0;
-              margin: 0;
+            .slick-dots {
+              bottom: -30px;
+              * {
+                padding: 0;
+                margin: 0;
+              }
             }
-          }
-          a.items {
-            white-space: nowrap;
-            h4 {
-              font-size: 24px !important;
+            a.items {
+              white-space: nowrap;
+              h4 {
+                font-size: 24px !important;
+              }
             }
           }
         }
@@ -1228,19 +1231,12 @@ header {
           &:hover {
             color: map-get($map: $color, $key: main-amazon-color);
           }
-          &.mobile-my-shortcut {
-            .fa-user {
-              &.active {
-                color: map-get($map: $color, $key: main-amazon-color);
-              }
-            }
+          &.mobile-home-shortcut {
+            color: map-get($map: $color, $key: main-amazon-color);
           }
           &.mobile-search-shortcut {
             span {
               transition: all 0.3s;
-              &.active {
-                color: map-get($map: $color, $key: main-amazon-color);
-              }
             }
           }
         }

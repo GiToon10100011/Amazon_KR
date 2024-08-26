@@ -21,16 +21,11 @@ const sideMenus = document.querySelectorAll(".working-list li a");
 
 const bottomMenus = document.querySelectorAll(".mobile-navBar ul li a i");
 
-const myShortcut = document.querySelector(".mobile-my-shortcut .fa-user");
-const mySearch = document.querySelector(".mobile-search-shortcut span");
-
 sideMenus.forEach((menu, index, arr) => {
   menu.addEventListener("click", () => {
     document.body.classList.add("active");
     mainContent.classList.add("active");
     mobilePageFrame.classList.add("active");
-    myShortcut.classList.remove("active");
-    mySearch.classList.remove("active");
     pageFrame.setAttribute("src", myPages[index]);
     mobilePageFrame.setAttribute("src", myPages[index]);
     arr.forEach((el, i) => {
@@ -48,8 +43,6 @@ bannerMenus.forEach((menu, index) => {
     document.body.classList.add("active");
     mainContent.classList.add("active");
     mobilePageFrame.classList.add("active");
-    myShortcut.classList.remove("active");
-    mySearch.classList.remove("active");
     sideMenus.forEach((el, i) => {
       if (i !== index) {
         el.classList.remove("active");
@@ -75,39 +68,12 @@ bannerMenus.forEach((menu, index) => {
   });
 });
 
-myShortcut.addEventListener("click", () => {
-  document.body.classList.remove("active");
-  mainContent.classList.remove("active");
-  mobilePageFrame.classList.remove("active");
-  mySearch.classList.remove("active");
-  myShortcut.classList.add("active");
-  sideMenus.forEach((menu) => {
-    menu.classList.remove("active");
-  });
-  // location.reload();
-});
-
 if (
   !mainContent.classList.contains("active") ||
   !mobilePageFrame.classList.contains("active")
 ) {
   myShortcut.classList.add("active");
 }
-
-mySearch.addEventListener("click", () => {
-  mobilePageFrame.setAttribute("src", "../mobileSearch/msearch.html");
-  document.body.classList.add("active");
-  mainContent.classList.add("active");
-  mobilePageFrame.classList.add("active");
-  if (mobilePageFrame.getAttribute("src") === "./mobileSearch/msearch.html") {
-    mySearch.classList.add("active");
-    bottomMenus.forEach((menu) => {
-      menu.classList.remove("active");
-    });
-  } else {
-    mySearch.classList.remove("active");
-  }
-});
 
 window.addEventListener("scroll", () => {
   const scrollValue = window.scrollY;
