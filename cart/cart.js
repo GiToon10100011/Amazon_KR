@@ -2,7 +2,7 @@
 import "./header/header.js";
 
 // JSON 데이터 불러오기
-fetch('data.json') // 'path/to/data.json'을 실제 파일 경로로 바꿔주세요
+fetch('data.json')
   .then(response => response.json())
   .then(data => {
     // 데이터를 활용하여 원하는 작업 수행
