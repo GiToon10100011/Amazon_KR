@@ -322,6 +322,15 @@ window.addEventListener("scroll", () => {
   }
 });
 
+const searchBtn = document.querySelector(".inputBox.second .fa-magnifying-glass");
+searchBtn.style.cursor = "pointer";
+
+searchBtn.addEventListener("click", () => {
+  const searchBar = document.querySelector("#main-search");
+  const url = `./search/search.html?searchBar=${searchBar.value}`;
+  location.href = url;
+})
+
 // sideMenu
 const sideMenu = document.querySelector(".main-sideMenu-container");
 const sideMenu_trigger = document.querySelector(".category-trigger");

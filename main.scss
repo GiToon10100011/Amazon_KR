@@ -785,6 +785,10 @@ header {
   height: 360px;
 }
 
+.mobile-navBar {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   body,
   html {
@@ -1111,7 +1115,7 @@ header {
                     }
                   }
                 }
-                .content-box{
+                .content-box {
                   position: static;
                   overflow: visible;
                   height: 240px !important;
@@ -1127,7 +1131,7 @@ header {
                     .item {
                       height: 100%;
                       width: 160px;
-                      &:nth-of-type(4n){
+                      &:nth-of-type(4n) {
                         margin-right: 0;
                       }
                       img {
@@ -1193,5 +1197,54 @@ header {
     height: 840px;
     width: 100%;
     z-index: 1;
+  }
+
+  .mobile-navBar {
+    display: block;
+    z-index: 2;
+    width: 100%;
+    height: 68px;
+    background: map-get($map: $color, $key: main-color);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -4px 25px rgba(0, 0, 0, 0.25);
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      li {
+        a {
+          transition: all 0.3s;
+          span {
+            font-size: 40px;
+          }
+          i {
+            font-size: 30px;
+          }
+          &:hover {
+            color: map-get($map: $color, $key: main-amazon-color);
+          }
+          &.mobile-my-shortcut {
+            .fa-user {
+              &.active {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+          }
+          &.mobile-search-shortcut {
+            span {
+              transition: all 0.3s;
+              &.active {
+                color: map-get($map: $color, $key: main-amazon-color);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
