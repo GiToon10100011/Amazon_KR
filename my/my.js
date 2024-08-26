@@ -68,16 +68,8 @@ bannerMenus.forEach((menu, index) => {
   });
 });
 
-if (
-  !mainContent.classList.contains("active") ||
-  !mobilePageFrame.classList.contains("active")
-) {
-  myShortcut.classList.add("active");
-}
-
 window.addEventListener("scroll", () => {
   const scrollValue = window.scrollY;
-  console.log(scrollValue);
   const sideMenu = document.querySelector(".profile-sideMenu");
   const myContent = document.querySelector(".pageBox");
   if (scrollValue > 350) {
@@ -103,3 +95,39 @@ if (iframeSrc === "wishlist") {
 if (iframeSrc === "my") {
   pageFrame.setAttribute("src", `./wishlist/wishlist.html`);
 }
+
+//image change event
+const initialProfile = localStorage.getItem("profileimg");
+
+const profileImg = document.querySelector(".profile-pic");
+
+if(initialProfile !== null){
+  profileImg.querySelector("img").src = initialProfile;
+}
+
+profileImg.addEventListener("click", () => {
+  fileInput.click();
+});
+
+fileInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      if (
+        e.target.result.includes("jpeg") ||
+        e.target.result.includes("jpg") ||
+        e.target.result.includes("png") ||
+        e.target.result.includes("avif") ||
+        e.target.result.includes("webp")
+      )
+        profileImg.querySelector("img").src = e.target.result;
+      else alert("올바른 파일 유형이 아닙니다.");
+      localStorage.setItem("profileimg", e.target.result)
+    };
+
+    reader.readAsDataURL(file);
+  }
+});

@@ -224,10 +224,34 @@ header {
       align-items: center;
       gap: 58px;
       .profile-pic {
+        position: relative;
+        cursor: pointer;
         img {
           width: 160px;
+          height: 160px;
           border-radius: 50%;
           object-fit: cover;
+        }
+        &::before{
+          content: "프로필 변경";
+          position: absolute;
+          top: 0;
+          left: 0%;
+          width: 100%;
+          height: 98%;
+          text-align: center;
+          line-height: 160px;
+          font-size: 18px;
+          background: rgba($color: #000000, $alpha: 0.3);
+          color: map-get($map: $color, $key: main-color);
+          border-radius: 50%;
+          opacity: 0;
+          transition: all 0.3s;
+        }
+        &:hover{
+          &::before{
+            opacity: 1;
+          }
         }
       }
       .profile-info {

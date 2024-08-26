@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   margin: 0;
@@ -765,11 +766,35 @@ header {
   align-items: center;
   gap: 58px;
 }
+#main .profile-banner .profile-content .profile-pic {
+  position: relative;
+  cursor: pointer;
+}
 #main .profile-banner .profile-content .profile-pic img {
   width: 160px;
+  height: 160px;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+#main .profile-banner .profile-content .profile-pic::before {
+  content: "프로필 변경";
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 98%;
+  text-align: center;
+  line-height: 160px;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s;
+}
+#main .profile-banner .profile-content .profile-pic:hover::before {
+  opacity: 1;
 }
 #main .profile-banner .profile-content .profile-info {
   padding: 20px 0;

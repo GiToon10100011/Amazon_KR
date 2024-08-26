@@ -383,4 +383,5 @@ categorySections.forEach((section) => {
 //   pageFrame.setAttribute("src", myPages[1]);
 // })
 
-const myShortcut = document.querySelector(".mobile-my-shortcut .fa-user");
+//slick slider click event
+
