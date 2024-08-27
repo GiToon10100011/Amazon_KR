@@ -2,17 +2,91 @@
 import "./header/header.js";
 
 // JSON 데이터 불러오기
-fetch("./data.json")
+fetch("data.json")
   .then((response) => response.json())
   .then((data) => {
-    // 데이터를 활용하여 원하는 작업 수행
-    console.log(data);
+    let idGenerator = Date.now();
+    const products = {
+      data: data.data.map((item) => ({
+        ...item,
+        price: new Intl.NumberFormat("ko-kr", {
+          style: "currency",
+          currency: "KRW",
+        }).format(item.price),
+        id: idGenerator++,
+      })),
+    };
 
-    // 예를 들어, 데이터로 상품 목록을 생성하거나 총 가격을 계산할 수 있습니다.
+    let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+
+    cartItems.forEach((item) => {
+      const cartProducts = products.data.filter((product) => {
+        return (
+          product.name.includes(item.name) &&
+          product.detail.brands.includes(item.brand)
+        );
+      });
+
+      cartProducts.forEach((product) => {
+        console.log(product);
+        const domCartItems = document.querySelector(".order-products"); // 올바른 선택자 사용
+        const domCartItem = document.createElement("div");
+        domCartItem.className = "product-item";
+        domCartItem.innerHTML = `
+          <div class="product-header">
+            <h3>${product.detail.brands}</h3>
+            <span class="shipping-info">무료배송</span>
+          </div>
+          <div class="product-content">
+            <img src=${
+              product["image-url"]
+            } alt="상품 이미지" class="product-image" />
+            <div class="product-details">
+              <p>${product.name}</p>
+              <p>추가상품 - ${item.options}</p>
+              <p class="product-price" data-unit-price="${product.price.replace(
+                /[^0-9.-]+/g,
+                ""
+              )}">
+                ${product.price} <span class="product-quantity">| ${
+          item.quantity
+        }개</span>
+              </p>
+            </div>
+          </div>
+        `;
+        domCartItems.appendChild(domCartItem);
+      });
+    });
+
+    // 장바구니 항목 렌더링 후 총 가격 계산
+    calculateTotalPrice();
   })
-  .catch((error) => console.error("Error loading JSON data:", error));
+  .catch((error) => console.error("Error loading JSON:", error));
 
+// 총 가격 계산 함수
+function calculateTotalPrice() {
+  const priceElements = document.querySelectorAll(".product-price");
+  let totalPrice = 0;
 
+  priceElements.forEach((priceElement) => {
+    const unitPrice = parseInt(
+      priceElement.getAttribute("data-unit-price"),
+      10
+    );
+    const quantityElement = priceElement.querySelector(".product-quantity");
+    const quantityText = quantityElement.textContent.trim();
+    const quantity = parseInt(quantityText.replace(/[^0-9]/g, ""), 10);
+
+    totalPrice += unitPrice * quantity;
+  });
+
+  const formattedTotalPrice = totalPrice.toLocaleString("ko-KR") + "원";
+
+  // 두 개의 다른 요소에 동일한 총 가격을 설정합니다.
+  document.querySelector("#total-price").textContent = formattedTotalPrice;
+  document.querySelector("#final-price").textContent = formattedTotalPrice; // 'final-price'에도 동일한 값을 설정
+}
 
 // 홈페이지 이동
 document
@@ -102,33 +176,6 @@ phoneInputs.forEach(({ input, error }) => {
     validatePhoneInput(input, error);
   });
 });
-
-// 총 가격 계산 함수
-function calculateTotalPrice() {
-  const priceElements = document.querySelectorAll(".product-price");
-  let totalPrice = 0;
-
-  priceElements.forEach((priceElement) => {
-    const unitPrice = parseInt(
-      priceElement.getAttribute("data-unit-price"),
-      10
-    );
-    const quantityElement = priceElement.querySelector(".product-quantity");
-    const quantityText = quantityElement.textContent.trim();
-    const quantity = parseInt(quantityText.replace(/[^0-9]/g, ""), 10);
-
-    totalPrice += unitPrice * quantity;
-  });
-
-  const formattedTotalPrice = totalPrice.toLocaleString("ko-KR") + "원";
-
-  // 두 개의 다른 요소에 동일한 총 가격을 설정합니다.
-  document.querySelector("#total-price").textContent = formattedTotalPrice;
-  document.querySelector("#final-price").textContent = formattedTotalPrice; // 'final-price'에도 동일한 값을 설정
-}
-
-// 페이지가 로드될 때 총 가격을 계산하여 표시합니다.
-document.addEventListener("DOMContentLoaded", calculateTotalPrice);
 
 // 카카오 우편번호 서비스 API 불러오기
 document

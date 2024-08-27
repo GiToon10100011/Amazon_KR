@@ -764,7 +764,8 @@ main {
   position: absolute;
   top: 140px;
   width: 100%;
-  height: 2000px;
+  height: -moz-fit-content;
+  height: fit-content;
   margin-top: 50px;
 }
 main .cart-title {
@@ -1089,7 +1090,7 @@ main .banner {
 
 #footer {
   position: absolute;
-  bottom: 0;
+  bottom: -600px;
 }
 
 /* 모달 배경 */

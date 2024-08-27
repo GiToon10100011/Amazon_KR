@@ -870,6 +870,7 @@ main .product-content .product-menu .items {
   border-bottom: 1px solid #ccc;
 }
 main .product-content .product-menu .items .item {
+  width: 310px;
   display: flex;
   align-items: center;
   gap: 20px;

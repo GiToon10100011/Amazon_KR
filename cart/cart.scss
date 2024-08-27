@@ -209,7 +209,7 @@ main {
   position: absolute;
   top: 140px;
   width: 100%;
-  height: 2000px;
+  height: fit-content;
   margin-top: 50px;
   .cart-title {
     display: flex;
@@ -553,7 +553,7 @@ main {
 
 #footer {
   position: absolute;
-  bottom: 0;
+  bottom: -600px;
 }
 
 // Desktop Modal

@@ -80,6 +80,10 @@ fetch("data.json")
       });
     });
 
+    const mainContent = document.querySelector("main");
+
+    document.body.style.height = getComputedStyle(mainContent).height;
+
     // cart price 업데이트 및 수량증가 및 감소 기능
     const quantityControls = document.querySelectorAll(".cart-options-control");
 
