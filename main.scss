@@ -315,6 +315,15 @@ header {
         padding-left: 0;
         padding-right: 10px;
       }
+      // &[data-slick-index="1"] div p {
+      //   left: auto;
+      //   right: 6%;
+      //   border-left: none;
+      //   border-right: 8px solid;
+      //   text-align: right;
+      //   padding-left: 0;
+      //   padding-right: 10px;
+      // }
       &[data-slick-index="1"] div p {
         left: auto;
         right: 6%;
@@ -325,15 +334,6 @@ header {
         padding-right: 10px;
       }
       &[data-slick-index="2"] div p {
-        left: auto;
-        right: 6%;
-        border-left: none;
-        border-right: 8px solid;
-        text-align: right;
-        padding-left: 0;
-        padding-right: 10px;
-      }
-      &[data-slick-index="3"] div p {
         top: 180px;
         left: 40px;
       }
@@ -616,6 +616,10 @@ header {
                       font-size: 12px;
                       color: black;
                       line-height: 25px;
+                      transition: all 0.3s;
+                      &:hover {
+                        color: map-get($map: $color, $key: main-amazon-color);
+                      }
                     }
                   }
                 }
@@ -875,16 +879,16 @@ header {
           padding-left: 0;
           padding-right: 10px;
         }
+        // &[data-slick-index="1"] div p {
+        //   left: auto;
+        //   right: 40px;
+        //   border-left: none;
+        //   border-right: 4px solid;
+        //   text-align: right;
+        //   padding-left: 0;
+        //   padding-right: 10px;
+        // }
         &[data-slick-index="1"] div p {
-          left: auto;
-          right: 40px;
-          border-left: none;
-          border-right: 4px solid;
-          text-align: right;
-          padding-left: 0;
-          padding-right: 10px;
-        }
-        &[data-slick-index="2"] div p {
           left: auto;
           right: 40px;
           border-left: none;
@@ -989,7 +993,7 @@ header {
           font-size: 26px;
         }
         margin-bottom: 250px;
-        .event-slider-wrap{
+        .event-slider-wrap {
           animation: show2 0.3s linear both;
           .event-slider {
             height: 300px;

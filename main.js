@@ -383,5 +383,12 @@ categorySections.forEach((section) => {
 //   pageFrame.setAttribute("src", myPages[1]);
 // })
 
-//slick slider click event
 
+//promotion section page event
+const mainPromos = document.querySelectorAll(".promotions-items ul li");
+mainPromos.forEach((li) => {
+  li.addEventListener("click", () => {
+    const url = `./search/search.html?searchBar=${li.getAttribute("data-promo")}`;
+    location.href = url;
+  })
+})

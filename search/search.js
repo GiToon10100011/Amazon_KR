@@ -53,12 +53,24 @@ fetch("./data.json")
         product.detail["category-path"].some((path) =>
           path.toLowerCase().includes(filteredKeyword)
         ) ||
-        product.detail.brands.toLowerCase().includes(filteredKeyword)
+        product.detail.brands.toLowerCase().includes(filteredKeyword) ||
+        product.name
+          .toLowerCase()
+          .replace(/\s+/g, "")
+          .includes(filteredKeyword) ||
+        product.category
+          .toLowerCase()
+          .replace(/\s+/g, "")
+          .includes(filteredKeyword) ||
+        product.detail.brands
+          .toLowerCase()
+          .replace(/\s+/g, "")
+          .includes(filteredKeyword)
       );
     });
 
     //Get all the brands data from the json file in a object structure for Set usages
-    const brandsData = searchProducts.map(item => item.detail.brands);
+    const brandsData = searchProducts.map((item) => item.detail.brands);
 
     const productLength = document.querySelector(".products-heading span");
     productLength.innerText = `검색결과 ${searchProducts.length}건`;
