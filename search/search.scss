@@ -221,7 +221,7 @@ header {
     h4 {
       padding: 10px;
       padding-bottom: none;
-      .fa-x{
+      .fa-x {
         display: none;
       }
     }
@@ -309,7 +309,7 @@ header {
       justify-content: space-between;
     }
     .sort-menu {
-      .mobile-sort-menu{
+      .mobile-sort-menu {
         display: none;
       }
       ul {
@@ -329,7 +329,7 @@ header {
             padding-right: 4px;
             display: none;
           }
-          &:hover{
+          &:hover {
             text-decoration: underline;
           }
           &.active {
@@ -405,7 +405,7 @@ header {
           font-size: 12px;
           color: map-get($map: $color, $key: dark-placeholder-color);
           margin-bottom: 4px;
-          .fa-star{
+          .fa-star {
             color: map-get($map: $color, $key: main-amazon-color);
           }
         }
@@ -497,61 +497,61 @@ header {
     }
   }
 
-  .inner{
+  .inner {
     width: 100%;
     padding: 0 10px;
   }
 
-  .main-contents{
-    .filter-sidebar{
+  .main-contents {
+    .filter-sidebar {
       position: fixed;
       right: -200px;
       background: map-get($map: $color, $key: main-color);
       transition: all 0.3s;
-      h4{
+      h4 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .fa-x{
+        .fa-x {
           display: block;
           cursor: pointer;
         }
       }
-      &.active{
+      &.active {
         top: 0;
         right: 0;
         height: 100vh;
         z-index: 10000;
       }
     }
-    .products{
+    .products {
       width: 100%;
-      .products-heading{
+      .products-heading {
         flex-direction: column;
         gap: 10px;
-        span{
+        span {
           display: none;
         }
       }
-      .sort-menu{
-        &>ul{
+      .sort-menu {
+        & > ul {
           display: none;
         }
-        .mobile-sort-menu{
+        .mobile-sort-menu {
           display: flex;
           justify-content: space-between;
-          .mobile-filter{
+          .mobile-filter {
             display: flex;
-            gap: 4px; 
+            gap: 4px;
           }
-          select{
+          select {
             border: none;
             font-family: map-get($map: $family, $key: kr-font);
-            &:focus{
+            &:focus {
               outline: none;
             }
           }
-          .fa-sliders{
+          .fa-sliders {
             @include border-style($color: map-get($color, main-border-color));
             border-radius: 4px;
             padding: 4px;
@@ -560,20 +560,20 @@ header {
           }
         }
       }
-      .content{
+      .content {
         width: 100%;
         grid-gap: 0;
         grid-template-columns: repeat(2, 50%);
-        .item{
+        .item {
           text-align: center;
           justify-content: center;
           align-items: center;
           padding: 10px;
-          .img-box{
+          .img-box {
             width: 140px;
             height: 140px;
           }
-          .item-desc{
+          .item-desc {
             -webkit-line-clamp: 2;
           }
         }

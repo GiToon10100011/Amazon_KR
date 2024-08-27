@@ -45,11 +45,67 @@ $family: (
 
 @mixin extendItems {
   overflow: hidden;
-	img{
-		transition: all 0.3s;
-	}
+  img {
+    transition: all 0.3s;
+  }
   &:hover img {
     overflow: hidden;
     transform: scale(1.1);
+  }
+}
+
+.loader-box {
+  position: fixed;
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loader {
+    position: relative;
+    z-index: 10000001;
+    display: inline-flex;
+    @include border-style(
+      $weight: 2px,
+      $color: map-get($color, main-amazon-color)
+    );
+    --c: no-repeat linear-gradient(map-get($color, main-amazon-color) 0 0) 50%;
+    background: #fff, var(--c) calc(50% - 5px) / 5px 5px,
+      var(--c) calc(50% + 5px) / 5px 5px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    justify-content: center;
+    align-items: center;
+    color: map-get($map: $color, $key: main-amazon-color);
+  }
+  .loader::before,
+  .loader::after {
+    content: "12 00 23 40 31 45 60 17 45 32 29 42 50 08 14 07 46 11 03 55";
+    font-size: 30px;
+    font-family: monospace;
+    font-weight: bold;
+    line-height: 1em;
+    height: 1em;
+    width: 2ch;
+    color: #0000;
+    text-shadow: 0 0 0 map-get($map: $color, $key: main-amazon-color);
+    overflow: hidden;
+    margin: 5px 10px;
+    animation: l3 1s steps(20) infinite;
+  }
+  .loader::before {
+    animation-duration: 1.5s;
+  }
+  &.active{
+    display: none;
+  }
+}
+
+@keyframes l3 {
+  100% {
+    text-shadow: 0 -20em 0 map-get($map: $color, $key: main-amazon-color);
   }
 }

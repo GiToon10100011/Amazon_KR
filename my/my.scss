@@ -232,7 +232,7 @@ header {
           border-radius: 50%;
           object-fit: cover;
         }
-        &::before{
+        &::before {
           content: "프로필 변경";
           position: absolute;
           top: 0;
@@ -248,8 +248,8 @@ header {
           opacity: 0;
           transition: all 0.3s;
         }
-        &:hover{
-          &::before{
+        &:hover {
+          &::before {
             opacity: 1;
           }
         }
