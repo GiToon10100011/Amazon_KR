@@ -803,7 +803,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%);
-  z-index: 500;
+  z-index: 5100;
 }
 .modalAll .mylist_modal .modalarea {
   display: flex;

@@ -24,6 +24,34 @@ fetch("./data.json")
       (product) => product.category === category && product.name === names
     );
 
+    const images = [product['image-url'], product.detail["more-img"][0], product.detail["more-img"][1]]; // 이미지 경로들
+    console.log(images)
+    let currentIndex = 0;
+
+    const mainImg = document.querySelector(".main_img");
+    const btnLeft = document.querySelector(".mainBtn_L");
+    const btnRight = document.querySelector(".mainBtn_R");
+
+    // 초기 이미지 설정
+    mainImg.style.backgroundImage = `url(${images[currentIndex]})`;
+
+    function showImage(index) {
+      mainImg.style.backgroundImage = `url(${images[index]})`;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function previousImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    btnRight.addEventListener("click", nextImage);
+    btnLeft.addEventListener("click", previousImage);
+
     if (product) {
       const category = document.querySelector(".category_content");
       category.innerHTML = product.detail["category-path"];
@@ -106,9 +134,6 @@ fetch("./data.json")
         });
       });
 
-      const mainImage = document.querySelector(".main_img");
-      mainImage.style.backgroundImage = `url(${product["image-url"]})`;
-
       const main_infoimgs = document.querySelectorAll(".img_area img");
       main_infoimgs.forEach((img, i) => {
         img.setAttribute("src", product.detail["more-img"][i]);
@@ -180,53 +205,53 @@ fetch("./data.json")
       });
 
       //M버전 로컬스토리지
-      document.querySelectorAll(".my_list").forEach(function (element) {
-        element.addEventListener("click", function () {
-          const option = document.querySelectorAll("#selectoption")[1];
-          console.log(option.value);
-          const cnt = document.querySelector(".count_result");
-          const url = `../cart/cart.html?category=${
-            product.category
-          }&name=${encodeURIComponent(product.name)}`;
+      // document.querySelectorAll(".my_list").forEach(function (element) {
+      //   element.addEventListener("click", function () {
+      //     const option = document.querySelectorAll("#selectoption")[1];
+      //     console.log(option.value);
+      //     const cnt = document.querySelector(".count_result");
+      //     const url = `../cart/cart.html?category=${
+      //       product.category
+      //     }&name=${encodeURIComponent(product.name)}`;
 
-          let cartItems = localStorage.getItem("cartItems")
-            ? JSON.parse(localStorage.getItem("cartItems"))
-            : [];
+      //     let cartItems = localStorage.getItem("cartItems")
+      //       ? JSON.parse(localStorage.getItem("cartItems"))
+      //       : [];
 
-          // 이미 존재하는 아이템을 찾고, 수량을 업데이트
-          let isItemUpdated = false;
+      //     // 이미 존재하는 아이템을 찾고, 수량을 업데이트
+      //     let isItemUpdated = false;
 
-          cartItems = cartItems.map((item) => {
-            console.log(item);
-            if (
-              item.name === product.name &&
-              item.brand === product.detail.brands &&
-              item.options === option.value
-            ) {
-              item.quantity += Number(cnt.innerText);
-              isItemUpdated = true;
-            }
-            return item;
-          });
+      //     cartItems = cartItems.map((item) => {
+      //       console.log(item);
+      //       if (
+      //         item.name === product.name &&
+      //         item.brand === product.detail.brands &&
+      //         item.options === option.value
+      //       ) {
+      //         item.quantity += Number(cnt.innerText);
+      //         isItemUpdated = true;
+      //       }
+      //       return item;
+      //     });
 
-          // 동일한 아이템이 없으면 새로운 아이템 추가
-          if (!isItemUpdated) {
-            const cartItem = {
-              name: product.name,
-              brand: product.detail.brands,
-              quantity: Number(cnt.innerText),
-              options: option.value,
-            };
-            cartItems.push(cartItem);
-          }
+      //     // 동일한 아이템이 없으면 새로운 아이템 추가
+      //     if (!isItemUpdated) {
+      //       const cartItem = {
+      //         name: product.name,
+      //         brand: product.detail.brands,
+      //         quantity: Number(cnt.innerText),
+      //         options: option.value,
+      //       };
+      //       cartItems.push(cartItem);
+      //     }
 
-          // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
-          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      //     // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
+      //     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-          // 필요 시 페이지 이동
-          window.location.href = url;
-        });
-      });
+      //     // 필요 시 페이지 이동
+      //     window.location.href = url;
+      //   });
+      // });
       document.querySelectorAll(".buy_now").forEach(function (element) {
         element.addEventListener("click", function () {
           const url = `./detail/detail.html?category=${
@@ -254,6 +279,36 @@ fetch("./data.json")
       const returnBtn = document.querySelector(".returnBtn");
       returnBtn.addEventListener("click", () => {
         modal.classList.remove("showmodal");
+      });
+
+      const modalBg = document.querySelector(".modalBg");
+      modalBg.addEventListener("click", () => {
+        modal.classList.remove("showmodal");
+      });
+
+      //M모달
+      const Mmylist = document.querySelector(".my_list");
+      const Mmodal = document.querySelector(".modalAll");
+      Mmylist.addEventListener("click", () => {
+        Mmodal.classList.add("showmodal");
+      });
+
+      const McheckBtn = document.querySelector(".checkBtn");
+      McheckBtn.addEventListener("click", () => {
+        const url = `../cart/cart.html?category=${
+          product.category
+        }&name=${encodeURIComponent(product.name)}`;
+        window.location.href = url;
+      });
+
+      const MreturnBtn = document.querySelector(".returnBtn");
+      MreturnBtn.addEventListener("click", () => {
+        Mmodal.classList.remove("showmodal");
+      });
+
+      const MmodalBg = document.querySelector(".modalBg");
+      MmodalBg.addEventListener("click", () => {
+        Mmodal.classList.remove("showmodal");
       });
     }
   })
@@ -288,8 +343,6 @@ M_share.addEventListener("click", function () {
 M_shareIC.addEventListener("click", function () {
   M_shareIC.classList.toggle("popupaction");
 });
-
-//cartmodal
 
 //main info
 const imgarea = document.querySelector(".img_area");
