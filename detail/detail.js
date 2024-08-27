@@ -126,6 +126,8 @@ fetch("./data.json")
 
       document.querySelectorAll(".mylist").forEach(function (element) {
         element.addEventListener("click", function () {
+          const option = document.querySelectorAll("#selectoption")[1];
+          console.log(option.value)
           const cnt = document.querySelector(".count_result");
           const url = `../cart/cart.html?category=${
             product.category
@@ -139,9 +141,11 @@ fetch("./data.json")
           let isItemUpdated = false;
 
           cartItems = cartItems.map((item) => {
+            console.log(item);
             if (
               item.name === product.name &&
-              item.brand === product.detail.brands
+              item.brand === product.detail.brands &&
+              item.options === option.value
             ) {
               item.quantity += Number(cnt.innerText);
               isItemUpdated = true;
@@ -155,6 +159,7 @@ fetch("./data.json")
               name: product.name,
               brand: product.detail.brands,
               quantity: Number(cnt.innerText),
+              options: option.value,
             };
             cartItems.push(cartItem);
           }
@@ -309,4 +314,21 @@ slideBtnRight.addEventListener("click", () => {
     currentOffset = 0; // 마지막 슬라이드에서 첫 번째 슬라이드로 이동
   }
   updateSlidePosition();
+});
+
+//장바구니 표시
+document.addEventListener("DOMContentLoaded", () => {
+  const selectBox = document.querySelector(".selectoption");
+  const selectedOptionDiv = document.querySelector(".selected-option");
+
+  // 초기 선택된 옵션 표시
+  selectedOptionDiv.innerText = `선택된 옵션: ${
+    selectBox.options[selectBox.selectedIndex].text
+  }`;
+
+  // 셀렉트 박스 변경 시 선택된 옵션 업데이트
+  selectBox.addEventListener("change", (event) => {
+    const selectedText = event.target.options[event.target.selectedIndex].text;
+    selectedOptionDiv.innerText = `선택된 옵션: ${selectedText}`;
+  });
 });

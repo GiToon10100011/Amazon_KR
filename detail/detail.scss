@@ -259,16 +259,21 @@ main {
   // }
 }
 
-// @keyframes madal{
-//   0%{
-//   opacity: 1;
-//   display: flex;
-//   }
-//   100%{
-//     opacity: 0;
-//     display: none;
-//   }
-// }
+/* 모달 배경 */
+.modal-content{
+  display: none;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%);
+  z-index: 3;
+  &.modalact{
+    display: flex;
+  }
+}
+
 
 /*category*/
 .topcategory {
