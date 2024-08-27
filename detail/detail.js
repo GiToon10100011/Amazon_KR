@@ -127,7 +127,63 @@ fetch("./data.json")
       document.querySelectorAll(".mylist").forEach(function (element) {
         element.addEventListener("click", function () {
           const option = document.querySelectorAll("#selectoption")[1];
-          console.log(option.value)
+          console.log(option.value);
+          const cnt = document.querySelector(".count_result");
+          const url = `../cart/cart.html?category=${
+            product.category
+          }&name=${encodeURIComponent(product.name)}`;
+
+          let cartItems = localStorage.getItem("cartItems")
+            ? JSON.parse(localStorage.getItem("cartItems"))
+            : [];
+
+          // 이미 존재하는 아이템을 찾고, 수량을 업데이트
+          let isItemUpdated = false;
+
+          cartItems = cartItems.map((item) => {
+            console.log(item);
+            if (
+              item.name === product.name &&
+              item.brand === product.detail.brands &&
+              item.options === option.value
+            ) {
+              item.quantity += Number(cnt.innerText);
+              isItemUpdated = true;
+            }
+            return item;
+          });
+
+          // 동일한 아이템이 없으면 새로운 아이템 추가
+          if (!isItemUpdated) {
+            const cartItem = {
+              name: product.name,
+              brand: product.detail.brands,
+              quantity: Number(cnt.innerText),
+              options: option.value,
+            };
+            cartItems.push(cartItem);
+          }
+
+          // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+          // 필요 시 페이지 이동
+        });
+      });
+      document.querySelectorAll(".buynow").forEach(function (element) {
+        element.addEventListener("click", function () {
+          const url = `./detail/detail.html?category=${
+            product.category
+          }&name=${encodeURIComponent(product.name)}`;
+          window.location.href = "../cart/cart02.html";
+        });
+      });
+
+      //M버전 로컬스토리지
+      document.querySelectorAll(".my_list").forEach(function (element) {
+        element.addEventListener("click", function () {
+          const option = document.querySelectorAll("#selectoption")[1];
+          console.log(option.value);
           const cnt = document.querySelector(".count_result");
           const url = `../cart/cart.html?category=${
             product.category
@@ -171,13 +227,33 @@ fetch("./data.json")
           window.location.href = url;
         });
       });
-      document.querySelectorAll(".buynow").forEach(function (element) {
+      document.querySelectorAll(".buy_now").forEach(function (element) {
         element.addEventListener("click", function () {
           const url = `./detail/detail.html?category=${
             product.category
           }&name=${encodeURIComponent(product.name)}`;
           window.location.href = "../cart/cart02.html";
         });
+      });
+
+      //모달
+      const mylist = document.querySelector(".mylist");
+      const modal = document.querySelector(".modalAll");
+      mylist.addEventListener("click", () => {
+        modal.classList.add("showmodal");
+      });
+
+      const checkBtn = document.querySelector(".checkBtn");
+      checkBtn.addEventListener("click", () => {
+        const url = `../cart/cart.html?category=${
+          product.category
+        }&name=${encodeURIComponent(product.name)}`;
+        window.location.href = url;
+      });
+
+      const returnBtn = document.querySelector(".returnBtn");
+      returnBtn.addEventListener("click", () => {
+        modal.classList.remove("showmodal");
       });
     }
   })
@@ -314,21 +390,4 @@ slideBtnRight.addEventListener("click", () => {
     currentOffset = 0; // 마지막 슬라이드에서 첫 번째 슬라이드로 이동
   }
   updateSlidePosition();
-});
-
-//장바구니 표시
-document.addEventListener("DOMContentLoaded", () => {
-  const selectBox = document.querySelector(".selectoption");
-  const selectedOptionDiv = document.querySelector(".selected-option");
-
-  // 초기 선택된 옵션 표시
-  selectedOptionDiv.innerText = `선택된 옵션: ${
-    selectBox.options[selectBox.selectedIndex].text
-  }`;
-
-  // 셀렉트 박스 변경 시 선택된 옵션 업데이트
-  selectBox.addEventListener("change", (event) => {
-    const selectedText = event.target.options[event.target.selectedIndex].text;
-    selectedOptionDiv.innerText = `선택된 옵션: ${selectedText}`;
-  });
 });

@@ -790,45 +790,59 @@ main {
   margin: 0 auto;
 }
 
-.cart-modal {
-  display: none;
-  opacity: 0;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 50%;
-  left: 50vw;
-  z-index: 2;
-  transition: all 0.3;
-}
-.cart-modal .modalArea {
-  display: none;
-  width: 400px;
-  height: 140px;
-  background: #2f2f2f;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-}
-.cart-modal h2 {
-  font-size: 1.2rem;
-}
-
 /* 모달 배경 */
-.modal-content {
+.modalAll {
   display: none;
+}
+.modalAll .mylist_modal {
+  width: 300px;
+  height: 120px;
+  background: #fff;
+  border-radius: 12px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 500;
+}
+.modalAll .mylist_modal .modalarea {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 50vh;
-  left: 50vw;
-  transform: translate(-50%);
-  z-index: 3;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
-.modal-content.modalact {
+.modalAll .mylist_modal .modalarea p {
+  margin-bottom: 5px;
+  padding: 5px;
+}
+.modalAll .mylist_modal .modalarea .btncontent {
+  display: flex;
+  gap: 15px;
+}
+.modalAll .mylist_modal .modalarea .btncontent .returnBtn {
+  padding: 8px 20px;
+  border: none;
+  background: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modalAll .mylist_modal .modalarea .btncontent .checkBtn {
+  padding: 8px 20px;
+  border: none;
+  background: #ff9900;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modalAll .modalBg {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  position: fixed;
+  z-index: 400;
+  opacity: 0.3;
+}
+.modalAll.showmodal {
   display: flex;
 }
 

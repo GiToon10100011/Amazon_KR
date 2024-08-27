@@ -17,42 +17,55 @@ ol {
   list-style: none;
 }
 
-.loader {
-  height: 60px;
-  aspect-ratio: 1;
+.loader-box {
+  position: fixed;
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader-box .loader {
   position: relative;
+  z-index: 10000001;
+  display: inline-flex;
+  border: 2px solid #ff9900;
+  --c: no-repeat linear-gradient(map-get($color, main-amazon-color) 0 0) 50%;
+  background: #fff, var(--c) calc(50% - 5px)/5px 5px, var(--c) calc(50% + 5px)/5px 5px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  color: #ff9900;
+}
+.loader-box .loader::before,
+.loader-box .loader::after {
+  content: "12 00 23 40 31 45 60 17 45 32 29 42 50 08 14 07 46 11 03 55";
+  font-size: 30px;
+  font-family: monospace;
+  font-weight: bold;
+  line-height: 1em;
+  height: 1em;
+  width: 2ch;
+  color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 0 #ff9900;
+  overflow: hidden;
+  margin: 5px 10px;
+  animation: l3 1s steps(20) infinite;
+}
+.loader-box .loader::before {
+  animation-duration: 1.5s;
+}
+.loader-box.active {
+  display: none;
 }
 
-.loader::before,
-.loader::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  transform-origin: bottom;
-}
-
-.loader::after {
-  background: radial-gradient(at 75% 15%, rgba(255, 255, 255, 0.7333333333), rgba(0, 0, 0, 0) 35%), radial-gradient(at 80% 40%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5333333333)), radial-gradient(circle 5px, #fff 94%, rgba(0, 0, 0, 0)), radial-gradient(circle 10px, #000 94%, rgba(0, 0, 0, 0)), linear-gradient(#f93318 0 0) top/100% calc(50% - 5px), linear-gradient(#fff 0 0) bottom/100% calc(50% - 5px) #000;
-  background-repeat: no-repeat;
-  animation: l20 1s infinite cubic-bezier(0.5, 120, 0.5, -120);
-}
-
-.loader::before {
-  background: #ddd;
-  filter: blur(8px);
-  transform: scaleY(0.4) translate(-13px, 0px);
-}
-
-@keyframes l20 {
-  30%, 70% {
-    transform: rotate(0deg);
-  }
-  49.99% {
-    transform: rotate(0.2deg);
-  }
-  50% {
-    transform: rotate(-0.2deg);
+@keyframes l3 {
+  100% {
+    text-shadow: 0 -20em 0 #ff9900;
   }
 }
 body {
