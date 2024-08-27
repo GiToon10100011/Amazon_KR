@@ -26,45 +26,31 @@ ol {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .loader-box .loader {
   position: relative;
-  z-index: 10000001;
-  display: inline-flex;
-  border: 2px solid #ff9900;
-  --c: no-repeat linear-gradient(map-get($color, main-amazon-color) 0 0) 50%;
-  background: #fff, var(--c) calc(50% - 5px)/5px 5px, var(--c) calc(50% + 5px)/5px 5px;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1;
-  justify-content: center;
-  align-items: center;
-  color: #ff9900;
+  width: 120px;
+  height: 20px;
+  box-shadow: 0 0 30px rgba(255, 153, 0, 0.2);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #ff9900) left -50px top 0/50px 20px no-repeat white;
+  animation: l2 1s infinite linear;
 }
-.loader-box .loader::before,
-.loader-box .loader::after {
-  content: "12 00 23 40 31 45 60 17 45 32 29 42 50 08 14 07 46 11 03 55";
-  font-size: 30px;
-  font-family: monospace;
-  font-weight: bold;
-  line-height: 1em;
-  height: 1em;
-  width: 2ch;
-  color: rgba(0, 0, 0, 0);
-  text-shadow: 0 0 0 #ff9900;
-  overflow: hidden;
-  margin: 5px 10px;
-  animation: l3 1s steps(20) infinite;
-}
-.loader-box .loader::before {
-  animation-duration: 1.5s;
+.loader-box .loader img {
+  width: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .loader-box.active {
   display: none;
 }
 
-@keyframes l3 {
+@keyframes l2 {
   100% {
-    text-shadow: 0 -20em 0 #ff9900;
+    background-position: right -50px top 0;
   }
 }

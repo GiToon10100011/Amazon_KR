@@ -67,6 +67,8 @@ fetch("./data.json")
 
     //Calculate the height and apply it to the body for dynamic height applications
     setTimeout(() => {
+      const loader = document.querySelector(".loader-box");
+      loader.classList.add("active");
       const contentHeight = getComputedStyle(productContent).height;
       document.body.style.height = `${
         Number(contentHeight.replace(/[^0-9.-]+/g, "")) + 720
