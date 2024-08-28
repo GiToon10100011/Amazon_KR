@@ -1,4 +1,4 @@
-@import "./reset.scss";
+@import "../reset.scss";
 @import "./header/header.scss";
 
 html,
@@ -207,7 +207,7 @@ header {
 #footer {
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: -700px;
   height: 380px;
 }
 
@@ -215,7 +215,6 @@ main {
   position: absolute;
   top: 140px;
   width: 100%;
-  height: 2500px;
   margin-top: 50px;
   .inner {
     display: flex;
@@ -643,7 +642,7 @@ main {
   }
 
   main {
-    top: 500px;
+    top: 150px;
     margin-top: 10px;
     padding: 15px;
     .inner {
@@ -771,7 +770,8 @@ main {
     }
   }
   #footer {
-    height: 900px;
+    height: 850px;
+    bottom: -1400px;
   }
 
   .mobile-navBar {

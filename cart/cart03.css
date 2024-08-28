@@ -18,6 +18,43 @@ ol {
   list-style: none;
 }
 
+.loader-box {
+  position: fixed;
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.loader-box .loader {
+  position: relative;
+  width: 120px;
+  height: 20px;
+  box-shadow: 0 0 30px rgba(255, 153, 0, 0.2);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #ff9900) left -50px top 0/50px 20px no-repeat white;
+  animation: l2 1s infinite linear;
+}
+.loader-box .loader img {
+  width: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader-box.active {
+  display: none;
+}
+
+@keyframes l2 {
+  100% {
+    background-position: right -50px top 0;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +73,43 @@ ol {
   list-style: none;
 }
 
+.loader-box {
+  position: fixed;
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.loader-box .loader {
+  position: relative;
+  width: 120px;
+  height: 20px;
+  box-shadow: 0 0 30px rgba(255, 153, 0, 0.2);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #ff9900) left -50px top 0/50px 20px no-repeat white;
+  animation: l2 1s infinite linear;
+}
+.loader-box .loader img {
+  width: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader-box.active {
+  display: none;
+}
+
+@keyframes l2 {
+  100% {
+    background-position: right -50px top 0;
+  }
+}
 body {
   font-family: "Noto Sans KR";
 }
@@ -576,7 +650,6 @@ html,
 body {
   width: 100%;
   position: relative;
-  height: 1500px;
 }
 
 header {
@@ -757,7 +830,7 @@ header {
 #footer {
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: -600px;
   height: 380px;
 }
 
@@ -765,7 +838,6 @@ main {
   position: absolute;
   top: 100px;
   width: 100%;
-  height: 3500px;
   margin-top: 50px;
 }
 main .inner {
@@ -963,7 +1035,8 @@ main .product-content .product-menu a:hover {
     left: 0;
   }
   #footer {
-    height: 900px;
+    height: 850px;
+    bottom: -1000px;
   }
   main {
     position: relative;

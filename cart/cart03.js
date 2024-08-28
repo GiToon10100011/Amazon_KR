@@ -54,8 +54,29 @@ fetch("data.json")
         totalAmount += unitPrice * item.quantity;
       });
     });
+    const mainContent = document.querySelector("main");
+
+    document.body.style.height = getComputedStyle(mainContent).height;
 
     // 최종 결제 금액 업데이트
     totalPriceElement.textContent = `${totalAmount.toLocaleString()}원`;
   })
   .catch((error) => console.error("Error loading JSON data:", error));
+
+document.querySelector(".product-menu a").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const cartItems = localStorage.getItem("cartItems");
+  if (cartItems) {
+    localStorage.setItem("wishlistItems", cartItems);
+  }
+
+  localStorage.removeItem("cartItems");
+
+  // window.location.href = ""
+});
+
+setTimeout(() => {
+  const loader = document.querySelector(".loader-box");
+  loader.classList.add("active");
+}, 1000)

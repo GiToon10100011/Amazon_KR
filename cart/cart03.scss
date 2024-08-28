@@ -1,11 +1,10 @@
-@import "./reset.scss";
+@import "../reset.scss";
 @import "./header/header.scss";
 
 html,
 body {
   width: 100%;
   position: relative;
-  height: 1500px;
   // overflow-x: hidden;
 }
 
@@ -201,7 +200,7 @@ header {
 #footer {
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: -600px;
   height: 380px;
 }
 
@@ -210,7 +209,6 @@ main {
   position: absolute;
   top: 100px;
   width: 100%;
-  height: 3500px;
   margin-top: 50px;
   .inner {
     display: flex;
@@ -412,7 +410,8 @@ main {
   }
 
   #footer {
-    height: 900px;
+    height: 850px;
+    bottom: -1000px;
   }
 
   main {

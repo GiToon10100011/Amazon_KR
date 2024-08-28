@@ -59,8 +59,12 @@ fetch("data.json")
       });
     });
 
+    const mainContent = document.querySelector(".content-wrapper");
+    document.body.style.height = getComputedStyle(mainContent).height;
+
     // 장바구니 항목 렌더링 후 총 가격 계산
     calculateTotalPrice();
+    updateItemCount();
   })
   .catch((error) => console.error("Error loading JSON:", error));
 
@@ -87,6 +91,17 @@ function calculateTotalPrice() {
   document.querySelector("#total-price").textContent = formattedTotalPrice;
   document.querySelector("#final-price").textContent = formattedTotalPrice; // 'final-price'에도 동일한 값을 설정
 }
+
+// 상품 수 계산 함수
+const updateItemCount = () => {
+  const itemCountElement = document.querySelector(".order-products h2 span");
+  const productItems = document.querySelectorAll(
+    ".order-products .product-item"
+  );
+  const itemCount = productItems.length;
+
+  itemCountElement.textContent = `${itemCount}건`;
+};
 
 // 홈페이지 이동
 document

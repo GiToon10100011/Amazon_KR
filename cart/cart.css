@@ -994,15 +994,19 @@ main .cart-wrap .cart-items-wrapper .recommended-products .products-slider .prod
 }
 main .cart-wrap .cart-items-wrapper .recommended-products .products-slider .products-container .product-card img {
   width: 100%;
-  height: auto;
+  height: 150px;
   border-radius: 8px;
   margin-bottom: 15px;
 }
 main .cart-wrap .cart-items-wrapper .recommended-products .products-slider .products-container .product-card h3 {
+  width: 140px;
   font-size: 18px;
   font-weight: normal;
   color: #777;
   margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 main .cart-wrap .cart-items-wrapper .recommended-products .products-slider .products-container .product-card p {
   font-size: 14px;
@@ -1152,10 +1156,6 @@ main .banner {
 }
 
 @media screen and (max-width: 768px) {
-  html,
-  body {
-    height: 3000px;
-  }
   header {
     left: 0;
   }
@@ -1270,6 +1270,9 @@ main .banner {
   }
   main .cart-wrap .recommended-products .products-slider .products-container .product-card h3 {
     font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   main .cart-wrap .recommended-products .products-slider .products-container .product-card p {
     font-size: 10px;
@@ -1324,7 +1327,7 @@ main .banner {
   }
   #footer {
     position: absolute;
-    bottom: -100px;
+    bottom: -1000px;
     height: 840px;
   }
   .mobile-navBar {

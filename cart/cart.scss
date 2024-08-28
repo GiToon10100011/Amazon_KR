@@ -450,15 +450,19 @@ main {
               text-align: center;
               img {
                 width: 100%;
-                height: auto;
+                height: 150px;
                 border-radius: 8px;
                 margin-bottom: 15px;
               }
               h3 {
+                width: 140px;
                 font-size: 18px;
                 font-weight: normal;
                 color: #777;
                 margin: 10px 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
               }
               p {
                 font-size: 14px;
@@ -470,6 +474,7 @@ main {
                 margin-top: 5px;
                 color: #000;
                 font-weight: normal;
+                
                 span {
                   color: #ff6f00;
                   font-weight: normal;
@@ -620,7 +625,7 @@ main {
 @media screen and (max-width: 768px) {
   html,
   body {
-    height: 3000px;
+    // height: 3000px;
   }
   header {
     left: 0;
@@ -737,6 +742,9 @@ main {
               margin: 5px;
               h3 {
                 font-size: 12px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
               }
               p {
                 font-size: 10px;
@@ -798,7 +806,7 @@ main {
 
   #footer {
     position: absolute;
-    bottom: -100px;
+    bottom: -1000px;
     height: 840px;
   }
 

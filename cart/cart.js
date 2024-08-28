@@ -19,64 +19,113 @@ fetch("data.json")
 
     let cartItems = JSON.parse(localStorage.getItem("cartItems"));
 
-    cartItems.forEach((item) => {
-      const cartProducts = products.data.filter((product) => {
-        return (
-          product.name.includes(item.name) &&
-          product.detail.brands.includes(item.brand)
-        );
+    const domCartItems = document.querySelector(
+      ".cart-items-wrapper .cart-items"
+    );
+
+    if (!cartItems || cartItems.length === 0) {
+      // 로컬 스토리지에 담긴 항목이 없을 경우
+      domCartItems.style.textAlign = "center";
+      domCartItems.style.lineHeight = "150px"
+      domCartItems.innerHTML = "<h1>장바구니가 비어있습니다.<h1>";
+    } else {
+      cartItems.forEach((item) => {
+        const cartProducts = products.data.filter((product) => {
+          return (
+            product.name.includes(item.name) &&
+            product.detail.brands.includes(item.brand)
+          );
+        });
+        cartProducts.forEach((product) => {
+          console.log(product);
+          const domCartItem = document.createElement("div");
+          domCartItem.className = "cart-item";
+          domCartItem.innerHTML = `
+            <div class="cart-item-title">
+            <h3>${product.detail.brands}</h3>
+            <hr />
+          </div>
+          <div class="cart-item-header">
+            <input type="checkbox" name="cart-check" id="cart-check-1" />
+            <span>X</span>
+          </div>
+          <div class="cart-item-main">
+            <img src=${product["image-url"]} />
+            <div>
+              <h3>
+                ${product.name}
+              </h3>
+              <p>30,000원 이상 무료배송 | 일반택배</p>
+            </div>
+          </div>
+          <div class="cart-item-options">
+            <div class="options-title">
+              <h3>${item.options}</h3>
+              <span>X</span>
+            </div>
+            <div class="options-bottom">
+              <div class="cart-options-control">
+                <i class="fa-solid fa-minus"></i>
+                <span>${item.quantity}</span>
+                <i class="fa-solid fa-plus"></i>
+              </div>
+              <p class="cart-item-price" data-unit-price="${product.price}">
+                ${product.price}
+              </p>
+            </div>
+          </div>
+          <div class="cart-item-actions">
+            <span class="cart-change-options">바로구매</span>
+          </div>
+          <div class="cart-item-footer">
+            <hr />
+            <h3>배송비 3,000원</h3>
+            <p>총 주문금액 50,000원 이상시 무료배송</p>
+          </div>
+          `;
+          domCartItems.appendChild(domCartItem);
+        });
       });
-      cartProducts.forEach((product) => {
-        console.log(product);
-        const domCartItems = document.querySelector(
-          ".cart-items-wrapper .cart-items"
-        );
-        const domCartItem = document.createElement("div");
-        domCartItem.className = "cart-item";
-        domCartItem.innerHTML = `
-      <div class="cart-item-title">
-      <h3>${product.detail.brands}</h3>
-      <hr />
-    </div>
-    <div class="cart-item-header">
-      <input type="checkbox" name="cart-check" id="cart-check-1" />
-      <span>X</span>
-    </div>
-    <div class="cart-item-main">
-      <img src=${product["image-url"]} />
-      <div>
-        <h3>
-          ${product.name}
-        </h3>
-        <p>30,000원 이상 무료배송 | 일반택배</p>
-      </div>
-    </div>
-    <div class="cart-item-options">
-      <div class="options-title">
-        <h3>${item.options}</h3>
-        <span>X</span>
-      </div>
-      <div class="options-bottom">
-        <div class="cart-options-control">
-          <i class="fa-solid fa-minus"></i>
-          <span>${item.quantity}</span>
-          <i class="fa-solid fa-plus"></i>
+    }
+
+    console.log(products);
+    const productsContainer = document.querySelector(".products-container");
+
+    // Fisher-Yates shuffle algorithm을 사용하여 배열을 무작위로 섞는 함수
+    const shuffleArray = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    };
+
+    // AI 추천 상품 섹션 동적 생성
+    const recommendedProductsContainer = document.querySelector(
+      ".products-container"
+    );
+    let recommendedProducts = products.data.slice(); // 원본 배열을 복사
+
+    shuffleArray(recommendedProducts); // 배열을 무작위로 섞음
+    recommendedProducts = recommendedProducts.slice(0, 6); // 앞에서 6개 선택
+
+    recommendedProducts.forEach((product) => {
+      const productCard = document.createElement("div");
+      productCard.className = "product-card";
+      productCard.innerHTML = `
+        <img src="${product["image-url"]}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <p>${product.detail.brands}</p>
+        <p class="price"><span>17%</span> ${product.price}</p>
+        <div class="product-tags">
+          <span class="tag">무료배송</span>
+          <span class="tag">오늘출발</span>
         </div>
-        <p class="cart-item-price" data-unit-price="${product.price}">
-          ${product.price}
-        </p>
-      </div>
-    </div>
-    <div class="cart-item-actions">
-      <span class="cart-change-options">바로구매</span>
-    </div>
-    <div class="cart-item-footer">
-      <hr />
-      <h3>배송비 3,000원</h3>
-      <p>총 주문금액 50,000원 이상시 무료배송</p>
-    </div>
       `;
-        domCartItems.appendChild(domCartItem);
+      recommendedProductsContainer.appendChild(productCard);
+      productCard.style.cursor = "pointer";
+      productCard.addEventListener("click", () => {
+        const url = `../detail/detail.html?category=${product.category}&name=${product.name}`;
+        location.href = url;
       });
     });
 
@@ -178,9 +227,6 @@ fetch("data.json")
         cartItems.splice(index, 1);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
         itemToDelete.remove(); // 해당 항목 삭제
-        // const index = cartItems.indexOf(todo.children[0].innerText);
-        // todosItem.splice(index, 1);
-        // localStorage.setItem("todos", JSON.stringify(todosItem));
         updateTotalPrice(); // 총 가격 업데이트
         itemToDelete = null;
         deleteModal.style.display = "none"; // 모달창 숨기기
@@ -203,6 +249,7 @@ fetch("data.json")
       }
     });
   })
+
   .catch((error) => console.error("Error loading JSON data:", error));
 
 // 홈페이지 이동
