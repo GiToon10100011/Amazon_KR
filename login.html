@@ -187,31 +187,60 @@
           </h1>
     </div>
     <div class="wrapper_right">
-      <h2>회원 로그인</h2>
-      <div class="log_middle">
-        <form>
-          <div class="log_id">
-            <label for="id"></label>
-            <input
-            id="id"
-            class="inputbox"
-            type="text"
-            placeholder="아이디를 입력해주세요."
-            />
-            <div id="error_id" class="error"></div>
-          </div>
-          <div class="log_pw">
-            <label for="password"></label>
-            <input
-            id="password"
-            class="inputbox"
-            type="password"
-            placeholder="비밀번호를 입력해주세요."
-            />
-            <div id="error_pw" class="error"></div>
-            <i class="fa-solid fa-eye-slash"></i>
-          </div>
-        </form>
+      <div class="h2title">
+        <h2 data-log="mem">회원 로그인</h2>
+        <h2 data-log="non-mem">비회원 주문조회</h2>
+      </div>
+      <div class="formMiddle">
+        <div class="log_middle mem" id="mem">
+          <form id="logInForm" method="post">
+            <div class="log_id">
+              <label for="id"></label>
+              <input
+              id="id"
+              class="inputbox"
+              type="text"
+              placeholder="아이디를 입력해주세요."
+              />
+              <div id="error_id" class="error"></div>
+            </div>
+            <div class="log_pw">
+              <label for="password"></label>
+              <input
+              id="password"
+              class="inputbox"
+              type="password"
+              placeholder="비밀번호를 입력해주세요."
+              />
+              <div id="error_pw" class="error"></div>
+              <i class="fa-solid fa-eye-slash"></i>
+            </div>
+          </form>
+        </div>
+        <div class="active nonOrder mem" id="non-mem">
+          <form id="nonOrderForm" method="post">
+            <div class="nonName">
+              <label for="name"></label>
+              <input
+              id="name"
+              class="inputbox"
+              type="text"
+              placeholder="주문자명을 입력해주세요."
+              />
+              <div id="error_name" class="error"></div>
+            </div>
+            <div class="nonMail">
+              <label for="nonMail"></label>
+              <input
+              id="nonMail"
+              class="inputbox"
+              type="text"
+              placeholder="주문 시 사용한 이메일을 입력해주세요."
+              />
+              <div id="error_mail" class="error"></div>
+            </div>
+          </form>
+        </div>
       </div>
       <div class="logDetail">
         <div class="logSet">

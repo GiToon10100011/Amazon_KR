@@ -222,13 +222,6 @@ html, body{
         color: #ff9900;
       }
     }
-    #top-mobile {
-      display: none;
-    }
-  }
-
-  #mobile-boon {
-    display: none;
   }
 
   #boon {
@@ -355,10 +348,6 @@ html, body{
         }
       }
     }
-  }
-
-  #rate-mobile {
-    display: none;
   }
 
   #rate-plan {
@@ -497,10 +486,6 @@ html, body{
         }
       }
     }
-  }
-
-  #qnaMobile {
-    display: none;
   }
 
   #memBoon {
@@ -709,7 +694,8 @@ html, body{
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 10px;
+          padding-top: 25px;
+          padding-bottom: 10px;
           .giftName {
             display: block;
             p {
@@ -727,19 +713,6 @@ html, body{
                   outline: none;
                 }
           }
-        }
-        input[type="submit"] {
-          width: 140px;
-          height: 30px;
-          margin: 0 auto;
-          margin-top: 10px;
-          text-align: center;
-          font-weight: 400;
-          border: 0.5px solid transparent;
-          border-radius: 8px;
-          background: map-get($map: $color, $key: main-amazon-color);
-          color: map-get($map: $color, $key: main-color);
-          cursor: pointer;
         }
         &:hover {
           border: 0.5px solid #ff9900;
@@ -924,438 +897,16 @@ html, body{
       }
     }
   }
-
-  iframe {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 360px;
-  }
 }
 
 // mobile
 @media screen and (max-width: 768px) {
-  body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // overflow: hidden;
-  }
-  header, iframe {
-    display: none;
-  }
 
-  #container {
-    letter-spacing: -1.5px;
-    #top {
-      #logo {
-        img {
-          width: 150px;
-          height: 90px;
-        }
-      }
-      h2 {
-        display: none;
-      }
-      #top-mobile {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .pmobile {
-          display: block;
-          font-size: 30px;
-          font-weight: 400;
-          span {
-            color: #ff9900;
-            font-weight: 500;
-          }
-        }
-        .pmobile2 {
-          font-weight: 300;
-          font-size: 17px;
-          padding: 20px 0;
-        }
-        input[type="submit"] {
-          width: 400px;
-          height: 60px;
-          font-size: 18px;
-          text-align: center;
-          border: none;
-          border-radius: 13px;
-          background: #ff9900;
-          color: #fff;
-          cursor: pointer;
-        }
-        .pmobile3 {
-          font-weight: 300;
-          font-size: 13px;
-          color: #ccc;
-        } 
-        .mobile-plan {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 10px 20px;
-          border: 1px solid #f00;
-          // .pmobile4 {
-          // }
-          .mobile-plan2 {
-            display: flex;
-            flex-direction: column;
-          }
-        }
-      }
-    }
+}
 
-    #navMenu {
-      display: none;
-    }
-
-    #mobile-boon {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 55px;
-      .mobile-boonTitle {
-        font-size: 23px;
-      }
-      .mobile-boon1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        i {
-          font-size: 48px;
-          color: #ff9900;
-        }
-        span {
-          color: #ff9900;
-        }
-        p {
-          font-size: 13px;
-          font-weight: 300;
-          text-align: center;
-        }
-      }
-      .mobile-boon2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        i {
-          font-size: 48px;
-          color: #ff9900;
-        }
-        span {
-          color: #ff9900;
-        }
-        p {
-          font-size: 13px;
-          font-weight: 300;
-          text-align: center;
-        }
-      }
-      .mobile-boon3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        i {
-          font-size: 48px;
-          color: #ff9900;
-        }
-        span {
-          color: #ff9900;
-        }
-        p {
-          font-size: 13px;
-          font-weight: 300;
-          text-align: center;
-        }
-      }
-    }
-
-    #boon {
-      display: none;
-    }
-
-    #rate-mobile {
-      padding-top: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      p {
-        font-size: 23px;
-      }
-      .rate-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        .rate-left {
-          .rate1 {
-            width: 150px;
-            height: 150px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0;
-            border-radius: 8px;
-            background: #f8f8f8;
-            i {
-              font-size: 45px;
-              color: map-get($map: $color, $key: main-amazon-color);
-              margin-bottom: 5px;
-            }
-            span {
-              font-size: 16px;
-              color: map-get($map: $color, $key: main-dark-color);
-            }
-            p {
-              font-size: 12px;
-              font-weight: 300;
-              margin-top: 5px;
-              letter-spacing: -0.5px;
-            }
-          }
-          .rate2 {
-            width: 150px;
-            height: 150px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px;
-            background: #f8f8f8;
-            i {
-              font-size: 45px;
-              color: map-get($map: $color, $key: main-amazon-color);
-              margin-bottom: 5px;
-              margin-top: 20px;
-            }
-            span {
-              font-size: 16px;
-              color: map-get($map: $color, $key: main-dark-color);
-            }
-            p {
-              font-size: 12px;
-              font-weight: 300;
-              // margin-top: 5px;
-              letter-spacing: -0.5px;
-            }
-          }
-          .disc2 {
-            position: relative;
-            top: 20px;
-            border: none;
-            border-radius: 15px;
-            padding: 5px 10px;
-            background: map-get($map: $color, $key: light-placeholder-color);
-            color: #fff;
-            font-size: 10px;
-          }
-        }
-        .rate-right {
-          padding-top: 10px;
-          .rate3 {
-            width: 150px;
-            height: 150px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0;
-            border-radius: 8px;
-            background: #f8f8f8;
-            i {
-              font-size: 45px;
-              color: map-get($map: $color, $key: main-amazon-color);
-              margin-bottom: 5px;
-            }
-            span {
-              font-size: 16px;
-              color: map-get($map: $color, $key: main-dark-color);
-            }
-            p {
-              font-size: 12px;
-              font-weight: 300;
-              margin-top: 5px;
-              letter-spacing: -0.5px;
-            }
-          }
-          .rate4 {
-            width: 150px;
-            height: 150px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0;
-            border-radius: 8px;
-            background: #f8f8f8;
-            i {
-              font-size: 45px;
-              color: map-get($map: $color, $key: main-amazon-color);
-              margin-bottom: 5px;
-              margin-top: 20px;
-            }
-            span {
-              font-size: 16px;
-              color: map-get($map: $color, $key: main-dark-color);
-            }
-            p {
-              font-size: 12px;
-              font-weight: 300;
-              // margin-top: 5px;
-              letter-spacing: -0.5px;
-            }
-          }
-          .disc4 {
-            position: relative;
-            top: 20px;
-            border: none;
-            border-radius: 15px;
-            padding: 5px 10px;
-            background: map-get($map: $color, $key: light-placeholder-color);
-            color: #fff;
-            font-size: 10px;
-          }
-        }
-      }
-      input[type="submit"] {
-        width: 300px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border: none;
-        border-radius: 8px;
-        margin-top: 30px;
-        background: map-get($map: $color, $key: main-amazon-color);
-        color: map-get($map: $color, $key: main-color);
-      }
-      .rateSubmit {
-        font-size: 11px;
-        letter-spacing: -1px;
-        color: #ccc;
-      }
-    }
-
-    #rate-plan {
-      display: none;
-    }
-
-    #pay-top {
-      display: none;
-    }
-
-    #qnaMobile {
-      width: 100%;
-      display: block;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 35px;
-      gap: 20px;
-      letter-spacing: -1px;
-      border: 1px solid #f00;
-      .qna {
-        width: 100%;
-        padding: 10px;
-        .Qmobile {
-          font-size: 15px;
-          font-weight: 400;
-        }
-        .Amobile {
-          font-size: 12px;
-          font-weight: 300;
-          span {
-            font-weight: 400;
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-
-    #memBoon {
-      display: none;
-    }
-
-    #payment {
-      margin: 150px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      // pointer-events: none;
-      .pay-wrapper {
-        width: 550px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        #credit {
-          .creditTitle {
-            margin: 0 auto;
-            padding: 20px;
-          }
-          .cardForm {
-            margin: 0 auto;
-            .cardForm1 {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: left;
-            }
-            .cardForm2 {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: left;
-              gap: 0;
-              input[type="submit"] {
-                width: 170px;
-                height: 40px;
-                font-size: 15px;
-                margin: 0 auto;
-                margin-top: 15px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              }
-            }
-          }
-        }
-        #giftCard {
-          width: 480px;
-          .giftCardTitle {
-            margin: 0 auto;
-          }
-          input[type="submit"] {
-            width: 170px;
-            height: 40px;
-            font-size: 15px;
-            margin: 0 auto;
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-        }
-      }
-    }
-
-    #address {
-      display: none;
-    }
-  }
+iframe {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 360px;
 }

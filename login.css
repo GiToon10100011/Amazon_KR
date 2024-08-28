@@ -499,14 +499,28 @@ html, body {
 .login .wrapper_right {
   margin-right: 20%;
 }
-.login .wrapper_right h2 {
-  font-weight: 400;
+.login .wrapper_right .h2title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.login .wrapper_right .h2title h2 {
+  font-weight: 300;
   letter-spacing: -1.5px;
   font-size: 20px;
+  color: #bbb;
+  cursor: pointer;
+}
+.login .wrapper_right .h2title h2.active {
+  font-weight: 500;
   color: #ff9900;
 }
 .login .wrapper_right .log_middle {
+  display: none;
   padding: 15px 0 0 0;
+}
+.login .wrapper_right .log_middle.active {
+  display: block;
 }
 .login .wrapper_right .log_middle .log_id {
   padding-bottom: 5px;
@@ -583,6 +597,90 @@ html, body {
   color: #ccc;
 }
 .login .wrapper_right .log_middle .log_pw i.active {
+  color: crimson;
+}
+.login .wrapper_right .nonOrder {
+  display: none;
+  padding: 15px 0 0 0;
+}
+.login .wrapper_right .nonOrder.active {
+  display: block;
+}
+.login .wrapper_right .nonOrder .nonName {
+  padding-bottom: 5px;
+}
+.login .wrapper_right .nonOrder .nonName #name {
+  display: inline-block;
+  margin-top: 5px;
+  width: 100%;
+}
+.login .wrapper_right .nonOrder .nonName .inputbox {
+  width: 300px;
+  height: 50px;
+  padding-left: 5px;
+  border: 0.5px solid #ddd;
+  border-radius: 8px;
+}
+.login .wrapper_right .nonOrder .nonName .inputbox:focus {
+  outline: none;
+}
+.login .wrapper_right .nonOrder .nonName .inputbox::-moz-placeholder {
+  color: #ccc;
+  font-size: 14px;
+  padding-left: 5px;
+}
+.login .wrapper_right .nonOrder .nonName .inputbox::placeholder {
+  color: #ccc;
+  font-size: 14px;
+  padding-left: 5px;
+}
+.login .wrapper_right .nonOrder .nonName #error_name {
+  color: #f00;
+  width: 100%;
+  height: 10px;
+  font-size: 11px;
+  padding-left: 8px;
+}
+.login .wrapper_right .nonOrder .nonMail #nonMail {
+  display: inline-block;
+  margin-top: 5px;
+  width: 100%;
+}
+.login .wrapper_right .nonOrder .nonMail .inputbox {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  padding-left: 5px;
+  border: 0.5px solid #ddd;
+  border-radius: 8px;
+}
+.login .wrapper_right .nonOrder .nonMail .inputbox:focus {
+  outline: none;
+}
+.login .wrapper_right .nonOrder .nonMail .inputbox::-moz-placeholder {
+  color: #ccc;
+  font-size: 14px;
+  padding-left: 5px;
+}
+.login .wrapper_right .nonOrder .nonMail .inputbox::placeholder {
+  color: #ccc;
+  font-size: 14px;
+  padding-left: 5px;
+}
+.login .wrapper_right .nonOrder .nonMail #error_mail {
+  color: #f00;
+  width: 100%;
+  height: 10px;
+  font-size: 11px;
+  padding-left: 8px;
+}
+.login .wrapper_right .nonOrder .nonMail i {
+  position: absolute;
+  top: 41.5%;
+  right: 21%;
+  color: #ccc;
+}
+.login .wrapper_right .nonOrder .nonMail i.active {
   color: crimson;
 }
 .login .wrapper_right .logDetail .logSet {

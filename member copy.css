@@ -512,12 +512,6 @@ html, body {
 #container #top h2 span {
   color: #ff9900;
 }
-#container #top #top-mobile {
-  display: none;
-}
-#container #mobile-boon {
-  display: none;
-}
 #container #boon {
   margin: 50px 0;
 }
@@ -628,9 +622,6 @@ html, body {
 }
 #container #boon .accordion .content span:nth-child(2) {
   color: #000000;
-}
-#container #rate-mobile {
-  display: none;
 }
 #container #rate-plan {
   margin: 50px 0;
@@ -763,9 +754,6 @@ html, body {
   font-weight: 600;
   margin-left: 10px;
   text-decoration: underline;
-}
-#container #qnaMobile {
-  display: none;
 }
 #container #memBoon {
   padding: 50px 0;
@@ -972,7 +960,8 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding-top: 25px;
+  padding-bottom: 10px;
   display: flex;
 }
 #container #payment .pay-wrapper #giftCard .gift1 .giftName {
@@ -990,19 +979,6 @@ html, body {
 }
 #container #payment .pay-wrapper #giftCard .gift1 input[type=text]:focus {
   outline: none;
-}
-#container #payment .pay-wrapper #giftCard input[type=submit] {
-  width: 140px;
-  height: 30px;
-  margin: 0 auto;
-  margin-top: 10px;
-  text-align: center;
-  font-weight: 400;
-  border: 0.5px solid transparent;
-  border-radius: 8px;
-  background: #ff9900;
-  color: #fff;
-  cursor: pointer;
 }
 #container #payment .pay-wrapper #giftCard:hover {
   border: 0.5px solid #ff9900;
@@ -1181,410 +1157,10 @@ html, body {
   background: #ff9900;
   color: #fff;
 }
-#container iframe {
+
+iframe {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 360px;
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  header, iframe {
-    display: none;
-  }
-  #container {
-    letter-spacing: -1.5px;
-  }
-  #container #top #logo img {
-    width: 150px;
-    height: 90px;
-  }
-  #container #top h2 {
-    display: none;
-  }
-  #container #top #top-mobile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #container #top #top-mobile .pmobile {
-    display: block;
-    font-size: 30px;
-    font-weight: 400;
-  }
-  #container #top #top-mobile .pmobile span {
-    color: #ff9900;
-    font-weight: 500;
-  }
-  #container #top #top-mobile .pmobile2 {
-    font-weight: 300;
-    font-size: 17px;
-    padding: 20px 0;
-  }
-  #container #top #top-mobile input[type=submit] {
-    width: 400px;
-    height: 60px;
-    font-size: 18px;
-    text-align: center;
-    border: none;
-    border-radius: 13px;
-    background: #ff9900;
-    color: #fff;
-    cursor: pointer;
-  }
-  #container #top #top-mobile .pmobile3 {
-    font-weight: 300;
-    font-size: 13px;
-    color: #ccc;
-  }
-  #container #top #top-mobile .mobile-plan {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    border: 1px solid #f00;
-  }
-  #container #top #top-mobile .mobile-plan .mobile-plan2 {
-    display: flex;
-    flex-direction: column;
-  }
-  #container #navMenu {
-    display: none;
-  }
-  #container #mobile-boon {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 55px;
-  }
-  #container #mobile-boon .mobile-boonTitle {
-    font-size: 23px;
-  }
-  #container #mobile-boon .mobile-boon1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #container #mobile-boon .mobile-boon1 i {
-    font-size: 48px;
-    color: #ff9900;
-  }
-  #container #mobile-boon .mobile-boon1 span {
-    color: #ff9900;
-  }
-  #container #mobile-boon .mobile-boon1 p {
-    font-size: 13px;
-    font-weight: 300;
-    text-align: center;
-  }
-  #container #mobile-boon .mobile-boon2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #container #mobile-boon .mobile-boon2 i {
-    font-size: 48px;
-    color: #ff9900;
-  }
-  #container #mobile-boon .mobile-boon2 span {
-    color: #ff9900;
-  }
-  #container #mobile-boon .mobile-boon2 p {
-    font-size: 13px;
-    font-weight: 300;
-    text-align: center;
-  }
-  #container #mobile-boon .mobile-boon3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #container #mobile-boon .mobile-boon3 i {
-    font-size: 48px;
-    color: #ff9900;
-  }
-  #container #mobile-boon .mobile-boon3 span {
-    color: #ff9900;
-  }
-  #container #mobile-boon .mobile-boon3 p {
-    font-size: 13px;
-    font-weight: 300;
-    text-align: center;
-  }
-  #container #boon {
-    display: none;
-  }
-  #container #rate-mobile {
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #container #rate-mobile p {
-    font-size: 23px;
-  }
-  #container #rate-mobile .rate-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-left .rate1 {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-    border-radius: 8px;
-    background: #f8f8f8;
-  }
-  #container #rate-mobile .rate-wrapper .rate-left .rate1 i {
-    font-size: 45px;
-    color: #ff9900;
-    margin-bottom: 5px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-left .rate1 span {
-    font-size: 16px;
-    color: #000;
-  }
-  #container #rate-mobile .rate-wrapper .rate-left .rate1 p {
-    font-size: 12px;
-    font-weight: 300;
-    margin-top: 5px;
-    letter-spacing: -0.5px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-left .rate2 {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background: #f8f8f8;
-  }
-  #container #rate-mobile .rate-wrapper .rate-left .rate2 i {
-    font-size: 45px;
-    color: #ff9900;
-    margin-bottom: 5px;
-    margin-top: 20px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-left .rate2 span {
-    font-size: 16px;
-    color: #000;
-  }
-  #container #rate-mobile .rate-wrapper .rate-left .rate2 p {
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: -0.5px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-left .disc2 {
-    position: relative;
-    top: 20px;
-    border: none;
-    border-radius: 15px;
-    padding: 5px 10px;
-    background: #bbb;
-    color: #fff;
-    font-size: 10px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right {
-    padding-top: 10px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right .rate3 {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-    border-radius: 8px;
-    background: #f8f8f8;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right .rate3 i {
-    font-size: 45px;
-    color: #ff9900;
-    margin-bottom: 5px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right .rate3 span {
-    font-size: 16px;
-    color: #000;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right .rate3 p {
-    font-size: 12px;
-    font-weight: 300;
-    margin-top: 5px;
-    letter-spacing: -0.5px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right .rate4 {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-    border-radius: 8px;
-    background: #f8f8f8;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right .rate4 i {
-    font-size: 45px;
-    color: #ff9900;
-    margin-bottom: 5px;
-    margin-top: 20px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right .rate4 span {
-    font-size: 16px;
-    color: #000;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right .rate4 p {
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: -0.5px;
-  }
-  #container #rate-mobile .rate-wrapper .rate-right .disc4 {
-    position: relative;
-    top: 20px;
-    border: none;
-    border-radius: 15px;
-    padding: 5px 10px;
-    background: #bbb;
-    color: #fff;
-    font-size: 10px;
-  }
-  #container #rate-mobile input[type=submit] {
-    width: 300px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: none;
-    border-radius: 8px;
-    margin-top: 30px;
-    background: #ff9900;
-    color: #fff;
-  }
-  #container #rate-mobile .rateSubmit {
-    font-size: 11px;
-    letter-spacing: -1px;
-    color: #ccc;
-  }
-  #container #rate-plan {
-    display: none;
-  }
-  #container #pay-top {
-    display: none;
-  }
-  #container #qnaMobile {
-    width: 100%;
-    display: block;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 35px;
-    gap: 20px;
-    letter-spacing: -1px;
-    border: 1px solid #f00;
-  }
-  #container #qnaMobile .qna {
-    width: 100%;
-    padding: 10px;
-  }
-  #container #qnaMobile .qna .Qmobile {
-    font-size: 15px;
-    font-weight: 400;
-  }
-  #container #qnaMobile .qna .Amobile {
-    font-size: 12px;
-    font-weight: 300;
-  }
-  #container #qnaMobile .qna .Amobile span {
-    font-weight: 400;
-    text-decoration: underline;
-  }
-  #container #memBoon {
-    display: none;
-  }
-  #container #payment {
-    margin: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  #container #payment .pay-wrapper {
-    width: 550px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-  #container #payment .pay-wrapper #credit .creditTitle {
-    margin: 0 auto;
-    padding: 20px;
-  }
-  #container #payment .pay-wrapper #credit .cardForm {
-    margin: 0 auto;
-  }
-  #container #payment .pay-wrapper #credit .cardForm .cardForm1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-  }
-  #container #payment .pay-wrapper #credit .cardForm .cardForm2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    gap: 0;
-  }
-  #container #payment .pay-wrapper #credit .cardForm .cardForm2 input[type=submit] {
-    width: 170px;
-    height: 40px;
-    font-size: 15px;
-    margin: 0 auto;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #container #payment .pay-wrapper #giftCard {
-    width: 480px;
-  }
-  #container #payment .pay-wrapper #giftCard .giftCardTitle {
-    margin: 0 auto;
-  }
-  #container #payment .pay-wrapper #giftCard input[type=submit] {
-    width: 170px;
-    height: 40px;
-    font-size: 15px;
-    margin: 0 auto;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #container #address {
-    display: none;
-  }
 }
