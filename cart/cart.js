@@ -232,6 +232,13 @@ fetch("data.json")
         deleteModal.style.display = "none"; // 모달창 숨기기
         modalBackground.style.display = "none"; // 배경 숨기기
       }
+
+      if (!cartItems || cartItems.length === 0) {
+        // 로컬 스토리지에 담긴 항목이 없을 경우
+        domCartItems.style.textAlign = "center";
+        domCartItems.style.lineHeight = "150px"
+        domCartItems.innerHTML = "<h1>장바구니가 비어있습니다.<h1>";
+      }
     });
 
     // 삭제 취소 버튼 클릭 시
