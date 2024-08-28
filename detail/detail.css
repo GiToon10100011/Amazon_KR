@@ -839,7 +839,7 @@ main {
   height: 100vh;
   background: #000;
   position: fixed;
-  z-index: 400;
+  z-index: 5050;
   opacity: 0.3;
 }
 .modalAll.showmodal {
@@ -1180,6 +1180,7 @@ main {
   margin-top: 5px;
   margin-left: 62px;
   transition: transform all ease-in-out;
+  cursor: pointer;
 }
 .left_area .reviw_all .photos ul {
   gap: 5px;
@@ -1187,17 +1188,24 @@ main {
   transition: transform all ease-in-out;
 }
 .left_area .reviw_all .photos ul li {
+  cursor: pointer;
   width: 120px;
   height: 120px;
   background: #ccc;
 }
 .left_area .reviw_all .photos ul li a {
   transition: all 0.3s;
+  cursor: pointer;
 }
 .left_area .reviw_all .photos ul li a img {
   width: 100%;
   height: 100%;
   background: center/cover no-repeat;
+  cursor: pointer;
+}
+.left_area .reviw_all .photos ul li a img:hover {
+  width: 120%;
+  height: 120%;
 }
 .left_area .reviw_all .reviw_photo_btn {
   position: absolute;

@@ -277,7 +277,7 @@ main {
     height: 100vh;
     background: #000;
     position: fixed;
-    z-index: 400;
+    z-index: 5050;
     opacity: 0.3;
   }
   &.showmodal{
@@ -628,20 +628,28 @@ main {
       margin-top: 5px;
       margin-left: 62px;
       transition: transform all ease-in-out;
+      cursor: pointer;
       ul {
         gap: 5px;
         display: flex;
         transition: transform all ease-in-out;
         li {
+          cursor: pointer;
           width: 120px;
           height: 120px;
           background: map-get($map: $color, $key: main-border-color);
           a{
             transition: all 0.3s;
+            cursor: pointer;
             img{
               width: 100%;
               height: 100%;
               background: center/cover no-repeat;
+              cursor: pointer;
+              &:hover{
+                width: 120%;
+                height: 120%;
+              }
             }
           }
         }
