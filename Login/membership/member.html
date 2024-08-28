@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Membership</title>
+  <!-- Google Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/b025ba9f1b.js" crossorigin="anonymous"></script>
+  <!-- Kakao API -->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <!--custom CSS & JS-->
+  <link rel="stylesheet" href="./member.css">
+  <script type="module" defer src="./member.js"></script>
+</head>
+<body>
+  <header id = "header"></header>
+  <div class="main-sideMenu-container">
+    <div class="sideMenu-header">
+      <a href="#none" class="sideMenu-login">
+        <span class="material-symbols-outlined"> lock </span>
+        <span>로그인하세요.</span>
+      </a>
+      <i class="fa-solid fa-x menu-close-btn"></i>
+    </div>
+    <div class="main-sideMenu">
+      <div class="sideMenu-category">
+        <span class="category-title">카테고리</span>
+        <ul class="categories-large">
+          <li>
+            <span><i class="fa-regular fa-hard-drive"></i>전자</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-computer"></i>컴퓨터</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-regular fa-image"></i>예술 및 공예</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-car"></i>자동차 용품</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-baby-carriage"></i>유아</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span
+              ><span class="material-symbols-outlined">
+                health_and_beauty </span
+              >뷰티 및 퍼스널 케어</span
+            >
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="-0.5 -0.5 16 16"
+                fill="currentColor"
+                id="Dress--Streamline-Phosphor"
+                height="16"
+                width="16"
+              >
+                <desc>Dress Streamline Icon: https://streamlinehq.com</desc>
+                <path
+                  d="M12.99317578125 13.437023437499999c-0.0019394531249999998 -0.0054375 -0.0042714843750000005 -0.010734375 -0.00697265625 -0.015837890625l-2.881705078125 -6.13725 1.298923828125 -2.0389921875c0.002548828125 -0.0036562499999999998 0.004880859375 -0.007464843750000001 0.006966796875 -0.01140234375 0.192533203125 -0.320994140625 0.192533203125 -0.721951171875 0 -1.0429394531249998 -0.005701171875 -0.010142578125000001 -0.01266796875 -0.020279296875000002 -0.019007812500000002 -0.029783203124999998l-1.357212890625 -1.9388789062500003V0.65689453125c0 -0.39020507812500005 -0.4224140625 -0.63408984375 -0.76034765625 -0.438984375 -0.15683203125 0.09055078125 -0.253447265625 0.257888671875 -0.253447265625 0.438984375v1.5473027343749999l-0.333287109375 0.416923828125c-0.608765625 0.760875 -1.7660390625 0.760875 -2.374810546875 0l-0.33328125 -0.416923828125V0.65689453125c0 -0.39020507812500005 -0.4224140625 -0.63408984375 -0.76034765625 -0.438984375 -0.15683203125 0.09055078125 -0.253447265625 0.257888671875 -0.253447265625 0.438984375v1.565044921875L3.6079863281250004 4.160818359375c-0.00633984375 0.009503906250000001 -0.013306640625 0.019640625 -0.019007812500000002 0.029783203124999998 -0.192533203125 0.32098828125 -0.192533203125 0.7219453124999999 0 1.0429394531249998 0.0020859375 0.0039375 0.00441796875 0.00774609375 0.006966796875 0.01140234375l1.298923828125 2.0389921875L2.0131640625 13.421185546875c-0.00270703125 0.005103515625 -0.005033203125 0.010400390624999999 -0.00697265625 0.015837890625 -0.28646484375000003 0.668765625 0.20388867187499998 1.4126367187500002 0.931423828125 1.4129765625h9.12413671875c0.727810546875 0.0001171875 1.2186328124999999 -0.743958984375 0.9320566406249999 -1.4129765625ZM4.458304687499999 4.712068359375l1.04103515625 -1.484572265625 0.020912109375 0.02661328125c1.01462109375 1.2688242187499998 2.944236328125 1.2688242187499998 3.9588632812499998 0l0.02090625 -0.02661328125 1.0410410156249998 1.484572265625 -1.291318359375 2.02758984375H5.750255859375ZM2.937615234375 13.836205078125l2.85573046875 -6.0827578125h3.41141015625l2.85699609375 6.0827578125Z"
+                  stroke-width="1"
+                ></path>
+              </svg>
+              여성패션
+            </span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-shirt"></i>남성패션</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-baby"></i>아동용 의류</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-hospital"></i>건강 및 가정용품</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-utensils"></i>가정 및 주방</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-atom"></i>산업용 및 과학용</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-suitcase-rolling"></i>여행 가방</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-tv"></i>영화 및 TV</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span
+              ><span class="material-symbols-outlined"> pet_supplies </span
+              >애완동물 용품</span
+            >
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span
+              ><span class="material-symbols-outlined"> terminal </span
+              >소프트웨어</span
+            >
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span
+              ><i class="fa-regular fa-futbol"></i>스포츠 및 야외 활동</span
+            >
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-wrench"></i>공구 및 주택 개조</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-chess"></i>장난감 및 게임</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-gamepad"></i>비디오 게임</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+        </ul>
+      </div>
+      <div class="sideMenu-misc">
+        <span class="misc-title"> 프로그램 및 기능 </span>
+        <ul class="misc-list">
+          <li>
+            기프트카드
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+          <li><a href="#none">커뮤니티</a></li>
+          <li>
+            Amazon Live
+            <i class="fa-solid fa-chevron-right"></i>
+          </li>
+        </ul>
+      </div>
+      <div class="sideMenu-settings">
+        <span class="settings-title"> 도움말 및 설정 </span>
+        <ul class="settings-list">
+          <li><a href="#none">계정</a></li>
+          <li>
+            <a href="#none"
+              ><span class="material-symbols-outlined"> language </span
+              >한국어</a
+            >
+          </li>
+          <li>
+            <a href="#none"><img src="./img/flag.png" alt="" />한국</a>
+          </li>
+          <li class="darkmode"><a href="#none"></a></li>
+          <li><a href="#none">고객서비스</a></li>
+          <li><a href="#none">로그아웃</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <figure class="bgFilter"></figure>
+  <main id="container">
+    <div id="top">
+      <div id="logo">
+        <img src="./logo/primeLogo.png" alt="primeLogo">
+      </div>
+      <h2>아마존 코리아 <span>멤버십 패밀리</span></h2>
+      <div id="top-mobile">
+        <p class="pmobile">
+          <b>김예지</b> 님, <b>아마존 코리아</b>에서 드리는</br>프라임 멤버십 <span>30일 무료체험</span>입니다.
+        </p>
+        <p class="pmobile2">수천 개 상품 무료배송, 다양한 TV 컨텐츠, 프라임 회원 전용 특가 등</p>
+        <input type="submit" value="30일 무료체험 시작하기">
+        <p class="pmobile3">이후 단돈 15,000/월(세금 별도)으로 이용 가능하며, 언제든지 취소하실 수 있습니다.</p>
+        <div class="mobile-plan">
+          <p class="pmobile4">요금제 살펴보기 ></p>
+          <div class="mobile-plan2">
+            <a href="#">학생입니까?</a>
+            <a href="#">정부 지원을 받고 계십니까?</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    <div id="navMenu">
+      <div class="topMenu">
+        <a href="#boon">멤버십 혜택</a>
+        <a href="#payment">결제정보</a>
+        <a href="#address">배송정보</a>
+      </div>
+    </div>
+    <div id="mobile-boon">
+      <p class="mobile-boonTitle">포함된 혜택 살펴보기</p>
+      <div class="mobile-boon1">
+        <i class="fa-solid fa-truck"></i>
+        <span>빠른 무료배송</span>
+        <p>수천개의 품목에 대한 2시간 배송을 포함하여</br>빠른 무료배송을 이용하실 수 있습니다!</p>
+      </div>
+      <div class="mobile-boon2">
+        <i class="fa-solid fa-tape"></i>
+        <span>인기 영화 및 프로그램</span>
+        <p>신작, 수상 경력의 다양한 장르의 아마존 오리지널.</br>즐겨 사용하는 기기에서 좋아하는 콘텐츠를 감상해보세요.</p>
+      </div>
+      <div class="mobile-boon3">
+        <i class="fa-solid fa-music"></i>
+        <span>광고 없는 음악</span>
+        <p>아마존 뮤직에서 광고 없는 인기 팟캐스트의 최대 카탈로그를 이용하고</br>모든 아티스트, 앨범 또는 재생목록을 셔플 플레이하세요.</p>
+      </div>
+    </div>
+    <div id="boon">
+      <div class="mem-boon">
+        <h2>멤버십 혜택보기</h2>
+        <div class="boonZip">
+            <div class="boon1">
+              <div class="boon">
+                <div class="boonImg">
+                  <i class="fa-solid fa-truck"></i>
+                </div>
+                <div class="boon-desc">
+                  <ul>
+                    <h4>빠르게, 무료배송!</h4>
+                    <li>수백만 개의 품목 대상</li>
+                    <li>아마존데이 주문상품 일괄배송 지원</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="boon">
+                <div class="boonImg">
+                  <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="boon-desc">
+                  <ul>
+                    <h4>광고 없는 음악</h4>
+                    <li>수백만 개의 노래</li>
+                    <li>다운로드 시, 오프라인 감상 가능</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="boon2">
+              <article class="boon">
+                <div class="boonImg">
+                  <i class="fa-solid fa-tape"></i>
+                </div>
+                <div class="boon-desc">
+                  <ul>
+                    <h4>아마존 오리지널</h4>
+                    <li>다양한 영화 및 웹 예능</li>
+                    <li>즐겨찾는 기기에서 컨텐츠 감상</li>
+                  </ul>
+                </div>
+              </article>
+              <article class="boon">
+                <div class="boonImg">
+                  <i class="fa-solid fa-calendar-day"></i>
+                </div>
+                <div class="boon-desc">
+                  <ul>
+                    <h4>프라임 데이</h4>
+                    <li>프라임 회원 전용 연례 이벤트</li>
+                    <li>약 이틀간 파격 할인가 제공</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <h3>자주 묻는 질문</h3>
+        <div class="title active">Q. 프라임 혜택을 다른 가구원과 공유할 수 있나요?</div>
+        <div class="content">
+          A. 프라임 멤버는 아마존 가족의 다른 성인과 특정 혜택을 공유할 수 있습니다. </br> 단, 프라임 학생 멤버십은 <span>가족공유 혜택이 포함되지 않습니다.</span>
+        </div>
+        <div class="title">Q. 서비스가 만족스럽지 않은 경우의 취소와 환불 정책은 어떻게 되나요?</div>
+        <div class="content">
+          A. 당사를 통해 프라임 멤버십에 직접 가입한 경우, <span>‘내 계정’</span>으로 이동해 멤버십 설정을 언제든지 취소하실 수 있습니다.</br>혜택을 이용하지 않은 유료 회원은 현재 멤버십 기간에 대해 최대 전액 환불까지 받으실 수 있습니다.
+        </div>
+        <div class="title">Q. 멤버십 요금은 언제 청구되나요?</div>
+        <div class="content">
+          A. 무료 체험 또는 멤버십 기간이 종료되는 날 자동 청구됩니다.
+        </div>
+      </div>
+    </div>
+    <div id="rate-mobile">
+      <p>요금제 선택</p>
+      <div class="rate-wrapper">
+        <div class="rate-left">
+          <div class="rate1">
+            <i class="fa-solid fa-calendar-day"></i>
+            <span>월간</span>
+            <p>₩15,000원 / 월</p>
+          </div>
+          <div class="rate2">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>연간</span>
+            <p>₩139,000원 / 연</p>
+            <p class="disc2">50% 할인</p>
+          </div>
+        </div>
+        <div class="rate-right">
+          <div class="rate3">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>학생</span>
+            <p>₩7,000원 / 월</p>
+          </div>
+          <div class="rate4">
+            <i class="fa-solid fa-building"></i>
+            <span>정부 지원</span>
+            <p>₩7,000원 / 월</p>
+            <p class="disc4">50% 할인</p>
+          </div>
+        </div>
+      </div>
+      <input type="submit" value="30일 무료체험 시작하기">
+      <p class="rateSubmit">이후 15,000/월(세금 별도)으로 이용가능하며, 언제든 취소 가능합니다.</p>
+    </div>
+    <div id="rate-plan">
+      <h2>요금제 상세보기</h2>
+        <section class="plans">
+          <article class="plan">
+            <i class="fa-solid fa-calendar"></i>
+            <div class="planDesc">
+              <p><span>월간</span> <b>₩15,000원</b> / 월</p>
+              <p>매월 결제일 청구</p>
+            </div>
+          </article>
+          <article class="plan">
+            <i class="fa-solid fa-calendar-days"></i>
+            <div class="planDesc">
+              <p><span>연간</span> <b>₩139,000원</b> / 월</p>
+              <p>연 1회 결제</p>
+            </div>
+          </article>
+          <article class="plan">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="planDesc">
+              <p><span>학생</span> <b>₩7,000원</b> / 월</p>
+              <p>만 18세~24세의 학생</p>
+            </div>
+          </article>
+          <article class="plan">
+            <i class="fa-solid fa-building"></i>
+            <div class="planDesc">
+              <p><span>액세스</span> <b>₩7,000원</b> / 월</p>
+              <p>정부 지원 대상</p>
+            </div>
+          </article>
+        </section>
+        <input type="submit" value="30일 무료체험 시작하기">
+    </div>
+    <div id="pay-top">
+      <div class="pay-top1">
+        <h2><span>김예지</span> 님, 어서오세요.</h2>
+        <p>매월 약 15,000원의 요금으로 자동 갱신됩니다. 이 멤버십은 언제든지 취소할 수 있습니다.</p>
+      </div>
+      <div class="pay-top2">
+        <a href="#">학생이십니까?
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
+        <a href="#">정부 지원을 받고 계십니까?
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
+      </div>
+    </div>
+    <div id="qnaMobile">
+      <h2>자주 묻는 질문들</h2>
+      <div class="qna 1">
+        <p class="Qmobile">Q. 프라임 혜택을 다른 가구원과 공유할 수 있나요?</p>
+        <p class="Amobile">A. 프라임 멤버는 아마존 가족의 다른 성인과 특정 혜택을 공유할 수 있습니다. <span>단, 프라임 학생멤버십은 가족공유 혜택이 포함되지 않습니다.</span></p>
+      </div>
+      <div class="qna 2">
+        <p class="Qmobile">Q. 서비스가 만족스럽지 않은 경우의 취소와 환불 정책은 어떻게 되나요?</p>
+        <p class="Amobile">A. 당사를 통해 프라임 멤버십에 직접 가입한 경우, ‘내 계정’으로 이동해 멤버십 설정을 언제든지 취소하실 수 있습니다. 혜택을 이용하지 않은 유료 회원은 현재 멤버십 기간에 대해 최대 전액 환불까지 받으실 수 있습니다.</p>
+      </div>
+      <div class="qna 3">
+        <p class="Qmobile">Q. 멤버십 요금은 언제 청구되나요?</p>
+        <p class="Amobile">A. 무료 체험 또는 멤버십 기간이 종료되는 날 자동 청구됩니다.</p>
+      </div>
+    </div>
+    <div id="memBoon">
+      <h3><span>아마존 프라임</span>만의 선물같은 혜택들!</h3>
+      <div class="boonList">
+        <ul>
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            <span>영화,TV 및 아마존 오리지널</span>
+            <a href="#">인기 타이틀, 수상 경력에 빛나는 아마존 오리지널, 라이브 이벤트 실시간 감상</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            <span>광고 없이 즐기는 2백만 곡 이상의 노래</span>
+            <a href="#">Amazon Music의 독점 음악 라이브러리에 있는 노래 감상</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            <span>식료품 대폭 할인</span>
+            <a href="#">한국에 있는 모든 Whole Foods Market 스토어에서 일부 상품에 추가 10% 할인 받기</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            <span>프라임 멤버십을 시작하고 더 많은 혜택을 받아보세요!</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="payment">
+      <h2>결제수단 선택</h2>
+      <div class="pay-wrapper">
+        <div id="credit">
+            <div class="creditTitle">
+              <i class="fa-solid fa-credit-card"></i>
+              <p>신용카드 및 직불카드</p>
+            </div>
+            <div class="cardForm">
+                <div class="cardForm1">
+                  <div class="card1">
+                    <label for="cardName" class="cardName">
+                      <p>카드 명의자 이름</p>
+                      <input
+                      type="text" 
+                      name="cardName" 
+                      id="cardName" 
+                      class="cardName">
+                    </label>
+                  </div>
+                  <div class="card2">
+                    <label for="cardNum" class="cardNum">
+                      <p>카드 번호</p>
+                      <input
+                      type="text" 
+                      name="cardNum1" 
+                      id="cardNum" 
+                      class="cardNum1">
+                      <input
+                      type="text" 
+                      name="cardNum2" 
+                      id="cardNum" 
+                      class="cardNum2">
+                      <input
+                      type="text" 
+                      name="cardNum3" 
+                      id="cardNum" 
+                      class="cardNum3">
+                      <input
+                      type="text" 
+                      name="cardNum4" 
+                      id="cardNum" 
+                      class="cardNum4">
+                    </label>
+                  </div>
+                </div>
+                <div class="cardForm2">
+                  <div class="card3">
+                    <label for="cvv" class="cvv">
+                      <p>보안코드(CVV)</p>
+                      <input
+                      type="password" 
+                      name="cvvNum" 
+                      id="cvv" 
+                      class="cvvNum">
+                    </label>
+                  </div>
+                  <div class="card4">
+                    <label for="exDate" class="exDate">
+                      <p>만료일</p>
+                      <input
+                      type="text" 
+                      name="exDate" 
+                      id="exDate" 
+                      class="exDate">
+                    </label>
+                  </div>
+                  <input type="submit" value="카드 등록하기">
+                </div>
+            </div>
+        </div>
+        <div id="giftCard">
+            <div class="giftCardTitle">
+              <i class="fa-solid fa-gift"></i>
+              <p>기프트카드, 바우처 및 프로모션 코드</p>
+            </div>
+                  <div class="gift1">
+                    <label for="giftName" class="giftName">
+                      <p>바우처 또는 프로모션 코드를 입력하세요.</p>
+                      <input
+                      type="text" 
+                      name="giftName" 
+                      id="giftName" 
+                      class="giftName">
+                    </label>
+                    
+            </div>
+            <input type="submit" value="코드 등록하기">
+        </div>
+      </div>
+    </div>
+    <!-- <div id="payMobile">
+      <div id="credit">
+        <div class="creditTitle">
+          <i class="fa-solid fa-credit-card"></i>
+          <p>신용카드 및 직불카드</p>
+        </div>
+        <div class="cardForm">
+            <div class="cardForm1">
+              <div class="card1">
+                <label for="cardName" class="cardName">
+                  <p>카드 명의자 이름</p>
+                  <input
+                  type="text" 
+                  name="cardName" 
+                  id="cardName" 
+                  class="cardName">
+                </label>
+              </div>
+              <div class="card2">
+                <label for="cardNum" class="cardNum">
+                  <p>카드 번호</p>
+                  <input
+                  type="text" 
+                  name="cardNum1" 
+                  id="cardNum" 
+                  class="cardNum1">
+                  <input
+                  type="text" 
+                  name="cardNum2" 
+                  id="cardNum" 
+                  class="cardNum2">
+                  <input
+                  type="text" 
+                  name="cardNum3" 
+                  id="cardNum" 
+                  class="cardNum3">
+                  <input
+                  type="text" 
+                  name="cardNum4" 
+                  id="cardNum" 
+                  class="cardNum4">
+                </label>
+              </div>
+            </div>
+            <div class="cardForm2">
+              <div class="card3">
+                <label for="cvv" class="cvv">
+                  <p>보안코드(CVV)</p>
+                  <input
+                  type="password" 
+                  name="cvvNum" 
+                  id="cvv" 
+                  class="cvvNum">
+                </label>
+              </div>
+              <div class="card4">
+                <label for="exDate" class="exDate">
+                  <p>만료일</p>
+                  <input
+                  type="text" 
+                  name="exDate" 
+                  id="exDate" 
+                  class="exDate">
+                </label>
+              </div>
+              <input type="submit" value="카드 등록하기">
+            </div>
+        </div>
+    </div>
+    </div> -->
+    <div id="address">
+      <h2>배송 정보 입력</h2>
+      <div class="addDetail">
+        <div class="bl_stack form">
+          <div class="el_ttl">주소</div>
+          <div class="bl_stack bl_stack--row">
+            <input
+              type="text"
+              class="el_input hp_txt-center"
+              placeholder=""
+              disabled
+              id="zonecode"
+            />
+            <button class="el_btn el_btn--outline hp_shrink-0" id="search-btn">
+              우편번호 찾기
+            </button>
+          </div>
+          <input
+            type="text"
+            class="el_input"
+            placeholder=""
+            disabled
+            id="roadAddress"
+          />
+          <input
+            type="text"
+            class="el_input"
+            placeholder="상세주소를 입력해주세요."
+            id="roadAddressDetail"
+          />
+          <button class="el_btn" id="register-btn">주소 등록하기</button>
+        </div>
+        <div class="bl_stack">
+          <div class="el_ttl">입력한 주소를 확인해주세요.</div>
+          <div class="el_ttl">우편번호</div>
+          <div class="el_result"></div>
+          <div class="el_ttl">주소</div>
+          <div class="el_result"></div>
+          <div class="el_ttl">상세주소</div>
+          <div class="el_result"></div>
+        </div>
+        <div class="name">
+          <p>성명</p>
+          <input
+          type="text" 
+          name="name" 
+          id="name">
+        </div>
+        <div class="number">
+          <p>휴대폰 번호</p>
+          <input
+          type="text" 
+          name="num" 
+          id="num"
+          placeholder="ex. 010-0000-0000"
+          >
+          <span>배송 지원 및 추적 시 사용될 수 있습니다.</span>
+        </div>
+      </div>
+      <input type="submit" value="계속">
+    </div>
+  </main>
+  <!-- <iframe src="./footer/footer.html" frameborder="0"></iframe> -->
+</body>
+</html>

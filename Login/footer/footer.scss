@@ -1,0 +1,164 @@
+@import "../reset.scss";
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: map-get($map: $family, $key: kr-font);
+  footer {
+    .bar {
+      width: 100%;
+      height: 18px;
+      background: map-get($map: $color, $key: main-amazon-color);
+    }
+    .footer-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      padding: 30px;
+      background: map-get($map: $color, $key: main-color);
+      .footer-first {
+        flex: 2;
+        .logo {
+          width: 196px;
+          img {
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+        .footer-info {
+          margin-top: 30px;
+          width: 430px;
+          color: map-get($map: $color, $key: main-border-color);
+          font-size: 12px;
+          line-height: 24px;
+        }
+      }
+      .footer-second {
+        flex: 1;
+        .customerService {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          .customerService-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+            li {
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+          h2 {
+            font-size: 14px;
+          }
+        }
+      }
+      .footer-third {
+        flex: 1;
+        .companyInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          .companyInfo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+            li {
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+          h2 {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .footer-utils {
+      padding: 30px;
+      width: 100%;  
+      .footer-last {
+        display: flex;
+        .copyright {
+          flex: 2;
+          font-size: 14px;
+          color: #b1b1b1;
+        }
+        .utils-list {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          height: 30px;
+          li {
+            font-size: 12px;
+            height: 100%;
+            @include border-style($color: map-get($color, main-border-color));
+            border-radius: 6px;
+            padding: 4px;
+            &:first-child {
+              width: 100px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+            &:nth-child(2) {
+              display: flex;
+              align-items: center;
+            }
+            .lang {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              .material-symbols-outlined {
+                font-size: 12px;
+              }
+            }
+            select {
+              width: 136px;
+              font-size: 12px;
+              outline: none;
+              border: none;
+              &:focus {
+                outline: none;
+              }
+            }
+            &:last-child {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 70px;
+            }
+          }
+        }
+        .form-container {
+          position: relative;
+          flex: 1;
+          width: 120px;
+          height: 30px;
+          form {
+            select {
+              position: relative;
+              width: 120px;
+              @include border-style($color: map-get($color, main-border-color));
+              padding: 4px;
+              border-radius: 6px;
+              color: map-get($map: $color, $key: dark-placeholder-color);
+              -webkit-text-fill-color: map-get(
+                $map: $color,
+                $key: main-dark-color
+              );
+              option {
+                color: map-get($map: $color, $key: main-dark-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
