@@ -232,7 +232,7 @@ const body = document.querySelector("#header");
                 </ul>
               </div>
               <div class="item">
-                <a href="#none">
+                <a href="./cart/cart.html">
                   <span class="material-symbols-outlined"> shopping_cart </span>
                 </a>
                 <span>장바구니</span>
@@ -272,8 +272,8 @@ const body = document.querySelector("#header");
               </ul>
             </div>
             <ul class="lnb-user-menu">
-              <li><a href="#none">로그인</a></li>
-              <li><a href="#none">회원가입</a></li>
+              <li><a href="./Login/login.html">로그인</a></li>
+              <li><a href="./Login/login.html">회원가입</a></li>
               <li><a href="#none">고객센터</a></li>
             </ul>
           </div>
