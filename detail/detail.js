@@ -5,6 +5,10 @@ fetch("./data.json")
   .then((data) => {
     let idGenerator = Date.now();
 
+    let wishlistItems = localStorage.getItem("wishlistItems")
+      ? JSON.parse(localStorage.getItem("wishlistItems"))
+      : [];
+
     const reviewSamples = [
       {
         reviewer: "홍길동",
@@ -148,27 +152,89 @@ fetch("./data.json")
         title.innerText = product.name;
       });
 
-      //reviwe photo
+      // //reviwe photo
+      // const slideList = document.querySelector(".slied_list");
+      // const slideItems = document.querySelectorAll(".slied_list li");
+      // const slideBtnLeft = document.querySelector(".slide_btn_L");
+      // const slideBtnRight = document.querySelector(".slide_btn_R");
+
+      // slideItems.forEach((slideItem, i) => {
+      //   console.log(slideItem);
+      //   slideItem.querySelector(
+      //     "a img"
+      //   ).src = `${product.detail["more-img"][i]}`;
+      // });
+      // let currentOffset = 0;
+      // const slideAmount = 125; // 슬라이드할 픽셀 수
+      // const maxOffset =
+      //   slideItems.length * slideAmount - slideList.parentElement.offsetWidth;
+
+      // function updateSlidePosition() {
+      //   slideList.style.transform = `translateX(${currentOffset}px)`;
+      // }
+
+      // slideBtnLeft.addEventListener("click", () => {
+      //   if (currentOffset < 0) {
+      //     currentOffset += slideAmount;
+      //   } else {
+      //     currentOffset = -maxOffset; // 첫 번째 슬라이드에서 마지막 슬라이드로 이동
+      //   }
+      //   updateSlidePosition();
+      // });
+
+      // slideBtnRight.addEventListener("click", () => {
+      //   if (Math.abs(currentOffset) < maxOffset) {
+      //     currentOffset -= slideAmount;
+      //   } else {
+      //     currentOffset = 0; // 마지막 슬라이드에서 첫 번째 슬라이드로 이동
+      //   }
+      //   updateSlidePosition();
+      // });
+
       const slideList = document.querySelector(".slied_list");
       const slideItems = document.querySelectorAll(".slied_list li");
       const slideBtnLeft = document.querySelector(".slide_btn_L");
       const slideBtnRight = document.querySelector(".slide_btn_R");
 
+      // 이미지 슬라이드 설정
       slideItems.forEach((slideItem, i) => {
         console.log(slideItem);
         slideItem.querySelector(
           "a img"
         ).src = `${product.detail["more-img"][i]}`;
       });
+
+      // 무작위로 두 개의 이미지 선택 및 추가
+      for (let j = 0; j < 2; j++) {
+        const randomIndex = Math.floor(
+          Math.random() * product.detail["more-img"].length
+        );
+        const randomImage = product.detail["more-img"][randomIndex];
+        const lastSlideItem = document.createElement("li");
+        const lastSlideLink = document.createElement("a");
+        const lastSlideImg = document.createElement("img");
+
+        lastSlideLink.href = "#none"; // 링크 설정
+        lastSlideImg.src = randomImage; // 무작위로 선택된 이미지 경로 설정
+        lastSlideImg.alt = `randomImg${j + 1}`; // 대체 텍스트 설정
+
+        lastSlideLink.appendChild(lastSlideImg); // 링크에 이미지 추가
+        lastSlideItem.appendChild(lastSlideLink); // 리스트 항목에 링크 추가
+        slideList.appendChild(lastSlideItem); // 슬라이드 목록에 리스트 항목 추가
+      }
+
+      // 슬라이드 이동 설정
       let currentOffset = 0;
       const slideAmount = 125; // 슬라이드할 픽셀 수
       const maxOffset =
-        slideItems.length * slideAmount - slideList.parentElement.offsetWidth;
+        (slideItems.length + 2) * slideAmount -
+        slideList.parentElement.offsetWidth; // maxOffset을 무작위 이미지 포함하도록 조정
 
       function updateSlidePosition() {
         slideList.style.transform = `translateX(${currentOffset}px)`;
       }
 
+      // 왼쪽 버튼 클릭 이벤트 핸들러
       slideBtnLeft.addEventListener("click", () => {
         if (currentOffset < 0) {
           currentOffset += slideAmount;
@@ -178,6 +244,7 @@ fetch("./data.json")
         updateSlidePosition();
       });
 
+      // 오른쪽 버튼 클릭 이벤트 핸들러
       slideBtnRight.addEventListener("click", () => {
         if (Math.abs(currentOffset) < maxOffset) {
           currentOffset -= slideAmount;
@@ -186,7 +253,6 @@ fetch("./data.json")
         }
         updateSlidePosition();
       });
-
 
       //버튼 click 시 금액 변경
       const prices = document.querySelectorAll(".amount .price");
@@ -240,7 +306,45 @@ fetch("./data.json")
 
       const brands = document.querySelectorAll(".brand_heart");
       brands.forEach((brand) => {
-        brand.innerHTML = product.detail.brands;
+        brand.innerHTML = `
+        <a href="#none" class="brand_heart">
+                  ${product.detail.brands}
+                  <i id="fav" class="fa-solid fa-heart"></i>
+                </a>
+        `;
+      });
+      //like
+      const likes = document.querySelectorAll("#fav");
+      const bar_like = document.querySelector("#M_fav");
+
+      likes[1].addEventListener("click", function () {
+        this.classList.toggle("active");
+        const wishlistItem = {
+          name: product.name,
+          price: product.price,
+        };
+
+        console.log(wishlistItem);
+
+        // Check if the item is already in the wishlist
+        const index = wishlistItems.findIndex(
+          (item) => item.name === product.name && item.price === product.price
+        );
+
+        if (index === -1) {
+          // If the item is not found (index is -1), add it to the wishlist
+          wishlistItems.push(wishlistItem);
+          this.classList.add("active");
+        } else {
+          // If the item is found, remove it from the wishlist
+          wishlistItems.splice(index, 1); // Remove the item at the found index
+          this.classList.remove("active");
+        }
+        localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
+      });
+
+      bar_like.addEventListener("click", () => {
+        bar_like.classList.toggle("active");
       });
 
       const discounts = document.querySelectorAll(".amount .discount");
@@ -310,19 +414,19 @@ fetch("./data.json")
                     </div>
                   </div>
                   <div class="underline"></div>
-        `
-        reviewSection.appendChild(reviewItem)
-      })
+        `;
+        reviewSection.appendChild(reviewItem);
+      });
 
       reviewSection.querySelectorAll(".reviw_star").forEach((star, index) => {
         const starUl = document.createElement("ul");
-        for(let i = 1; i <= product.reviews[index].rating; i++){
+        for (let i = 1; i <= product.reviews[index].rating; i++) {
           const starLi = document.createElement("li");
-          starLi.innerHTML = `<i class="fa-solid fa-star"></i>`
+          starLi.innerHTML = `<i class="fa-solid fa-star"></i>`;
           starUl.appendChild(starLi);
         }
         star.appendChild(starUl);
-      })
+      });
 
       const productCategoryItems = products.data.filter((productCategory) =>
         productCategory.category.includes(product.category)
@@ -453,6 +557,60 @@ fetch("./data.json")
             };
             cartItems.push(cartItem);
           }
+          // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+          // 필요 시 페이지 이동
+        });
+      });
+      document.querySelectorAll(".buynow").forEach(function (element) {
+        element.addEventListener("click", function () {
+          const url = `./detail/detail.html?category=${
+            product.category
+          }&name=${encodeURIComponent(product.name)}`;
+          window.location.href = "../cart/cart02.html";
+        });
+      });
+
+      //M버전 로컬스토리지
+      document.querySelectorAll(".my_list").forEach(function (element) {
+        element.addEventListener("click", function () {
+          const option = document.querySelectorAll("#selectoption")[1];
+          console.log(option.value);
+          const cnt = document.querySelector(".count_result");
+          const url = `../cart/cart.html?category=${
+            product.category
+          }&name=${encodeURIComponent(product.name)}`;
+
+          let cartItems = localStorage.getItem("cartItems")
+            ? JSON.parse(localStorage.getItem("cartItems"))
+            : [];
+
+          // 이미 존재하는 아이템을 찾고, 수량을 업데이트
+          let isItemUpdated = false;
+
+          cartItems = cartItems.map((item) => {
+            console.log(item);
+            if (
+              item.name === product.name &&
+              item.brand === product.detail.brands &&
+              item.options === option.value
+            ) {
+              item.quantity += Number(cnt.innerText);
+              isItemUpdated = true;
+            }
+            return item;
+          });
+
+          // 동일한 아이템이 없으면 새로운 아이템 추가
+          if (!isItemUpdated) {
+            const cartItem = {
+              name: product.name,
+              brand: product.detail.brands,
+              quantity: Number(cnt.innerText),
+              options: option.value,
+            };
+            cartItems.push(cartItem);
+          }
 
           // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
           localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -468,55 +626,6 @@ fetch("./data.json")
           window.location.href = "../cart/cart02.html";
         });
       });
-
-      //M버전 로컬스토리지
-      // document.querySelectorAll(".my_list").forEach(function (element) {
-      //   element.addEventListener("click", function () {
-      //     const option = document.querySelectorAll("#selectoption")[1];
-      //     console.log(option.value);
-      //     const cnt = document.querySelector(".count_result");
-      //     const url = `../cart/cart.html?category=${
-      //       product.category
-      //     }&name=${encodeURIComponent(product.name)}`;
-
-      //     let cartItems = localStorage.getItem("cartItems")
-      //       ? JSON.parse(localStorage.getItem("cartItems"))
-      //       : [];
-
-      //     // 이미 존재하는 아이템을 찾고, 수량을 업데이트
-      //     let isItemUpdated = false;
-
-      //     cartItems = cartItems.map((item) => {
-      //       console.log(item);
-      //       if (
-      //         item.name === product.name &&
-      //         item.brand === product.detail.brands &&
-      //         item.options === option.value
-      //       ) {
-      //         item.quantity += Number(cnt.innerText);
-      //         isItemUpdated = true;
-      //       }
-      //       return item;
-      //     });
-
-      //     // 동일한 아이템이 없으면 새로운 아이템 추가
-      //     if (!isItemUpdated) {
-      //       const cartItem = {
-      //         name: product.name,
-      //         brand: product.detail.brands,
-      //         quantity: Number(cnt.innerText),
-      //         options: option.value,
-      //       };
-      //       cartItems.push(cartItem);
-      //     }
-
-      //     // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
-      //     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-      //     // 필요 시 페이지 이동
-      //     window.location.href = url;
-      //   });
-      // });
       document.querySelectorAll(".buy_now").forEach(function (element) {
         element.addEventListener("click", function () {
           const url = `./detail/detail.html?category=${
@@ -552,7 +661,7 @@ fetch("./data.json")
       });
 
       //M모달
-      const Mmylist = document.querySelector(".my_list");
+      const Mmylist = document.querySelector(".ml_bn .my_list");
       const Mmodal = document.querySelector(".modalAll");
       Mmylist.addEventListener("click", () => {
         Mmodal.classList.add("showmodal");
@@ -578,23 +687,6 @@ fetch("./data.json")
     }
   })
   .catch((error) => console.error("Error loading JSON:", error));
-
-//like
-const like = document.querySelector("#fav");
-const M_like = document.querySelector("#m_heart");
-const bar_like = document.querySelector("#M_fav");
-
-like.addEventListener("click", () => {
-  like.classList.toggle("active");
-});
-
-M_like.addEventListener("click", () => {
-  M_like.classList.toggle("active");
-});
-
-bar_like.addEventListener("click", () => {
-  bar_like.classList.toggle("active");
-});
 
 //M_share
 const M_share = document.querySelector(".share");

@@ -8,6 +8,10 @@ body {
   height: fit-content;
 }
 
+img {
+  object-fit: cover;
+}
+
 #header {
   position: relative;
   z-index: 12;
@@ -17,7 +21,7 @@ body {
 #M_bottom_bar {
   display: none;
   position: fixed;
-  z-index: 5000;
+  z-index: 11;
   width: 100%;
   bottom: 0;
   left: 0;
@@ -230,62 +234,60 @@ main {
 }
 
 /* 모달 배경 */
-.modalAll{
+.modalAll {
   display: none;
-  .mylist_modal{
-  width: 300px;
-  height: 120px;
-  background: #fff;
-  border-radius: 12px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 5100;
-  .modalarea{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   height: 100%;
-   p{
-   margin-bottom: 5px;
-   padding: 5px;
-   }
-   .btncontent{
-    display: flex;
-    gap: 15px;
-     .returnBtn{
-      padding: 8px 20px;
-      border: none;
-      background: map-get($color, $key: main-border-color);
-      border-radius: 5px;
-      cursor: pointer;
-     }
-     .checkBtn{
-      padding: 8px 20px;
-      border: none;
-      background: map-get($color, $key: main-amazon-color);
-      border-radius: 5px;
-      cursor: pointer;
-     }
-   }
+  .mylist_modal {
+    width: 300px;
+    height: 120px;
+    background: #fff;
+    border-radius: 12px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 5100;
+    .modalarea {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      p {
+        margin-bottom: 5px;
+        padding: 5px;
+      }
+      .btncontent {
+        display: flex;
+        gap: 15px;
+        .returnBtn {
+          padding: 8px 20px;
+          border: none;
+          background: map-get($color, $key: main-border-color);
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        .checkBtn {
+          padding: 8px 20px;
+          border: none;
+          background: map-get($color, $key: main-amazon-color);
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
   }
-  }
-  .modalBg{
-    width: 100vw;
-    height: 100vh;
+  .modalBg {
+    width:100%;
+    height: 100%;
     background: #000;
     position: fixed;
     z-index: 5050;
-    opacity: 0.3;
+    opacity: 0.4;
   }
-  &.showmodal{
+  &.showmodal {
     display: flex;
   }
 }
-
-
 
 /*category*/
 .topcategory {
@@ -295,7 +297,7 @@ main {
   align-items: center;
   justify-content: center;
   margin: 20px 0;
-  .category_content{
+  .category_content {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -323,9 +325,9 @@ main {
       .main_img {
         width: 100%;
         height: 520px;
-        background:center/cover ;
+        background: center/cover;
       }
-      .mainBtn_L{
+      .mainBtn_L {
         width: 50px;
         height: 50px;
         display: flex;
@@ -339,14 +341,14 @@ main {
         background: #d4d4d4;
         transition: all 0.2s;
         cursor: pointer;
-        &:hover{
+        &:hover {
           background: #989898;
         }
-        i{
+        i {
           transform: rotate(90deg);
         }
       }
-      .mainBtn_R{
+      .mainBtn_R {
         width: 50px;
         height: 50px;
         display: flex;
@@ -354,7 +356,7 @@ main {
         align-items: center;
         position: absolute;
         top: 50%;
-        right:1%;
+        right: 1%;
         border-radius: 50%;
         border: none;
         background: #fff;
@@ -362,10 +364,10 @@ main {
         background: #d4d4d4;
         transition: all 0.2s;
         cursor: pointer;
-        &:hover{
+        &:hover {
           background: #989898;
         }
-        i{
+        i {
           transform: rotate(-90deg);
         }
       }
@@ -410,7 +412,7 @@ main {
             width: 100%;
             background: center/cover no-repeat;
           }
-          &.infomore{
+          &.infomore {
             height: auto;
             overflow: auto;
             margin-bottom: 20px;
@@ -429,11 +431,11 @@ main {
           background-color: #ffffff;
           cursor: pointer;
           border: 1px solid #9f9f9f;
-          .info_slideic{
+          .info_slideic {
             margin-bottom: 5px;
-            &.infomore{
+            &.infomore {
               transform: rotate(180deg);
-            margin-top: 14px;
+              margin-top: 14px;
             }
           }
         }
@@ -460,7 +462,7 @@ main {
         background-color: #eee;
         gap: 20px;
         transition: all 0.5s;
-        .sub_plus_1{
+        .sub_plus_1 {
           i {
             transform: rotate(180deg);
             color: map-get($map: $color, $key: main-dark-color);
@@ -473,7 +475,7 @@ main {
             }
           }
         }
-        .sub_plus_2{
+        .sub_plus_2 {
           i {
             transform: rotate(180deg);
             color: map-get($map: $color, $key: main-dark-color);
@@ -486,7 +488,7 @@ main {
             }
           }
         }
-        .sub_plus_3{
+        .sub_plus_3 {
           i {
             transform: rotate(180deg);
             color: map-get($map: $color, $key: main-dark-color);
@@ -613,7 +615,7 @@ main {
         p {
           font-size: 14px;
         }
-        .grap_info{
+        .grap_info {
           font-size: 22px;
           font-weight: bold;
           color: #a0a0a0;
@@ -622,7 +624,7 @@ main {
     }
     .photos {
       overflow: hidden;
-      width: auto;
+      width: 90%;
       height: 100%;
       display: flex;
       margin-top: 5px;
@@ -630,6 +632,9 @@ main {
       transition: transform all ease-in-out;
       cursor: pointer;
       ul {
+        width: 100%;
+        height: 120px;
+        z-index: 20;
         gap: 5px;
         display: flex;
         transition: transform all ease-in-out;
@@ -638,18 +643,14 @@ main {
           width: 120px;
           height: 120px;
           background: map-get($map: $color, $key: main-border-color);
-          a{
+          a {
             transition: all 0.3s;
-            cursor: pointer;
-            img{
-              width: 100%;
-              height: 100%;
+            img {
+              // flex-wrap: nowrap;
+              width: 120px;
+              height: 120px;
               background: center/cover no-repeat;
               cursor: pointer;
-              &:hover{
-                width: 120%;
-                height: 120%;
-              }
             }
           }
         }
@@ -664,6 +665,7 @@ main {
       margin-top: 5px;
       display: flex;
       justify-content: space-between;
+      z-index: 50;
       .slide_btn_L {
         width: 56px;
         height: 120px;
@@ -673,7 +675,7 @@ main {
         background: #eee;
         cursor: pointer;
         transition: all 0.3s;
-        &:hover{
+        &:hover {
           background: #fff;
           border: 1px solid #d9d9d9;
         }
@@ -690,7 +692,7 @@ main {
         background: #eee;
         cursor: pointer;
         transition: all 0.3s;
-        &:hover{
+        &:hover {
           background: #fff;
           border: 1px solid #d9d9d9;
         }
@@ -699,7 +701,7 @@ main {
         }
       }
     }
-    .user_reviw_warpper{
+    .user_reviw_warpper {
       width: 100%;
       height: 900px;
       overflow: hidden;
@@ -751,11 +753,11 @@ main {
             height: 180px;
             background: map-get($map: $color, $key: main-border-color);
             cursor: pointer;
-            &:focus{
+            &:focus {
               width: 280px;
               height: 280px;
             }
-            img{
+            img {
               width: 100%;
               height: 100%;
               background: center/cover no-repeat;
@@ -769,9 +771,9 @@ main {
           margin-top: 20px;
         }
       }
-      &.reviw_more{
+      &.reviw_more {
         height: auto;
-        overflow: auto
+        overflow: auto;
       }
     }
     .reviw_moreslide {
@@ -785,9 +787,9 @@ main {
       cursor: pointer;
       border: 1px solid #9f9f9f;
       gap: 10px;
-      .reviw_moreic{
+      .reviw_moreic {
         transform: rotate(180deg);
-        &.reviw_more{
+        &.reviw_more {
           transform: rotate(0deg);
         }
       }
@@ -808,6 +810,7 @@ main {
     justify-content: space-between;
     // @include border-style;
     .brand_heart {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       .fa-heart {
@@ -873,113 +876,113 @@ main {
               color: map-get($color, main-amazon-color);
             }
           }
-          }
         }
-      }
-    }
-    .info-txt-box {
-      margin-top: 10px;
-      font-size: 12px;
-      padding: 8px 0 0 0;
-      .txtbox_1 {
-        width: 100%;
-        height: auto;
-        display: flex;
-        gap: 6px;
-        line-height: 18px;
-        div {
-          display: flex;
-          width: 100px;
-          font-weight: 600;
-          gap: 5px;
-          span {
-            line-height: 20px;
-            color: map-get($color, $key: main-amazon-color);
-            font-weight: 200;
-          }
-        }
-        ul {
-          padding: 6px 0;
-          li {
-            padding: 2px 0;
-          }
-        }
-      }
-    }
-    .count {
-      width: 100%;
-      height: auto;
-      .content_all {
-        width: 100%;
-        padding: 2px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        .button_minus {
-          width: 35px;
-          height: 35px;
-          border-style: none;
-          color: map-get($color, main-dark-color);
-          background: map-get($color, main-border-color);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .button_plus {
-          width: 35px;
-          height: 35px;
-          border-style: none;
-          color: map-get($color, main-dark-color);
-          background: map-get($color, main-border-color);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      }
-    }
-    .selectoption {
-      width: 100%;
-      height: 35px;
-      margin: 6px 0;
-      option {
-        text-align: center;
-      }
-    }
-    .mylist-buynow {
-      display: flex;
-      width: 100%;
-      height: auto;
-      gap: 12px;
-      .mylist {
-        width: 50%;
-        height: 55px;
-        font-size: 16px;
-        border-style: none;
-        background: map-get($color, main-border-color);
-        color: #000;
-        font-weight: 600;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 6px;
-        cursor: pointer;
-      }
-      .buynow {
-        width: 50%;
-        font-size: 16px;
-        font-weight: 500;
-        border-style: none;
-        background: map-get($color, main-amazon-color);
-        color: map-get($color, main-dark-color);
-        font-weight: 600;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 6px;
-        cursor: pointer;
       }
     }
   }
+  .info-txt-box {
+    margin-top: 10px;
+    font-size: 12px;
+    padding: 8px 0 0 0;
+    .txtbox_1 {
+      width: 100%;
+      height: auto;
+      display: flex;
+      gap: 6px;
+      line-height: 18px;
+      div {
+        display: flex;
+        width: 100px;
+        font-weight: 600;
+        gap: 5px;
+        span {
+          line-height: 20px;
+          color: map-get($color, $key: main-amazon-color);
+          font-weight: 200;
+        }
+      }
+      ul {
+        padding: 6px 0;
+        li {
+          padding: 2px 0;
+        }
+      }
+    }
+  }
+  .count {
+    width: 100%;
+    height: auto;
+    .content_all {
+      width: 100%;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      .button_minus {
+        width: 35px;
+        height: 35px;
+        border-style: none;
+        color: map-get($color, main-dark-color);
+        background: map-get($color, main-border-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .button_plus {
+        width: 35px;
+        height: 35px;
+        border-style: none;
+        color: map-get($color, main-dark-color);
+        background: map-get($color, main-border-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .selectoption {
+    width: 100%;
+    height: 35px;
+    margin: 6px 0;
+    option {
+      text-align: center;
+    }
+  }
+  .mylist-buynow {
+    display: flex;
+    width: 100%;
+    height: auto;
+    gap: 12px;
+    .mylist {
+      width: 50%;
+      height: 55px;
+      font-size: 16px;
+      border-style: none;
+      background: map-get($color, main-border-color);
+      color: #000;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .buynow {
+      width: 50%;
+      font-size: 16px;
+      font-weight: 500;
+      border-style: none;
+      background: map-get($color, main-amazon-color);
+      color: map-get($color, main-dark-color);
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+  }
+}
 
 .another_service {
   /*another_brand*/
@@ -1175,7 +1178,6 @@ main {
 }
 
 @media screen and (max-width: 768px) {
-
   main {
     position: absolute;
     top: 120px;
@@ -1186,105 +1188,106 @@ main {
     display: flex;
   }
 
-    #M_bottom_bar {
-      display: block;
-      position: fixed;
+  #M_bottom_bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    .contents {
+      z-index: 3;
+      width: 100%;
+      height: 90px;
+      background: #222222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 35px;
+      color: #fff;
+      position: absolute;
       bottom: 0;
-      .contents {
-        z-index: 3;
-        width: 100%;
-        height: 90px;
-        background: #222222;
+      left: 0;
+      .ic_al {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 35px;
-        color: #fff;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        .ic_al {
-          display: flex;
-          gap: 35px;
-          scale: 1.2;
-          padding-top: 6px;
-          transition: all 0.3s;
-          #M_fav{
-            cursor: pointer;
-            &.active {
-              color: rgb(255, 10, 10);
-              scale: 1.2;
-            }
-          }
-          #M_shareIc{
-            cursor: pointer;
-            transition: all 0.3s;
-            &.popupaction{
-              color: map-get($color, $key: main-amazon-color);
-              scale: 1.2;
-            }
+        gap: 35px;
+        scale: 1.2;
+        padding-top: 6px;
+        transition: all 0.3s;
+        #M_fav {
+          cursor: pointer;
+          &.active {
+            color: rgb(255, 10, 10);
+            scale: 1.2;
           }
         }
-        .ml_bn {
-          display: flex;
-          gap: 35px;
-          font-size: 20px;
-          .my_list{
-            cursor: pointer;
-          }
-          .buy_now {
-            cursor: pointer;
+        #M_shareIc {
+          cursor: pointer;
+          transition: all 0.3s;
+          &.popupaction {
             color: map-get($color, $key: main-amazon-color);
+            scale: 1.2;
           }
         }
       }
-      .popup{
-        width: 100%;
-        height: 360px;
+      .ml_bn {
         display: flex;
+        gap: 35px;
+        font-size: 20px;
+        .my_list {
+          cursor: pointer;
+        }
+        .buy_now {
+          cursor: pointer;
+          color: map-get($color, $key: main-amazon-color);
+        }
+      }
+    }
+    .popup {
+      z-index: -200;
+      width: 100%;
+      height: 360px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: map-get($color, $key: main-color);
+      box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.3);
+      transform: translateY(150%);
+      transition: all 0.3s;
+      &.popupaction {
+        z-index: 1;
+        display: flex;
+        transform: translateY(0%);
+      }
+      .popup_contents {
+        padding: 0 30px;
+        gap: 30px;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: map-get($color, $key: main-color);
-        box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.3);
-        transform: translateY(150%);
-        transition: all 0.3s;
-        &.popupaction{
+        margin-bottom: 40px;
+        .apps {
+          width: 100%;
           display: flex;
-          transform: translateY(0%);
-        }
-        .popup_contents{
-          padding: 0 30px;
-          gap: 30px;
-          display: flex;
-          flex-direction: column;
           justify-content: center;
-          align-items: center;
-          margin-bottom: 40px;
-          .apps{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 38px;
-            font-size: 10px;
-              li{
-                a{
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  justify-content: center;
-                  gap: 10px;
-                  img{
-                    width: 50px;
-                    height: 50px;
-                    background: center/cover no-repeat;
-                    
-                  }
-                }
+          gap: 38px;
+          font-size: 10px;
+          li {
+            a {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 10px;
+              img {
+                width: 50px;
+                height: 50px;
+                background: center/cover no-repeat;
               }
+            }
           }
-          .adderrs{
-            display: flex;
-            .adderrs_txt{
+        }
+        .adderrs {
+          display: flex;
+          .adderrs_txt {
             width: 300px;
             height: 50px;
             background: #f8f8f8;
@@ -1295,28 +1298,28 @@ main {
             align-items: center;
             font-size: 11px;
             color: #8f8f8f;
-            }
-            .adderrs_ic{
-              width: 60px;
-              background: #000000;
-              border: 1px solid #000;
-              border-radius:  0 8px 8px 0;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              cursor: pointer;
-              i{
-                color: map-get($color, $key: main-amazon-color);
-                transition: all 0.2s;
-                &:hover{
+          }
+          .adderrs_ic {
+            width: 60px;
+            background: #000000;
+            border: 1px solid #000;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            i {
+              color: map-get($color, $key: main-amazon-color);
+              transition: all 0.2s;
+              &:hover {
                 scale: 1.2;
-                }
               }
             }
           }
         }
       }
     }
+  }
 
   #M_proinfo {
     display: flex;
@@ -1329,7 +1332,7 @@ main {
       justify-content: space-between;
       // @include border-style;
       .brand_heart {
-        display: flex;
+        display: none;
         justify-content: space-between;
         .fa-heart {
           scale: 1.6;
@@ -1389,7 +1392,8 @@ main {
             cursor: pointer;
             transition: all 0.3s;
             svg {
-              color: #fff;}
+              color: #fff;
+            }
             &:hover {
               background: #000;
               color: map-get($color, main-amazon-color);
@@ -1517,7 +1521,7 @@ main {
           padding-top: 6px;
         }
       }
-      .avg{
+      .avg {
         font-size: 38px;
       }
     }
@@ -1533,7 +1537,7 @@ main {
         width: 150px;
         height: 150px;
         background: map-get($color, $key: main-border-color);
-        img{
+        img {
           width: 100%;
           height: 100%;
           background: center/cover no-repeat;
@@ -1546,16 +1550,17 @@ main {
         align-items: center;
         color: map-get($color, $key: main-color);
         position: relative;
-        img{
+        img {
           position: absolute;
           display: flex;
           justify-content: center;
           align-items: center;
           opacity: 0.3;
+          cursor: pointer;
         }
       }
     }
-    .M_user_reviw_warpper{
+    .M_user_reviw_warpper {
       width: 100%;
       height: 800px;
       overflow: hidden;
@@ -1570,7 +1575,7 @@ main {
         flex-direction: column;
         margin-top: 15px;
         padding: 5px;
-  
+
         .contents {
           margin-left: 5px;
           gap: 5px;
@@ -1602,7 +1607,7 @@ main {
             width: 180px;
             height: 180px;
             margin-left: 15px;
-            img{
+            img {
               width: 100%;
               height: 100%;
               background: center/cover no-repeat;
@@ -1610,9 +1615,9 @@ main {
           }
         }
       }
-      &.M_reviw_more{
+      &.M_reviw_more {
         height: auto;
-        overflow: auto
+        overflow: auto;
       }
     }
     .M_more_reviw {
@@ -2421,7 +2426,7 @@ main {
       }
     }
   }
-  #footer{
+  #footer {
     bottom: -900px;
     height: 1000px;
   }
