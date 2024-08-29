@@ -321,7 +321,6 @@ fetch(productInfo)
       ].innerHTML = `<strong>가격 : </strong> ${filter.price}`;
       mbbItems.imgs[index].setAttribute("src", filter["image-url"]);
     });
-
   })
   .catch((error) => {
     console.log(error);
@@ -383,12 +382,15 @@ categorySections.forEach((section) => {
 //   pageFrame.setAttribute("src", myPages[1]);
 // })
 
-
 //promotion section page event
 const mainPromos = document.querySelectorAll(".promotions-items ul li");
 mainPromos.forEach((li) => {
   li.addEventListener("click", () => {
-    const url = `./search/search.html?searchBar=${li.getAttribute("data-promo")}`;
+    const url = `./search/search.html?searchBar=${li.getAttribute(
+      "data-promo"
+    )}`;
     location.href = url;
-  })
-})
+  });
+});
+
+

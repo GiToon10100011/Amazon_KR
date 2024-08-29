@@ -322,14 +322,16 @@ window.addEventListener("scroll", () => {
   }
 });
 
-const searchBtn = document.querySelector(".inputBox.second .fa-magnifying-glass");
+const searchBtn = document.querySelector(
+  ".inputBox.second .fa-magnifying-glass"
+);
 searchBtn.style.cursor = "pointer";
 
 searchBtn.addEventListener("click", () => {
   const searchBar = document.querySelector("#main-search");
   const url = `./search/search.html?searchBar=${searchBar.value}`;
   location.href = url;
-})
+});
 
 // sideMenu
 const sideMenu = document.querySelector(".main-sideMenu-container");
@@ -785,12 +787,19 @@ const onlinePharmacy = document.querySelector(".online-pharmacy");
 const onlinePharmacyToggle = onlinePharmacy.querySelector(
   ".fa-circle-question"
 );
+
 onlinePharmacyToggle.addEventListener("click", () => {
-  onlinePharmacy.classList.toggle("active");
-  if(onlinePharmacy.classList.contains("active")){
+  if (!onlinePharmacy.classList.contains("active")) {
+    onlinePharmacy.classList.add("display");
     setTimeout(() => {
-      
-    })
+      onlinePharmacy.classList.add("active");
+    }, 100);
+  }
+  if (onlinePharmacy.classList.contains("active")) {
+    onlinePharmacy.classList.remove("active");
+    setTimeout(() => {
+      onlinePharmacy.classList.remove("display");
+    }, 300);
   }
 });
 

@@ -30,14 +30,13 @@ console.log(`
 // Insert Header
 const body = document.querySelector("#header");
 body.innerHTML = `
-const body = document.querySelector("#header");
     <header>
       <div class="inner">
         <div class="gnb-content">
           <nav class="gnb">
             <div class="logo_container">
               <i class="fa-solid fa-bars sideMenu-trigger-btn"></i>
-              <a href=""
+              <a href="../main.html"
                 ><img src="./logo/png/amazon_kr_ezen2.png" alt="logo"
               /></a>
             </div>
@@ -322,14 +321,16 @@ window.addEventListener("scroll", () => {
   }
 });
 
-const searchBtn = document.querySelector(".inputBox.second .fa-magnifying-glass");
+const searchBtn = document.querySelector(
+  ".inputBox.second .fa-magnifying-glass"
+);
 searchBtn.style.cursor = "pointer";
 
 searchBtn.addEventListener("click", () => {
   const searchBar = document.querySelector("#main-search");
   const url = `./search/search.html?searchBar=${searchBar.value}`;
   location.href = url;
-})
+});
 
 // sideMenu
 const sideMenu = document.querySelector(".main-sideMenu-container");
