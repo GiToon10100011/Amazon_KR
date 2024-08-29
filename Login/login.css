@@ -9,6 +9,7 @@
 a {
   text-decoration: none;
   color: inherit;
+  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -17,6 +18,43 @@ ol {
   list-style: none;
 }
 
+.loader-box {
+  position: fixed;
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.loader-box .loader {
+  position: relative;
+  width: 120px;
+  height: 20px;
+  box-shadow: 0 0 30px rgba(255, 153, 0, 0.2);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #ff9900) left -50px top 0/50px 20px no-repeat white;
+  animation: l2 1s infinite linear;
+}
+.loader-box .loader img {
+  width: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader-box.active {
+  display: none;
+}
+
+@keyframes l2 {
+  100% {
+    background-position: right -50px top 0;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -26,6 +64,7 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -34,6 +73,43 @@ ol {
   list-style: none;
 }
 
+.loader-box {
+  position: fixed;
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.loader-box .loader {
+  position: relative;
+  width: 120px;
+  height: 20px;
+  box-shadow: 0 0 30px rgba(255, 153, 0, 0.2);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #ff9900) left -50px top 0/50px 20px no-repeat white;
+  animation: l2 1s infinite linear;
+}
+.loader-box .loader img {
+  width: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader-box.active {
+  display: none;
+}
+
+@keyframes l2 {
+  100% {
+    background-position: right -50px top 0;
+  }
+}
 body {
   font-family: "Noto Sans KR";
 }
@@ -113,6 +189,9 @@ header .gnb-content .gnb .searchBar form .inputBox {
 header .gnb-content .gnb .searchBar form .inputBox .material-symbols-outlined {
   color: #aaa;
 }
+header .gnb-content .gnb .searchBar form .inputBox .material-symbols-outlined.micToggle {
+  cursor: pointer;
+}
 header .gnb-content .gnb .searchBar form .inputBox input[type=search] {
   padding-left: 4px;
   padding-right: 10px;
@@ -164,14 +243,113 @@ header .gnb-content .gnb .hottest-items .ranking-container .ranking p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  transition: all 0.3s;
+}
+header .gnb-content .gnb .hottest-items .ranking-container .ranking p:hover {
+  color: #ff9900;
 }
 header .gnb-content .gnb .hottest-items .ranking-container .ranking p span {
   color: #ff9900;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+  height: 580px;
+  position: absolute;
+  z-index: 10;
+  padding: 20px;
+  top: 54px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-menu-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-menu-title span {
+  font-size: 12px;
+  color: #333;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection label {
+  text-align: center;
+  width: 50%;
+  border: 1px solid;
+  padding: 4px 14px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  color: #aaa;
+  cursor: pointer;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection label:first-of-type {
+  border-right: none;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection input[type=radio] {
+  display: none;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection input[type=radio]:first-of-type:checked + label:first-of-type {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-selection input[type=radio]:last-of-type:checked + label:last-of-type {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content {
+  position: relative;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content .ranking-content-first {
+  z-index: 1;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content .ranking-content-first.active {
+  display: none;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content .ranking-content-second {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  display: none;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content .ranking-content-second.active {
+  display: block;
+  z-index: 2;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content p {
+  font-weight: 500;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all 0.3s;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content p:hover {
+  color: #ff9900;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu .ranking-content p span {
+  color: #ff9900;
+}
+header .gnb-content .gnb .hottest-items .ranking-menu.active {
+  display: flex;
 }
 header .gnb-content .gnb .hottest-items .fa-chevron-down {
   align-self: flex-start;
   padding: 20px;
   font-size: 14px;
+}
+header .gnb-content .gnb .hottest-items .fa-chevron-down.active {
+  transform: scaleY(-1);
 }
 header .gnb-content .icon-menu .items {
   align-items: center;
@@ -184,20 +362,51 @@ header .gnb-content .icon-menu .items .item {
   justify-content: center;
   align-items: center;
   gap: 4px;
-  transition: all 0.3s;
   cursor: pointer;
 }
-header .gnb-content .icon-menu .items .item:hover {
+header .gnb-content .icon-menu .items .item:hover .fa-regular,
+header .gnb-content .icon-menu .items .item:hover span {
   color: #ff9900;
 }
+header .gnb-content .icon-menu .items .item:hover ul {
+  height: 170px;
+  padding: 10px 14px;
+}
 header .gnb-content .icon-menu .items .item .fa-regular {
+  transition: all 0.3s;
   font-size: 26px;
 }
 header .gnb-content .icon-menu .items .item .material-symbols-outlined {
+  transition: all 0.3s;
   font-size: 26px;
 }
 header .gnb-content .icon-menu .items .item span {
+  transition: all 0.3s;
   font-size: 10px;
+}
+header .gnb-content .icon-menu .items .item ul {
+  overflow: hidden;
+  height: 0;
+  position: absolute;
+  top: 60px;
+  background: white;
+  box-shadow: 0 0 4px #000;
+  border-radius: 8px;
+  padding: 0;
+  font-size: 14px;
+  transform-origin: top;
+  transition: all 0.3s;
+}
+header .gnb-content .icon-menu .items .item ul li {
+  margin-bottom: 10px;
+  transition: all 0.3s;
+}
+header .gnb-content .icon-menu .items .item ul li:hover {
+  color: #ff9900;
+}
+header .gnb-content .icon-menu .items .item ul:hover {
+  max-height: 170px;
+  padding: 10px 14px;
 }
 header .banner {
   margin-top: 10px;
@@ -207,11 +416,13 @@ header .banner .lnb-content {
   align-items: center;
   height: 40px;
   justify-content: space-between;
+  white-space: nowrap;
   transition: all 0.3s;
 }
 header .banner .lnb-content.active {
   height: 0;
   overflow: hidden;
+  border: none;
 }
 header .banner .lnb-content .lnb-main {
   height: 100%;
@@ -255,10 +466,43 @@ header .banner .lnb-content .lnb-main .lnb {
   padding: 10px;
 }
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy {
+  position: relative;
   cursor: pointer;
 }
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy .fa-circle-question {
   font-size: 14px;
+}
+header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::after, header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::before {
+  opacity: 1;
+}
+header .banner .lnb-content .lnb-main .lnb .online-pharmacy::before {
+  content: attr(data-info);
+  position: absolute;
+  white-space: pre-wrap;
+  bottom: -334px;
+  width: 180px;
+  height: auto;
+  padding: 20px;
+  font-size: 12px;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+header .banner .lnb-content .lnb-main .lnb .online-pharmacy::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: 2.5px;
+  width: 0;
+  height: 0;
+  border-top: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 8px solid;
+  opacity: 0;
+  transition: all 0.3s;
 }
 header .banner .lnb-content .lnb-main .lnb a {
   transition: all 0.3s;
@@ -288,6 +532,10 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
   position: fixed;
   right: 50px;
   bottom: 100px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.Top .desktop-top {
   width: 56px;
   height: 56px;
   padding: 8px;
@@ -298,33 +546,128 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
   align-items: center;
   justify-content: center;
   z-index: 10000;
-  opacity: 0;
-  transition: all 0.3s;
   cursor: pointer;
 }
-.Top .fa-chevron-up {
+.Top .desktop-top .fa-chevron-up {
+  font-size: 24px;
+}
+.Top .mobile-top {
+  display: none;
+}
+.Top .mobile-top .mobile-top-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 14px;
+}
+.Top .mobile-top .mobile-top-menu span {
+  text-align: center;
+  line-height: 38px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(238, 238, 238, 0.8);
+  color: #000;
   font-size: 24px;
 }
 .Top.active {
   opacity: 1;
 }
 
-html, body {
+@media screen and (max-width: 768px) {
+  .inner {
+    width: 100%;
+  }
+  header {
+    padding: 10px;
+    width: 100%;
+  }
+  header .gnb-content {
+    width: 100%;
+    justify-content: center;
+  }
+  header .gnb-content .gnb {
+    width: 100%;
+  }
+  header .gnb-content .gnb .logo_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  header .gnb-content .gnb .logo_container .sideMenu-trigger-btn {
+    display: block;
+    order: 2;
+  }
+  header .gnb-content .gnb .searchBar {
+    display: none;
+  }
+  header .gnb-content .gnb .hottest-items {
+    display: none;
+  }
+  header .gnb-content .icon-menu {
+    display: none;
+  }
+  header .banner {
+    margin: 0;
+  }
+  header .banner .lnb-content {
+    border-top: 1px solid #ccc;
+    width: 100%;
+    justify-content: center;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    overflow-y: hidden;
+  }
+  header .banner .lnb-content .lnb-main {
+    width: 100%;
+  }
+  header .banner .lnb-content .lnb-main .main-category-menu {
+    display: none;
+  }
+  header .banner .lnb-content .lnb-main .lnb {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  header .banner .lnb-content .lnb-main .lnb .online-pharmacy {
+    display: none;
+  }
+  header .banner .lnb-content .lnb-user-menu {
+    display: none;
+  }
+  .Top {
+    right: 25px;
+  }
+  .Top .desktop-top {
+    display: none;
+  }
+  .Top .mobile-top {
+    display: block;
+  }
+}
+html,
+body {
   width: 100%;
   height: 1200px;
   position: relative;
   letter-spacing: -0.7px;
 }
 
-#header {
+header {
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 60px;
-  z-index: 1;
+  z-index: 12;
 }
 
 .bgFilter {
-  position: relative;
-  z-index: 3;
+  position: absolute;
+  z-index: 13;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.1);
@@ -338,7 +681,8 @@ html, body {
   height: 100%;
   z-index: 10000;
   position: fixed;
-  left: -100%;
+  top: 0;
+  left: -216px;
   background: #fff;
   width: 216px;
   transition: all 0.6s;
@@ -380,25 +724,58 @@ html, body {
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li {
   width: 100%;
   padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
   cursor: pointer;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .fa-chevron-right {
+  opacity: 0;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover {
   background: linear-gradient(90deg, rgba(255, 216, 20, 0.7) 0%, #ffd814 4%, #ff9900 93.5%, rgba(255, 153, 0, 0.7) 99.5%);
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover span, .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover i {
   color: #fff;
+  opacity: 1;
 }
-.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li span {
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li div span {
   display: flex;
   gap: 4px;
   align-items: center;
 }
-.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li span.material-symbols-outlined {
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li div span.material-symbols-outlined {
   font-size: 12px;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  overflow-y: scroll;
+  transition: opacity 0.3s;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle li {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle li:hover {
+  background: #fafafa;
+  color: #ff9900;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle.active {
+  display: block;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-misc {
   display: flex;
@@ -837,7 +1214,8 @@ iframe {
     justify-content: center;
     align-items: center;
   }
-  header, iframe {
+  header,
+  iframe {
     display: none;
   }
   .login {

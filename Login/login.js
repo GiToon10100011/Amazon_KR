@@ -21,7 +21,7 @@ faEye.addEventListener("click", () => {
 const LogInBtn = document.querySelector("#loginSubmit");
 
 LogInBtn.addEventListener("click", (e) => {
-e.preventDefault();
+e.preventDefault();``
 
   const id = document.querySelector("#id").value;
   const pw = document.querySelector("#password").value;
@@ -82,6 +82,8 @@ btns.forEach((btn) => {
     const targetContent = document.getElementById(targetId);
     if (targetContent) {
       targetContent.classList.add("active");
+    } else{
+      targetContent.classList.remove("active");
     }
   });
 });

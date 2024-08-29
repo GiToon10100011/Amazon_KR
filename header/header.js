@@ -787,6 +787,11 @@ const onlinePharmacyToggle = onlinePharmacy.querySelector(
 );
 onlinePharmacyToggle.addEventListener("click", () => {
   onlinePharmacy.classList.toggle("active");
+  if(onlinePharmacy.classList.contains("active")){
+    setTimeout(() => {
+      
+    })
+  }
 });
 
 //Speech Recognition Event
