@@ -766,13 +766,17 @@ categoryItems.forEach((item, index) => {
         break;
       }
     }
+
+    middleCategoryItems.addEventListener("mouseover", () => {
+      middleCategoryItems.classList.add("active");
+    });
   });
 
-  item.addEventListener("mouseout", (e) => {
-    const middleCategoryItems = item.querySelector(".categories-middle");
-    if (!middleCategoryItems.contains(e.relatedTarget)) {
-      middleCategoryItems.classList.remove("active");
-    }
+  const middleCategoryItems = item.querySelector(".categories-middle");
+  middleCategoryItems.addEventListener("mouseout", (e) => {
+    middleCategoryItems.classList.remove("active");
+    // if (!middleCategoryItems.contains(e.relatedTarget)) {
+    // }
   });
 });
 
