@@ -18,7 +18,12 @@
     <script defer type="module" src="./detail.js"></script>
     <title>Document</title>
   </head>
-  <body>  
+  <body>
+<!-- 모달 창 구조 -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
     <div class="modalAll">
     <div class="mylist_modal">
             <div class="modalarea">
@@ -28,8 +33,8 @@
                 <button class="checkBtn">장바구니 가기</button>
               </div>
             </div>
-        </div>
-        <div class="modalBg"></div>
+      </div>
+      <div class="modalBg"></div>
     </div>
     <section id="header"></section>
     <div class="main-sideMenu-container">
@@ -253,8 +258,8 @@
       </div>
     </div>
     <figure class="bgFilter"></figure>
-    <div id="modalBackground" class="modal-background"></div>
-    <!-- 모달창 -->
+    <!-- <div id="modalBackground" class="modal-background"></div> -->
+    <!-- 카트모달창 -->
     <div id="M_bottom_bar">
       <div class="contents">
         <div class="ic_al">
@@ -712,7 +717,7 @@
                 </div>
               </div>
               <div class="M_user_reviw_warpper">
-                <div class="user_reviw_desc">
+                <!-- <div class="user_reviw_desc">
                   <hr />
                   <div class="contents">
                     <div class="userimg">
@@ -836,7 +841,7 @@
                       <img src="./img/re3.png" alt="img3" />
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="M_more_reviw">리뷰 더 보기</div>
             </sectionc>

@@ -282,12 +282,59 @@ main {
     background: #000;
     position: fixed;
     z-index: 5050;
-    opacity: 0.4;
+    opacity: 0.3;
   }
   &.showmodal {
     display: flex;
   }
 }
+
+/* 리뷰 모달 */
+.modal {
+  display: none;
+  position: fixed; /* 화면에 고정 */
+  z-index: 1; /* 다른 요소들보다 위에 위치 */
+  left: 0;
+  top: 0;
+  width: 100%; /* 화면 전체 너비 */
+  height: 100%; /* 화면 전체 높이 */
+  background-color: rgba(0, 0, 0, 0.8); /* 반투명 배경 */
+}
+
+/* 모달 창 안의 이미지 스타일 */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800;
+  height: 500px;
+
+  #modalImage {
+    width: 400px;
+    height: 200px;
+  }
+}
+
+/* 닫기 버튼 스타일 */
+.close {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: all 0.2s;
+  cursor: pointer;
+  &:hover{
+    scale: 0.9;
+  }
+}
+
+
 
 /*category*/
 .topcategory {
@@ -634,7 +681,6 @@ main {
       ul {
         width: 100%;
         height: 120px;
-        z-index: 20;
         gap: 5px;
         display: flex;
         transition: transform all ease-in-out;
@@ -665,7 +711,6 @@ main {
       margin-top: 5px;
       display: flex;
       justify-content: space-between;
-      z-index: 50;
       .slide_btn_L {
         width: 56px;
         height: 120px;
@@ -1187,11 +1232,58 @@ main {
     // height: f/;
     display: flex;
   }
+  
+/* 리뷰 모달 */
+.modal {
+  display: none;
+  position: fixed; /* 화면에 고정 */
+  z-index: 1; /* 다른 요소들보다 위에 위치 */
+  left: 0;
+  top: 0;
+  width: 100%; /* 화면 전체 너비 */
+  height: 100%; /* 화면 전체 높이 */
+  background-color: rgba(0, 0, 0, 0.8); /* 반투명 배경 */
+}
+
+/* 모달 창 안의 이미지 스타일 */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+
+  #modalImage {
+    width: 400px;
+    height: 200px;
+  }
+}
+
+/* 닫기 버튼 스타일 */
+.close {
+  position: absolute;
+  top: 120px;
+  right: 50px;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover{
+    scale: 0.9;
+  }
+}
 
   #M_bottom_bar {
     display: block;
     position: fixed;
     bottom: 0;
+    left: 0;
+    z-index: 1;
     .contents {
       z-index: 3;
       width: 100%;
@@ -1241,9 +1333,9 @@ main {
       }
     }
     .popup {
-      z-index: -200;
+      z-index: 0;
       width: 100%;
-      height: 360px;
+      height: 300px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1252,18 +1344,18 @@ main {
       transform: translateY(150%);
       transition: all 0.3s;
       &.popupaction {
-        z-index: 1;
+        z-index: 11;
         display: flex;
         transform: translateY(0%);
       }
       .popup_contents {
         padding: 0 30px;
-        gap: 30px;
+        gap: 5px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 40px;
+        margin-bottom: 60px;
         .apps {
           width: 100%;
           display: flex;
@@ -1287,6 +1379,7 @@ main {
         }
         .adderrs {
           display: flex;
+          margin-bottom: 20px;
           .adderrs_txt {
             width: 300px;
             height: 50px;
@@ -1595,7 +1688,7 @@ main {
           margin-top: 10px;
           margin: 5px 15px 0 15px;
           width: auto;
-          height: 140px;
+          height: 80px;
           position: relative;
         }
         .photo_thumbs {
@@ -1611,6 +1704,7 @@ main {
               width: 100%;
               height: 100%;
               background: center/cover no-repeat;
+              cursor: pointer;
             }
           }
         }
@@ -2020,7 +2114,7 @@ main {
             }
           }
         }
-        .reviw_star {
+        .Mreviw_star {
           margin-top: 24px;
           ul {
             display: flex;
@@ -2076,7 +2170,6 @@ main {
   /*another_service*/
   .another_service {
     width: 100%;
-    padding: 0 5px;
     /*another_brand*/
     .same_brand {
       width: 100%;
@@ -2091,6 +2184,7 @@ main {
         padding-right: 20px;
         .ap_title {
           font-size: 20px;
+          margin-left: 10px;
         }
         .more {
           font-size: 14px;
@@ -2105,15 +2199,17 @@ main {
       }
       .info_box {
         width: 100%;
-        gap: 5px;
+        gap: 2px;
         display: flex;
+        padding: 0 5px;
         .ap_desc {
+          width: 100%;
           margin-top: 24px;
           display: flex;
           flex-direction: column;
           img {
-            width: 120px;
-            height: 120px;
+            width: 115px;
+            height: 115px;
             background: center/cover no-repeat;
           }
           .txtbox {
@@ -2150,6 +2246,7 @@ main {
         align-items: center;
         padding-right: 20px;
         .ap_title {
+          margin-left: 10px;
           font-size: 20px;
         }
         .more {
@@ -2164,15 +2261,17 @@ main {
       }
       .info_box {
         width: 100%;
-        gap: 5px;
+        gap: 2px;
         display: flex;
+        padding: 0 5px;
         .ap_desc {
+          width: 100%;
           margin-top: 24px;
           display: flex;
           flex-direction: column;
           img {
-            width: 120px;
-            height: 120px;
+            width: 115px;
+            height: 115px;
             background: center/cover no-repeat;
           }
           .txtbox {
@@ -2211,6 +2310,7 @@ main {
         padding-right: 20px;
         .ap_title {
           font-size: 20px;
+          margin-left: 10px;
         }
         .more {
           font-size: 14px;
@@ -2224,15 +2324,17 @@ main {
       }
       .info_box {
         width: 100%;
-        gap: 5px;
+        gap: 2px;
         display: flex;
+        padding: 0 5px;
         .ap_desc {
+          width: 100%;
           margin-top: 24px;
           display: flex;
           flex-direction: column;
           img {
-            width: 120px;
-            height: 120px;
+            width: 115px;
+            height: 115px;
             background: center/cover no-repeat;
           }
           .txtbox {

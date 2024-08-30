@@ -107,7 +107,7 @@ fetch("./data.json")
     const product = products.data.find(
       (product) => product.category === category && product.name === names
     );
-
+    
     //무한슬라이드
     const images = [
       product["image-url"],
@@ -151,45 +151,6 @@ fetch("./data.json")
       productTitles.forEach((title) => {
         title.innerText = product.name;
       });
-
-      // //reviwe photo
-      // const slideList = document.querySelector(".slied_list");
-      // const slideItems = document.querySelectorAll(".slied_list li");
-      // const slideBtnLeft = document.querySelector(".slide_btn_L");
-      // const slideBtnRight = document.querySelector(".slide_btn_R");
-
-      // slideItems.forEach((slideItem, i) => {
-      //   console.log(slideItem);
-      //   slideItem.querySelector(
-      //     "a img"
-      //   ).src = `${product.detail["more-img"][i]}`;
-      // });
-      // let currentOffset = 0;
-      // const slideAmount = 125; // 슬라이드할 픽셀 수
-      // const maxOffset =
-      //   slideItems.length * slideAmount - slideList.parentElement.offsetWidth;
-
-      // function updateSlidePosition() {
-      //   slideList.style.transform = `translateX(${currentOffset}px)`;
-      // }
-
-      // slideBtnLeft.addEventListener("click", () => {
-      //   if (currentOffset < 0) {
-      //     currentOffset += slideAmount;
-      //   } else {
-      //     currentOffset = -maxOffset; // 첫 번째 슬라이드에서 마지막 슬라이드로 이동
-      //   }
-      //   updateSlidePosition();
-      // });
-
-      // slideBtnRight.addEventListener("click", () => {
-      //   if (Math.abs(currentOffset) < maxOffset) {
-      //     currentOffset -= slideAmount;
-      //   } else {
-      //     currentOffset = 0; // 마지막 슬라이드에서 첫 번째 슬라이드로 이동
-      //   }
-      //   updateSlidePosition();
-      // });
 
       const slideList = document.querySelector(".slied_list");
       const slideItems = document.querySelectorAll(".slied_list li");
@@ -377,46 +338,145 @@ fetch("./data.json")
       reviews.forEach((review) => {
         review.innerHTML = `(${product.detail.reviews})`;
       });
+      
+      const Mreviews = document.querySelectorAll("#M_reviw .photo img")
+      console.log(Mreviews)
+      Mreviews.forEach((Mreview, i)=>{
+        Mreview.setAttribute("src",product.detail["more-img"][i])
+      })
 
-      // console.log(randomNum);
-
-      console.log(product);
-
+//사용자 리뷰 desktop
       const reviewSection = document.querySelector(".user_reviw_warpper");
 
       product.reviews.forEach((review, index) => {
         const reviewItem = document.createElement("div");
         reviewItem.className = "reviw_userdetail";
         reviewItem.innerHTML = `
-         <div class="reviw_profile">
-                    <div class="user_img">
-                      <span class="material-symbols-outlined"> person </span>
-                    </div>
-                    <div class="user_desc">
-                      <span class="name">${review.reviewer}</span>
-                      <div class="info">
-                        <span class="gen">남/여</span>
-                        <span class="age">25세</span>
-                        <span class="nation">${review.date}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reviw_star">
-                  </div>
-                  <div class="reviw_txt">
-                    <p>
-                      ${review.comment}
-                    </p>
-                  </div>
-                  <div class="reviw_img_ic">
-                    <div class="img">
-                      <img src="${product.detail["more-img"][index]}" alt="img1" />
-                    </div>
-                  </div>
-                  <div class="underline"></div>
+          <div class="reviw_profile">
+            <div class="user_img">
+              <span class="material-symbols-outlined"> person </span>
+            </div>
+            <div class="user_desc">
+              <span class="name">${review.reviewer}</span>
+              <div class="info">
+                <span class="gen">남/여</span>
+                <span class="age">25세</span>
+                <span class="nation">${review.date}</span>
+              </div>
+            </div>
+          </div>
+          <div class="reviw_star">
+          </div>
+          <div class="reviw_txt">
+            <p>
+              ${review.comment}
+            </p>
+          </div>
+          <div class="reviw_img_ic">
+            <div class="img">
+              <img src="${product.detail["more-img"][index]}" alt="img1" class="clickable-img" data-index="${index}" />
+            </div>
+          </div>
+          <div class="underline"></div>
         `;
         reviewSection.appendChild(reviewItem);
       });
+      
+//리뷰 이미지 클릭시 모달
+// 이미지 클릭 이벤트 추가
+document.querySelectorAll(".clickable-img").forEach((img) => {
+  img.addEventListener("click", (event) => {
+    const imgIndex = event.target.getAttribute("data-index");
+    const imgSrc = product.detail["more-img"][imgIndex];
+    
+    // 모달 창 요소 가져오기
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    
+    // 클릭된 이미지의 src를 모달의 이미지에 설정
+    modal.style.display = "block";
+    modalImg.src = imgSrc;
+  });
+});
+
+// 모달 닫기 기능 추가
+const reviewmodal = document.getElementById("imageModal");
+const closeBtn = document.querySelector(".close");
+closeBtn.onclick = function() {
+  reviewmodal.style.display = "none";
+};
+
+// 어두운 부분 클릭 시 모달 닫기
+reviewmodal.addEventListener("click", (event) => {
+  if (event.target === reviewmodal) {
+    reviewmodal.style.display = "none";
+  }
+});
+
+      
+
+//사용자 리뷰 M
+const MreviewSection = document.querySelector(".M_user_reviw_warpper");
+const imageModal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const closeModal = document.querySelector(".close");
+
+product.reviews.forEach((review, index) => {
+  const reviewItem = document.createElement("div");
+  reviewItem.className = "reviw_userdetail";
+  reviewItem.innerHTML = `
+    <div class="user_reviw_desc">
+      <hr />
+      <div class="contents">
+        <div class="userimg">
+          <span class="material-symbols-outlined"> person </span>
+        </div>
+        <div class="content_desc">
+          <div class="name">${review.reviewer}</div>
+          <div class="old_age">
+            <span class="old">26</span>
+            <span>/</span>
+            <span class="age">남자</span>
+            <span class="nation">${review.date}</span>
+          </div>
+          </div>
+          <div class="Mreviw_star">
+          </div>
+      </div>
+      <div class="txt_box">
+        ${review.comment}
+      </div>
+      <div class="photo_thumbs">
+        <div class="user_reviw_photo">
+          <img src="${product.detail["more-img"][index]}" alt="img" class="review-photo" />
+        </div>
+      </div>
+    </div>
+  `;
+  MreviewSection.appendChild(reviewItem);
+
+  // 이미지 클릭 시 모달 띄우기
+  const img = reviewItem.querySelector(".review-photo");
+  img.onclick = function() {
+    modalImage.src = this.src; // 클릭한 이미지의 src를 모달 이미지에 설정
+    imageModal.style.display = "block"; // 모달 보이기
+  };
+});
+
+// 모달 닫기 이벤트
+closeModal.onclick = function() {
+  imageModal.style.display = "none";
+};
+
+// 모달 외부 클릭 시 닫기
+window.onclick = function(event) {
+  if (event.target === imageModal) {
+    imageModal.style.display = "none";
+  }
+};
+      
+      
+      
 
       reviewSection.querySelectorAll(".reviw_star").forEach((star, index) => {
         const starUl = document.createElement("ul");
@@ -426,6 +486,15 @@ fetch("./data.json")
           starUl.appendChild(starLi);
         }
         star.appendChild(starUl);
+      });
+      reviewSection.querySelectorAll(".Mreviw_star").forEach((star, index) => {
+        const MstarUl = document.createElement("ul");
+        for (let i = 1; i <= product.reviews[index].rating; i++) {
+          const MstarLi = document.createElement("li");
+          MstarLi.innerHTML = `<i class="fa-solid fa-star"></i>`;
+          MstarUl.appendChild(MstarLi);
+        }
+        star.appendChild(MstarUl);
       });
 
       const productCategoryItems = products.data.filter((productCategory) =>
@@ -572,52 +641,50 @@ fetch("./data.json")
       });
 
       //M버전 로컬스토리지
-      document.querySelectorAll(".my_list").forEach(function (element) {
-        element.addEventListener("click", function () {
-          const option = document.querySelectorAll("#selectoption")[1];
-          console.log(option.value);
-          const cnt = document.querySelector(".count_result");
-          const url = `../cart/cart.html?category=${
-            product.category
-          }&name=${encodeURIComponent(product.name)}`;
+// M버전 로컬스토리지
+document.querySelectorAll(".my_list").forEach(function (element) {
+  element.addEventListener("click", function () {
+    const option = document.querySelector("#selectoption").value; // 선택된 옵션 값 가져오기
+    const cnt = document.querySelector(".count_result");
+    const url = `../cart/cart.html?category=${product.category}&name=${encodeURIComponent(product.name)}`;
 
-          let cartItems = localStorage.getItem("cartItems")
-            ? JSON.parse(localStorage.getItem("cartItems"))
-            : [];
+    let cartItems = localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [];
 
-          // 이미 존재하는 아이템을 찾고, 수량을 업데이트
-          let isItemUpdated = false;
+    // 이미 존재하는 아이템을 찾고, 수량을 업데이트
+    let isItemUpdated = false;
 
-          cartItems = cartItems.map((item) => {
-            console.log(item);
-            if (
-              item.name === product.name &&
-              item.brand === product.detail.brands &&
-              item.options === option.value
-            ) {
-              item.quantity += Number(cnt.innerText);
-              isItemUpdated = true;
-            }
-            return item;
-          });
+    cartItems = cartItems.map((item) => {
+      if (
+        item.name === product.name &&
+        item.brand === product.detail.brands &&
+        item.options === option
+      ) {
+        item.quantity += Number(cnt.innerText);
+        isItemUpdated = true;
+      }
+      return item;
+    });
 
-          // 동일한 아이템이 없으면 새로운 아이템 추가
-          if (!isItemUpdated) {
-            const cartItem = {
-              name: product.name,
-              brand: product.detail.brands,
-              quantity: Number(cnt.innerText),
-              options: option.value,
-            };
-            cartItems.push(cartItem);
-          }
+    // 동일한 아이템이 없으면 새로운 아이템 추가
+    if (!isItemUpdated) {
+      const cartItem = {
+        name: product.name,
+        brand: product.detail.brands,
+        quantity: Number(cnt.innerText),
+        options: option,
+      };
+      cartItems.push(cartItem);
+    }
 
-          // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
-          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-          // 필요 시 페이지 이동
-        });
-      });
+    // 필요 시 페이지 이동
+    // location.href = url; // 필요시 주석 해제
+  });
+});
       document.querySelectorAll(".buynow").forEach(function (element) {
         element.addEventListener("click", function () {
           const url = `./detail/detail.html?category=${
