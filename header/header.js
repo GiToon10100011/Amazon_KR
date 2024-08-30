@@ -748,11 +748,15 @@ const categoriesKeys = [
 const categoryItems = document.querySelectorAll(".categories-large li");
 
 categoryItems.forEach((item, index) => {
-  item.addEventListener("mouseover", () => {
+  const categoryList = document.createElement("ul");
+  categoryList.className = "categories-middle";
+  item.appendChild(categoryList);
+  item.addEventListener("mouseenter", (e) => {
     const middleCategoryItems = item.querySelector(".categories-middle");
-    if (middleCategoryItems) {
-      middleCategoryItems.classList.add("active");
-    }
+
+    middleCategoryItems.innerHTML = "";
+
+    middleCategoryItems.classList.add("active");
 
     for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
       const lis = middleCategoryItems.querySelectorAll("li");
@@ -766,17 +770,24 @@ categoryItems.forEach((item, index) => {
         break;
       }
     }
-
-    middleCategoryItems.addEventListener("mouseover", () => {
-      middleCategoryItems.classList.add("active");
-    });
   });
 
-  const middleCategoryItems = item.querySelector(".categories-middle");
-  middleCategoryItems.addEventListener("mouseout", (e) => {
+  const hideSubmenu = () => {
+    const middleCategoryItems = item.querySelector(".categories-middle");
     middleCategoryItems.classList.remove("active");
-    // if (!middleCategoryItems.contains(e.relatedTarget)) {
-    // }
+  };
+
+  const middleCategoryItems = item.querySelector(".categories-middle");
+  item.addEventListener("mouseleave", (e) => {
+    if (!item.contains(e.relatedTarget)) {
+      hideSubmenu();
+    }
+  });
+
+  middleCategoryItems.addEventListener("mouseout", (e) => {
+    if (!middleCategoryItems.contains(e.relatedTarget)) {
+      hideSubmenu();
+    }
   });
 });
 
