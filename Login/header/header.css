@@ -419,8 +419,12 @@ header .banner .lnb-content .lnb-main .lnb .online-pharmacy .fa-circle-question 
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::after, header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::before {
   opacity: 1;
 }
+header .banner .lnb-content .lnb-main .lnb .online-pharmacy.display::after, header .banner .lnb-content .lnb-main .lnb .online-pharmacy.display::before {
+  display: block;
+}
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy::before {
   content: attr(data-info);
+  display: none;
   position: absolute;
   white-space: pre-wrap;
   bottom: -334px;
@@ -436,6 +440,7 @@ header .banner .lnb-content .lnb-main .lnb .online-pharmacy::before {
 }
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy::after {
   content: "";
+  display: none;
   position: absolute;
   bottom: -5px;
   right: 2.5px;

@@ -1,4 +1,4 @@
-import "./header/header.js"
+import "../header/header.js"
 
 // Accordian Event
 const firstContent = document.querySelectorAll(".accordion .content");
@@ -71,4 +71,22 @@ titles.forEach((title) => {
   });
   elRoadAddressDetail.addEventListener("change", (e) => {
     elRoadAddressDetail.setAttribute("value", e.target.value);
+  });
+
+
+
+  // 성명, 휴대전화 재확인
+  const results = document.querySelectorAll(".el_result2")
+  const name = document.querySelector("#name");
+  const phone = document.querySelector("#num");
+
+  const register2 = () => {
+    console.log(`성명: ${name.value}`);
+    console.log(`휴대폰번호: ${phone.value}`);
+    results[0].innerHTML = name.value;
+    results[1].innerHTML = phone.value;
+  };
+
+  document.querySelector(".el_btn2").addEventListener("click", () => {
+    register2();
   });

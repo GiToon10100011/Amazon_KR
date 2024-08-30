@@ -1,7 +1,7 @@
 // 해당 파일은 헤더 스타일 시트입니다.
 // This is the stylesheet of our website's Header
 
-@import "../../reset.scss";
+@import "../reset.scss";
 
 // Common
 body {
@@ -370,8 +370,13 @@ header {
             &.active::before {
               opacity: 1;
             }
+            &.display::after,
+            &.display::before {
+              display: block;
+            }
             &::before {
               content: attr(data-info);
+              display: none;
               position: absolute;
               white-space: pre-wrap;
               bottom: -334px;
@@ -387,6 +392,7 @@ header {
             }
             &::after {
               content: "";
+              display: none;
               position: absolute;
               bottom: -5px;
               right: 2.5px;
