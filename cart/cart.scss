@@ -474,7 +474,7 @@ main {
                 margin-top: 5px;
                 color: #000;
                 font-weight: normal;
-                
+
                 span {
                   color: #ff6f00;
                   font-weight: normal;
@@ -623,10 +623,10 @@ main {
 
 // Mobile
 @media screen and (max-width: 768px) {
-  html,
-  body {
-    // height: 3000px;
-  }
+  // html,
+  // body {
+  //   // height: 3000px;
+  // }
   header {
     left: 0;
   }
