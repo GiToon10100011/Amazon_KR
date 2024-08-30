@@ -30,13 +30,14 @@ console.log(`
 // Insert Header
 const body = document.querySelector("#header");
 body.innerHTML = `
+const body = document.querySelector("#header");
     <header>
       <div class="inner">
         <div class="gnb-content">
           <nav class="gnb">
             <div class="logo_container">
               <i class="fa-solid fa-bars sideMenu-trigger-btn"></i>
-              <a href="../main.html"
+              <a href=""
                 ><img src="./logo/png/amazon_kr_ezen2.png" alt="logo"
               /></a>
             </div>
@@ -231,7 +232,7 @@ body.innerHTML = `
                 </ul>
               </div>
               <div class="item">
-                <a href="#none">
+                <a href="./cart/cart.html">
                   <span class="material-symbols-outlined"> shopping_cart </span>
                 </a>
                 <span>장바구니</span>
@@ -786,8 +787,20 @@ const onlinePharmacy = document.querySelector(".online-pharmacy");
 const onlinePharmacyToggle = onlinePharmacy.querySelector(
   ".fa-circle-question"
 );
+
 onlinePharmacyToggle.addEventListener("click", () => {
-  onlinePharmacy.classList.toggle("active");
+  if (!onlinePharmacy.classList.contains("active")) {
+    onlinePharmacy.classList.add("display");
+    setTimeout(() => {
+      onlinePharmacy.classList.add("active");
+    }, 100);
+  }
+  if (onlinePharmacy.classList.contains("active")) {
+    onlinePharmacy.classList.remove("active");
+    setTimeout(() => {
+      onlinePharmacy.classList.remove("display");
+    }, 300);
+  }
 });
 
 //Speech Recognition Event

@@ -176,7 +176,7 @@
   <main id="container">
     <div id="top">
       <div id="logo">
-        <img src="./logo/primeLogo.png" alt="primeLogo">
+        <img src="./primeLogo.png" alt="primeLogo">
       </div>
       <h2>아마존 코리아 <span>멤버십 패밀리</span></h2>
       <div id="top-mobile">
@@ -185,7 +185,9 @@
         </p>
         <p class="pmobile2">수천 개 상품 무료배송, 다양한 TV 컨텐츠, 프라임 회원 전용 특가 등</p>
         <input type="submit" value="30일 무료체험 시작하기">
-        <p class="pmobile3">이후 단돈 15,000/월(세금 별도)으로 이용 가능하며, 언제든지 취소하실 수 있습니다.</p>
+        <p class="pmobile3">
+          이후 단돈 15,000/월(세금 별도)으로 이용 가능하며, 언제든지 취소하실 수 있습니다.
+        </p>
         <div class="mobile-plan">
           <p class="pmobile4">요금제 살펴보기 ></p>
           <div class="mobile-plan2">
@@ -480,7 +482,9 @@
                       type="text" 
                       name="exDate" 
                       id="exDate" 
-                      class="exDate">
+                      class="exDate"
+                      placeholder="예) 09/15"
+                      >
                     </label>
                   </div>
                   <input type="submit" value="카드 등록하기">
@@ -580,63 +584,77 @@
     <div id="address">
       <h2>배송 정보 입력</h2>
       <div class="addDetail">
-        <div class="bl_stack form">
-          <div class="el_ttl">주소</div>
-          <div class="bl_stack bl_stack--row">
+        <div class="bl_stack_top">
+          <div class="bl_stack form">
+            <div class="el_ttl">주소</div>
+            <div class="bl_stack bl_stack--row">
+              <input
+                type="text"
+                class="el_input hp_txt-center"
+                placeholder=""
+                disabled
+                id="zonecode"
+              />
+              <button class="el_btn el_btn--outline hp_shrink-0" id="search-btn">
+                우편번호 찾기
+              </button>
+            </div>
             <input
               type="text"
-              class="el_input hp_txt-center"
+              class="el_input"
               placeholder=""
               disabled
-              id="zonecode"
+              id="roadAddress"
             />
-            <button class="el_btn el_btn--outline hp_shrink-0" id="search-btn">
-              우편번호 찾기
-            </button>
+            <input
+              type="text"
+              class="el_input"
+              placeholder="상세주소를 입력해주세요."
+              id="roadAddressDetail"
+            />
+            <button class="el_btn" id="register-btn">주소 등록하기</button>
           </div>
-          <input
-            type="text"
-            class="el_input"
-            placeholder=""
-            disabled
-            id="roadAddress"
-          />
-          <input
-            type="text"
-            class="el_input"
-            placeholder="상세주소를 입력해주세요."
-            id="roadAddressDetail"
-          />
-          <button class="el_btn" id="register-btn">주소 등록하기</button>
+          <div class="bl_stack">
+            <div class="el_ttl">입력한 주소를 확인해주세요.</div>
+            <div class="el_ttl">우편번호</div>
+            <div class="el_result"></div>
+            <div class="el_ttl">주소</div>
+            <div class="el_result"></div>
+            <div class="el_ttl">상세주소</div>
+            <div class="el_result"></div>
+          </div>
         </div>
-        <div class="bl_stack">
-          <div class="el_ttl">입력한 주소를 확인해주세요.</div>
-          <div class="el_ttl">우편번호</div>
-          <div class="el_result"></div>
-          <div class="el_ttl">주소</div>
-          <div class="el_result"></div>
-          <div class="el_ttl">상세주소</div>
-          <div class="el_result"></div>
+        <div class="bl_stack_btm">
+          <div class="bl_stack2">
+            <div class="name">
+              <p>성명</p>
+              <input
+              type="text" 
+              name="name" 
+              id="name">
+            </div>
+            <div class="number">
+              <p>휴대폰 번호</p>
+              <input
+              type="text" 
+              name="num" 
+              id="num"
+              placeholder="예) 010-0000-0000"
+              >
+              <span>배송 지원 및 추적 시 사용될 수 있습니다.</span>
+            </div>
+            <button class="el_btn2" id="register-btn2">성명과 휴대전화 등록하기</button>
+          </div>
+          <div class="nameNum">
+            <div class="el_ttl2">입력한 정보를 확인해주세요.</div>
+            <div class="el_ttl2">성명</div>
+            <div class="el_result2"></div>
+            <div class="el_ttl2">휴대폰 번호</div>
+            <div class="el_result2"></div>
+          </div>
         </div>
-        <div class="name">
-          <p>성명</p>
-          <input
-          type="text" 
-          name="name" 
-          id="name">
-        </div>
-        <div class="number">
-          <p>휴대폰 번호</p>
-          <input
-          type="text" 
-          name="num" 
-          id="num"
-          placeholder="ex. 010-0000-0000"
-          >
-          <span>배송 지원 및 추적 시 사용될 수 있습니다.</span>
-        </div>
+        <input type="submit" value="계속">
       </div>
-      <input type="submit" value="계속">
     </div>
   </main>
   <!-- <iframe src="./footer/footer.html" frameborder="0"></iframe> -->

@@ -1,4 +1,4 @@
-import "./header/header.js"
+import "../header/header.js"
 
 const faEye = document.querySelector(".fa-eye-slash");
 const pwInput = document.querySelector("#password");
@@ -43,20 +43,6 @@ e.preventDefault();``
   };
 });
 
-// // 사용자가 입력한 아이디에 한글, 특수기호가 있는지 검사한다.
-// // 있다면 알림창으로 "양식에 맞는 아이디를 올바르게 입력해주세요!"
-// // 없다면 비밀번호 탭으로 넘어가도록 한다.
-// const idInput = document.querySelector("#id").value;
-// const invalidPattern = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣`~!@#$%^&*()_+={}\[\]|\\:;"'<>,.?/]/;
-
-// if(invalidPattern.test(idInput)) {
-//   alert("양식에 맞는 아이디를 올바르게 입력해주세요!");
-//   return false;
-// } else {
-//   document.querySelector(".log_id").classList.add(".log_pw");
-//   document.querySelector("log_pw").classList.remove(".log_pw");
-//   return false;
-// }
 
 // 회원, 비회원 클릭시 인풋박스 변경
 const btns = document.querySelectorAll("h2");

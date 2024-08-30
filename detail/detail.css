@@ -581,6 +581,11 @@ body {
   height: fit-content;
 }
 
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 #header {
   position: relative;
   z-index: 12;
@@ -590,7 +595,7 @@ body {
 #M_bottom_bar {
   display: none;
   position: fixed;
-  z-index: 5000;
+  z-index: 11;
   width: 100%;
   bottom: 0;
   left: 0;
@@ -835,12 +840,12 @@ main {
   cursor: pointer;
 }
 .modalAll .modalBg {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #000;
   position: fixed;
   z-index: 5050;
-  opacity: 0.3;
+  opacity: 0.4;
 }
 .modalAll.showmodal {
   display: flex;
@@ -1174,7 +1179,7 @@ main {
 }
 .left_area .reviw_all .photos {
   overflow: hidden;
-  width: auto;
+  width: 90%;
   height: 100%;
   display: flex;
   margin-top: 5px;
@@ -1183,6 +1188,9 @@ main {
   cursor: pointer;
 }
 .left_area .reviw_all .photos ul {
+  width: 100%;
+  height: 120px;
+  z-index: 20;
   gap: 5px;
   display: flex;
   transition: transform all ease-in-out;
@@ -1195,17 +1203,12 @@ main {
 }
 .left_area .reviw_all .photos ul li a {
   transition: all 0.3s;
-  cursor: pointer;
 }
 .left_area .reviw_all .photos ul li a img {
-  width: 100%;
-  height: 100%;
+  width: 120px;
+  height: 120px;
   background: center/cover no-repeat;
   cursor: pointer;
-}
-.left_area .reviw_all .photos ul li a img:hover {
-  width: 120%;
-  height: 120%;
 }
 .left_area .reviw_all .reviw_photo_btn {
   position: absolute;
@@ -1216,6 +1219,7 @@ main {
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
+  z-index: 50;
 }
 .left_area .reviw_all .reviw_photo_btn .slide_btn_L {
   width: 56px;
@@ -1358,6 +1362,7 @@ main {
   justify-content: space-between;
 }
 .right_area .main_desc .brand_heart {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -1783,6 +1788,7 @@ main {
     color: #ff9900;
   }
   #M_bottom_bar .popup {
+    z-index: -200;
     width: 100%;
     height: 360px;
     display: flex;
@@ -1794,6 +1800,7 @@ main {
     transition: all 0.3s;
   }
   #M_bottom_bar .popup.popupaction {
+    z-index: 1;
     display: flex;
     transform: translateY(0%);
   }
@@ -1869,7 +1876,7 @@ main {
     justify-content: space-between;
   }
   #M_proinfo .main_desc .brand_heart {
-    display: flex;
+    display: none;
     justify-content: space-between;
   }
   #M_proinfo .main_desc .brand_heart .fa-heart {
@@ -2092,6 +2099,7 @@ main {
     justify-content: center;
     align-items: center;
     opacity: 0.3;
+    cursor: pointer;
   }
   #M_reviw .M_user_reviw_warpper {
     width: 100%;
