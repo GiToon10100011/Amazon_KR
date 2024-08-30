@@ -89,11 +89,8 @@ window.addEventListener("scroll", () => {
 const params = new URLSearchParams(location.search);
 const iframeSrc = params.get("iframesrc");
 
-if (iframeSrc === "wishlist") {
-  pageFrame.setAttribute("src", `./wishlist/wishlist.html`);
-}
-if (iframeSrc === "my") {
-  pageFrame.setAttribute("src", `./wishlist/wishlist.html`);
+if (iframeSrc) {
+  pageFrame.setAttribute("src", `./${iframeSrc}/${iframeSrc}.html`);
 }
 
 //image change event
@@ -101,7 +98,7 @@ const initialProfile = localStorage.getItem("profileimg");
 
 const profileImg = document.querySelector(".profile-pic");
 
-if(initialProfile !== null){
+if (initialProfile !== null) {
   profileImg.querySelector("img").src = initialProfile;
 }
 
@@ -125,7 +122,7 @@ fileInput.addEventListener("change", (event) => {
       )
         profileImg.querySelector("img").src = e.target.result;
       else alert("올바른 파일 유형이 아닙니다.");
-      localStorage.setItem("profileimg", e.target.result)
+      localStorage.setItem("profileimg", e.target.result);
     };
 
     reader.readAsDataURL(file);

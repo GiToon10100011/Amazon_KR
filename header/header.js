@@ -224,11 +224,11 @@ const body = document.querySelector("#header");
                 <a href="./my/my.html"><i class="fa-regular fa-user"></i></a>
                 <span>회원정보</span>
                 <ul class="user-menu">
-                  <li><a href="">나의 쿠폰</a></li>
-                  <li><a href="">주문/배송조회</a></li>
-                  <li><a href="">취소/반품/교환</a></li>
-                  <li><a href="">고객센터</a></li>
-                  <li><a href="">회원정보</a></li>
+                  <li><a href="./my/my.html?iframesrc=coupon">나의 쿠폰</a></li>
+                  <li><a href="./my/my.html">주문/배송조회</a></li>
+                  <li><a href="./my/my.html">취소/반품/교환</a></li>
+                  <li><a href="./my/my.html">고객센터</a></li>
+                  <li><a href="./my/my.html">회원정보</a></li>
                 </ul>
               </div>
               <div class="item">
@@ -393,6 +393,37 @@ const updateDate = () => {
 updateDate();
 
 setInterval(updateDate, 60000);
+
+const createHottestItems = (json) => {
+  const rankingItems = document.querySelectorAll(".ranking-content p");
+  const rankingHeader = document.querySelectorAll(".ranking p");
+  rankingItems.forEach((item, index) => {
+    const randomIdx = Math.floor(Math.random() * 1000);
+    item.innerHTML = `
+    <span>${index + 1} </span> ${json[randomIdx].name}
+    `;
+    rankingHeader[index].innerHTML = `
+    <span>${index + 1} </span> ${json[randomIdx].name}
+    `;
+    item.addEventListener("click", () => {
+      location.href = `./detail/detail.html?name=${item.innerText
+        .trim()
+        .slice(2, item.innerText.length)}&category=${json[randomIdx].category}`;
+    });
+    rankingHeader[index].addEventListener("click", () => {
+      location.href = `./detail/detail.html?name=${item.innerText
+        .trim()
+        .slice(3, item.innerText.length)}&category=${json[randomIdx].category}`;
+    });
+  });
+};
+
+fetch("./data.json")
+  .then((response) => response.json())
+  .then(({ data }) => {
+    createHottestItems(data);
+  })
+  .catch((err) => console.log(err));
 
 const rankingRadios = document.querySelectorAll(
   ".ranking-selection input[type = 'radio']"
@@ -727,7 +758,9 @@ categoryItems.forEach((item, index) => {
       const lis = middleCategoryItems.querySelectorAll("li");
       if (lis.length < categories[categoriesKeys[index]].length) {
         const li = document.createElement("li");
-        li.innerHTML = `<a>${categories[categoriesKeys[index]][i]}</a>`;
+        li.innerHTML = `<a href="./search/search.html?searchBar=${
+          categories[categoriesKeys[index]][i]
+        }">${categories[categoriesKeys[index]][i]}</a>`;
         middleCategoryItems.appendChild(li);
       } else {
         break;
@@ -823,7 +856,6 @@ if (!SpeechRecognition) {
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
     searchInput.value = transcript;
-    console.log("You said: ", transcript);
   };
 
   recognition.onerror = (event) => {
@@ -836,12 +868,10 @@ if (!SpeechRecognition) {
     } else {
       recognition.start();
       isRecognizing = true;
-      console.log("Voice Recognition Started");
     }
   });
 
   recognition.onend = () => {
     isRecognizing = false;
-    console.log("Speech recognition service disconnected");
   };
 }
