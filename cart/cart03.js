@@ -68,7 +68,7 @@ document.querySelector(".product-menu a").addEventListener("click", (e) => {
 
   const cartItems = localStorage.getItem("cartItems");
   if (cartItems) {
-    localStorage.setItem("wishlistItems", cartItems);
+    localStorage.setItem("historyItems", cartItems);
   }
 
   localStorage.removeItem("cartItems");
@@ -79,4 +79,4 @@ document.querySelector(".product-menu a").addEventListener("click", (e) => {
 setTimeout(() => {
   const loader = document.querySelector(".loader-box");
   loader.classList.add("active");
-}, 1000)
+}, 1000);
