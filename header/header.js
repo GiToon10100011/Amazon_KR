@@ -30,7 +30,6 @@ console.log(`
 // Insert Header
 const body = document.querySelector("#header");
 body.innerHTML = `
-const body = document.querySelector("#header");
     <header>
       <div class="inner">
         <div class="gnb-content">
@@ -45,26 +44,26 @@ const body = document.querySelector("#header");
               <form action="./search/search.html" method="get">
                 <select name="search_type" id="search_type">
                   <option value="" selected>카테고리</option>
-                  <option value="">전자</option>
-                  <option value="">컴퓨터</option>
-                  <option value="">예술 및 공예</option>
-                  <option value="">자동차 용품</option>
-                  <option value="">유아</option>
-                  <option value="">뷰티 및 퍼스널 케어</option>
-                  <option value="">여성 패션</option>
-                  <option value="">남성 패션</option>
-                  <option value="">아동용 의류</option>
-                  <option value="">건강 및 가정용품</option>
-                  <option value="">가정 및 주방</option>
-                  <option value="">산업용 및 과학용</option>
-                  <option value="">여행 가방</option>
-                  <option value="">영화 및 TV</option>
-                  <option value="">애완동물 용품</option>
-                  <option value="">소프트웨어</option>
-                  <option value="">스포츠 및 야외 활동</option>
-                  <option value="">공구 및 주택 개조</option>
-                  <option value="">장난감 및 게임</option>
-                  <option value="">비디오 게임</option>
+                  <option value="전자">전자</option>
+                  <option value="컴퓨터">컴퓨터</option>
+                  <option value="예술 및 공예">예술 및 공예</option>
+                  <option value="자동차 용품">자동차 용품</option>
+                  <option value="유아">유아</option>
+                  <option value="뷰티 및 퍼스널케어">뷰티 및 퍼스널 케어</option>
+                  <option value="여성 패션">여성 패션</option>
+                  <option value="남성 패션">남성 패션</option>
+                  <option value="아동용 의류">아동용 의류</option>
+                  <option value="건강 및 가정용품">건강 및 가정용품</option>
+                  <option value="가정 및 주방">가정 및 주방</option>
+                  <option value="산업용 및 과학용">산업용 및 과학용</option>
+                  <option value="여행 가방">여행 가방</option>
+                  <option value="영화 및 TV">영화 및 TV</option>
+                  <option value="애왕동물 용품">애완동물 용품</option>
+                  <option value="소프트웨어">소프트웨어</option>
+                  <option value="스포츠 및 야외활동">스포츠 및 야외 활동</option>
+                  <option value="공구 및 주택 개조">공구 및 주택 개조</option>
+                  <option value="장난감 및 게임">장난감 및 게임</option>
+                  <option value="비디오 게임">비디오 게임</option>
                 </select>
                 <hr class="bar" />
                 <div class="inputBox">
@@ -294,6 +293,8 @@ const body = document.querySelector("#header");
         </div>
       </div>
     </div>`;
+
+const mediaQuery = window.matchMedia("(max-width: 768px)");
 
 // Header events
 const lnb = document.querySelector(".lnb-content");
@@ -751,44 +752,71 @@ categoryItems.forEach((item, index) => {
   const categoryList = document.createElement("ul");
   categoryList.className = "categories-middle";
   item.appendChild(categoryList);
-  item.addEventListener("mouseenter", (e) => {
+
+  let timeoutSwitch;
+
+  const showSubmenu = () => {
+    clearTimeout(timeoutSwitch);
     const middleCategoryItems = item.querySelector(".categories-middle");
 
-    middleCategoryItems.innerHTML = "";
-
-    middleCategoryItems.classList.add("active");
-
-    for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
-      const lis = middleCategoryItems.querySelectorAll("li");
-      if (lis.length < categories[categoriesKeys[index]].length) {
+    if (middleCategoryItems.children.length === 0) {
+      for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
         const li = document.createElement("li");
         li.innerHTML = `<a href="./search/search.html?searchBar=${
           categories[categoriesKeys[index]][i]
         }">${categories[categoriesKeys[index]][i]}</a>`;
         middleCategoryItems.appendChild(li);
-      } else {
-        break;
+      }
+    }
+
+    middleCategoryItems.classList.add("active");
+    setTimeout(() => {
+      middleCategoryItems.classList.add("opacity");
+    }, 50);
+  };
+
+  const hideSubmenu = () => {
+    const middleCategoryItems = item.querySelector(".categories-middle");
+    timeoutSwitch = setTimeout(() => {
+      middleCategoryItems.classList.remove("active");
+    }, 100);
+    if (middleCategoryItems.classList.contains("opacity"))
+      middleCategoryItems.classList.remove("opacity");
+  };
+
+  item.addEventListener("mouseenter", showSubmenu);
+  item.addEventListener("mouseleave", hideSubmenu);
+
+  const middleCategoryItems = item.querySelector(".categories-middle");
+  middleCategoryItems.addEventListener("mouseenter", () => {
+    clearTimeout(timeoutSwitch);
+  });
+  middleCategoryItems.addEventListener("mouseleave", hideSubmenu);
+
+  item.addEventListener("click", () => {
+    item.querySelector(".fa-chevron-right").classList.toggle("active");
+    middleCategoryItems.classList.toggle("mactive");
+    middleCategoryItems.classList.remove("opacity");
+    middleCategoryItems.classList.remove("active");
+    if (middleCategoryItems.children.length === 0) {
+      for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="./search/search.html?searchBar=${
+          categories[categoriesKeys[index]][i]
+        }">${categories[categoriesKeys[index]][i]}</a>`;
+        middleCategoryItems.appendChild(li);
       }
     }
   });
 
-  const hideSubmenu = () => {
-    const middleCategoryItems = item.querySelector(".categories-middle");
-    middleCategoryItems.classList.remove("active");
-  };
-
-  const middleCategoryItems = item.querySelector(".categories-middle");
-  item.addEventListener("mouseleave", (e) => {
-    if (!item.contains(e.relatedTarget)) {
-      hideSubmenu();
-    }
-  });
-
-  middleCategoryItems.addEventListener("mouseout", (e) => {
-    if (!middleCategoryItems.contains(e.relatedTarget)) {
-      hideSubmenu();
-    }
-  });
+  if (mediaQuery.matches) {
+    item.removeEventListener("mouseenter", showSubmenu);
+    item.removeEventListener("mouseleave", hideSubmenu);
+    categoryList.removeEventListener("mouseenter", () =>
+      clearTimeout(timeoutSwitch)
+    );
+    categoryList.removeEventListener("mouseleave", hideSubmenu);
+  }
 });
 
 // ranking auto scroll

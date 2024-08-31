@@ -684,6 +684,9 @@ header {
   font-weight: 500;
   cursor: pointer;
 }
+.main-sideMenu-container .sideMenu-header .sideMenu-login span {
+  font-weight: normal;
+}
 .main-sideMenu-container .sideMenu-header .fa-x {
   cursor: pointer;
 }
@@ -740,7 +743,8 @@ header {
   height: 100%;
   background: white;
   overflow-y: scroll;
-  transition: opacity 0.3s;
+  opacity: 0;
+  transition: opacity 0.1s;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle li {
   width: 100%;
@@ -757,6 +761,9 @@ header {
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle.active {
   display: block;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle.opacity {
+  opacity: 1;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-misc {
   display: flex;
@@ -1360,8 +1367,41 @@ header {
     scrollbar-width: none;
     overscroll-behavior: contain;
   }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover {
+    color: #000;
+    background: #fff;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover span, .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover i {
+    color: #000;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li > div {
+    padding: 10px;
+  }
   .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .fa-chevron-right {
     transform: rotate(90deg);
+    opacity: 1;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .fa-chevron-right.active {
+    transform: scaleY(-1) rotate(90deg);
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle {
+    left: 0;
+    position: relative;
+    height: auto;
+    width: 100%;
+    opacity: 1;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle li {
+    align-items: start;
+    background: #fff;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle.mactive {
+    display: block;
   }
   .main-sideMenu-container .main-sideMenu .sideMenu-misc .misc-list .fa-chevron-right {
     transform: rotate(90deg);

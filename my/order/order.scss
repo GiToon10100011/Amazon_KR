@@ -1,4 +1,4 @@
-@import "../reset.scss";
+@import "../../reset.scss";
 
 body {
   width: 100%;
@@ -236,6 +236,7 @@ header {
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
           gap: 10px;
           button {
             @include border-style($color: map-get($color, main-border-color));

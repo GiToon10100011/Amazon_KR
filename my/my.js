@@ -128,3 +128,4 @@ fileInput.addEventListener("change", (event) => {
     reader.readAsDataURL(file);
   }
 });
+

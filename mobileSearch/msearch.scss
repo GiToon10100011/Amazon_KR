@@ -154,6 +154,7 @@ header {
   height: 68px;
   background: map-get($map: $color, $key: main-color);
   position: fixed;
+  left: 0;
   bottom: 0;
   display: flex;
   justify-content: center;
