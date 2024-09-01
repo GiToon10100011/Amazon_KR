@@ -3,16 +3,18 @@
 
 import "./header/header.js";
 
-export const myPages = [
+const myPages = [
   "./order/order.html",
   "./wishlist/wishlist.html",
   "./points/points.html",
   "./coupon/coupon.html",
 ];
 
+const mediaQuery = window.matchMedia("(max-width: 768px)");
+
 const mainContent = document.querySelector("main");
 
-export const pageFrame = document.querySelector(".pageBox");
+const pageFrame = document.querySelector(".pageBox");
 
 const mobilePageFrame = document.getElementById("mobile-pageBox");
 
@@ -68,29 +70,31 @@ bannerMenus.forEach((menu, index) => {
   });
 });
 
-window.addEventListener("scroll", () => {
-  const scrollValue = window.scrollY;
-  const sideMenu = document.querySelector(".profile-sideMenu");
-  const myContent = document.querySelector(".pageBox");
-  if (scrollValue > 350) {
-    sideMenu.classList.add("fixed");
-    myContent.classList.add("fixed");
-    if (scrollValue > 4300) {
-      sideMenu.classList.remove("fixed");
-      myContent.classList.remove("fixed");
-    }
-  } else {
-    myContent.classList.add("fixed");
-    sideMenu.classList.remove("fixed");
-    myContent.classList.remove("fixed");
-  }
-});
-
 const params = new URLSearchParams(location.search);
 const iframeSrc = params.get("iframesrc");
 
+let indicator;
+
 if (iframeSrc) {
   pageFrame.setAttribute("src", `./${iframeSrc}/${iframeSrc}.html`);
+  switch (iframeSrc) {
+    case "wishlist":
+      indicator = "관심상품";
+      break;
+    case "points":
+      indicator = "적립금";
+      break;
+    case "coupon":
+      indicator = "쿠폰";
+      break;
+  }
+  sideMenus.forEach((menu) => {
+    if (menu.innerText === indicator) {
+      menu.classList.add("active");
+    }
+  });
+} else {
+  sideMenus[0].classList.add("active");
 }
 
 //image change event
@@ -129,3 +133,62 @@ fileInput.addEventListener("change", (event) => {
   }
 });
 
+const historyItems = JSON.parse(localStorage.getItem("historyItems")) || [];
+
+document.querySelector(".order-history").innerText = historyItems.length;
+
+let iframeSize;
+
+pageFrame.addEventListener("load", () => {
+  setTimeout(() => {
+    const loader = document.querySelector(".loader-box");
+    loader.classList.add("active");
+  }, 1000);
+  const iframeDoc =
+    pageFrame.contentDocument || pageFrame.contentWindow.document;
+  if (pageFrame.getAttribute("src") === myPages[0]) {
+    setTimeout(() => {
+      iframeSize = iframeDoc.querySelectorAll(".orderItem").length;
+    }, 1000);
+  }
+  if (pageFrame.getAttribute("src") === myPages[1]) {
+    setTimeout(() => {
+      iframeSize = iframeDoc.querySelectorAll(".wishlistItem").length;
+    }, 1000);
+  }
+  if (pageFrame.getAttribute("src") === myPages[2]) {
+    setTimeout(() => {
+      iframeSize = iframeDoc.querySelectorAll(".pointsItems").length;
+    }, 1000);
+  }
+  if (pageFrame.getAttribute("src") === myPages[3]) {
+    setTimeout(() => {
+      iframeSize = iframeDoc.querySelectorAll(".couponItem").length;
+    }, 1000);
+  }
+});
+
+if (mediaQuery.matches) {
+  sideMenus.forEach((menu) => {
+    menu.classList.remove("active");
+  });
+}
+
+window.addEventListener("scroll", () => {
+  const scrollValue = window.scrollY;
+  const sideMenu = document.querySelector(".profile-sideMenu");
+  const myContent = document.querySelector(".pageBox");
+
+  if (scrollValue > 350) {
+    sideMenu.classList.add("fixed");
+    myContent.classList.add("fixed");
+    if (scrollValue > 320 * iframeSize) {
+      sideMenu.classList.remove("fixed");
+      myContent.classList.remove("fixed");
+    }
+  } else {
+    myContent.classList.add("fixed");
+    sideMenu.classList.remove("fixed");
+    myContent.classList.remove("fixed");
+  }
+});

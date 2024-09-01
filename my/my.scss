@@ -3,11 +3,10 @@
 
 @import "./header/header.scss";
 
-html,
 body {
   position: relative;
   width: 100%;
-  height: 6000px;
+  height: 4000px;
   overflow-x: hidden;
 }
 
@@ -212,7 +211,6 @@ header {
   position: absolute;
   top: 140px;
   width: 100%;
-  height: 5100px;
   .profile-banner {
     width: 100%;
     height: 260px;
@@ -358,7 +356,7 @@ header {
     .pageBox {
       margin-left: 20px;
       width: 970px;
-      height: 5000px;
+      height: 3000px;
       &.fixed {
         position: absolute;
         left: 200px;
@@ -380,6 +378,9 @@ header {
 }
 
 @media screen and (max-width: 768px) {
+  .loader-box {
+    display: none;
+  }
   body,
   html {
     height: 2000px;
@@ -448,6 +449,7 @@ header {
         .profile-pic {
           img {
             width: 140px;
+            height: 140px;
           }
         }
         .profile-info {

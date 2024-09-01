@@ -56,7 +56,8 @@ ol {
 }
 body {
   width: 100%;
-  height: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 10px;
   font-family: "Noto Sans KR";
 }
@@ -156,7 +157,7 @@ header .dateFilter .calendarFilter input[type=date] {
   gap: 4px;
 }
 #order-content .sortFilter select {
-  width: 80px;
+  width: auto;
   height: 20px;
   font-family: "Noto Sans KR";
   border: none;

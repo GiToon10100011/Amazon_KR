@@ -27,6 +27,8 @@ console.log(`
   @@@@@@@@@@@@@@@@@@@@@@@                       -@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @@@@@@@@@@@@@@@@@@@@@@@@@.                  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
 
+console.log("Welcome to Amazon Korea!");
+
 // Insert Header
 const body = document.querySelector("#header");
 body.innerHTML = `

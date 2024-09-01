@@ -15,12 +15,12 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="order.css" />
-    <script defer src="order.js"></script>
+    <script type="module" defer src="order.js"></script>
   </head>
   <body>
     <header>
       <h1>주문내역</h1>
-      <form action="https://localhost:3000">
+      <form name="searchProductId" action="#">
         <span class="searchBox"
           ><input
             type="text"
@@ -28,7 +28,7 @@
             id="search"
             placeholder="주문 상품의 정보를 입력해주세요."
         /></span>
-        <input type="button" value="조회하기" />
+        <input id="searchProductBtn" type="button" value="조회하기" />
       </form>
       <div class="dateFilter">
         <div class="radioBtns">
@@ -52,7 +52,7 @@
     </header>
     <main id="order-content">
       <div class="sortFilter">
-        <select name="" id="">
+        <select name="categoryFilter" id="categoryFilter">
           <option value="" selected>카테고리</option>
           <option value="전자">전자</option>
           <option value="컴퓨터">컴퓨터</option>
@@ -76,14 +76,13 @@
           <option value="비디오 게임">비디오 게임</option>
         </select>
         <hr />
-        <select name="" id="">
-          <option value="">최신순</option>
-          <option value="">낮은가격순</option>
-          <option value="">높은가격순</option>
+        <select name="sortProducts" id="sortProducts">
+          <option value="recent">최신순</option>
+          <option value="low">낮은가격순</option>
+          <option value="high">높은가격순</option>
         </select>
       </div>
       <section class="orderItems"></section>
     </main>
   </body>
 </html>
-

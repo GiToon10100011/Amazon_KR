@@ -18,8 +18,6 @@ fetch("../data.json")
     const wishlistItems =
       JSON.parse(localStorage.getItem("wishlistItems")) || [];
 
-    console.log(wishlistItems);
-
     const domWishlistItems = document.querySelector(".wishlistItems");
 
     if (wishlistItems.length === 0) {
@@ -28,7 +26,9 @@ fetch("../data.json")
       domWishlistItems.style.lineHeight = "150px";
       domWishlistItems.innerHTML = "<h1>찜 내역이 없습니다.<h1>";
     } else {
-      document.querySelector(".total span").innerText = `총 ${wishlistItems.length}개`
+      document.querySelector(
+        ".total span"
+      ).innerText = `총 ${wishlistItems.length}개`;
       wishlistItems.forEach((item) => {
         const wishlistProducts = products.data.filter((product) => {
           return product.name.includes(item.name);
@@ -38,7 +38,7 @@ fetch("../data.json")
           domWishlistItem.className = "wishlistItem";
           domWishlistItem.innerHTML = `
             <div class="item-content">
-            <input type="checkbox" name="item" id="selectAll" />
+            <input type="checkbox" name="item" id="wishlistCheck" />
             <div class="item-img">
               <img src="${product["image-url"]}" alt="" />
             </div>
@@ -67,8 +67,81 @@ fetch("../data.json")
           domWishlistItem
             .querySelector(".product-name .icon-cart")
             .addEventListener("click", () => {
-              alert(`${product.name}을(를) 장바구니에 담았습니다. `)
+              alert(`${product.name}을(를) 장바구니에 담았습니다. `);
             });
+        });
+      });
+      const checkAllBtn = document.querySelector("#selectAll");
+      const checkItems = document.querySelectorAll("#wishlistCheck");
+      const deleteAllItems = document.querySelector(".deleteAllItems");
+      const deleteSelectedItems = document.querySelector(
+        ".deleteSelectedItems"
+      );
+      const deleteProductBtns = document.querySelectorAll(
+        ".item-delete-btn button"
+      );
+      console.log(deleteProductBtns);
+      checkAllBtn.addEventListener("change", () => {
+        checkItems.forEach((item) => {
+          item.checked = checkAllBtn.checked;
+        });
+      });
+      checkItems.forEach((item) => {
+        item.addEventListener("change", () => {
+          if (!item.checked) {
+            checkAllBtn.checked = false;
+          }
+        });
+      });
+      deleteAllItems.addEventListener("click", () => {
+        if (confirm("모든 찜목록을 삭제하시겠습니까?")) {
+          localStorage.removeItem("wishlistItems");
+          location.reload();
+        }
+      });
+      deleteSelectedItems.addEventListener("click", () => {
+        if (confirm("선택하신 목록을 삭제하시겠습니까?")) {
+          const remainingItems = [];
+          checkItems.forEach((check) => {
+            if (check.checked) {
+              check.parentElement.parentElement.remove();
+            } else {
+              remainingItems.push(check);
+            }
+          });
+          const updatedWishlistItems = wishlistItems.filter((item) =>
+            remainingItems.some((remainingItem) =>
+              remainingItem.parentElement
+                .querySelector(".product-name span:first-child")
+                .innerText.includes(item.name)
+            )
+          );
+          localStorage.setItem(
+            "wishlistItems",
+            JSON.stringify(updatedWishlistItems)
+          );
+          location.reload();
+        }
+      });
+      deleteProductBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          if (
+            confirm(
+              `${
+                e.target.parentElement.parentElement.querySelector(
+                  ".product-name span:first-child"
+                ).innerText
+              }를 삭제하시겠습니까?`
+            )
+          ) {
+            const storageIndex = Array.from(deleteProductBtns).indexOf(btn);
+            e.target.parentElement.parentElement.remove();
+            wishlistItems.splice(storageIndex, 1);
+            localStorage.setItem(
+              "wishlistItems",
+              JSON.stringify(wishlistItems)
+            );
+          }
         });
       });
     }
