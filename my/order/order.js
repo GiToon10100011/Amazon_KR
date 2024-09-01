@@ -218,6 +218,41 @@ fetch("../data.json")
 
     searchProductBtn.addEventListener("click", (e) => {
       const searchValue = searchProduct.children[0].children[0].value;
+      const domOrderItems = document.querySelector(".orderItems");
+
+      const filteredIdProducts = historyData.filter((history) => {
+        return (
+          history.id.toString().includes(searchValue) ||
+          history.name.toLowerCase().includes(searchValue)
+        );
+      });
+
+      const filteredItems = historyItems.filter((history) =>
+        filteredIdProducts.some(
+          (product) =>
+            product.name === history.name &&
+            product.detail.brands === history.brand
+        )
+      );
+
+      domOrderItems.innerHTML = "";
+
+      if (filteredIdProducts.length === 0) {
+        domOrderItems.style.textAlign = "center";
+        domOrderItems.style.lineHeight = "150px";
+        domOrderItems.innerHTML = "<h1>주문내역이 없습니다.<h1>";
+        document.body.style.height = getComputedStyle(
+          document.querySelector(".myPage-content")
+        ).height;
+      } else {
+        domOrderItems.style.textAlign = "";
+        domOrderItems.style.lineHeight = "";
+        filteredIdProducts.forEach((product, index) => {
+          addItems(filteredItems[index], product);
+        });
+      }
+
+      e.target.children[0].children[0].value = "";
     });
 
     searchProduct.addEventListener("submit", (e) => {
