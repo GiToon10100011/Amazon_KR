@@ -139,8 +139,11 @@ fileInput.addEventListener("change", (event) => {
 });
 
 const historyItems = JSON.parse(localStorage.getItem("historyItems")) || [];
+const couponItems = JSON.parse(localStorage.getItem("couponItems")) || [];
 
-document.querySelector(".order-history").innerText = historyItems.length;
+document.querySelector(".order-history").innerText =`${ historyItems.length} 건`;
+
+document.querySelector(".coupon-history").innerText = `${couponItems.length} 장`
 
 let iframeSize;
 
