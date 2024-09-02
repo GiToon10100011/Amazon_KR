@@ -10,6 +10,11 @@ const myPages = [
   "./coupon/coupon.html",
 ];
 
+setTimeout(() => {
+  const loader = document.querySelector(".loader-box");
+  loader.classList.add("active");
+}, 1000);
+
 const mediaQuery = window.matchMedia("(max-width: 768px)");
 
 const mainContent = document.querySelector("main");
@@ -140,10 +145,6 @@ document.querySelector(".order-history").innerText = historyItems.length;
 let iframeSize;
 
 pageFrame.addEventListener("load", () => {
-  setTimeout(() => {
-    const loader = document.querySelector(".loader-box");
-    loader.classList.add("active");
-  }, 1000);
   const iframeDoc =
     pageFrame.contentDocument || pageFrame.contentWindow.document;
   if (pageFrame.getAttribute("src") === myPages[0]) {

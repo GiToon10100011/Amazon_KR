@@ -735,12 +735,14 @@ categoryItems.forEach((item, index) => {
     }
   });
 
-  item.addEventListener("mouseout", (e) => {
-    const middleCategoryItems = item.querySelector(".categories-middle");
-    if (!middleCategoryItems.contains(e.relatedTarget)) {
-      middleCategoryItems.classList.remove("active");
-    }
-  });
+  setTimeout(() => {
+    item.addEventListener("mouseout", (e) => {
+      const middleCategoryItems = item.querySelector(".categories-middle");
+      if (!middleCategoryItems.contains(e.relatedTarget)) {
+        middleCategoryItems.classList.remove("active");
+      }
+    });
+  }, 1000);
 });
 
 // ranking auto scroll

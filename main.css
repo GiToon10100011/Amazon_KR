@@ -689,6 +689,7 @@ header {
 }
 .main-sideMenu-container .sideMenu-header .fa-x {
   cursor: pointer;
+  z-index: 100000;
 }
 .main-sideMenu-container .main-sideMenu {
   width: 100%;
@@ -738,13 +739,14 @@ header {
   display: none;
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 94%;
   width: 100%;
   height: 100%;
   background: white;
   overflow-y: scroll;
   opacity: 0;
-  transition: opacity 0.1s;
+  transition: opacity 0.3s;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle li {
   width: 100%;
