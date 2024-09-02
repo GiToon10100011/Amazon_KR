@@ -637,9 +637,15 @@ fetch("./data.json")
       document.querySelectorAll(".buynow").forEach(function (element) {
         console.log(element);
         element.addEventListener("click", function () {
+          const option = document.querySelectorAll(
+            ".main_desc #selectoption"
+          )[1].value;
+          const cnt = document.querySelector(".count_result").innerText;
           const url = `../cart/cart02.html?category=${
             product.category
-          }&name=${encodeURIComponent(product.name)}`;
+          }&name=${encodeURIComponent(
+            product.name
+          )}&option=${option}&quantity=${cnt}`;
           location.href = url;
         });
       });
@@ -694,9 +700,12 @@ fetch("./data.json")
       });
       document.querySelectorAll(".buy_now").forEach(function (element) {
         element.addEventListener("click", function () {
+          const option = document.querySelectorAll(
+            ".main_desc #selectoption"
+          )[0].value;
           const url = `../cart/cart02.html?category=${
             product.category
-          }&name=${encodeURIComponent(product.name)}`;
+          }&name=${encodeURIComponent(product.name)}&option=${option}`;
           location.href = url;
         });
       });
