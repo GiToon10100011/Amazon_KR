@@ -19,45 +19,96 @@ fetch("data.json")
 
     let cartItems = JSON.parse(localStorage.getItem("cartItems"));
 
-    cartItems.forEach((item) => {
-      const cartProducts = products.data.filter((product) => {
-        return (
-          product.name.includes(item.name) &&
-          product.detail.brands.includes(item.brand)
-        );
-      });
+    const params = new URLSearchParams(location.search);
+    const category = params.get("category");
+    const name = params.get("name");
+    const option = params.get("option");
+    const quantity = params.get("quantity");
 
-      cartProducts.forEach((product) => {
-        console.log(product);
-        const domCartItems = document.querySelector(".order-products"); // 올바른 선택자 사용
-        const domCartItem = document.createElement("div");
-        domCartItem.className = "product-item";
-        domCartItem.innerHTML = `
-          <div class="product-header">
-            <h3>${product.detail.brands}</h3>
-            <span class="shipping-info">무료배송</span>
-          </div>
-          <div class="product-content">
-            <img src=${
-              product["image-url"]
-            } alt="상품 이미지" class="product-image" />
-            <div class="product-details">
-              <p>${product.name}</p>
-              <p>추가상품 - ${item.options}</p>
-              <p class="product-price" data-unit-price="${product.price.replace(
-                /[^0-9.-]+/g,
-                ""
-              )}">
-                ${product.price} <span class="product-quantity">| ${
-          item.quantity
-        }개</span>
-              </p>
+    if (option) {
+      const paramItem = products.data.find((product) => product.name === name);
+      const domCartItems = document.querySelector(".order-products"); // 올바른 선택자 사용
+      const domCartItem = document.createElement("div");
+      domCartItem.className = "product-item";
+      domCartItem.innerHTML = `
+            <div class="product-header">
+              <h3>${paramItem.detail.brands}</h3>
+              <span class="shipping-info">무료배송</span>
             </div>
-          </div>
-        `;
-        domCartItems.appendChild(domCartItem);
+            <div class="product-content">
+              <img src=${
+                paramItem["image-url"]
+              } alt="상품 이미지" class="product-image" />
+              <div class="product-details">
+                <p>${name}</p>
+                <p>추가상품 - ${option}</p>
+                <p class="product-price" data-unit-price="${paramItem.price.replace(
+                  /[^0-9.-]+/g,
+                  ""
+                )}">
+                  ${
+                    paramItem.price
+                  } <span class="product-quantity">| ${quantity}개</span>
+                </p>
+              </div>
+            </div>
+          `;
+      domCartItems.appendChild(domCartItem);
+
+      document
+        .querySelector(".checkout-button")
+        .addEventListener("click", function () {
+          const totalPrice = document
+            .querySelector("p.total")
+            .innerText.replace(/[^0-9]/g, "");
+          const url = `../cart/cart03.html?category=${
+            paramItem.category
+          }&name=${encodeURIComponent(
+            name
+          )}&option=${option}&price=${totalPrice}&quantity=${quantity}`;
+          location.href = url;
+        });
+    } else {
+      cartItems.forEach((item) => {
+        const cartProducts = products.data.filter((product) => {
+          return (
+            product.name.includes(item.name) &&
+            product.detail.brands.includes(item.brand)
+          );
+        });
+
+        cartProducts.forEach((product) => {
+          console.log(product);
+          const domCartItems = document.querySelector(".order-products"); // 올바른 선택자 사용
+          const domCartItem = document.createElement("div");
+          domCartItem.className = "product-item";
+          domCartItem.innerHTML = `
+            <div class="product-header">
+              <h3>${product.detail.brands}</h3>
+              <span class="shipping-info">무료배송</span>
+            </div>
+            <div class="product-content">
+              <img src=${
+                product["image-url"]
+              } alt="상품 이미지" class="product-image" />
+              <div class="product-details">
+                <p>${product.name}</p>
+                <p>추가상품 - ${item.options}</p>
+                <p class="product-price" data-unit-price="${product.price.replace(
+                  /[^0-9.-]+/g,
+                  ""
+                )}">
+                  ${product.price} <span class="product-quantity">| ${
+            item.quantity
+          }개</span>
+                </p>
+              </div>
+            </div>
+          `;
+          domCartItems.appendChild(domCartItem);
+        });
       });
-    });
+    }
 
     const mainContent = document.querySelector(".content-wrapper");
     document.body.style.height = getComputedStyle(mainContent).height;
