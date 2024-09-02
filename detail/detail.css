@@ -1822,7 +1822,8 @@ main {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 1;
+    z-index: 11;
+    height: 90px;
   }
   #M_bottom_bar .contents {
     z-index: 3;
@@ -1949,6 +1950,9 @@ main {
   }
   #M_bottom_bar .popup .popup_contents .adderrs .adderrs_ic i:hover {
     scale: 1.2;
+  }
+  #M_bottom_bar.action {
+    height: 300px;
   }
   #M_proinfo {
     display: flex;

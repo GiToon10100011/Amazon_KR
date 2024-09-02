@@ -97,8 +97,6 @@ fetch("./data.json")
       }),
     };
 
-    console.log(products);
-
     //내장객체 함수를 통해 현 url의 파라미터를 가져옴
     const params = new URLSearchParams(window.location.search);
     const category = params.get("category");
@@ -107,14 +105,17 @@ fetch("./data.json")
     const product = products.data.find(
       (product) => product.category === category && product.name === names
     );
-    
+
+    const wishlistItemCheck = wishlistItems.find(
+      (item) => item.name === product.name
+    );
+
     //무한슬라이드
     const images = [
       product["image-url"],
       product.detail["more-img"][0],
       product.detail["more-img"][1],
     ]; // 이미지 경로들
-    console.log(images);
     let currentIndex = 0;
 
     const mainImg = document.querySelector(".main_img");
@@ -159,7 +160,6 @@ fetch("./data.json")
 
       // 이미지 슬라이드 설정
       slideItems.forEach((slideItem, i) => {
-        console.log(slideItem);
         slideItem.querySelector(
           "a img"
         ).src = `${product.detail["more-img"][i]}`;
@@ -232,14 +232,11 @@ fetch("./data.json")
         const result = document.querySelector(".count_result");
         let i = 1;
 
-        console.log(product.price);
-
         const updatePriceDisplay = () => {
           // 숫자만 추출하여 가격 계산
           const priceValue = parseFloat(
             product.price.replace(/[^0-9.-]+/g, "")
           ); // 숫자만 남기기
-          console.log(priceValue);
 
           if (!isNaN(priceValue)) {
             const totalPrice = priceValue * i;
@@ -285,8 +282,6 @@ fetch("./data.json")
           price: product.price,
         };
 
-        console.log(wishlistItem);
-
         // Check if the item is already in the wishlist
         const index = wishlistItems.findIndex(
           (item) => item.name === product.name && item.price === product.price
@@ -304,8 +299,29 @@ fetch("./data.json")
         localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
       });
 
-      bar_like.addEventListener("click", () => {
+      bar_like.addEventListener("click", function () {
         bar_like.classList.toggle("active");
+        this.classList.toggle("active");
+        const wishlistItem = {
+          name: product.name,
+          price: product.price,
+        };
+
+        // Check if the item is already in the wishlist
+        const index = wishlistItems.findIndex(
+          (item) => item.name === product.name && item.price === product.price
+        );
+
+        if (index === -1) {
+          // If the item is not found (index is -1), add it to the wishlist
+          wishlistItems.push(wishlistItem);
+          this.classList.add("active");
+        } else {
+          // If the item is found, remove it from the wishlist
+          wishlistItems.splice(index, 1); // Remove the item at the found index
+          this.classList.remove("active");
+        }
+        localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
       });
 
       const discounts = document.querySelectorAll(".amount .discount");
@@ -338,14 +354,13 @@ fetch("./data.json")
       reviews.forEach((review) => {
         review.innerHTML = `(${product.detail.reviews})`;
       });
-      
-      const Mreviews = document.querySelectorAll("#M_reviw .photo img")
-      console.log(Mreviews)
-      Mreviews.forEach((Mreview, i)=>{
-        Mreview.setAttribute("src",product.detail["more-img"][i])
-      })
 
-//사용자 리뷰 desktop
+      const Mreviews = document.querySelectorAll("#M_reviw .photo img");
+      Mreviews.forEach((Mreview, i) => {
+        Mreview.setAttribute("src", product.detail["more-img"][i]);
+      });
+
+      //사용자 리뷰 desktop
       const reviewSection = document.querySelector(".user_reviw_warpper");
 
       product.reviews.forEach((review, index) => {
@@ -381,50 +396,48 @@ fetch("./data.json")
         `;
         reviewSection.appendChild(reviewItem);
       });
-      
-//리뷰 이미지 클릭시 모달
-// 이미지 클릭 이벤트 추가
-document.querySelectorAll(".clickable-img").forEach((img) => {
-  img.addEventListener("click", (event) => {
-    const imgIndex = event.target.getAttribute("data-index");
-    const imgSrc = product.detail["more-img"][imgIndex];
-    
-    // 모달 창 요소 가져오기
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    
-    // 클릭된 이미지의 src를 모달의 이미지에 설정
-    modal.style.display = "block";
-    modalImg.src = imgSrc;
-  });
-});
 
-// 모달 닫기 기능 추가
-const reviewmodal = document.getElementById("imageModal");
-const closeBtn = document.querySelector(".close");
-closeBtn.onclick = function() {
-  reviewmodal.style.display = "none";
-};
+      //리뷰 이미지 클릭시 모달
+      // 이미지 클릭 이벤트 추가
+      document.querySelectorAll(".clickable-img").forEach((img) => {
+        img.addEventListener("click", (event) => {
+          const imgIndex = event.target.getAttribute("data-index");
+          const imgSrc = product.detail["more-img"][imgIndex];
 
-// 어두운 부분 클릭 시 모달 닫기
-reviewmodal.addEventListener("click", (event) => {
-  if (event.target === reviewmodal) {
-    reviewmodal.style.display = "none";
-  }
-});
+          // 모달 창 요소 가져오기
+          const modal = document.getElementById("imageModal");
+          const modalImg = document.getElementById("modalImage");
 
-      
+          // 클릭된 이미지의 src를 모달의 이미지에 설정
+          modal.style.display = "block";
+          modalImg.src = imgSrc;
+        });
+      });
 
-//사용자 리뷰 M
-const MreviewSection = document.querySelector(".M_user_reviw_warpper");
-const imageModal = document.getElementById("imageModal");
-const modalImage = document.getElementById("modalImage");
-const closeModal = document.querySelector(".close");
+      // 모달 닫기 기능 추가
+      const reviewmodal = document.getElementById("imageModal");
+      const closeBtn = document.querySelector(".close");
+      closeBtn.onclick = function () {
+        reviewmodal.style.display = "none";
+      };
 
-product.reviews.forEach((review, index) => {
-  const reviewItem = document.createElement("div");
-  reviewItem.className = "reviw_userdetail";
-  reviewItem.innerHTML = `
+      // 어두운 부분 클릭 시 모달 닫기
+      reviewmodal.addEventListener("click", (event) => {
+        if (event.target === reviewmodal) {
+          reviewmodal.style.display = "none";
+        }
+      });
+
+      //사용자 리뷰 M
+      const MreviewSection = document.querySelector(".M_user_reviw_warpper");
+      const imageModal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+      const closeModal = document.querySelector(".close");
+
+      product.reviews.forEach((review, index) => {
+        const reviewItem = document.createElement("div");
+        reviewItem.className = "reviw_userdetail";
+        reviewItem.innerHTML = `
     <div class="user_reviw_desc">
       <hr />
       <div class="contents">
@@ -453,30 +466,27 @@ product.reviews.forEach((review, index) => {
       </div>
     </div>
   `;
-  MreviewSection.appendChild(reviewItem);
+        MreviewSection.appendChild(reviewItem);
 
-  // 이미지 클릭 시 모달 띄우기
-  const img = reviewItem.querySelector(".review-photo");
-  img.onclick = function() {
-    modalImage.src = this.src; // 클릭한 이미지의 src를 모달 이미지에 설정
-    imageModal.style.display = "block"; // 모달 보이기
-  };
-});
+        // 이미지 클릭 시 모달 띄우기
+        const img = reviewItem.querySelector(".review-photo");
+        img.onclick = function () {
+          modalImage.src = this.src; // 클릭한 이미지의 src를 모달 이미지에 설정
+          imageModal.style.display = "block"; // 모달 보이기
+        };
+      });
 
-// 모달 닫기 이벤트
-closeModal.onclick = function() {
-  imageModal.style.display = "none";
-};
+      // 모달 닫기 이벤트
+      closeModal.onclick = function () {
+        imageModal.style.display = "none";
+      };
 
-// 모달 외부 클릭 시 닫기
-window.onclick = function(event) {
-  if (event.target === imageModal) {
-    imageModal.style.display = "none";
-  }
-};
-      
-      
-      
+      // 모달 외부 클릭 시 닫기
+      window.onclick = function (event) {
+        if (event.target === imageModal) {
+          imageModal.style.display = "none";
+        }
+      };
 
       reviewSection.querySelectorAll(".reviw_star").forEach((star, index) => {
         const starUl = document.createElement("ul");
@@ -503,7 +513,6 @@ window.onclick = function(event) {
       const productBrandItems = products.data.filter((productBrand) =>
         productBrand.detail.brands.includes(product.detail.brands)
       );
-      console.log(productBrandItems);
 
       const ranIdxSet = new Set();
 
@@ -557,13 +566,9 @@ window.onclick = function(event) {
         ".another_Recommend .ap_desc"
       );
 
-      console.log(ratherBrands);
-
       const ratherIdxSet = new Set();
 
       ratherBrands.forEach((rather, index) => {
-        console.log(rather);
-
         let ranIdx;
 
         do {
@@ -590,7 +595,6 @@ window.onclick = function(event) {
       document.querySelectorAll(".mylist").forEach(function (element) {
         element.addEventListener("click", function () {
           const option = document.querySelectorAll("#selectoption")[1];
-          console.log(option.value);
           const cnt = document.querySelector(".count_result");
           const url = `../cart/cart.html?category=${
             product.category
@@ -604,7 +608,6 @@ window.onclick = function(event) {
           let isItemUpdated = false;
 
           cartItems = cartItems.map((item) => {
-            console.log(item);
             if (
               item.name === product.name &&
               item.brand === product.detail.brands &&
@@ -632,73 +635,69 @@ window.onclick = function(event) {
         });
       });
       document.querySelectorAll(".buynow").forEach(function (element) {
+        console.log(element);
         element.addEventListener("click", function () {
-          const url = `./detail/detail.html?category=${
+          const url = `../cart/cart02.html?category=${
             product.category
           }&name=${encodeURIComponent(product.name)}`;
-          window.location.href = "../cart/cart02.html";
+          location.href = url;
         });
       });
 
       //M버전 로컬스토리지
-// M버전 로컬스토리지
-document.querySelectorAll(".my_list").forEach(function (element) {
-  element.addEventListener("click", function () {
-    const option = document.querySelector("#selectoption").value; // 선택된 옵션 값 가져오기
-    const cnt = document.querySelector(".count_result");
-    const url = `../cart/cart.html?category=${product.category}&name=${encodeURIComponent(product.name)}`;
-
-    let cartItems = localStorage.getItem("cartItems")
-      ? JSON.parse(localStorage.getItem("cartItems"))
-      : [];
-
-    // 이미 존재하는 아이템을 찾고, 수량을 업데이트
-    let isItemUpdated = false;
-
-    cartItems = cartItems.map((item) => {
-      if (
-        item.name === product.name &&
-        item.brand === product.detail.brands &&
-        item.options === option
-      ) {
-        item.quantity += Number(cnt.innerText);
-        isItemUpdated = true;
-      }
-      return item;
-    });
-
-    // 동일한 아이템이 없으면 새로운 아이템 추가
-    if (!isItemUpdated) {
-      const cartItem = {
-        name: product.name,
-        brand: product.detail.brands,
-        quantity: Number(cnt.innerText),
-        options: option,
-      };
-      cartItems.push(cartItem);
-    }
-
-    // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-    // 필요 시 페이지 이동
-    // location.href = url; // 필요시 주석 해제
-  });
-});
-      document.querySelectorAll(".buynow").forEach(function (element) {
+      // M버전 로컬스토리지
+      document.querySelectorAll(".my_list").forEach(function (element) {
+        console.log(element);
         element.addEventListener("click", function () {
-          const url = `./detail/detail.html?category=${
+          const option = document.querySelector("#selectoption").value; // 선택된 옵션 값 가져오기
+          const cnt = document.querySelector(".count_result");
+          const url = `../cart/cart.html?category=${
             product.category
           }&name=${encodeURIComponent(product.name)}`;
-          window.location.href = "../cart/cart02.html";
+
+          let cartItems = localStorage.getItem("cartItems")
+            ? JSON.parse(localStorage.getItem("cartItems"))
+            : [];
+
+          // 이미 존재하는 아이템을 찾고, 수량을 업데이트
+          let isItemUpdated = false;
+
+          cartItems = cartItems.map((item) => {
+            if (
+              item.name === product.name &&
+              item.brand === product.detail.brands &&
+              item.options === option
+            ) {
+              item.quantity += Number(cnt.innerText);
+              isItemUpdated = true;
+            }
+            return item;
+          });
+
+          // 동일한 아이템이 없으면 새로운 아이템 추가
+          if (!isItemUpdated) {
+            const cartItem = {
+              name: product.name,
+              brand: product.detail.brands,
+              quantity: Number(cnt.innerText),
+              options: option,
+            };
+            cartItems.push(cartItem);
+          }
+
+          // 업데이트된 장바구니 데이터를 로컬스토리지에 다시 저장
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+          // 필요 시 페이지 이동
+          // location.href = url; // 필요시 주석 해제
         });
       });
       document.querySelectorAll(".buy_now").forEach(function (element) {
         element.addEventListener("click", function () {
-          const url = `./detail/detail.html?category=${
+          const url = `../cart/cart02.html?category=${
             product.category
           }&name=${encodeURIComponent(product.name)}`;
-          window.location.href = "../cart/cart02.html";
+          location.href = url;
         });
       });
 
@@ -751,6 +750,56 @@ document.querySelectorAll(".my_list").forEach(function (element) {
       MmodalBg.addEventListener("click", () => {
         Mmodal.classList.remove("showmodal");
       });
+
+      const allHearts = document.querySelectorAll("main .fa-heart");
+
+      console.log(allHearts);
+
+      if (wishlistItemCheck) {
+        allHearts.forEach((heart) => {
+          heart.classList.add("active");
+        });
+        bar_like.classList.add("active");
+      } else {
+        allHearts.forEach((heart) => {
+          heart.classList.remove("active");
+        });
+        bar_like.classList.remove("active");
+      }
+      if ([...allHearts].some((heart) => heart.classList.contains("active"))) {
+        bar_like.classList.add("active");
+      } else {
+        bar_like.classList.remove("active");
+      }
+
+      const couponBtn = document.querySelectorAll(" .cupon");
+      const couponItems = JSON.parse(localStorage.getItem("couponItems")) || [];
+      const couponItem = {
+        name: product.name,
+        discounts: product.detail.discount,
+      };
+
+      couponBtn.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          console.log(product);
+          if (
+            confirm(`${product.name} 쿠폰을 발급받으시겠습니까? (계정 당 1회)`)
+          ) {
+            if (
+              !couponItems.some(
+                (item) =>
+                  item.discounts === product.detail.discount &&
+                  item.name === couponItem.name
+              )
+            ) {
+              couponItems.push(couponItem);
+              localStorage.setItem("couponItems", JSON.stringify(couponItems));
+            } else {
+              alert("이미 해당 쿠폰을 발급받으셨습니다.");
+            }
+          }
+        });
+      });
     }
   })
   .catch((error) => console.error("Error loading JSON:", error));
@@ -759,9 +808,11 @@ document.querySelectorAll(".my_list").forEach(function (element) {
 const M_share = document.querySelector(".share");
 const M_shareIC = document.querySelector("#M_shareIc");
 const popup = document.querySelector(".popup");
+const mBottomBar = document.querySelector("#M_bottom_bar");
 
 M_share.addEventListener("click", function () {
   popup.classList.toggle("popupaction");
+  mBottomBar.classList.toggle("action");
 });
 
 M_shareIC.addEventListener("click", function () {
@@ -774,7 +825,6 @@ const moreBtn = document.querySelector(".moreimg_slide");
 const infoIc = document.querySelector(".info_slideic");
 
 moreBtn.addEventListener("click", () => {
-  // console.log("click")
   imgarea.classList.toggle("infomore");
   infoIc.classList.toggle("infomore");
 });
