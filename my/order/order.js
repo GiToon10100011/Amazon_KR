@@ -1,3 +1,4 @@
+const mediaQuery = window.matchMedia("(max-width: 768px)");
 const radioBtns = document.querySelectorAll(".radioBtns input[type = 'radio']");
 const calendarBtns = document.querySelectorAll(
   ".calendarFilter input[type = 'date']"
@@ -301,9 +302,11 @@ fetch("../data.json")
     const frameHeight = document.body.scrollHeight;
 
     if (frameHeight) {
-      parentFrame.style.height = `${frameHeight + 1000}px`;
-      parentMain.style.height = `${frameHeight + 1000}px`;
-      parent.document.body.style.height = `${frameHeight + 1000}px`;
+      if(!mediaQuery.matches){
+        parentFrame.style.height = `${frameHeight + 1000}px`;
+        parentMain.style.height = `${frameHeight + 1000}px`;
+        parent.document.body.style.height = `${frameHeight + 1000}px`;
+      }
     }
   })
   .catch((error) => console.error("Error loading JSON data:", error));

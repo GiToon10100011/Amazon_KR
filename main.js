@@ -108,7 +108,34 @@ fetch(productInfo)
   .then((response) => response.json())
   .then((data) => {
     let idGenerator = Date.now();
-    const products = {
+
+    const currencyChanger = document.querySelectorAll("#currencyChanger");
+
+    const currencyValue = localStorage.getItem("currency");
+
+    const exchangeRates = {
+      KRW: 1,
+      JPY: 0.0094,
+      USD: 0.00075,
+    };
+
+    let priceIndicator;
+
+    switch (currencyValue) {
+      case "KRW":
+        priceIndicator = "원";
+        break;
+      case "JPY":
+        priceIndicator = "円";
+        break;
+      case "USD":
+        priceIndicator = "";
+        break;
+    }
+
+    console.log(priceIndicator);
+
+    let products = {
       data: data.data.map((item) => ({
         ...item,
         price: new Intl.NumberFormat("ko-kr", {
@@ -118,6 +145,52 @@ fetch(productInfo)
         id: idGenerator++,
       })),
     };
+
+    currencyChanger.forEach((item) => {
+      item.addEventListener("change", (e) => {
+        const currency = e.target.value;
+        localStorage.setItem("currency", currency);
+      });
+    });
+
+    if (currencyValue) {
+      if (currencyValue === "KRW") {
+        products = {
+          data: data.data.map((item) => ({
+            ...item,
+            price: new Intl.NumberFormat("ko-kr", {
+              style: "currency",
+              currency: "KRW",
+            }).format(item.price * exchangeRates.KRW),
+            id: idGenerator++,
+          })),
+        };
+      }
+      if (currencyValue === "JPY") {
+        products = {
+          data: data.data.map((item) => ({
+            ...item,
+            price: new Intl.NumberFormat("ja-JP", {
+              style: "currency",
+              currency: "JPY",
+            }).format(item.price * exchangeRates.JPY),
+            id: idGenerator++,
+          })),
+        };
+      }
+      if (currencyValue === "USD") {
+        products = {
+          data: data.data.map((item) => ({
+            ...item,
+            price: new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(item.price * exchangeRates.USD),
+            id: idGenerator++,
+          })),
+        };
+      }
+    }
 
     let cateItems = {
       cateImgs: [],
@@ -275,7 +348,7 @@ fetch(productInfo)
       document
         .querySelectorAll(cateItems.catePrices[`catePrices${index + 1}`])
         .forEach((price, i) => {
-          price.innerText = `${filter[i]["price"]}원`;
+          price.innerText = `${filter[i]["price"]} ${priceIndicator}`;
         });
     });
 
@@ -392,5 +465,3 @@ mainPromos.forEach((li) => {
     location.href = url;
   });
 });
-
-

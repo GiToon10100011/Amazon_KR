@@ -1,3 +1,4 @@
+const mediaQuery = window.matchMedia("(max-width: 768px)");
 const domPointItems = document.querySelector(".pointsItems");
 const pointDate = domPointItems.querySelector(".item-title span");
 const current = new Date();
@@ -83,9 +84,11 @@ fetch("../data.json")
     console.log(frameHeight);
 
     if (frameHeight) {
-      parentFrame.style.height = `${frameHeight}px`;
-      parentMain.style.height = `${frameHeight + 1000}px`;
-      parent.document.body.style.height = `${frameHeight}px`;
+      if (!mediaQuery.matches) {
+        parentFrame.style.height = `${frameHeight}px`;
+        parentMain.style.height = `${frameHeight + 1000}px`;
+        parent.document.body.style.height = `${frameHeight}px`;
+      }
     }
   })
   .catch((err) => console.log(err));

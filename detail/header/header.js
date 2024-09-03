@@ -27,44 +27,45 @@ console.log(`
   @@@@@@@@@@@@@@@@@@@@@@@                       -@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @@@@@@@@@@@@@@@@@@@@@@@@@.                  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
 
+console.log("Welcome to Amazon Korea!");
+
 // Insert Header
 const body = document.querySelector("#header");
 body.innerHTML = `
-const body = document.querySelector("#header");
     <header>
       <div class="inner">
         <div class="gnb-content">
           <nav class="gnb">
             <div class="logo_container">
               <i class="fa-solid fa-bars sideMenu-trigger-btn"></i>
-              <a href="../main.html"
+              <a href=""
                 ><img src="./logo/png/amazon_kr_ezen2.png" alt="logo"
               /></a>
             </div>
             <div class="searchBar">
-              <form action="https://localhost:3000" method="get">
+              <form action="./search/search.html" method="get">
                 <select name="search_type" id="search_type">
                   <option value="" selected>카테고리</option>
-                  <option value="">전자</option>
-                  <option value="">컴퓨터</option>
-                  <option value="">예술 및 공예</option>
-                  <option value="">자동차 용품</option>
-                  <option value="">유아</option>
-                  <option value="">뷰티 및 퍼스널 케어</option>
-                  <option value="">여성 패션</option>
-                  <option value="">남성 패션</option>
-                  <option value="">아동용 의류</option>
-                  <option value="">건강 및 가정용품</option>
-                  <option value="">가정 및 주방</option>
-                  <option value="">산업용 및 과학용</option>
-                  <option value="">여행 가방</option>
-                  <option value="">영화 및 TV</option>
-                  <option value="">애완동물 용품</option>
-                  <option value="">소프트웨어</option>
-                  <option value="">스포츠 및 야외 활동</option>
-                  <option value="">공구 및 주택 개조</option>
-                  <option value="">장난감 및 게임</option>
-                  <option value="">비디오 게임</option>
+                  <option value="전자">전자</option>
+                  <option value="컴퓨터">컴퓨터</option>
+                  <option value="예술 및 공예">예술 및 공예</option>
+                  <option value="자동차 용품">자동차 용품</option>
+                  <option value="유아">유아</option>
+                  <option value="뷰티 및 퍼스널케어">뷰티 및 퍼스널 케어</option>
+                  <option value="여성 패션">여성 패션</option>
+                  <option value="남성 패션">남성 패션</option>
+                  <option value="아동용 의류">아동용 의류</option>
+                  <option value="건강 및 가정용품">건강 및 가정용품</option>
+                  <option value="가정 및 주방">가정 및 주방</option>
+                  <option value="산업용 및 과학용">산업용 및 과학용</option>
+                  <option value="여행 가방">여행 가방</option>
+                  <option value="영화 및 TV">영화 및 TV</option>
+                  <option value="애왕동물 용품">애완동물 용품</option>
+                  <option value="소프트웨어">소프트웨어</option>
+                  <option value="스포츠 및 야외활동">스포츠 및 야외 활동</option>
+                  <option value="공구 및 주택 개조">공구 및 주택 개조</option>
+                  <option value="장난감 및 게임">장난감 및 게임</option>
+                  <option value="비디오 게임">비디오 게임</option>
                 </select>
                 <hr class="bar" />
                 <div class="inputBox">
@@ -224,21 +225,21 @@ const body = document.querySelector("#header");
                 <a href="./my/my.html"><i class="fa-regular fa-user"></i></a>
                 <span>회원정보</span>
                 <ul class="user-menu">
-                  <li><a href="">나의 쿠폰</a></li>
-                  <li><a href="">주문/배송조회</a></li>
-                  <li><a href="">취소/반품/교환</a></li>
-                  <li><a href="">고객센터</a></li>
-                  <li><a href="">회원정보</a></li>
+                  <li><a href="./my/my.html?iframesrc=coupon">나의 쿠폰</a></li>
+                  <li><a href="./my/my.html">주문/배송조회</a></li>
+                  <li><a href="./my/my.html">취소/반품/교환</a></li>
+                  <li><a href="./my/my.html">고객센터</a></li>
+                  <li><a href="./my/my.html">회원정보</a></li>
                 </ul>
               </div>
               <div class="item">
-                <a href="#none">
+                <a href="./cart/cart.html">
                   <span class="material-symbols-outlined"> shopping_cart </span>
                 </a>
                 <span>장바구니</span>
               </div>
               <div class="item">
-                <a href="./my/my.html"><i class="fa-regular fa-heart"></i></a>
+                <a href="./my/my.html?iframesrc=wishlist"><i class="fa-regular fa-heart"></i></a>
                 <span>찜목록</span>
               </div>
             </div>
@@ -272,8 +273,8 @@ const body = document.querySelector("#header");
               </ul>
             </div>
             <ul class="lnb-user-menu">
-              <li><a href="#none">로그인</a></li>
-              <li><a href="#none">회원가입</a></li>
+              <li><a href="./Login/login.html">로그인</a></li>
+              <li><a href="./Login/membership/member.html">멤버십</a></li>
               <li><a href="#none">고객센터</a></li>
             </ul>
           </div>
@@ -295,8 +296,9 @@ const body = document.querySelector("#header");
       </div>
     </div>`;
 
-// Header
+const mediaQuery = window.matchMedia("(max-width: 768px)");
 
+// Header events
 const lnb = document.querySelector(".lnb-content");
 
 const Top = document.querySelector(".Top");
@@ -323,6 +325,17 @@ window.addEventListener("scroll", () => {
   }
 });
 
+const searchBtn = document.querySelector(
+  ".inputBox.second .fa-magnifying-glass"
+);
+searchBtn.style.cursor = "pointer";
+
+searchBtn.addEventListener("click", () => {
+  const searchBar = document.querySelector("#main-search");
+  const url = `./search/search.html?searchBar=${searchBar.value}`;
+  location.href = url;
+});
+
 // sideMenu
 const sideMenu = document.querySelector(".main-sideMenu-container");
 const sideMenu_trigger = document.querySelector(".category-trigger");
@@ -346,8 +359,10 @@ sideMenu_close.addEventListener("click", () => {
 });
 
 bgFilter.addEventListener("click", () => {
+  // const filterSidebar = document.querySelector(".filter-sidebar");
   sideMenu.classList.remove("active");
   bgFilter.classList.remove("active");
+  // filterSidebar.classList.remove("active");
 });
 
 //ranking menu
@@ -357,6 +372,61 @@ rankingToggle.addEventListener("click", () => {
   rankingMenu.classList.toggle("active");
   rankingToggle.classList.toggle("active");
 });
+
+const rankingMenuTitle = document.querySelector(".ranking-menu-title span");
+console.log(rankingMenuTitle);
+
+const updateDate = () => {
+  const rankingDateTime = new Date();
+
+  let rankingYear = rankingDateTime.getFullYear();
+  let rankingMonth = rankingDateTime.getMonth() + 1;
+  let rankingDate = rankingDateTime.getDate();
+  let rankingHour = rankingDateTime.getHours();
+  let rankingMin = rankingDateTime.getMinutes();
+
+  rankingMonth < 10 ? (rankingMonth = `0${rankingMonth}`) : rankingMonth;
+  rankingDate < 10 ? (rankingDate = `0${rankingDate}`) : rankingDate;
+  rankingHour < 10 ? (rankingHour = `0${rankingHour}`) : rankingHour;
+  rankingMin < 10 ? (rankingMin = `0${rankingMin}`) : rankingMin;
+
+  rankingMenuTitle.innerText = `${rankingYear}.${rankingMonth}.${rankingDate} ${rankingHour}:${rankingMin} 기준`;
+};
+
+updateDate();
+
+setInterval(updateDate, 60000);
+
+const createHottestItems = (json) => {
+  const rankingItems = document.querySelectorAll(".ranking-content p");
+  const rankingHeader = document.querySelectorAll(".ranking p");
+  rankingItems.forEach((item, index) => {
+    const randomIdx = Math.floor(Math.random() * 1000);
+    item.innerHTML = `
+    <span>${index + 1} </span> ${json[randomIdx].name}
+    `;
+    rankingHeader[index].innerHTML = `
+    <span>${index + 1} </span> ${json[randomIdx].name}
+    `;
+    item.addEventListener("click", () => {
+      location.href = `./detail/detail.html?name=${item.innerText
+        .trim()
+        .slice(2, item.innerText.length)}&category=${json[randomIdx].category}`;
+    });
+    rankingHeader[index].addEventListener("click", () => {
+      location.href = `./detail/detail.html?name=${item.innerText
+        .trim()
+        .slice(3, item.innerText.length)}&category=${json[randomIdx].category}`;
+    });
+  });
+};
+
+fetch("./data.json")
+  .then((response) => response.json())
+  .then(({ data }) => {
+    createHottestItems(data);
+  })
+  .catch((err) => console.log(err));
 
 const rankingRadios = document.querySelectorAll(
   ".ranking-selection input[type = 'radio']"
@@ -380,6 +450,7 @@ rankingRadios.forEach((btn) => {
   });
 });
 
+//Generate Main sideMenu category
 const categories = {
   전자: [
     "엑세서리 및 용품",
@@ -680,30 +751,74 @@ const categoriesKeys = [
 const categoryItems = document.querySelectorAll(".categories-large li");
 
 categoryItems.forEach((item, index) => {
-  item.addEventListener("mouseover", () => {
+  const categoryList = document.createElement("ul");
+  categoryList.className = "categories-middle";
+  item.appendChild(categoryList);
+
+  let timeoutSwitch;
+
+  const showSubmenu = () => {
+    clearTimeout(timeoutSwitch);
     const middleCategoryItems = item.querySelector(".categories-middle");
-    if (middleCategoryItems) {
-      middleCategoryItems.classList.add("active");
+
+    if (middleCategoryItems.children.length === 0) {
+      for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="./search/search.html?searchBar=${
+          categories[categoriesKeys[index]][i]
+        }">${categories[categoriesKeys[index]][i]}</a>`;
+        middleCategoryItems.appendChild(li);
+      }
     }
 
-    for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
-      const lis = middleCategoryItems.querySelectorAll("li");
-      if (lis.length < categories[categoriesKeys[index]].length) {
+    middleCategoryItems.classList.add("active");
+    setTimeout(() => {
+      middleCategoryItems.classList.add("opacity");
+    }, 50);
+  };
+
+  const hideSubmenu = () => {
+    const middleCategoryItems = item.querySelector(".categories-middle");
+    timeoutSwitch = setTimeout(() => {
+      middleCategoryItems.classList.remove("active");
+    }, 100);
+    if (middleCategoryItems.classList.contains("opacity"))
+      middleCategoryItems.classList.remove("opacity");
+  };
+
+  item.addEventListener("mouseenter", showSubmenu);
+  item.addEventListener("mouseleave", hideSubmenu);
+
+  const middleCategoryItems = item.querySelector(".categories-middle");
+  middleCategoryItems.addEventListener("mouseenter", () => {
+    clearTimeout(timeoutSwitch);
+  });
+  middleCategoryItems.addEventListener("mouseleave", hideSubmenu);
+
+  item.addEventListener("click", () => {
+    item.querySelector(".fa-chevron-right").classList.toggle("active");
+    middleCategoryItems.classList.toggle("mactive");
+    middleCategoryItems.classList.remove("opacity");
+    middleCategoryItems.classList.remove("active");
+    if (middleCategoryItems.children.length === 0) {
+      for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
         const li = document.createElement("li");
-        li.innerHTML = `<a>${categories[categoriesKeys[index]][i]}</a>`;
+        li.innerHTML = `<a href="./search/search.html?searchBar=${
+          categories[categoriesKeys[index]][i]
+        }">${categories[categoriesKeys[index]][i]}</a>`;
         middleCategoryItems.appendChild(li);
-      } else {
-        break;
       }
     }
   });
 
-  item.addEventListener("mouseout", (e) => {
-    const middleCategoryItems = item.querySelector(".categories-middle");
-    if (!middleCategoryItems.contains(e.relatedTarget)) {
-      middleCategoryItems.classList.remove("active");
-    }
-  });
+  if (mediaQuery.matches) {
+    item.removeEventListener("mouseenter", showSubmenu);
+    item.removeEventListener("mouseleave", hideSubmenu);
+    categoryList.removeEventListener("mouseenter", () =>
+      clearTimeout(timeoutSwitch)
+    );
+    categoryList.removeEventListener("mouseleave", hideSubmenu);
+  }
 });
 
 // ranking auto scroll
@@ -750,8 +865,20 @@ const onlinePharmacy = document.querySelector(".online-pharmacy");
 const onlinePharmacyToggle = onlinePharmacy.querySelector(
   ".fa-circle-question"
 );
+
 onlinePharmacyToggle.addEventListener("click", () => {
-  onlinePharmacy.classList.toggle("active");
+  if (!onlinePharmacy.classList.contains("active")) {
+    onlinePharmacy.classList.add("display");
+    setTimeout(() => {
+      onlinePharmacy.classList.add("active");
+    }, 100);
+  }
+  if (onlinePharmacy.classList.contains("active")) {
+    onlinePharmacy.classList.remove("active");
+    setTimeout(() => {
+      onlinePharmacy.classList.remove("display");
+    }, 300);
+  }
 });
 
 //Speech Recognition Event
@@ -774,7 +901,6 @@ if (!SpeechRecognition) {
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
     searchInput.value = transcript;
-    console.log("You said: ", transcript);
   };
 
   recognition.onerror = (event) => {
@@ -787,12 +913,10 @@ if (!SpeechRecognition) {
     } else {
       recognition.start();
       isRecognizing = true;
-      console.log("Voice Recognition Started");
     }
   });
 
   recognition.onend = () => {
     isRecognizing = false;
-    console.log("Speech recognition service disconnected");
   };
 }

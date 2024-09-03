@@ -1091,6 +1091,7 @@ header {
   }
   #footer {
     height: 900px;
+    bottom: -900px;
   }
   .mobile-navBar {
     display: block;
