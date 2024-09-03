@@ -302,13 +302,19 @@ fetch("../data.json")
     }
     // const frameHeight = getComputedStyle(document.body).height;
 
+    const parentFrame = parent.document.querySelector(".pageBox");
+    const parentMain = parent.document.querySelector("main");
 
-    
-    parentFrame.style.height = ``;
-    parent.document.body.style.height = ``;
+    parentFrame.style.height = "";
+    parent.document.body.style.height = "";
 
-    
-    parentFrame.style.height = `${frameHeight}px`;
-    parent.document.body.style.height = `${frameHeight + 1000}px`;
+    const frameHeight = document.body.scrollHeight;
+
+    if (frameHeight) {
+      parentFrame.style.height = `${frameHeight}px`;
+      parentMain.style.height = `${frameHeight + 1000}px`;
+      parent.document.body.style.height = `${frameHeight}px`;
+    }
   })
   .catch((error) => console.error("Error loading JSON data:", error));
+

@@ -75,15 +75,17 @@ fetch("../data.json")
       domPointItems.style.lineHeight = "150px";
     }
 
-    parentFrame.style.height = ``;
-    parent.document.body.style.height = ``;
+    const parentFrame = parent.document.querySelector(".pageBox");
+    const parentMain = parent.document.querySelector("main");
 
     const frameHeight = document.body.scrollHeight;
 
     console.log(frameHeight);
 
-    const parentFrame = parent.document.querySelector(".pageBox");
-    parentFrame.style.height = `${frameHeight}px`;
-    parent.document.body.style.height = `${frameHeight + 1000}px`;
+    if (frameHeight) {
+      parentFrame.style.height = `${frameHeight}px`;
+      parentMain.style.height = `${frameHeight + 1000}px`;
+      parent.document.body.style.height = `${frameHeight}px`;
+    }
   })
   .catch((err) => console.log(err));
