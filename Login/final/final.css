@@ -9,6 +9,7 @@
 a {
   text-decoration: none;
   color: inherit;
+  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -63,6 +64,7 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -943,7 +945,7 @@ html, body {
     align-items: center;
     margin: 0 auto;
     position: absolute;
-    top: 40px;
+    top: 70px;
   }
   #container .wrapper .primeWrapper .primeLeft .primeText {
     width: 200px;

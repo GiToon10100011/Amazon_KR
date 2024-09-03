@@ -274,7 +274,7 @@ body.innerHTML = `
             </div>
             <ul class="lnb-user-menu">
               <li><a href="./Login/login.html">로그인</a></li>
-              <li><a href="./Login/login.html">회원가입</a></li>
+              <li><a href="./Login/membership/member.html">멤버십</a></li>
               <li><a href="#none">고객센터</a></li>
             </ul>
           </div>

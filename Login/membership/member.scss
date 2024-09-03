@@ -773,13 +773,16 @@ html, body{
       width: 500px;
       .bl_stack_top {
         display: flex;
-        justify-content: space-between;
+        gap: 40px;
         align-items: center;
         .bl_stack {
           display: flex;
           flex-direction: column;
           font-size: 15px;
           gap: 5px;
+          &.form{
+            width: 245px;
+          }
           .el_ttl {
             font-size: 18px;
             font-weight: 500;
@@ -866,6 +869,9 @@ html, body{
             text-align: left;
             &:focus {
               outline: none;
+            }
+            &:first-child{
+              width: 140px;
             }
           }
           .el_input::placeholder {
@@ -971,6 +977,7 @@ html, body{
           // left: 20px;
           gap: 5px;
           margin-bottom: 35px;
+          width: 220px;
           .el_ttl2 {
             font-size: 18px;
             font-weight: 500;
@@ -991,6 +998,9 @@ html, body{
             font-weight: 300;
             padding-bottom: 10px;
             font-size: 15px;
+            &.errornum{
+              white-space: nowrap;
+            }
           }
           .el_input {
             padding: 10px;

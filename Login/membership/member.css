@@ -9,6 +9,7 @@
 a {
   text-decoration: none;
   color: inherit;
+  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -63,6 +64,7 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -1377,7 +1379,7 @@ html, body {
 }
 #container #address .addDetail .bl_stack_top {
   display: flex;
-  justify-content: space-between;
+  gap: 40px;
   align-items: center;
 }
 #container #address .addDetail .bl_stack_top .bl_stack {
@@ -1385,6 +1387,9 @@ html, body {
   flex-direction: column;
   font-size: 15px;
   gap: 5px;
+}
+#container #address .addDetail .bl_stack_top .bl_stack.form {
+  width: 245px;
 }
 #container #address .addDetail .bl_stack_top .bl_stack .el_ttl {
   font-size: 18px;
@@ -1469,6 +1474,9 @@ html, body {
 }
 #container #address .addDetail .bl_stack_top .bl_stack .el_input:focus {
   outline: none;
+}
+#container #address .addDetail .bl_stack_top .bl_stack .el_input:first-child {
+  width: 140px;
 }
 #container #address .addDetail .bl_stack_top .bl_stack .el_input::-moz-placeholder {
   color: #d4d4d4;
@@ -1570,6 +1578,7 @@ html, body {
   flex-direction: column;
   gap: 5px;
   margin-bottom: 35px;
+  width: 220px;
 }
 #container #address .addDetail .bl_stack_btm .nameNum .el_ttl2 {
   font-size: 18px;
@@ -1591,6 +1600,9 @@ html, body {
   font-weight: 300;
   padding-bottom: 10px;
   font-size: 15px;
+}
+#container #address .addDetail .bl_stack_btm .nameNum .el_result2.errornum {
+  white-space: nowrap;
 }
 #container #address .addDetail .bl_stack_btm .nameNum .el_input {
   padding: 10px;
