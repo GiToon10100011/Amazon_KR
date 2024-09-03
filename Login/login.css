@@ -9,7 +9,6 @@
 a {
   text-decoration: none;
   color: inherit;
-  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -64,7 +63,6 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
-  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -1063,7 +1061,7 @@ header {
   color: #ccc;
 }
 .login .wrapper_right .nonOrder .nonMail i.active {
-  color: crimson;
+  display: none;
 }
 .login .wrapper_right .logDetail .logSet {
   width: 210px;
@@ -1218,6 +1216,7 @@ iframe {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: hidden;
   }
   header,
   iframe {
@@ -1226,7 +1225,10 @@ iframe {
   .login {
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    top: 20px;
   }
   .login .wrapper_left {
     display: flex;
@@ -1239,37 +1241,39 @@ iframe {
     display: none;
   }
   .login .wrapper_left .logo img {
-    width: 320px;
-    height: 85px;
+    width: 280px;
+    height: 75px;
   }
   .login .wrapper_left .h1mobile {
     display: block;
     justify-content: center;
     text-align: center;
     margin-top: 20px;
-    font-size: 33px;
+    font-size: 30px;
   }
   .login .wrapper_right {
     display: block;
     margin: 0 auto;
+    padding-top: 10px;
   }
-  .login .wrapper_right h2 {
-    display: none;
+  .login .wrapper_right .h2title {
+    display: flex;
+    justify-content: space-between;
+  }
+  .login .wrapper_right .h2title h2 {
+    font-size: 18px;
   }
   .login .wrapper_right .log_middle form .log_id .inputbox {
     width: 310px;
-    height: 60px;
+    height: 45px;
     padding-left: 5px;
-    background: #eee;
-    border: 1px solid #bbb;
+    border: 0.5px solid #ddd;
   }
   .login .wrapper_right .log_middle form .log_id .inputbox::-moz-placeholder {
-    color: #bbb;
     font-size: 15px;
     padding-left: 5px;
   }
   .login .wrapper_right .log_middle form .log_id .inputbox::placeholder {
-    color: #bbb;
     font-size: 15px;
     padding-left: 5px;
   }
@@ -1288,18 +1292,15 @@ iframe {
   }
   .login .wrapper_right .log_middle form .log_pw .inputbox {
     width: 310px;
-    height: 60px;
+    height: 45px;
     padding-left: 5px;
-    background: #eee;
-    border: 1px solid #bbb;
+    border: 0.5px solid #ddd;
   }
   .login .wrapper_right .log_middle form .log_pw .inputbox::-moz-placeholder {
-    color: #bbb;
     font-size: 15px;
     padding-left: 5px;
   }
   .login .wrapper_right .log_middle form .log_pw .inputbox::placeholder {
-    color: #bbb;
     font-size: 15px;
     padding-left: 5px;
   }
@@ -1319,6 +1320,57 @@ iframe {
     transform: translateY(-50%);
     right: 10px;
     color: #bbb;
+  }
+  .login .wrapper_right .nonOrder form .nonName .inputbox {
+    width: 310px;
+    height: 45px;
+    padding-left: 5px;
+    border: 0.5px solid #ddd;
+  }
+  .login .wrapper_right .nonOrder form .nonName .inputbox::-moz-placeholder {
+    font-size: 15px;
+    padding-left: 5px;
+  }
+  .login .wrapper_right .nonOrder form .nonName .inputbox::placeholder {
+    font-size: 15px;
+    padding-left: 5px;
+  }
+  .login .wrapper_right .nonOrder form .nonName .inputbox:focus {
+    outline: none;
+  }
+  .login .wrapper_right .nonOrder form .nonName #error_name {
+    color: #f00;
+    width: 100%;
+    height: 10px;
+    font-size: 9px;
+    padding-left: 10px;
+  }
+  .login .wrapper_right .nonOrder form .nonMail {
+    position: relative;
+  }
+  .login .wrapper_right .nonOrder form .nonMail .inputbox {
+    width: 310px;
+    height: 45px;
+    padding-left: 5px;
+    border: 0.5px solid #ddd;
+  }
+  .login .wrapper_right .nonOrder form .nonMail .inputbox::-moz-placeholder {
+    font-size: 15px;
+    padding-left: 5px;
+  }
+  .login .wrapper_right .nonOrder form .nonMail .inputbox::placeholder {
+    font-size: 15px;
+    padding-left: 5px;
+  }
+  .login .wrapper_right .nonOrder form .nonMail .inputbox:focus {
+    outline: none;
+  }
+  .login .wrapper_right .nonOrder form .nonMail #error_mail {
+    color: #f00;
+    width: 100%;
+    height: 10px;
+    font-size: 9px;
+    padding-left: 10px;
   }
   .login .wrapper_right .logDetail .logSet {
     width: 310px;
@@ -1359,7 +1411,7 @@ iframe {
   }
   .login .wrapper_right .logDetail .logSet .logSubDetail2 span {
     color: #ccc;
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 300;
     padding-right: 5px;
     transition: all 0.3s;

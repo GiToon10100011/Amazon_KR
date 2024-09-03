@@ -1,6 +1,6 @@
-import "../header/header.js"
+import "./header/header.js"
 
-const faEye = document.querySelector(".fa-eye-slash");
+const faEye = document.querySelector(".fa-eye");
 const pwInput = document.querySelector("#password");
 
 faEye.addEventListener("click", () => {
@@ -9,15 +9,7 @@ faEye.addEventListener("click", () => {
   pwInput.setAttribute("type", type);
 });
 
-// 로그인 유효성 검사
-// 사용자로부터 아이디와 비밀번호의 값을 받는다.
-// 아이디가 공란일 경우, 알림창에 "아이디를 입력하세요!"
-// 비밀번호가 공란일 경우, 알림창에 "비밀번호를 입력하세요!"
-// 아이디와 비밀번호가 둘 다 공란일 경우, 알림창에 "아이디와 비밀번호를 입력하세요!"
-
-// const id = document.querySelector("#id");
-// const pw = document.querySelector("#password");
-
+// 로그인 유효성검사
 const LogInBtn = document.querySelector("#loginSubmit");
 
 LogInBtn.addEventListener("click", (e) => {
@@ -42,6 +34,47 @@ e.preventDefault();``
     document.querySelector("#error_pw").innerText = "";
   };
 });
+
+
+// 비회원 주문조회 유효성검사
+const nonMemBtn = document.querySelector("#loginSubmit");
+
+nonMemBtn.addEventListener("click", (e) => {
+e.preventDefault();``
+
+  const name = document.querySelector("#name").value;
+  const nonMail = document.querySelector("#nonMail").value;
+
+  let isValid = true;
+
+  if (name === "") {
+    document.querySelector("#error_name").innerText = "주문자명을 올바르게 입력해주세요!";
+    isValid = false;
+  } else {
+    document.querySelector("#error_name").innerText = "";
+  };
+
+  if (nonMail === "") {
+    document.querySelector("#error_mail").innerText = "주문조회에 사용될 이메일을 입력해주세요!";
+    isValid = false;
+  } else {
+    document.querySelector("#error_mail").innerText = "";
+  };
+});
+
+// 비회원 주문조회 이메일형식 검증 정규표현식
+document.getElementById('nonMail').addEventListener('input', function() {
+  const emailInput = this.value;
+  const errorDiv = document.getElementById('error_mail');
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailPattern.test(emailInput) && emailInput !== "") {
+      errorDiv.innerHTML = "이메일 형식이 올바르지 않습니다!";
+  } else {
+      errorDiv.innerHTML = "";
+  }
+});
+
 
 
 // 회원, 비회원 클릭시 인풋박스 변경

@@ -256,7 +256,7 @@
         <h2 data-log="non-mem">비회원 주문조회</h2>
       </div>
       <div class="formMiddle">
-        <div class="log_middle mem" id="mem">
+        <div class="active log_middle mem" id="mem">
           <form id="logInForm" method="post">
             <div class="log_id">
               <label for="id"></label>
@@ -277,11 +277,11 @@
               placeholder="비밀번호를 입력해주세요."
               />
               <div id="error_pw" class="error"></div>
-              <i class="fa-solid fa-eye-slash"></i>
+              <i class="fa-solid fa-eye"></i>
             </div>
           </form>
         </div>
-        <div class="active nonOrder mem" id="non-mem">
+        <div class="nonOrder mem" id="non-mem">
           <form id="nonOrderForm" method="post">
             <div class="nonName">
               <label for="name"></label>
@@ -343,9 +343,9 @@
         <fieldset class="sns">
           <legend>SNS 간편 로그인</legend>
           <div class="snsIcon">
-            <a href="https://www.naver.com/"><img src="./img/sns_naver.png" alt="naver"></a>
+            <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/"><img src="./img/sns_naver.png" alt="naver"></a>
             <a href="https://support.apple.com/ko-kr/111001"><img src="./img/sns_apple.png" alt="apple"></a>
-            <a href="https://www.google.com/?hl=ko"><img src="./img/sns_google.png" alt="google"></a>
+            <a href="https://accounts.google.com/v3/signin/identifier?service=mail&ifkv=Ab5oB3rIFmXVu7epjJieSf-km9LeogSdl00ISO8J-guZdHlUB8Kw-9rfC5t8GvC_tCgaYZjrgTV0TQ&ddm=0&flowName=GlifWebSignIn&flowEntry=ServiceLogin&continue=https%3A%2F%2Fmail.google.com%2Fmail"><img src="./img/sns_google.png" alt="google"></a>
             <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><img src="./img/sns_talk.png" alt="talk"></a>
           </div>
         </fieldset>

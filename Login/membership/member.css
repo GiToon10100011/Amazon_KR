@@ -9,7 +9,6 @@
 a {
   text-decoration: none;
   color: inherit;
-  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -64,7 +63,6 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
-  webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -475,8 +473,12 @@ header .banner .lnb-content .lnb-main .lnb .online-pharmacy .fa-circle-question 
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::after, header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::before {
   opacity: 1;
 }
+header .banner .lnb-content .lnb-main .lnb .online-pharmacy.display::after, header .banner .lnb-content .lnb-main .lnb .online-pharmacy.display::before {
+  display: block;
+}
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy::before {
   content: attr(data-info);
+  display: none;
   position: absolute;
   white-space: pre-wrap;
   bottom: -334px;
@@ -492,6 +494,7 @@ header .banner .lnb-content .lnb-main .lnb .online-pharmacy::before {
 }
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy::after {
   content: "";
+  display: none;
   position: absolute;
   bottom: -5px;
   right: 2.5px;
@@ -651,7 +654,7 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
 }
 html, body {
   width: 100%;
-  height: 1200px;
+  height: 3400px;
   position: relative;
   letter-spacing: -0.7px;
 }
@@ -1370,34 +1373,46 @@ html, body {
 #container #address .addDetail {
   display: flex;
   flex-direction: column;
+  width: 500px;
 }
 #container #address .addDetail .bl_stack_top {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#container #address .addDetail .bl_stack_top .el_ttl {
+#container #address .addDetail .bl_stack_top .bl_stack {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  gap: 5px;
+}
+#container #address .addDetail .bl_stack_top .bl_stack .el_ttl {
   font-size: 18px;
   font-weight: 500;
-}
-#container #address .addDetail .bl_stack_top .el_ttl:nth-child(1) {
   color: #ff9900;
 }
-#container #address .addDetail .bl_stack_top .el_ttl:nth-child(2) {
+#container #address .addDetail .bl_stack_top .bl_stack .el_ttl.code1 {
+  color: #000;
   font-weight: 400;
+  font-size: 17px;
 }
-#container #address .addDetail .bl_stack_top .el_ttl:nth-child(3) {
+#container #address .addDetail .bl_stack_top .bl_stack .el_ttl.adr1 {
+  color: #000;
   font-weight: 400;
+  font-size: 17px;
 }
-#container #address .addDetail .bl_stack_top .el_ttl:nth-child(4) {
+#container #address .addDetail .bl_stack_top .bl_stack .el_ttl.adrDetail1 {
+  color: #000;
   font-weight: 400;
+  font-size: 17px;
 }
-#container #address .addDetail .bl_stack_top .el_result {
+#container #address .addDetail .bl_stack_top .bl_stack .el_result {
   height: 20px;
   font-weight: 300;
   padding-bottom: 10px;
+  font-size: 15px;
 }
-#container #address .addDetail .bl_stack_top .el_btn {
+#container #address .addDetail .bl_stack_top .bl_stack .el_btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1422,10 +1437,10 @@ html, body {
   text-align: left;
   word-break: keep-all;
 }
-#container #address .addDetail .bl_stack_top .el_btn:focus {
+#container #address .addDetail .bl_stack_top .bl_stack .el_btn:focus {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2) inset;
 }
-#container #address .addDetail .bl_stack_top .el_btn--outline {
+#container #address .addDetail .bl_stack_top .bl_stack .el_btn--outline {
   background: unset;
   border: 1px solid #333333;
   color: #333333;
@@ -1437,10 +1452,9 @@ html, body {
   text-align: left;
   background-color: #ffffff;
 }
-#container #address .addDetail .bl_stack_top .el_input {
+#container #address .addDetail .bl_stack_top .bl_stack .el_input {
   padding: 10px;
   /* max-width: 320px; */
-  width: 200px;
   height: 37px;
   border: 1px solid #d4d4d4;
   border-radius: 5px;
@@ -1453,29 +1467,23 @@ html, body {
   letter-spacing: -0.04em;
   text-align: left;
 }
-#container #address .addDetail .bl_stack_top .el_input:focus {
+#container #address .addDetail .bl_stack_top .bl_stack .el_input:focus {
   outline: none;
 }
-#container #address .addDetail .bl_stack_top .el_input::-moz-placeholder {
+#container #address .addDetail .bl_stack_top .bl_stack .el_input::-moz-placeholder {
   color: #d4d4d4;
 }
-#container #address .addDetail .bl_stack_top .el_input::placeholder {
+#container #address .addDetail .bl_stack_top .bl_stack .el_input::placeholder {
   color: #d4d4d4;
 }
-#container #address .addDetail .bl_stack_top .el_input:disabled {
+#container #address .addDetail .bl_stack_top .bl_stack .el_input:disabled {
   background-color: #f0f0f0;
-}
-#container #address .addDetail .bl_stack_top .bl_stack {
-  display: flex;
-  flex-direction: column;
-  font-size: 15px;
-  gap: 5px;
 }
 #container #address .addDetail .bl_stack_top .bl_stack--row {
   flex-direction: row;
 }
 #container #address .addDetail .bl_stack_top .form {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -1487,39 +1495,49 @@ html, body {
   justify-content: space-between;
   align-items: center;
 }
-#container #address .addDetail .bl_stack_btm .name {
+#container #address .addDetail .bl_stack_btm .bl_stack2 .name {
   margin: 20px 0;
 }
-#container #address .addDetail .bl_stack_btm .name input[type=text] {
-  width: 100px;
-  height: 30px;
+#container #address .addDetail .bl_stack_btm .bl_stack2 .name p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ff9900;
+}
+#container #address .addDetail .bl_stack_btm .bl_stack2 .name input[type=text] {
+  width: 245px;
+  height: 37px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
 }
-#container #address .addDetail .bl_stack_btm .name input[type=text]:focus {
+#container #address .addDetail .bl_stack_btm .bl_stack2 .name input[type=text]:focus {
   outline: none;
 }
-#container #address .addDetail .bl_stack_btm .number {
+#container #address .addDetail .bl_stack_btm .bl_stack2 .number {
   margin: 20px 0;
 }
-#container #address .addDetail .bl_stack_btm .number input[type=text] {
-  width: 200px;
-  height: 30px;
+#container #address .addDetail .bl_stack_btm .bl_stack2 .number p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ff9900;
+}
+#container #address .addDetail .bl_stack_btm .bl_stack2 .number input[type=text] {
+  width: 245px;
+  height: 37px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
 }
-#container #address .addDetail .bl_stack_btm .number input[type=text]:focus {
+#container #address .addDetail .bl_stack_btm .bl_stack2 .number input[type=text]:focus {
   outline: none;
 }
-#container #address .addDetail .bl_stack_btm .number span {
+#container #address .addDetail .bl_stack_btm .bl_stack2 .number span {
   display: block;
   font-size: 11px;
   font-weight: 200;
   font-style: italic;
 }
-#container #address .addDetail .bl_stack_btm .el_btn2 {
+#container #address .addDetail .bl_stack_btm .bl_stack2 .el_btn2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1544,32 +1562,35 @@ html, body {
   text-align: left;
   word-break: keep-all;
 }
-#container #address .addDetail .bl_stack_btm .el_btn2:focus {
+#container #address .addDetail .bl_stack_btm .bl_stack2 .el_btn2:focus {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2) inset;
 }
 #container #address .addDetail .bl_stack_btm .nameNum {
   display: flex;
   flex-direction: column;
-  left: 20px;
-  gap: 15px;
+  gap: 5px;
+  margin-bottom: 35px;
 }
 #container #address .addDetail .bl_stack_btm .nameNum .el_ttl2 {
   font-size: 18px;
   font-weight: 500;
-}
-#container #address .addDetail .bl_stack_btm .nameNum .el_ttl2:nth-child(1) {
   color: #ff9900;
 }
-#container #address .addDetail .bl_stack_btm .nameNum .el_ttl2:nth-child(2) {
+#container #address .addDetail .bl_stack_btm .nameNum .el_ttl2.errorname1 {
+  color: #000;
   font-weight: 400;
+  font-size: 17px;
 }
-#container #address .addDetail .bl_stack_btm .nameNum .el_ttl2:nth-child(3) {
+#container #address .addDetail .bl_stack_btm .nameNum .el_ttl2.errornum1 {
+  color: #000;
   font-weight: 400;
+  font-size: 17px;
 }
 #container #address .addDetail .bl_stack_btm .nameNum .el_result2 {
   height: 20px;
   font-weight: 300;
   padding-bottom: 10px;
+  font-size: 15px;
 }
 #container #address .addDetail .bl_stack_btm .nameNum .el_input {
   padding: 10px;
@@ -1606,9 +1627,10 @@ html, body {
   background: #ff9900;
   color: #fff;
 }
-#container iframe {
+
+#footer {
   position: absolute;
-  bottom: 0;
+  bottom: -360px;
   width: 100%;
   height: 360px;
 }
@@ -1620,6 +1642,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 280px;
   }
   header, iframe {
     display: none;
@@ -1642,7 +1665,7 @@ html, body {
   }
   #container #top #top-mobile .pmobile {
     display: block;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 400;
   }
   #container #top #top-mobile .pmobile span {
@@ -1651,7 +1674,7 @@ html, body {
   }
   #container #top #top-mobile .pmobile2 {
     font-weight: 300;
-    font-size: 17px;
+    font-size: 15px;
     padding: 20px 0;
   }
   #container #top #top-mobile input[type=submit] {
@@ -1920,14 +1943,19 @@ html, body {
     display: none;
   }
   #container #qnaMobile {
-    width: 100%;
+    width: 470px;
     display: block;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 35px;
+    padding: 50px 80px;
     gap: 20px;
     letter-spacing: -1px;
+  }
+  #container #qnaMobile h2 {
+    font-size: 20px;
+    letter-spacing: -1.3px;
+    color: #ff9900;
   }
   #container #qnaMobile .qna {
     width: 100%;
@@ -1949,7 +1977,8 @@ html, body {
     display: none;
   }
   #container #payment {
-    margin: 150px;
+    margin-top: 40px;
+    margin-bottom: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2009,6 +2038,56 @@ html, body {
     align-items: center;
   }
   #container #address {
-    display: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
+  #container #address .addDetail .bl_stack_top {
+    width: 320px;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  #container #address .addDetail .bl_stack_top input[type=text] {
+    width: 180px;
+  }
+  #container #address .addDetail .bl_stack_btm {
+    width: 320px;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  #container #address .addDetail .bl_stack_btm input[type=text] {
+    width: 180px;
+  }
+  #container #address .addDetail .bl_stack_btm .bl_stack2 {
+    margin: 40px 0;
+  }
+  #container #address .addDetail .bl_stack_btm .bl_stack2 .name {
+    margin: 0;
+  }
+  #container #address .addDetail .bl_stack_btm .bl_stack2 .number {
+    margin: 10px 0;
+  }
+  #container #address input[type=submit] {
+    width: 80px;
+    height: 30px;
+    align-items: center;
+    font-size: 11px;
+    padding: 10px;
+    border: 1px solid #ff9900;
+    border-radius: 8px;
+    background: #fff;
+    color: #ff9900;
+    transition: all 0.3s;
+    cursor: pointer;
   }
 }

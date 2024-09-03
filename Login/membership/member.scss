@@ -3,7 +3,7 @@
 
 html, body{
   width: 100%;
-  height: 1200px;
+  height: 3400px;
   position: relative;
   letter-spacing: -0.7px;
 }
@@ -770,207 +770,227 @@ html, body{
     .addDetail {
       display: flex;
       flex-direction: column;
+      width: 500px;
       .bl_stack_top {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .el_ttl {
-          font-size: 18px;
-          font-weight: 500;
-          &:nth-child(1) {
-            color: map-get($map: $color, $key: main-amazon-color);
-          }
-          &:nth-child(2) {
-            font-weight: 400;
-          }
-          &:nth-child(3) {
-            font-weight: 400;
-          }
-          &:nth-child(4) {
-            font-weight: 400;
-          }
-        }
-        .el_result {
-          height: 20px;
-          font-weight: 300;
-          padding-bottom: 10px;
-        }
-        .el_btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          outline: unset;
-          border: unset;
-          padding: 10px;
-          background: map-get($map: $color, $key: main-amazon-color);
-          border-radius: 8px;
-          color: #ffffff;
-          cursor: pointer;
-  
-          font-family: Noto Sans KR;
-          letter-spacing: -0.04em;
-          text-align: left;
-  
-          width: fit-content;
-          height: 37px;
-          font-family: Noto Sans KR;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 17px;
-          letter-spacing: -0.04em;
-          text-align: left;
-  
-          word-break: keep-all;
-          &:focus {
-            box-shadow: 3px 3px 10px rgba($color: #000000, $alpha: 0.2) inset;
-          }
-        }
-        .el_btn--outline {
-          background: unset;
-          border: 1px solid #333333;
-          color: #333333;
-          font-family: Noto Sans KR;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 17px;
-          letter-spacing: -0.04em;
-          text-align: left;
-          background-color: #ffffff;
-        }
-        .el_input {
-          padding: 10px;
-          /* max-width: 320px; */
-          width: 200px;
-          height: 37px;
-          border: 1px solid #d4d4d4;
-          border-radius: 5px;
-          color: #333333;
-          background-color: unset;
-  
-          font-family: Noto Sans KR;
-          font-size: 12px;
-          font-weight: 300;
-          line-height: 17px;
-          letter-spacing: -0.04em;
-          text-align: left;
-          &:focus {
-            outline: none;
-          }
-        }
-        .el_input::placeholder {
-          color: #d4d4d4;
-        }
-        .el_input:disabled {
-          background-color: #f0f0f0;
-        }
         .bl_stack {
           display: flex;
           flex-direction: column;
           font-size: 15px;
           gap: 5px;
+          .el_ttl {
+            font-size: 18px;
+            font-weight: 500;
+            color: map-get($map: $color, $key: main-amazon-color);
+            &.code1 {
+              color: map-get($map: $color, $key: main-dark-color);
+              font-weight: 400;
+              font-size: 17px;
+            }
+            &.adr1 {
+              color: map-get($map: $color, $key: main-dark-color);
+              font-weight: 400;
+              font-size: 17px;
+            }
+            &.adrDetail1 {
+              color: map-get($map: $color, $key: main-dark-color);
+              font-weight: 400;
+              font-size: 17px;
+            }
+          }
+          .el_result {
+            height: 20px;
+            font-weight: 300;
+            padding-bottom: 10px;
+            font-size: 15px;
+          }
+          .el_btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            outline: unset;
+            border: unset;
+            padding: 10px;
+            background: map-get($map: $color, $key: main-amazon-color);
+            border-radius: 8px;
+            color: #ffffff;
+            cursor: pointer;
+    
+            font-family: Noto Sans KR;
+            letter-spacing: -0.04em;
+            text-align: left;
+    
+            width: fit-content;
+            height: 37px;
+            font-family: Noto Sans KR;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 17px;
+            letter-spacing: -0.04em;
+            text-align: left;
+    
+            word-break: keep-all;
+            &:focus {
+              box-shadow: 3px 3px 10px rgba($color: #000000, $alpha: 0.2) inset;
+            }
+          }
+          .el_btn--outline {
+            background: unset;
+            border: 1px solid #333333;
+            color: #333333;
+            font-family: Noto Sans KR;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 17px;
+            letter-spacing: -0.04em;
+            text-align: left;
+            background-color: #ffffff;
+          }
+          .el_input {
+            padding: 10px;
+            /* max-width: 320px; */
+            // width: 200px;
+            height: 37px;
+            border: 1px solid #d4d4d4;
+            border-radius: 5px;
+            color: #333333;
+            background-color: unset;
+    
+            font-family: Noto Sans KR;
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 17px;
+            letter-spacing: -0.04em;
+            text-align: left;
+            &:focus {
+              outline: none;
+            }
+          }
+          .el_input::placeholder {
+            color: #d4d4d4;
+          }
+          .el_input:disabled {
+            background-color: #f0f0f0;
+          }
         }
         .bl_stack--row {
           flex-direction: row;
         }
         .form {
-          margin-bottom: 20px;
+          margin-bottom: 30px;
           height: fit-content;
         }
         .hp_shrink-0 {
           flex-shrink: 0;
         }
       }
-
       .bl_stack_btm {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .name {
-          margin: 20px 0;
-          input[type="text"] {
-          width: 100px;
-          height: 30px;
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          padding: 10px;
-          &:focus {
-            outline: none;
+        .bl_stack2 {
+          .name {
+            margin: 20px 0;
+            p {
+              font-size: 18px;
+              font-weight: 500;
+              color: map-get($map: $color, $key: main-amazon-color);
+            }
+            input[type="text"] {
+            width: 245px;
+            height: 37px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            &:focus {
+              outline: none;
+            }
+            }
           }
+          .number {
+            margin: 20px 0;
+            p {
+              font-size: 18px;
+              font-weight: 500;
+              color: map-get($map: $color, $key: main-amazon-color);
+            }
+            input[type="text"] {
+            width: 245px;
+            height: 37px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            &:focus {
+              outline: none;
+            }
+            }
+            span {
+              display: block;
+              font-size: 11px;
+              font-weight: 200;
+              font-style: italic;
+            }
           }
+          .el_btn2 {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            outline: unset;
+            border: unset;
+            padding: 10px;
+            background: map-get($map: $color, $key: main-amazon-color);
+            border-radius: 8px;
+            color: #ffffff;
+            cursor: pointer;
+    
+            font-family: Noto Sans KR;
+            letter-spacing: -0.04em;
+            text-align: left;
+    
+            width: fit-content;
+            height: 37px;
+            font-family: Noto Sans KR;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 17px;
+            letter-spacing: -0.04em;
+            text-align: left;
+    
+            word-break: keep-all;
+            &:focus {
+              box-shadow: 3px 3px 10px rgba($color: #000000, $alpha: 0.2) inset;
+            }
+          }
+    
         }
-        .number {
-          margin: 20px 0;
-          input[type="text"] {
-          width: 200px;
-          height: 30px;
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          padding: 10px;
-          &:focus {
-            outline: none;
-          }
-          }
-          span {
-            display: block;
-            font-size: 11px;
-            font-weight: 200;
-            font-style: italic;
-          }
-        }
-  
-        .el_btn2 {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          outline: unset;
-          border: unset;
-          padding: 10px;
-          background: map-get($map: $color, $key: main-amazon-color);
-          border-radius: 8px;
-          color: #ffffff;
-          cursor: pointer;
-  
-          font-family: Noto Sans KR;
-          letter-spacing: -0.04em;
-          text-align: left;
-  
-          width: fit-content;
-          height: 37px;
-          font-family: Noto Sans KR;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 17px;
-          letter-spacing: -0.04em;
-          text-align: left;
-  
-          word-break: keep-all;
-          &:focus {
-            box-shadow: 3px 3px 10px rgba($color: #000000, $alpha: 0.2) inset;
-          }
-        }
-  
         .nameNum {
           display: flex;
           flex-direction: column;
-          left: 20px;
-          gap: 15px;
+          // left: 20px;
+          gap: 5px;
+          margin-bottom: 35px;
           .el_ttl2 {
             font-size: 18px;
             font-weight: 500;
-            &:nth-child(1) {
-              color: map-get($map: $color, $key: main-amazon-color);
-            }
-            &:nth-child(2) {
+            color: map-get($map: $color, $key: main-amazon-color);
+            &.errorname1 {
+              color: map-get($map: $color, $key: main-dark-color);
               font-weight: 400;
+              font-size: 17px;
             }
-            &:nth-child(3) {
+            &.errornum1 {
+              color: map-get($map: $color, $key: main-dark-color);
               font-weight: 400;
+              font-size: 17px;
             }
           }
           .el_result2 {
             height: 20px;
             font-weight: 300;
             padding-bottom: 10px;
+            font-size: 15px;
           }
           .el_input {
             padding: 10px;
@@ -1013,13 +1033,13 @@ html, body{
       }
     }
   }
+}
 
-  iframe {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 360px;
-  }
+#footer{
+  position: absolute;
+  bottom: -360px;
+  width: 100%;
+  height: 360px;
 }
 
 // mobile
@@ -1030,6 +1050,8 @@ html, body{
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 280px;
+    // margin: 0 auto;
     // overflow: hidden;
   }
   header, iframe {
@@ -1055,7 +1077,7 @@ html, body{
         align-items: center;
         .pmobile {
           display: block;
-          font-size: 30px;
+          font-size: 25px;
           font-weight: 400;
           span {
             color: #ff9900;
@@ -1064,7 +1086,7 @@ html, body{
         }
         .pmobile2 {
           font-weight: 300;
-          font-size: 17px;
+          font-size: 15px;
           padding: 20px 0;
         }
         input[type="submit"] {
@@ -1349,21 +1371,26 @@ html, body{
     }
 
     #qnaMobile {
-      width: 100%;
+      width: 470px;
       display: block;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 35px;
+      padding: 50px 80px;
       gap: 20px;
       letter-spacing: -1px;
-      // border: 1px solid #f00;
+      h2 {
+        font-size: 20px;
+        letter-spacing: -1.3px;
+        color: #ff9900;
+      }
       .qna {
         width: 100%;
         padding: 10px;
         .Qmobile {
           font-size: 15px;
           font-weight: 400;
+          // color: #ff9900;
         }
         .Amobile {
           font-size: 12px;
@@ -1381,7 +1408,8 @@ html, body{
     }
 
     #payment {
-      margin: 150px;
+      margin-top: 40px;
+      margin-bottom: 150px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1445,7 +1473,64 @@ html, body{
     }
 
     #address {
-      display: none;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      .addDetail {
+        .bl_stack_top {
+          width: 320px;
+          display: block;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+          // padding: 20px;
+          // border: 1px solid #f00;
+          input[type="text"] {
+            width: 180px;
+          }
+        }
+        .bl_stack_btm {
+          width: 320px;
+          display: block;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+          // padding: 20px;
+          // border: 1px solid #f00;
+          input[type="text"] {
+            width: 180px;
+          }
+          .bl_stack2 {
+            margin: 40px 0;
+            .name {
+              margin: 0;
+            }
+            .number {
+              margin: 10px 0;
+            }
+          }
+        }
+      }
+      input[type="submit"] {
+        width: 80px;
+        height: 30px;
+        align-items: center;
+        font-size: 11px;
+        padding: 10px;
+        // bottom: 20px;
+        border: 1px solid map-get($map: $color, $key: main-amazon-color);
+        border-radius: 8px;
+        background: map-get($map: $color, $key: main-color);
+        color: map-get($map: $color, $key: main-amazon-color);
+        transition: all 0.3s;
+        cursor: pointer;
+      }
     }
   }
 }
