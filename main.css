@@ -638,6 +638,101 @@ body {
   overflow-x: hidden;
 }
 
+.geolocationModal {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: "Noto Sans";
+  z-index: 1000000000;
+}
+.geolocationModal .modalBg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1000000001;
+}
+.geolocationModal .content {
+  overflow: hidden;
+  position: absolute;
+  z-index: 1000000002;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 540px;
+  height: 280px;
+  background: #fff;
+  border: 1px solid #f00;
+  border-radius: 20px;
+}
+.geolocationModal .content .title {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  background: #ff9900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-start;
+  color: #fff;
+  font-weight: 500;
+}
+.geolocationModal .content .desc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.geolocationModal .content .desc i {
+  font-size: 30px;
+}
+.geolocationModal .content .desc .alert {
+  padding: 0 40px;
+  color: #333;
+  font-size: 14px;
+}
+.geolocationModal .content .desc .btns {
+  width: 100%;
+}
+.geolocationModal .content .desc .btns button {
+  width: calc(40% - 40px);
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.geolocationModal .content .desc .btns button:first-child {
+  margin-right: 10px;
+  background: transparent;
+  border: 1px solid #ff9900;
+  color: #ff9900;
+}
+.geolocationModal .content .desc .btns button:first-child:hover {
+  box-shadow: 0 0 14px rgba(255, 153, 0, 0.2);
+}
+.geolocationModal .content .desc .btns button:last-child {
+  background: #ff9900;
+  color: #fff;
+}
+.geolocationModal .content .desc .btns button:last-child:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.geolocationModal.active {
+  display: flex;
+}
+
 header {
   margin: 0 auto;
   position: fixed;
@@ -1350,6 +1445,16 @@ header {
   body,
   html {
     height: 9460px;
+  }
+  .geolocationModal .content {
+    width: 80%;
+    height: 340px;
+  }
+  .geolocationModal .content .desc .btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
   }
   header {
     right: 0;
