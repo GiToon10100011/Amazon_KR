@@ -1,4 +1,4 @@
-@import "../reset.scss";
+@import "../../reset.scss";
 
 body {
   width: 100%;
@@ -307,6 +307,18 @@ header {
           .item-info {
             // width: 80%;
             white-space: nowrap;
+            .points-name {
+              overflow: hidden;
+              width: 300px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              span {
+                overflow: hidden;
+                width: 100%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+            }
             .delivery-status {
               display: flex;
               justify-content: space-between;

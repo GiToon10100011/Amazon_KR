@@ -294,5 +294,13 @@ fetch("../data.json")
 
       e.target.children[0].children[0].value = "";
     });
+
+    window.onload = () => {
+      const frameHeight = document.body.scrollHeight;
+      const parentFrame = parent.document.querySelector(".pageBox");
+      parentFrame.style.height = `${frameHeight}px`;
+      parent.document.body.style.height = `${frameHeight + 1000}px`;
+    }
+    
   })
   .catch((error) => console.error("Error loading JSON data:", error));

@@ -99,3 +99,10 @@ sortFilter.addEventListener("change", (e) => {
     domCouponItems.appendChild(item);
   });
 });
+
+const frameHeight = getComputedStyle(document.body).height;
+const parentFrame = parent.document.querySelector(".pageBox");
+parentFrame.style.height = frameHeight;
+parent.document.body.style.height = `${
+  Number(frameHeight.replace(/[^0-9]/g, "")) + 1000
+}px`;

@@ -44,10 +44,9 @@ fetch("../data.json")
                     <span class="product-date">${year}.${month}.${date} ~ ${year}.${month}.${date}</span>
                   </p>
                   <div class="points-status">
-                    <h4>+ ${new Intl.NumberFormat("ko-KR", {
-                      style: "currency",
-                      currency: "KRW",
-                    }).format(Math.abs(item.coupon) * item.quantity)}원</h4>
+                    <h4>+ ${new Intl.NumberFormat("ko-KR").format(
+                      Math.abs(item.coupon) * item.quantity
+                    )}원</h4>
                     <div class="points-desc">
                       <span>(적립)</span>
                     </div>
@@ -67,11 +66,24 @@ fetch("../data.json")
 
       const totalMyPoints = pointValue.reduce((a, b) => a + b);
 
-      totalPoints.innerText = `${new Intl.NumberFormat("ko-KR").format(totalMyPoints)} 원`;
+      totalPoints.innerText = `${new Intl.NumberFormat("ko-KR").format(
+        totalMyPoints
+      )} 원`;
     } else {
       domPointItems.innerHTML = "<h1>쿠폰이 없습니다.<h1>";
       domPointItems.style.textAlign = "center";
       domPointItems.style.lineHeight = "150px";
     }
+
+    parentFrame.style.height = ``;
+    parent.document.body.style.height = ``;
+
+    const frameHeight = document.body.scrollHeight;
+
+    console.log(frameHeight);
+
+    const parentFrame = parent.document.querySelector(".pageBox");
+    parentFrame.style.height = `${frameHeight}px`;
+    parent.document.body.style.height = `${frameHeight + 1000}px`;
   })
   .catch((err) => console.log(err));

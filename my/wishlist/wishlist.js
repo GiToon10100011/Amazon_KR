@@ -300,5 +300,15 @@ fetch("../data.json")
         });
       });
     }
+    // const frameHeight = getComputedStyle(document.body).height;
+
+
+    
+    parentFrame.style.height = ``;
+    parent.document.body.style.height = ``;
+
+    
+    parentFrame.style.height = `${frameHeight}px`;
+    parent.document.body.style.height = `${frameHeight + 1000}px`;
   })
   .catch((error) => console.error("Error loading JSON data:", error));
