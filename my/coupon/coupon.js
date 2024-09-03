@@ -39,8 +39,63 @@ if (couponItems) {
 
     domCouponItems.appendChild(couponItem);
   });
+
+  const couponValidItems = document.querySelectorAll(".couponValidItems");
+  couponValidItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      const validItem =
+        e.target.parentElement.parentElement.querySelector(
+          ".coupon-name span"
+        ).innerText;
+      parent.location.href = `../../search/search.html?searchBar=${validItem}`;
+    });
+  });
 } else {
   domCouponItems.innerHTML = "<h1>쿠폰이 없습니다.<h1>";
   domCouponItems.style.textAlign = "center";
   domCouponItems.style.lineHeight = "150px";
 }
+
+console.log(
+  document.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, "")
+);
+const sortFilter = document.querySelector(".sortFilter");
+sortFilter.addEventListener("change", (e) => {
+  let sortedItems;
+  if (e.target.value === "recent") {
+    sortedItems = [...document.querySelectorAll(".couponItem")].sort((a, b) => {
+      const nameA = a
+        .querySelector(".coupon-name span")
+        .innerText[0].toUpperCase();
+      const nameB = b
+        .querySelector(".coupon-name span")
+        .innerText[0].toUpperCase();
+
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    });
+  }
+  if (e.target.value === "high") {
+    sortedItems = [...document.querySelectorAll(".couponItem")].sort(
+      (a, b) =>
+        Number(
+          b.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, "")
+        ) -
+        Number(a.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, ""))
+    );
+  }
+  if (e.target.value === "low") {
+    sortedItems = [...document.querySelectorAll(".couponItem")].sort(
+      (a, b) =>
+        Number(
+          a.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, "")
+        ) -
+        Number(b.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, ""))
+    );
+  }
+  console.log(sortedItems);
+  sortedItems.forEach((item) => {
+    domCouponItems.appendChild(item);
+  });
+});
