@@ -57,9 +57,6 @@ if (couponItems) {
   domCouponItems.style.lineHeight = "150px";
 }
 
-console.log(
-  document.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, "")
-);
 const sortFilter = document.querySelector(".sortFilter");
 sortFilter.addEventListener("change", (e) => {
   let sortedItems;
@@ -95,7 +92,6 @@ sortFilter.addEventListener("change", (e) => {
         Number(b.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, ""))
     );
   }
-  console.log(sortedItems);
   sortedItems.forEach((item) => {
     domCouponItems.appendChild(item);
   });
@@ -104,8 +100,6 @@ const parentFrame = parent.document.querySelector(".pageBox");
 const parentMain = parent.document.querySelector("main");
 
 const frameHeight = document.body.scrollHeight;
-
-console.log(frameHeight);
 
 if (frameHeight) {
   if (!mediaQuery.matches) {

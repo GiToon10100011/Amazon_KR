@@ -1,8 +1,6 @@
 const createHottestItems = (json) => {
   const rankingItems = document.querySelectorAll(".ranking p");
 
-  console.log(rankingItems);
-
   rankingItems.forEach((item, index) => {
     const randomIdx = Math.floor(Math.random() * 1000);
     item.innerHTML = `

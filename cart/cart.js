@@ -37,7 +37,6 @@ fetch("data.json")
           );
         });
         cartProducts.forEach((product) => {
-          console.log(product);
           const domCartItem = document.createElement("div");
           domCartItem.className = "cart-item";
           domCartItem.innerHTML = `
@@ -88,7 +87,6 @@ fetch("data.json")
       });
     }
 
-    console.log(products);
     const productsContainer = document.querySelector(".products-container");
 
     // Fisher-Yates shuffle algorithm을 사용하여 배열을 무작위로 섞는 함수
@@ -178,7 +176,6 @@ fetch("data.json")
         .querySelector(".options-title h3").textContent;
 
       cartItems = cartItems.map((item) => {
-        console.log(itemName === item.name);
         if (item.name.trim() === itemName && item.options === itemOptions) {
           item.quantity = newQuantity;
         }
@@ -275,7 +272,6 @@ fetch("data.json")
 
     // 삭제 확인 버튼 클릭 시
     confirmDeleteBtn.addEventListener("click", (e) => {
-      console.log();
       let index;
       if (itemToDelete) {
         const index = cartItems.findIndex(

@@ -336,7 +336,6 @@ searchBtn.addEventListener("click", () => {
   const url = `../search/search.html?searchBar=${searchBar.value}`;
 
   const cateSearch = document.querySelector("#search_type");
-  console.log(cateSearch);
   if (cateSearch.value === null) {
     location.href = url;
   } else {
@@ -382,7 +381,6 @@ rankingToggle.addEventListener("click", () => {
 });
 
 const rankingMenuTitle = document.querySelector(".ranking-menu-title span");
-console.log(rankingMenuTitle);
 
 const updateDate = () => {
   const rankingDateTime = new Date();

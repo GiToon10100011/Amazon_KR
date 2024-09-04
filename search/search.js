@@ -235,7 +235,6 @@ fetch("./data.json")
           const url = `../detail/detail.html?category=${
             product.category
           }&name=${encodeURIComponent(product.name)}`;
-          console.log(url);
           window.location.href = url;
         });
       });

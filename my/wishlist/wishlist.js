@@ -236,7 +236,6 @@ fetch("../data.json")
       const deleteProductBtns = document.querySelectorAll(
         ".item-delete-btn button"
       );
-      console.log(deleteProductBtns);
       checkAllBtn.addEventListener("change", () => {
         checkItems.forEach((item) => {
           item.checked = checkAllBtn.checked;

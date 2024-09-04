@@ -81,8 +81,6 @@ fetch("../data.json")
 
     const frameHeight = document.body.scrollHeight;
 
-    console.log(frameHeight);
-
     if (frameHeight) {
       if (!mediaQuery.matches) {
         parentFrame.style.height = `${frameHeight}px`;

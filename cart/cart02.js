@@ -78,7 +78,6 @@ fetch("data.json")
         });
 
         cartProducts.forEach((product) => {
-          console.log(product);
           const domCartItems = document.querySelector(".order-products"); // 올바른 선택자 사용
           const domCartItem = document.createElement("div");
           domCartItem.className = "product-item";
@@ -237,7 +236,6 @@ const phoneInputs = [
 ];
 
 phoneInputs.forEach(({ input, error }) => {
-  console.log(input, error);
   input.addEventListener("input", function () {
     validatePhoneInput(input, error);
   });

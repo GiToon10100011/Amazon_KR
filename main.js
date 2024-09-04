@@ -117,7 +117,6 @@ mbs.slick({
 
 //         if (country) {
 //           const countryCode = country.address_components[0].short_name;
-//           console.log(countryCode);
 //           handleCountryCheck(countryCode);
 //         } else {
 //           alert("국가 정보를 찾을 수 없습니다.");
@@ -203,8 +202,6 @@ fetch(productInfo)
         priceIndicator = "";
         break;
     }
-
-    console.log(priceIndicator);
 
     let products = {
       data: data.data.map((item) => ({
@@ -317,19 +314,15 @@ fetch(productInfo)
       filteredGames,
     ];
 
-    console.log(cateFilters[0][0].category);
-
     //Create URL for each items
     categorySections.forEach((section, index) => {
       const categoryItems = section.querySelectorAll(".inner .content .item");
       categoryItems.forEach((item, i) => {
         item.style.cursor = "pointer";
         item.addEventListener("click", (e) => {
-          console.log(e);
           const url = `./detail/detail.html?category=${
             cateFilters[index][i].category
           }&name=${encodeURIComponent(cateFilters[index][i].name)}`;
-          console.log(url);
           window.location.href = url;
         });
       });
@@ -367,8 +360,6 @@ fetch(productInfo)
       cateRadios.push(page.querySelectorAll(catePages[`catePage${i + 1}`]));
     });
 
-    console.log(cateRadios);
-
     cateRadios.forEach((radios) => {
       radios.forEach((radio) => {
         radio.addEventListener("change", (e) => {
@@ -394,11 +385,9 @@ fetch(productInfo)
       const categoryItems = section.querySelectorAll(".inner .content .item");
       categoryItems.forEach((item, i) => {
         item.addEventListener("click", (e) => {
-          console.log(e);
           const url = `./detail/detail.html?category=${
             cateFilters[index][i].category
           }&name=${encodeURIComponent(cateFilters[index][i].name)}`;
-          console.log(url);
           window.location.href = url;
         });
       });
@@ -440,7 +429,6 @@ fetch(productInfo)
     };
 
     const mbbContents = document.querySelectorAll("#mmb-slider-wrap .item");
-    console.log(mbbContents);
 
     mbbContents.forEach((content, index) => {
       content.style.cursor = "pointer";
@@ -448,7 +436,6 @@ fetch(productInfo)
         const url = `./detail/detail.html?category=${
           filteredFashion[index].category
         }&name=${encodeURIComponent(filteredFashion[index].name)}`;
-        console.log(url);
         window.location.href = url;
       });
     });

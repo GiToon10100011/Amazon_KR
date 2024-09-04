@@ -620,7 +620,6 @@ fetch("./data.json")
         });
       });
       document.querySelectorAll(".buynow").forEach(function (element) {
-        console.log(element);
         element.addEventListener("click", function () {
           const option = document.querySelectorAll(
             ".main_desc #selectoption"
@@ -638,7 +637,6 @@ fetch("./data.json")
       //M버전 로컬스토리지
       // M버전 로컬스토리지
       document.querySelectorAll(".my_list").forEach(function (element) {
-        console.log(element);
         element.addEventListener("click", function () {
           const option = document.querySelector("#selectoption").value; // 선택된 옵션 값 가져오기
           const cnt = document.querySelector(".count_result");
@@ -747,8 +745,6 @@ fetch("./data.json")
 
       const allHearts = document.querySelectorAll("main .fa-heart");
 
-      console.log(allHearts);
-
       if (wishlistItemCheck) {
         allHearts.forEach((heart) => {
           heart.classList.add("active");
@@ -775,7 +771,6 @@ fetch("./data.json")
 
       couponBtn.forEach((btn) => {
         btn.addEventListener("click", () => {
-          console.log(product);
           if (
             confirm(`${product.name} 쿠폰을 발급받으시겠습니까? (계정 당 1회)`)
           ) {
