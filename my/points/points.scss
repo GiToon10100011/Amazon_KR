@@ -1,0 +1,365 @@
+@import "../../reset.scss";
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-family: map-get($map: $family, $key: kr-font);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+  h1 {
+    font-size: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid map-get($map: $color, $key: main-desc-color);
+  }
+  .points-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 66px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: map-get($map: $color, $key: main-amazon-color);
+    color: map-get($map: $color, $key: main-color);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border: none;
+    span {
+      font-size: 1rem;
+    }
+    .total-points-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .total-points {
+        font-size: 24px;
+        font-weight: 500;
+      }
+    }
+  }
+  .dateFilter {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    margin-bottom: 40px;
+    label {
+      @include border-style(
+        $color: map-get($map: $color, $key: main-border-color)
+      );
+      margin-right: 10px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      display: none;
+      &:nth-of-type(1):checked ~ label:nth-of-type(1) {
+        @include border-style(
+          $color: map-get($map: $color, $key: main-amazon-color)
+        );
+      }
+      &:nth-of-type(2):checked ~ label:nth-of-type(2) {
+        @include border-style(
+          $color: map-get($map: $color, $key: main-amazon-color)
+        );
+      }
+      &:nth-of-type(3):checked ~ label:nth-of-type(3) {
+        @include border-style(
+          $color: map-get($map: $color, $key: main-amazon-color)
+        );
+      }
+      &:nth-of-type(4):checked ~ label:nth-of-type(4) {
+        @include border-style(
+          $color: map-get($map: $color, $key: main-amazon-color)
+        );
+      }
+      &:nth-of-type(5):checked ~ label:nth-of-type(5) {
+        @include border-style(
+          $color: map-get($map: $color, $key: main-amazon-color)
+        );
+      }
+    }
+    .calendarFilter {
+      width: 350px;
+      display: flex;
+      justify-content: space-between;
+      input[type="date"] {
+        width: 160px;
+        border: none;
+        border-bottom: 1px solid map-get($map: $color, $key: main-border-color);
+        font-family: map-get($map: $family, $key: kr-font);
+      }
+    }
+  }
+}
+
+#points-content {
+  .sortFilter {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 50px;
+    select {
+      width: 80px;
+      height: 20px;
+      font-family: map-get($map: $family, $key: kr-font);
+      border: none;
+      // border-right: 1px solid;
+      padding-right: 10px;
+      &:last-child {
+        border: none;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .pointsItems {
+    width: 100%;
+    margin-top: 50px;
+    .item-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      span {
+        font-size: 24px;
+        font-weight: 500;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 16px;
+        color: map-get($map: $color, $key: main-amazon-color);
+        text-decoration: none;
+        &:hover {
+          border-bottom: 1px solid
+            map-get($map: $color, $key: main-amazon-color);
+        }
+        i {
+          padding-top: 4px;
+          font-size: 10px;
+        }
+      }
+    }
+    .pointsItem {
+      margin-bottom: 14px;
+      .item-content {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 66px;
+        @include border-style($color: map-get($color, main-border-color));
+        border-radius: 10px;
+        .item-info {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .points-name {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            span {
+              font-weight: bold;
+              font-size: 16px;
+              &.product-date {
+                font-weight: normal;
+                font-size: 10px;
+              }
+            }
+          }
+          .points-status {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            gap: 6px;
+            width: 90%;
+            h4 {
+              color: map-get($map: $color, $key: main-amazon-color);
+              font-size: 16px;
+              margin-right: 8px;
+            }
+            .points-desc {
+              display: flex;
+              align-items: center;
+              span {
+                font-size: 10px;
+                margin-right: 4px;
+              }
+              i {
+                font-size: 8px;
+                color: map-get($map: $color, $key: dark-placeholder-color);
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    gap: 0;
+    h1 {
+      display: none;
+    }
+    .points-banner {
+      margin-bottom: 20px;
+    }
+    .dateFilter {
+      width: 100%;
+      overflow-x: scroll;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      user-select: none;
+      overflow-y: hidden;
+      font-size: 12px;
+      margin-bottom: 10px;
+      .radioBtns {
+        padding-top: 8px;
+        height: 30px;
+      }
+      .calendarFilter {
+        align-items: center;
+        gap: 10px;
+        input[type="date"] {
+          width: 110px;
+          border-radius: 20px;
+          @include border-style($color: map-get($color, main-border-color));
+          padding: 4px 14px;
+          font-size: 10px;
+          &.active {
+            @include border-style($color: map-get($color, main-amazon-color));
+          }
+        }
+      }
+    }
+  }
+  #points-content {
+    .sortFilter {
+      position: absolute;
+      right: 0;
+      padding-right: 10px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-bottom: 20px;
+      transform: translateY(4px);
+    }
+    .total {
+      margin-bottom: 20px;
+      .soldOut-box {
+        input[type="checkbox"] {
+          width: 10px;
+          height: 10px;
+        }
+        label {
+          font-size: 12px;
+        }
+      }
+    }
+    .mobile-radioBtns {
+      font-size: 12px;
+      display: block;
+      padding-top: 8px;
+      height: 30px;
+    }
+    .pointsItems {
+      margin-top: 30px;
+      .pointsItem {
+        margin-bottom: 14px;
+        .item-title {
+          span {
+            font-size: 18px;
+          }
+          a {
+            font-size: 12px;
+            i {
+              font-size: 12px;
+            }
+          }
+        }
+        .item-content {
+          width: 100%;
+          padding: 14px;
+          gap: 20px;
+          .item-img {
+            width: 100px;
+            height: 100%;
+          }
+          .item-info {
+            // width: 80%;
+            white-space: nowrap;
+            .points-name {
+              overflow: hidden;
+              width: 300px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              span {
+                overflow: hidden;
+                width: 100%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+            }
+            .delivery-status {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              position: relative;
+              width: 100%;
+              font-size: 12px;
+              i {
+                display: block;
+                cursor: pointer;
+              }
+            }
+            .product-name {
+              font-size: 12px;
+              align-items: start;
+              padding-top: 4px;
+              gap: 0;
+              span:first-child {
+                width: 90%;
+              }
+              .icon-cart {
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+              }
+            }
+            .product-option {
+              font-size: 8px;
+            }
+            .product-price {
+              margin-top: 6px;
+              h4 {
+                font-size: 10px;
+              }
+              .points-number {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

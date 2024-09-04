@@ -1,2 +1,1 @@
-# Amazon_KR
-이젠아카데미 두번째 프로젝트 e-커머스 쇼핑몰 개선하기
+This is the Develop Branch of Amazon_KR

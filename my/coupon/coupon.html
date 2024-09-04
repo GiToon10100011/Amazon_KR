@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/a7e457e146.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="coupon.css" />
+    <script defer src="coupon.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>쿠폰</h1>
+      <div class="coupon-banner">
+        <div class="coupon-banner-inner">
+          <h3>쿠폰등록</h3>
+          <div class="coupon-inputBox">
+            <input
+              type="text"
+              name="couponCode"
+              id="couponCode"
+              placeholder="쿠폰코드를 입력해주세요."
+            />
+            <input type="button" value="등록" />
+          </div>
+        </div>
+      </div>
+      <div class="mobile-coupon-banner">
+        <div class="coupon-banner-inner">
+          <div class="coupon-quantity">
+            <h3>쿠폰</h3>
+            <span>0 장</span>
+          </div>
+          <div class="coupon-register">
+            <span>인증번호 등록</span>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="coupon-content">
+      <h3 class="coupon-content-title">쿠폰 목록</h3>
+      <div class="coupon-sort">
+        <span>전체 0개</span>
+        <div class="sortFilter">
+          <select name="" id="">
+            <option value="recent">최신순</option>
+            <option value="high">할인률순</option>
+            <option value="low">낮은 할인률순</option>
+          </select>
+        </div>
+      </div>
+      <section class="couponItems"></section>
+    </main>
+  </body>
+</html>

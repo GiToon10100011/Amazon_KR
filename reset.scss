@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  webkit-tap-highlight-color: transparent;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+// Variables
+$color: (
+  main-color: #fff,
+  main-dark-color: #000,
+  main-amazon-color: #ff9900,
+  main-border-color: #ccc,
+  main-desc-color: #333,
+  amazon-point-color: #ffd814,
+  searchBar-bg-color: #eee,
+  placeholder-color: #aaa,
+  dark-placeholder-color: #888,
+  light-placeholder-color: #bbb,
+);
+
+$family: (
+  kr-font: "Noto Sans KR",
+  main-font: "Noto Sans",
+);
+
+// Mixins
+@mixin border-style($weight: 1px, $type: solid, $color: #f00) {
+  border: $weight $type $color;
+}
+
+@mixin extendItems {
+  overflow: hidden;
+  img {
+    transition: all 0.3s;
+  }
+  &:hover img {
+    overflow: hidden;
+    transform: scale(1.1);
+  }
+}
+
+.loader-box {
+  position: fixed;
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .loader {
+    position: relative;
+    width: 120px;
+    height: 20px;
+    box-shadow: 0 0 30px
+      rgba($color: map-get($color, main-amazon-color), $alpha: 0.2);
+    background: linear-gradient(
+        90deg,
+        #0000,
+        map-get($color, main-amazon-color)
+      )
+      left -50px top 0/50px 20px no-repeat white;
+    animation: l2 1s infinite linear;
+    img {
+      width: 150px;
+      object-fit: cover;
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.active {
+    display: none;
+  }
+}
+
+@keyframes l2 {
+  100% {
+    background-position: right -50px top 0;
+  }
+}

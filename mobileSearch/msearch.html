@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a7e457e146.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Custom CSS & JS -->
+    <link rel="stylesheet" href="msearch.css" />
+    <script defer src="msearch.js"></script>
+  </head>
+  <body>
+    <header class="searchBar">
+      <form id="searchForm" action="../search/search.html">
+        <div class="searchBox">
+          <input
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            placeholder="검색어를 입력해주세요"
+          />
+        </div>
+      </form>
+      <hr />
+      <div class="recent-search">
+        <div class="recent-search-title">
+          <h4>최근 검색어</h4>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <div class="recent-search-items">
+          <span>검색어</span>
+          <!-- <span>로렘입숨</span>
+          <span>프론트엔드</span>
+          <span>백엔드</span>
+          <span>풀스택</span>
+          <span>개발자</span> -->
+        </div>
+      </div>
+      <div class="hottest-items">
+        <div class="ranking-title">
+          <h4>인기 검색어</h4>
+          <span class="current-date">2024.00.00 기준</span>
+        </div>
+        <div class="ranking-container">
+          <div class="ranking">
+            <p><span>1 </span> 갤럭시 Z플립</p>
+            <p><span>2 </span> 갤럭시 Z플립Z플립</p>
+            <p><span>3 </span> 갤럭시 Z플립Z플립Z플립</p>
+            <p><span>4 </span> 갤럭시 Z플립Z플립Z플립Z플립</p>
+            <p><span>5 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>6 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>7 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>8 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>9 </span> 갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립Z플</p>
+            <p><span>10 </span>갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>11 </span>갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>12 </span>갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>13 </span>갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>14 </span>갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>15 </span>갤럭시 Z플립Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>16 </span>갤럭시 Z플립Z플립Z플립Z플립</p>
+            <p><span>17 </span>갤럭시 Z플립Z플립Z플립Z플립Z플립</p>
+            <p><span>18 </span>갤럭시 Z플립Z플립Z플립</p>
+            <p><span>19 </span>갤럭시 Z플립Z플립Z플립Z플립</p>
+            <p><span>20 </span>갤럭시</p>
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
+  <iframe id="footer" src="../footer/footer.html" frameborder="0"></iframe>
+  <nav class="mobile-navBar">
+    <ul>
+      <li>
+        <a class="mobile-home-shortcut" href="../main.html"
+          ><span class="material-symbols-outlined"> home </span></a
+        >
+      </li>
+      <li>
+        <a class="mobile-search-shortcut" data-search="search" href=""
+          ><span class="material-symbols-outlined"> manage_search </span></a
+        >
+      </li>
+      <li>
+        <a class="mobile-my-shortcut" href="../my/my.html"
+          ><i class="fa-regular fa-user"></i
+        ></a>
+      </li>
+      <li>
+        <a class="mobile-cart-shortcut" href="../cart/cart.html"
+          ><span class="material-symbols-outlined"> shopping_cart </span></a
+        >
+      </li>
+    </ul>
+  </nav>
+</html>

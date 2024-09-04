@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  webkit-tap-highlight-color: transparent;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+// Variables
+$color: (
+  main-color: #fff,
+  main-dark-color: #000,
+  main-amazon-color: #ff9900,
+  main-border-color: #ccc,
+  main-desc-color: #333,
+  amazon-point-color: #ffd814,
+  searchBar-bg-color: #eee,
+  placeholder-color: #aaa,
+  dark-placeholder-color: #888,
+  light-placeholder-color: #bbb,
+);
+
+$family: (
+  kr-font: "Noto Sans KR",
+  main-font: "Noto Sans",
+);
+
+// Mixins
+@mixin border-style($weight: 1px, $type: solid, $color: #f00) {
+  border: $weight $type $color;
+}
+
+@mixin extendItems {
+  overflow: hidden;
+	img{
+		transition: all 0.3s;
+	}
+  &:hover img {
+    overflow: hidden;
+    transform: scale(1.1);
+  }
+}
