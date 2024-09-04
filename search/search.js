@@ -40,13 +40,14 @@ fetch("./data.json")
     //내장객체 함수를 통해 현 url의 파라미터를 가져옴
     const params = new URLSearchParams(window.location.search);
     const keyword = params.get("searchBar");
+    const cateSearch = params.get("search_type");
     const filteredKeyword = params.get("searchBar").toLowerCase().trim();
 
     const searchKey = document.querySelector(".products-heading h4");
     searchKey.innerText = `'${keyword}'에 대한 검색결과`;
 
     //Filter out the Items that matches the Search Query
-    const searchProducts = products.data.filter((product) => {
+    let searchProducts = products.data.filter((product) => {
       return (
         product.name.toLowerCase().includes(filteredKeyword) ||
         product.category.toLowerCase().includes(filteredKeyword) ||
@@ -68,6 +69,43 @@ fetch("./data.json")
           .includes(filteredKeyword)
       );
     });
+
+    if (cateSearch) {
+      const domCategoriesFilter = [
+        ...document.querySelectorAll(".categories div span"),
+      ];
+      let matchedCate;
+      domCategoriesFilter.forEach((filter) => {
+        filter.parentElement.parentElement.classList.remove("active");
+        matchedCate = domCategoriesFilter.find(
+          (cate) => cate.innerText === cateSearch
+        );
+      });
+      matchedCate.parentElement.parentElement.classList.add("active");
+      searchProducts = products.data.filter((product) => {
+        return (
+          (product.name.toLowerCase().includes(filteredKeyword) ||
+            product.category.toLowerCase().includes(filteredKeyword) ||
+            product.detail["category-path"].some((path) =>
+              path.toLowerCase().includes(filteredKeyword)
+            ) ||
+            product.detail.brands.toLowerCase().includes(filteredKeyword) ||
+            product.name
+              .toLowerCase()
+              .replace(/\s+/g, "")
+              .includes(filteredKeyword) ||
+            product.category
+              .toLowerCase()
+              .replace(/\s+/g, "")
+              .includes(filteredKeyword) ||
+            product.detail.brands
+              .toLowerCase()
+              .replace(/\s+/g, "")
+              .includes(filteredKeyword)) &&
+          product.category === cateSearch
+        );
+      });
+    }
 
     //Get all the brands data from the json file in a object structure for Set usages
     const brandsData = searchProducts.map((item) => item.detail.brands);

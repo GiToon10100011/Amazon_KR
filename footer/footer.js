@@ -1,4 +1,4 @@
-import translateApiKey from "../envTranslate";
+// import translateApiKey from "../envTranslate";
 // parent.window.addEventListener("load", () => {
 //   document
 //     .getElementById("language-select")

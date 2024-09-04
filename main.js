@@ -517,15 +517,6 @@ categorySections.forEach((section) => {
   observer.observe(section);
 });
 
-//wishlist event
-// import {pageFrame, myPages} from "./my.js";
-// const wishlistShortcut = document.querySelector(".icon-menu .item:last-child");
-// console.log(wishlistShortcut);
-// wishlistShortcut.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   pageFrame.setAttribute("src", myPages[1]);
-// })
-
 //promotion section page event
 const mainPromos = document.querySelectorAll(".promotions-items ul li");
 mainPromos.forEach((li) => {

@@ -52,8 +52,8 @@ body.innerHTML = `
                   <option value="자동차 용품">자동차 용품</option>
                   <option value="유아">유아</option>
                   <option value="뷰티 및 퍼스널케어">뷰티 및 퍼스널 케어</option>
-                  <option value="여성 패션">여성 패션</option>
-                  <option value="남성 패션">남성 패션</option>
+                  <option value="여성패션">여성 패션</option>
+                  <option value="남성패션">남성 패션</option>
                   <option value="아동용 의류">아동용 의류</option>
                   <option value="건강 및 가정용품">건강 및 가정용품</option>
                   <option value="가정 및 주방">가정 및 주방</option>
@@ -298,6 +298,8 @@ body.innerHTML = `
 
 const mediaQuery = window.matchMedia("(max-width: 768px)");
 
+const searchBar = document.querySelector("#main-search");
+
 // Header events
 const lnb = document.querySelector(".lnb-content");
 
@@ -331,9 +333,15 @@ const searchBtn = document.querySelector(
 searchBtn.style.cursor = "pointer";
 
 searchBtn.addEventListener("click", () => {
-  const searchBar = document.querySelector("#main-search");
   const url = `./search/search.html?searchBar=${searchBar.value}`;
-  location.href = url;
+
+  const cateSearch = document.querySelector("#search_type");
+  console.log(cateSearch);
+  if (cateSearch.value === null) {
+    location.href = url;
+  } else {
+    location.href = `./search/search.html?searchBar=${searchBar.value}&search_type=${cateSearch.value}`;
+  }
 });
 
 // sideMenu
