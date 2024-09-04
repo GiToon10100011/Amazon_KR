@@ -45,21 +45,6 @@ fetch("./data.json")
         rating: 1,
         comment: "최악의 경험이었어요. 다시는 구매하지 않을 겁니다.",
       },
-      {
-        reviewer: "오민재",
-        rating: 5,
-        comment: "완벽한 제품이에요, 딱 필요했던 거예요.",
-      },
-      {
-        reviewer: "황진아",
-        rating: 3,
-        comment: "그냥 그래요, 더 나은 옵션들이 있네요.",
-      },
-      {
-        reviewer: "조성민",
-        rating: 2,
-        comment: "품질에 실망했어요.",
-      },
     ];
 
     function getRandomDate(startDate, endDate) {
@@ -73,7 +58,7 @@ fetch("./data.json")
       data: data.data.map((item) => {
         // 랜덤으로 5~10개의 리뷰를 선택하여 추가
         const randomReviews = Array.from(
-          { length: Math.floor(Math.random() * 6) + 5 },
+          { length: Math.floor(Math.random() * reviewSamples.length) + 1 },
           () => {
             const randomIndex = Math.floor(
               Math.random() * reviewSamples.length
@@ -803,6 +788,7 @@ fetch("./data.json")
             ) {
               couponItems.push(couponItem);
               localStorage.setItem("couponItems", JSON.stringify(couponItems));
+              alert("발급되었습니다.");
             } else {
               alert("이미 해당 쿠폰을 발급받으셨습니다.");
             }

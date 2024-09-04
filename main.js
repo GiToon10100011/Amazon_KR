@@ -5,7 +5,7 @@
 import "./header/header.js";
 
 //Import geolocation key
-import googleApiKey from "./env.js";
+// import googleApiKey from "./env.js";
 
 //Slick Sliders
 $(".main-slider").slick({
