@@ -46,6 +46,20 @@ fetch("./data.json")
     const searchKey = document.querySelector(".products-heading h4");
     searchKey.innerText = `'${keyword}'에 대한 검색결과`;
 
+    const categoryFilters = document.querySelectorAll(
+      ".categories li  div span"
+    );
+
+    categoryFilters.forEach((filter, index) => {
+      filter.addEventListener("click", () => {
+        if (index === 0) {
+          location.href = `search.html?searchBar=${keyword}`;
+        } else {
+          location.href = `search.html?searchBar=${keyword}&search_type=${filter.innerText}`;
+        }
+      });
+    });
+
     //Filter out the Items that matches the Search Query
     let searchProducts = products.data.filter((product) => {
       return (
@@ -112,6 +126,12 @@ fetch("./data.json")
 
     const productLength = document.querySelector(".products-heading span");
     productLength.innerText = `검색결과 ${searchProducts.length}건`;
+
+    const mobileProductLength = document.querySelector(
+      ".mobile-sort-menu span"
+    );
+
+    mobileProductLength.innerText = `${searchProducts.length}건`;
 
     const productContent = document.querySelector(".content");
 

@@ -61,6 +61,88 @@
 //   }
 // });
 
+document
+  .getElementById("language-select")
+  .addEventListener("change", function () {
+    const targetLanguage = this.value;
+
+    // 부모 문서와 현재 문서의 모든 요소를 선택
+    const allElements = [
+      ...document.querySelectorAll("*"),
+      ...parent.document.querySelectorAll("*"),
+    ];
+
+    translateElements(allElements, targetLanguage);
+
+    // Slick Slider의 슬라이드 변경 후 이벤트 리스너 추가
+    $(parent.document)
+      .find(".slick-slider")
+      .on("afterChange", function (event, slick, currentSlide) {
+        const slickElements = slick.$slides[currentSlide].querySelectorAll("*");
+        translateElements(slickElements, targetLanguage);
+      });
+  });
+
+// 요소들에 대한 번역을 수행하는 함수
+function translateElements(elements, targetLanguage) {
+  elements.forEach((element) => {
+    if (
+      element.classList.contains("material-icons") ||
+      element.classList.contains("material-symbols-outlined")
+    )
+      return;
+
+    element.childNodes.forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        let originalText = child.nodeValue.trim();
+
+        // 정규표현식을 사용해 숫자와 특수기호를 제외한 문자만 추출
+        const textOnly = originalText.replace(
+          /[^a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣ一-龥ぁ-ゔァ-ヴー々〆〤]/g,
+          ""
+        );
+
+        // 번역할 텍스트가 있을 경우에만 처리
+        if (textOnly) {
+          translateText(textOnly, targetLanguage)
+            .then((translatedText) => {
+              child.nodeValue = child.nodeValue.replace(
+                textOnly,
+                translatedText
+              );
+            })
+            .catch((error) => {
+              console.error("Translation error:", error);
+            });
+        }
+      }
+    });
+  });
+}
+
+// Google Translate API로 텍스트를 번역하는 함수
+function translateText(text, targetLanguage) {
+  const apiKey = translateApiKey;
+
+  return fetch(
+    `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        q: text,
+        target: targetLanguage,
+      }),
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      return data.data.translations[0].translatedText;
+    });
+}
+
 const currencyChanger = document.querySelectorAll("#currencyChanger");
 
 const currencyValue = localStorage.getItem("currency");

@@ -18,17 +18,19 @@ header {
 }
 
 .bgFilter {
-  position: relative;
-  z-index: 3;
+  position: fixed;
+  z-index: 300;
   width: 100%;
   height: 100%;
   background: rgba($color: #000000, $alpha: 0.1);
   display: none;
+
   &.active {
     display: block;
   }
 }
 
+// Desktop
 .main-sideMenu-container {
   height: 100%;
   z-index: 10000;
@@ -52,9 +54,13 @@ header {
       gap: 4px;
       font-weight: 500;
       cursor: pointer;
+      span {
+        font-weight: normal;
+      }
     }
     .fa-x {
       cursor: pointer;
+      z-index: 100000;
     }
   }
   .main-sideMenu {
@@ -110,11 +116,12 @@ header {
             display: none;
             position: absolute;
             top: 0;
-            left: 100%;
+            left: 94%;
             width: 100%;
             height: 100%;
             background: white;
             overflow-y: scroll;
+            opacity: 0;
             transition: opacity 0.3s;
             li {
               width: 100%;
@@ -131,6 +138,9 @@ header {
             }
             &.active {
               display: block;
+            }
+            &.opacity {
+              opacity: 1;
             }
           }
         }
@@ -387,9 +397,7 @@ header {
       height: 4000px;
     }
   }
-  header {
-    right: 0;
-  }
+
   .main-sideMenu-container {
     display: none;
     position: fixed;
@@ -405,8 +413,40 @@ header {
       .sideMenu-category {
         .categories-large {
           li {
+            padding: 0;
+            &:hover {
+              color: map-get($map: $color, $key: main-dark-color);
+              background: map-get($map: $color, $key: main-color);
+            }
+            &:hover span,
+            &:hover i {
+              color: map-get($map: $color, $key: main-dark-color);
+            }
+            & > div {
+              padding: 10px;
+            }
             .fa-chevron-right {
               transform: rotate(90deg);
+              opacity: 1;
+              &.active {
+                transform: scaleY(-1) rotate(90deg);
+              }
+            }
+            display: flex;
+            flex-direction: column;
+            .categories-middle {
+              left: 0;
+              position: relative;
+              height: auto;
+              width: 100%;
+              opacity: 1;
+              li {
+                align-items: start;
+                background: #fff;
+              }
+              &.mactive {
+                display: block;
+              }
             }
           }
         }
@@ -428,6 +468,10 @@ header {
         }
       }
     }
+  }
+
+  header {
+    right: 0;
   }
 
   #mobile-pageBox {
