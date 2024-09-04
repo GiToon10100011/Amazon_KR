@@ -6,6 +6,7 @@ body {
   height: 100%;
   padding: 10px;
   font-family: map-get($map: $family, $key: kr-font);
+  overflow-x: hidden;
 }
 
 header {

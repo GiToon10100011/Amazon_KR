@@ -475,8 +475,12 @@ header .banner .lnb-content .lnb-main .lnb .online-pharmacy .fa-circle-question 
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::after, header .banner .lnb-content .lnb-main .lnb .online-pharmacy.active::before {
   opacity: 1;
 }
+header .banner .lnb-content .lnb-main .lnb .online-pharmacy.display::after, header .banner .lnb-content .lnb-main .lnb .online-pharmacy.display::before {
+  display: block;
+}
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy::before {
   content: attr(data-info);
+  display: none;
   position: absolute;
   white-space: pre-wrap;
   bottom: -334px;
@@ -492,6 +496,7 @@ header .banner .lnb-content .lnb-main .lnb .online-pharmacy::before {
 }
 header .banner .lnb-content .lnb-main .lnb .online-pharmacy::after {
   content: "";
+  display: none;
   position: absolute;
   bottom: -5px;
   right: 2.5px;
@@ -629,9 +634,12 @@ header .banner .lnb-content .lnb-user-menu li:last-child {
   header .banner .lnb-content .lnb-main .main-category-menu {
     display: none;
   }
-  header .banner .lnb-content .lnb-main .main-category-menu .lnb {
+  header .banner .lnb-content .lnb-main .lnb {
     width: 100%;
     justify-content: space-evenly;
+  }
+  header .banner .lnb-content .lnb-main .lnb .online-pharmacy {
+    display: none;
   }
   header .banner .lnb-content .lnb-user-menu {
     display: none;
@@ -650,6 +658,7 @@ html,
 body {
   width: 100%;
   position: relative;
+  height: 800px;
 }
 
 header {
@@ -660,8 +669,8 @@ header {
 }
 
 .bgFilter {
-  position: relative;
-  z-index: 3;
+  position: fixed;
+  z-index: 300;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.1);
@@ -697,8 +706,12 @@ header {
   font-weight: 500;
   cursor: pointer;
 }
+.main-sideMenu-container .sideMenu-header .sideMenu-login span {
+  font-weight: normal;
+}
 .main-sideMenu-container .sideMenu-header .fa-x {
   cursor: pointer;
+  z-index: 100000;
 }
 .main-sideMenu-container .main-sideMenu {
   width: 100%;
@@ -748,11 +761,12 @@ header {
   display: none;
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 94%;
   width: 100%;
   height: 100%;
   background: white;
   overflow-y: scroll;
+  opacity: 0;
   transition: opacity 0.3s;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle li {
@@ -770,6 +784,9 @@ header {
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle.active {
   display: block;
+}
+.main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle.opacity {
+  opacity: 1;
 }
 .main-sideMenu-container .main-sideMenu .sideMenu-misc {
   display: flex;
@@ -1027,6 +1044,62 @@ main .product-content .product-menu a:hover {
 }
 
 @media screen and (max-width: 768px) {
+  .main-sideMenu-container {
+    display: none;
+    position: fixed;
+    left: 100%;
+  }
+  .main-sideMenu-container.active {
+    display: block;
+    left: auto;
+    right: 0;
+  }
+  .main-sideMenu-container .main-sideMenu {
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover {
+    color: #000;
+    background: #fff;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover span, .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li:hover i {
+    color: #000;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li > div {
+    padding: 10px;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .fa-chevron-right {
+    transform: rotate(90deg);
+    opacity: 1;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .fa-chevron-right.active {
+    transform: scaleY(-1) rotate(90deg);
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle {
+    left: 0;
+    position: relative;
+    height: auto;
+    width: 100%;
+    opacity: 1;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle li {
+    align-items: start;
+    background: #fff;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-category .categories-large li .categories-middle.mactive {
+    display: block;
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-misc .misc-list .fa-chevron-right {
+    transform: rotate(90deg);
+  }
+  .main-sideMenu-container .main-sideMenu .sideMenu-settings .settings-list li.darkmode {
+    display: block;
+  }
   html,
   body {
     height: 2000px;

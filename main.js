@@ -132,25 +132,25 @@ mbs.slick({
 //     });
 // }
 
-function handleCountryCheck(countryCode) {
-  const allowedCountry = "KR"; // 허용된 국가 (한국의 경우 "KR")
-  if (countryCode !== allowedCountry) {
-    const geolocationModal = document.querySelector(".geolocationModal");
-    geolocationModal.classList.add("active");
-    const stayBtn = document.querySelector(".stayBtn");
-    const amazonBtn = document.querySelector(".amazonBtn");
-    const modalBg = document.querySelector(".modalBg");
-    stayBtn.addEventListener("click", () => {
-      geolocationModal.classList.remove("active");
-    });
-    amazonBtn.addEventListener("click", () => {
-      location.href = "https://www.amazon.com/";
-    });
-    modalBg.addEventListener("click", () => {
-      geolocationModal.classList.remove("active");
-    })
-  }
-}
+// function handleCountryCheck(countryCode) {
+//   const allowedCountry = "KR"; // 허용된 국가 (한국의 경우 "KR")
+//   if (countryCode !== allowedCountry) {
+//     const geolocationModal = document.querySelector(".geolocationModal");
+//     geolocationModal.classList.add("active");
+//     const stayBtn = document.querySelector(".stayBtn");
+//     const amazonBtn = document.querySelector(".amazonBtn");
+//     const modalBg = document.querySelector(".modalBg");
+//     stayBtn.addEventListener("click", () => {
+//       geolocationModal.classList.remove("active");
+//     });
+//     amazonBtn.addEventListener("click", () => {
+//       location.href = "https://www.amazon.com/";
+//     });
+//     modalBg.addEventListener("click", () => {
+//       geolocationModal.classList.remove("active");
+//     })
+//   }
+// }
 
 // Scroll events
 const promotionSection = document.querySelector(".promotions-items ul");

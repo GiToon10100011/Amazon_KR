@@ -38,10 +38,10 @@ img {
 }
 
 .bgFilter {
-  position: relative;
-  z-index: 3;
+  position: fixed;
+  z-index: 13;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: rgba($color: #000000, $alpha: 0.1);
   display: none;
   &.active {
@@ -72,9 +72,13 @@ img {
       gap: 4px;
       font-weight: 500;
       cursor: pointer;
+      span {
+        font-weight: normal;
+      }
     }
     .fa-x {
       cursor: pointer;
+      z-index: 100000;
     }
   }
   .main-sideMenu {
@@ -130,11 +134,12 @@ img {
             display: none;
             position: absolute;
             top: 0;
-            left: 100%;
+            left: 94%;
             width: 100%;
             height: 100%;
             background: white;
             overflow-y: scroll;
+            opacity: 0;
             transition: opacity 0.3s;
             li {
               width: 100%;
@@ -151,6 +156,9 @@ img {
             }
             &.active {
               display: block;
+            }
+            &.opacity {
+              opacity: 1;
             }
           }
         }
@@ -277,7 +285,7 @@ main {
     }
   }
   .modalBg {
-    width:100%;
+    width: 100%;
     height: 100%;
     background: #000;
     position: fixed;
@@ -329,12 +337,10 @@ main {
   font-weight: bold;
   transition: all 0.2s;
   cursor: pointer;
-  &:hover{
+  &:hover {
     scale: 0.9;
   }
 }
-
-
 
 /*category*/
 .topcategory {
@@ -1225,6 +1231,78 @@ main {
 }
 
 @media screen and (max-width: 768px) {
+  .main-sideMenu-container {
+    display: none;
+    position: fixed;
+    left: 100%;
+    &.active {
+      display: block;
+      left: auto;
+      right: 0;
+    }
+    .main-sideMenu {
+      scrollbar-width: none;
+      overscroll-behavior: contain;
+      .sideMenu-category {
+        .categories-large {
+          li {
+            padding: 0;
+            &:hover {
+              color: map-get($map: $color, $key: main-dark-color);
+              background: map-get($map: $color, $key: main-color);
+            }
+            &:hover span,
+            &:hover i {
+              color: map-get($map: $color, $key: main-dark-color);
+            }
+            & > div {
+              padding: 10px;
+            }
+            .fa-chevron-right {
+              transform: rotate(90deg);
+              opacity: 1;
+              &.active {
+                transform: scaleY(-1) rotate(90deg);
+              }
+            }
+            display: flex;
+            flex-direction: column;
+            .categories-middle {
+              left: 0;
+              position: relative;
+              height: auto;
+              width: 100%;
+              opacity: 1;
+              li {
+                align-items: start;
+                background: #fff;
+              }
+              &.mactive {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+      .sideMenu-misc {
+        .misc-list {
+          .fa-chevron-right {
+            transform: rotate(90deg);
+          }
+        }
+      }
+      .sideMenu-settings {
+        .settings-list {
+          li {
+            &.darkmode {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
   main {
     position: absolute;
     top: 120px;
@@ -1234,51 +1312,51 @@ main {
     // height: f/;
     display: flex;
   }
-  
-/* 리뷰 모달 */
-.modal {
-  display: none;
-  position: fixed; /* 화면에 고정 */
-  z-index: 1; /* 다른 요소들보다 위에 위치 */
-  left: 0;
-  top: 0;
-  width: 100%; /* 화면 전체 너비 */
-  height: 100%; /* 화면 전체 높이 */
-  background-color: rgba(0, 0, 0, 0.8); /* 반투명 배경 */
-}
 
-/* 모달 창 안의 이미지 스타일 */
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 300px;
-
-  #modalImage {
-    width: 400px;
-    height: 200px;
+  /* 리뷰 모달 */
+  .modal {
+    display: none;
+    position: fixed; /* 화면에 고정 */
+    z-index: 1; /* 다른 요소들보다 위에 위치 */
+    left: 0;
+    top: 0;
+    width: 100%; /* 화면 전체 너비 */
+    height: 100%; /* 화면 전체 높이 */
+    background-color: rgba(0, 0, 0, 0.8); /* 반투명 배경 */
   }
-}
 
-/* 닫기 버튼 스타일 */
-.close {
-  position: absolute;
-  top: 120px;
-  right: 50px;
-  color: #ffffff;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s;
-  &:hover{
-    scale: 0.9;
+  /* 모달 창 안의 이미지 스타일 */
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+
+    #modalImage {
+      width: 400px;
+      height: 200px;
+    }
   }
-}
+
+  /* 닫기 버튼 스타일 */
+  .close {
+    position: absolute;
+    top: 120px;
+    right: 50px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      scale: 0.9;
+    }
+  }
 
   #M_bottom_bar {
     display: block;
@@ -1415,7 +1493,7 @@ main {
         }
       }
     }
-    &.action{
+    &.action {
       height: 300px;
     }
   }

@@ -16,11 +16,11 @@
     ></script>
     <!-- Custom CSS & JS -->
     <link rel="stylesheet" href="msearch.css" />
-    <script defer type="module" src="msearch.js"></script>
+    <script defer src="msearch.js"></script>
   </head>
   <body>
     <header class="searchBar">
-      <form action="../search/search.html">
+      <form id="searchForm" action="../search/search.html">
         <div class="searchBox">
           <input
             type="text"
@@ -38,11 +38,11 @@
         </div>
         <div class="recent-search-items">
           <span>검색어</span>
-          <span>로렘입숨</span>
+          <!-- <span>로렘입숨</span>
           <span>프론트엔드</span>
           <span>백엔드</span>
           <span>풀스택</span>
-          <span>개발자</span>
+          <span>개발자</span> -->
         </div>
       </div>
       <div class="hottest-items">
@@ -77,7 +77,7 @@
       </div>
     </header>
   </body>
-  <iframe id="footer" src="./footer/footer.html" frameborder="0"></iframe>
+  <iframe id="footer" src="../footer/footer.html" frameborder="0"></iframe>
   <nav class="mobile-navBar">
     <ul>
       <li>
@@ -86,10 +86,7 @@
         >
       </li>
       <li>
-        <a
-          class="mobile-search-shortcut"
-          data-search="search"
-          href=""
+        <a class="mobile-search-shortcut" data-search="search" href=""
           ><span class="material-symbols-outlined"> manage_search </span></a
         >
       </li>

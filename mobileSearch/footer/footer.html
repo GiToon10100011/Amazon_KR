@@ -24,7 +24,7 @@
       <div class="footer-content">
         <div class="footer-first">
           <div class="logo">
-            <img src="../logo/png/amazon_kr_ezen2.png" alt="footer-logo" />
+            <img src="../../logo/png/amazon_kr_ezen2.png" alt="footer-logo" />
           </div>
           <p class="footer-info">
             (주) 아마존코리아 / 대표이사 김마존 / 서울시 강남구 도산대로 123
@@ -66,32 +66,31 @@
           </p>
           <ul class="utils-list">
             <li>
-              <a href="#none" class="lang">
-                <span class="material-symbols-outlined"> language </span>한국어
-              </a>
-              <i class="fa-solid fa-chevron-down"></i>
-            </li>
-            <li>
-              <select name="" id="">
-                <option value="">$KRW - 한국원화</option>
-                <option value=""></option>
-                <option value=""></option>
+              <select name="lang" id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
               </select>
             </li>
             <li>
-              <a href="#none"> <img src="../img/flag.png" alt="flag" />한국 </a>
+              <select name="currency" id="currencyChanger">
+                <option value="KRW">&#8361;KRW - 한국원화</option>
+                <option value="USD">$USD - 미국달러</option>
+                <option value="JPY">&yen; JPY - 일본엔화</option>
+              </select>
+            </li>
+            <li>
+              <a href="#none"> <img src="../../img/flag.png" alt="flag" />한국 </a>
               <i class="fa-solid fa-chevron-down"></i>
             </li>
           </ul>
           <div class="form-container">
             <form action="https://localhost:3000" method="get">
-              <select name="" id="">
+              <select name="familySite" id="family-site">
                 <option value="">FAMILY SITE</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+                <option value="cart">장바구니</option>
+                <option value="my">마이페이지</option>
+                <option value="member">멤버십</option>
               </select>
             </form>
           </div>
@@ -108,10 +107,10 @@
             <i class="fa-solid fa-chevron-down"></i>
           </li>
           <li>
-            <select name="" id="langTranslator">
-              <option value="kr">$KRW - 한국원화</option>
-              <option value="en"></option>
-              <option value="jp"></option>
+            <select name="currency" id="currencyChanger">
+              <option value="KRW">&#8361;KRW - 한국원화</option>
+              <option value="USD">$USD - 미국달러</option>
+              <option value="JPY">&yen; JPY - 일본엔화</option>
             </select>
           </li>
           <li>
@@ -159,19 +158,17 @@
         <div class="footer-last">
           <div class="form-container">
             <form action="https://localhost:3000" method="get">
-              <select name="" id="">
+              <select name="familySite" id="family-site">
                 <option value="">FAMILY SITE</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+                <option value="cart">장바구니</option>
+                <option value="my">마이페이지</option>
+                <option value="member">멤버십</option>
               </select>
             </form>
           </div>
           <div class="footer-last-bottom">
             <div class="logo">
-              <img src="../../logo/png/amazon_kr_ezen2.png" alt="footer-logo" />
+              <img src="../logo/png/amazon_kr_ezen2.png" alt="footer-logo" />
             </div>
             <p class="copyright">
               COPYRIGHT &copy; 2024 AMAZONKR. ALL RIGHTS RESERVED.

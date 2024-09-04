@@ -1,4 +1,4 @@
-import "../header/header.js"
+import "./header/header.js"
 
 // Accordian Event
 const firstContent = document.querySelectorAll(".accordion .content");

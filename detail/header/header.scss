@@ -198,7 +198,7 @@ header {
             position: relative;
             .ranking-content-first {
               z-index: 1;
-              &.active{
+              &.active {
                 display: none;
               }
             }
@@ -208,7 +208,7 @@ header {
               top: 0;
               z-index: -1;
               display: none;
-              &.active{
+              &.active {
                 display: block;
                 z-index: 2;
               }
@@ -370,8 +370,13 @@ header {
             &.active::before {
               opacity: 1;
             }
+            &.display::after,
+            &.display::before {
+              display: block;
+            }
             &::before {
               content: attr(data-info);
+              display: none;
               position: absolute;
               white-space: pre-wrap;
               bottom: -334px;
@@ -387,6 +392,7 @@ header {
             }
             &::after {
               content: "";
+              display: none;
               position: absolute;
               bottom: -5px;
               right: 2.5px;
@@ -525,9 +531,12 @@ header {
           width: 100%;
           .main-category-menu {
             display: none;
-            .lnb {
-              width: 100%;
-              justify-content: space-evenly;
+          }
+          .lnb {
+            width: 100%;
+            justify-content: space-evenly;
+            .online-pharmacy {
+              display: none;
             }
           }
         }
