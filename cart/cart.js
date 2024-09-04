@@ -26,7 +26,7 @@ fetch("data.json")
     if (!cartItems || cartItems.length === 0) {
       // 로컬 스토리지에 담긴 항목이 없을 경우
       domCartItems.style.textAlign = "center";
-      domCartItems.style.lineHeight = "150px"
+      domCartItems.style.lineHeight = "150px";
       domCartItems.innerHTML = "<h1>장바구니가 비어있습니다.<h1>";
     } else {
       cartItems.forEach((item) => {
@@ -149,6 +149,7 @@ fetch("data.json")
           quantityDisplay.textContent = currentQuantity;
           updateCartItemPrice(control, currentQuantity);
           updateTotalPrice(); // 총 가격 업데이트
+          updateCartItemInLocalStorage(control, currentQuantity);
         }
       });
 
@@ -158,21 +159,54 @@ fetch("data.json")
         quantityDisplay.textContent = currentQuantity;
         updateCartItemPrice(control, currentQuantity);
         updateTotalPrice(); // 총 가격 업데이트
+        updateCartItemInLocalStorage(control, currentQuantity);
       });
     });
+
+    // 로컬 스토리지에서 해당 아이템의 수량을 업데이트하는 함수
+    function updateCartItemInLocalStorage(control, newQuantity) {
+      // 최신 cartItems 데이터를 가져오기
+      let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      const itemName = control
+        .closest(".cart-item")
+        .querySelector(".cart-item-main > div h3")
+        .innerText.trim();
+
+      const itemOptions = control
+        .closest(".cart-item")
+        .querySelector(".options-title h3").textContent;
+
+      cartItems = cartItems.map((item) => {
+        console.log(itemName === item.name);
+        if (item.name.trim() === itemName && item.options === itemOptions) {
+          item.quantity = newQuantity;
+        }
+        return item;
+      });
+
+      // 수정된 cartItems를 다시 로컬 스토리지에 저장
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
 
     // 각 아이템의 가격을 업데이트하는 함수
     function updateCartItemPrice(control, quantity) {
       const itemPriceElement = control
         .closest(".cart-item")
         .querySelector(".cart-item-price");
+
+      // unitPrice를 'data-unit-price' 속성에서 가져와서 숫자로 변환
       const unitPrice = parseFloat(
         itemPriceElement
           .getAttribute("data-unit-price")
           .replace(/[^0-9.-]+/g, "")
       );
+
+      // 새로운 가격 계산 (수량 * 단위 가격)
       const newPrice = unitPrice * quantity;
-      itemPriceElement.textContent = `${newPrice.toLocaleString()}원`;
+
+      // 가격을 포맷팅하여 표시
+      itemPriceElement.textContent = `${newPrice.toLocaleString("ko-KR")}원`;
     }
 
     // 총 가격 업데이트 함수
@@ -181,18 +215,43 @@ fetch("data.json")
       let total = 0;
 
       document.querySelectorAll(".cart-item-price").forEach((priceElement) => {
-        const itemPrice = parseFloat(
-          priceElement.textContent.replace(/[^0-9.-]+/g, "")
+        // 'data-unit-price'에서 값을 가져와 곱하여 합산
+        const unitPrice = parseFloat(
+          priceElement.getAttribute("data-unit-price").replace(/[^0-9.-]+/g, "")
         );
-        total += itemPrice;
+
+        // 해당 항목의 수량을 가져오기
+        const quantity = parseInt(
+          priceElement
+            .closest(".cart-item")
+            .querySelector(".cart-options-control span").textContent
+        );
+
+        // 전체 가격 계산
+        total += unitPrice * quantity;
       });
 
+      // 총 가격을 포맷팅하여 표시
       totalPriceElement.forEach((element) => {
-        element.textContent = `${total.toLocaleString()}원`;
+        element.textContent = `${total.toLocaleString("ko-KR")}원`;
+      });
+    }
+
+    // 페이지 로드 시 초기 모든 항목의 가격 계산
+    function initializeCartPrices() {
+      document.querySelectorAll(".cart-item").forEach((cartItem) => {
+        const quantity = parseInt(
+          cartItem.querySelector(".cart-options-control span").textContent
+        );
+        updateCartItemPrice(
+          cartItem.querySelector(".cart-options-control"),
+          quantity
+        );
       });
     }
 
     // 페이지 로드 시 초기 총 가격 계산
+    initializeCartPrices();
     updateTotalPrice();
 
     // modal
@@ -236,7 +295,7 @@ fetch("data.json")
       if (!cartItems || cartItems.length === 0) {
         // 로컬 스토리지에 담긴 항목이 없을 경우
         domCartItems.style.textAlign = "center";
-        domCartItems.style.lineHeight = "150px"
+        domCartItems.style.lineHeight = "150px";
         domCartItems.innerHTML = "<h1>장바구니가 비어있습니다.<h1>";
       }
     });
