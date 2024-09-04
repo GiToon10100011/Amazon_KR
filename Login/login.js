@@ -1,6 +1,6 @@
 import "./header/header.js"
 
-const faEye = document.querySelector(".fa-eye");
+const faEye = document.querySelector(".fa-eye-slash");
 const pwInput = document.querySelector("#password");
 
 faEye.addEventListener("click", () => {
@@ -33,6 +33,30 @@ e.preventDefault();``
   } else {
     document.querySelector("#error_pw").innerText = "";
   };
+});
+
+document.getElementById('id').addEventListener('input', function() {
+  const idInput = this.value;
+  const errorDiv = document.getElementById('error_id');
+  const idPattern = /^[a-zA-Z0-9]+$/; // 영문자와 숫자만 허용
+
+  if (!idPattern.test(idInput) && idInput !== "") {
+      errorDiv.textContent = "아이디를 양식에 맞게 입력해주세요!";
+  } else {
+      errorDiv.textContent = "";
+  }
+});
+
+// 비밀번호 fa-eye 아이콘 변경
+document.getElementById('toggleIcon').addEventListener('click', function() {
+  const icon = this;
+  if (icon.classList.contains('fa-eye-slash')) {
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+  } else {
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+  }
 });
 
 

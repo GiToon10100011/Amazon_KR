@@ -349,6 +349,9 @@ html, body{
         span {
           font-weight: 500;
           color: #ff9900;
+          &:hover {
+            text-decoration: underline;
+          }
           &:nth-child(2) {
             color: #000000;
           }

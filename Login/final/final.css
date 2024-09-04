@@ -805,7 +805,6 @@ html, body {
   width: 100%;
   height: 90vh;
   position: absolute;
-  top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -918,7 +917,7 @@ html, body {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    top: 30px;
+    top: 70px;
     overflow-y: hidden;
   }
   header, iframe {
@@ -930,7 +929,7 @@ html, body {
     overflow: hidden;
   }
   #container .wrapper {
-    padding-top: 30px;
+    padding-top: 70px;
   }
   #container .wrapper .primeWrapper {
     width: 100%;
@@ -945,7 +944,7 @@ html, body {
     align-items: center;
     margin: 0 auto;
     position: absolute;
-    top: 70px;
+    top: 80px;
   }
   #container .wrapper .primeWrapper .primeLeft .primeText {
     width: 200px;

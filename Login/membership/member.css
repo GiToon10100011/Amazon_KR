@@ -971,6 +971,9 @@ html, body {
   font-weight: 500;
   color: #ff9900;
 }
+#container #boon .accordion .content span:hover {
+  text-decoration: underline;
+}
 #container #boon .accordion .content span:nth-child(2) {
   color: #000000;
 }
