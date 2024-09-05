@@ -5,7 +5,7 @@
 import "./header/header.js";
 
 //Import geolocation key
-// import googleApiKey from "./env.js";
+import googleApiKey from "./env.js";
 
 //Slick Sliders
 $(".main-slider").slick({
@@ -85,71 +85,71 @@ mbs.slick({
 });
 
 //geolocation modal event
-// if (navigator.geolocation) {
-//   navigator.geolocation.getCurrentPosition(
-//     (position) => {
-//       const latitude = position.coords.latitude;
-//       const longitude = position.coords.longitude;
-//       // 좌표를 기반으로 국가 정보를 가져오는 추가 로직
-//       // 예: reverse geocoding API를 사용하여 국가 정보를 얻기
-//       getCountryFromCoordinates(latitude, longitude);
-//     },
-//     (error) => {
-//       console.error("Geolocation error:", error);
-//     }
-//   );
-// } else {
-//   alert("Geolocation API를 지원하지 않는 브라우저입니다.");
-// }
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      // 좌표를 기반으로 국가 정보를 가져오는 추가 로직
+      // 예: reverse geocoding API를 사용하여 국가 정보를 얻기
+      getCountryFromCoordinates(latitude, longitude);
+    },
+    (error) => {
+      console.error("Geolocation error:", error);
+    }
+  );
+} else {
+  alert("Geolocation API를 지원하지 않는 브라우저입니다.");
+}
 
-// function getCountryFromCoordinates(latitude, longitude) {
-//   const apiKey = googleApiKey;
-//   const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
+function getCountryFromCoordinates(latitude, longitude) {
+  const apiKey = googleApiKey;
+  const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
 
-//   fetch(geocodeUrl)
-//     .then((response) => response.json())
-//     .then((data) => {
-//       if (data.status === "OK") {
-//         const results = data.results;
-//         const country = results.find((result) =>
-//           result.types.includes("country")
-//         );
+  fetch(geocodeUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === "OK") {
+        const results = data.results;
+        const country = results.find((result) =>
+          result.types.includes("country")
+        );
 
-//         if (country) {
-//           const countryCode = country.address_components[0].short_name;
-//           handleCountryCheck(countryCode);
-//         } else {
-//           alert("국가 정보를 찾을 수 없습니다.");
-//         }
-//       } else {
-//         console.error("Geocoding error:", data.status);
-//         alert("위치 정보를 처리할 수 없습니다.");
-//       }
-//     })
-//     .catch((error) => {
-//       console.error("Geocoding fetch error:", error);
-//     });
-// }
+        if (country) {
+          const countryCode = country.address_components[0].short_name;
+          handleCountryCheck(countryCode);
+        } else {
+          alert("국가 정보를 찾을 수 없습니다.");
+        }
+      } else {
+        console.error("Geocoding error:", data.status);
+        alert("위치 정보를 처리할 수 없습니다.");
+      }
+    })
+    .catch((error) => {
+      console.error("Geocoding fetch error:", error);
+    });
+}
 
-// function handleCountryCheck(countryCode) {
-//   const allowedCountry = "KR"; // 허용된 국가 (한국의 경우 "KR")
-//   if (countryCode !== allowedCountry) {
-//     const geolocationModal = document.querySelector(".geolocationModal");
-//     geolocationModal.classList.add("active");
-//     const stayBtn = document.querySelector(".stayBtn");
-//     const amazonBtn = document.querySelector(".amazonBtn");
-//     const modalBg = document.querySelector(".modalBg");
-//     stayBtn.addEventListener("click", () => {
-//       geolocationModal.classList.remove("active");
-//     });
-//     amazonBtn.addEventListener("click", () => {
-//       location.href = "https://www.amazon.com/";
-//     });
-//     modalBg.addEventListener("click", () => {
-//       geolocationModal.classList.remove("active");
-//     })
-//   }
-// }
+function handleCountryCheck(countryCode) {
+  const allowedCountry = "KR"; // 허용된 국가 (한국의 경우 "KR")
+  if (countryCode !== allowedCountry) {
+    const geolocationModal = document.querySelector(".geolocationModal");
+    geolocationModal.classList.add("active");
+    const stayBtn = document.querySelector(".stayBtn");
+    const amazonBtn = document.querySelector(".amazonBtn");
+    const modalBg = document.querySelector(".modalBg");
+    stayBtn.addEventListener("click", () => {
+      geolocationModal.classList.remove("active");
+    });
+    amazonBtn.addEventListener("click", () => {
+      location.href = "https://www.amazon.com/";
+    });
+    modalBg.addEventListener("click", () => {
+      geolocationModal.classList.remove("active");
+    });
+  }
+}
 
 const logoutBtn = document.querySelector(".logoutBtn");
 
