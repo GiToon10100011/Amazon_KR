@@ -26,7 +26,16 @@ const mobilePageFrame = document.getElementById("mobile-pageBox");
 const bannerMenus = document.querySelectorAll(".user-history-list li a");
 const sideMenus = document.querySelectorAll(".working-list li a");
 
+const userName = document.querySelector(".user-name");
+
+const accountInfo = JSON.parse(localStorage.getItem("account")) || null;
+
 const bottomMenus = document.querySelectorAll(".mobile-navBar ul li a i");
+
+if (accountInfo) {
+  console.log(accountInfo);
+  userName.innerText = accountInfo.id;
+}
 
 sideMenus.forEach((menu, index, arr) => {
   menu.addEventListener("click", () => {
@@ -121,30 +130,40 @@ fileInput.addEventListener("change", (event) => {
   if (file) {
     const reader = new FileReader();
 
-    reader.onload = function (e) {
-      if (
-        e.target.result.includes("jpeg") ||
-        e.target.result.includes("jpg") ||
-        e.target.result.includes("png") ||
-        e.target.result.includes("avif") ||
-        e.target.result.includes("webp")
-      )
-        profileImg.querySelector("img").src = e.target.result;
-      else alert("올바른 파일 유형이 아닙니다.");
-      localStorage.setItem("profileimg", e.target.result);
-    };
+    const validTypes = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "image/avif",
+      "image/webp",
+    ];
 
-    reader.readAsDataURL(file);
+    if (validTypes.includes(file.type)) {
+      reader.onload = function (e) {
+        profileImg.querySelector("img").src = e.target.result;
+        localStorage.setItem("profileimg", e.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      alert("올바른 파일 유형이 아닙니다.");
+    }
   }
 });
 
 const historyItems = JSON.parse(localStorage.getItem("historyItems")) || [];
 const couponItems = JSON.parse(localStorage.getItem("couponItems")) || [];
 
-document.querySelector(".order-history").innerText =`${ historyItems.length} 건`;
-document.querySelector(".points-history").innerText =`${ historyItems.length} 건`;
+document.querySelector(
+  ".order-history"
+).innerText = `${historyItems.length} 건`;
+document.querySelector(
+  ".points-history"
+).innerText = `${historyItems.length} 건`;
 
-document.querySelector(".coupon-history").innerText = `${couponItems.length} 장`
+document.querySelector(
+  ".coupon-history"
+).innerText = `${couponItems.length} 장`;
 
 let iframeSize;
 

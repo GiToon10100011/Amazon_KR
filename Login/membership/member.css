@@ -803,9 +803,9 @@ html, body {
 
 #container {
   width: 100%;
-  height: 90vh;
-  position: absolute;
-  top: 1300px;
+  height: 100%;
+  top: 130px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1645,7 +1645,7 @@ html, body {
 
 #footer {
   position: absolute;
-  bottom: -360px;
+  bottom: -480px;
   width: 100%;
   height: 360px;
 }
@@ -1653,11 +1653,11 @@ html, body {
 @media screen and (max-width: 768px) {
   body {
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 280px;
+    overflow-x: hidden;
   }
   header, iframe {
     display: none;

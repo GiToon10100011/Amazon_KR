@@ -151,6 +151,26 @@ mbs.slick({
 //   }
 // }
 
+const logoutBtn = document.querySelector(".logoutBtn");
+
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("account");
+  localStorage.removeItem("membership");
+  alert("로그아웃 되셨습니다.");
+  location.reload();
+});
+
+const sideMenuLogin = document.querySelector(".sideMenu-login");
+
+const accountValid = JSON.parse(localStorage.getItem("account"));
+
+if (accountValid) {
+  sideMenuLogin.innerText = `${accountValid.id}님`;
+  sideMenuLogin.setAttribute("href", "./my/my.html");
+} else {
+  sideMenuLogin.setAttribute("href", "./Login/login.html");
+}
+
 // Scroll events
 const promotionSection = document.querySelector(".promotions-items ul");
 const eventSection = document.querySelector(".event-slider-wrap");

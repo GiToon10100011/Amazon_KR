@@ -823,10 +823,10 @@ html, body {
   gap: 10px;
 }
 #container .wrapper .primeWrapper .primeLeft .primeText {
-  animation: ani2 0.5s ease-out alternate;
+  animation: ani2 0.5s ease-out alternate 1.5s both;
 }
 #container .wrapper .primeWrapper .primeLeft .arrow {
-  animation: ani 1.3s ease-in alternate;
+  animation: ani 1.3s ease-in alternate 1.5s both;
 }
 #container .wrapper .primeWrapper .primeRight {
   display: flex;

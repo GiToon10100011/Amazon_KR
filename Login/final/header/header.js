@@ -38,12 +38,12 @@ body.innerHTML = `
           <nav class="gnb">
             <div class="logo_container">
               <i class="fa-solid fa-bars sideMenu-trigger-btn"></i>
-              <a href="../main.html"
+              <a href="../../main.html"
                 ><img src="../logo/png/amazon_kr_ezen2.png" alt="logo"
               /></a>
             </div>
             <div class="searchBar">
-              <form action="../search/search.html" method="get">
+              <form action="../../search/search.html" method="get">
                 <select name="search_type" id="search_type">
                   <option value="" selected>카테고리</option>
                   <option value="전자">전자</option>
@@ -222,24 +222,24 @@ body.innerHTML = `
           <div class="icon-menu">
             <div class="items">
               <div class="item">
-                <a href="../my/my.html"><i class="fa-regular fa-user"></i></a>
+                <a href="../../my/my.html"><i class="fa-regular fa-user"></i></a>
                 <span>회원정보</span>
                 <ul class="user-menu">
-                  <li><a href="../my/my.html?iframesrc=coupon">나의 쿠폰</a></li>
-                  <li><a href="../my/my.html">주문/배송조회</a></li>
-                  <li><a href="../my/my.html">취소/반품/교환</a></li>
-                  <li><a href="../my/my.html">고객센터</a></li>
-                  <li><a href="../my/my.html">회원정보</a></li>
+                  <li><a href="../../my/my.html?iframesrc=coupon">나의 쿠폰</a></li>
+                  <li><a href="../../my/my.html">주문/배송조회</a></li>
+                  <li><a href="../../my/my.html">취소/반품/교환</a></li>
+                  <li><a href="../../my/my.html">고객센터</a></li>
+                  <li><a href="../../my/my.html">회원정보</a></li>
                 </ul>
               </div>
               <div class="item">
-                <a href="../cart/cart.html">
+                <a href="../../cart/cart.html">
                   <span class="material-symbols-outlined"> shopping_cart </span>
                 </a>
                 <span>장바구니</span>
               </div>
               <div class="item">
-                <a href="../my/my.html?iframesrc=wishlist"><i class="fa-regular fa-heart"></i></a>
+                <a href="../../my/my.html?iframesrc=wishlist"><i class="fa-regular fa-heart"></i></a>
                 <span>찜목록</span>
               </div>
             </div>
@@ -273,8 +273,8 @@ body.innerHTML = `
               </ul>
             </div>
             <ul class="lnb-user-menu">
-              <li><a href="../Login/login.html">로그인</a></li>
-              <li><a href="../Login/membership/member.html">멤버십</a></li>
+              <li><a href="../../Login/login.html">로그인</a></li>
+              <li><a href="../../Login/membership/member.html">멤버십</a></li>
               <li><a href="#none">고객센터</a></li>
             </ul>
           </div>
@@ -333,14 +333,14 @@ const searchBtn = document.querySelector(
 searchBtn.style.cursor = "pointer";
 
 searchBtn.addEventListener("click", () => {
-  const url = `../search/search.html?searchBar=${searchBar.value}`;
+  const url = `../../search/search.html?searchBar=${searchBar.value}`;
 
   const cateSearch = document.querySelector("#search_type");
   console.log(cateSearch);
   if (cateSearch.value === null) {
     location.href = url;
   } else {
-    location.href = `../search/search.html?searchBar=${searchBar.value}&search_type=${cateSearch.value}`;
+    location.href = `../../search/search.html?searchBar=${searchBar.value}&search_type=${cateSearch.value}`;
   }
 });
 
@@ -417,12 +417,12 @@ const createHottestItems = (json) => {
     <span>${index + 1} </span> ${json[randomIdx].name}
     `;
     item.addEventListener("click", () => {
-      location.href = `../detail/detail.html?name=${item.innerText
+      location.href = `../../detail/detail.html?name=${item.innerText
         .trim()
         .slice(2, item.innerText.length)}&category=${json[randomIdx].category}`;
     });
     rankingHeader[index].addEventListener("click", () => {
-      location.href = `../detail/detail.html?name=${item.innerText
+      location.href = `../../detail/detail.html?name=${item.innerText
         .trim()
         .slice(3, item.innerText.length)}&category=${json[randomIdx].category}`;
     });
@@ -772,7 +772,7 @@ categoryItems.forEach((item, index) => {
     if (middleCategoryItems.children.length === 0) {
       for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
         const li = document.createElement("li");
-        li.innerHTML = `<a href="../search/search.html?searchBar=${
+        li.innerHTML = `<a href="../../search/search.html?searchBar=${
           categories[categoriesKeys[index]][i]
         }">${categories[categoriesKeys[index]][i]}</a>`;
         middleCategoryItems.appendChild(li);
@@ -811,7 +811,7 @@ categoryItems.forEach((item, index) => {
     if (middleCategoryItems.children.length === 0) {
       for (let i = 0; i < categories[categoriesKeys[index]].length; i++) {
         const li = document.createElement("li");
-        li.innerHTML = `<a href="../search/search.html?searchBar=${
+        li.innerHTML = `<a href="../../search/search.html?searchBar=${
           categories[categoriesKeys[index]][i]
         }">${categories[categoriesKeys[index]][i]}</a>`;
         middleCategoryItems.appendChild(li);
