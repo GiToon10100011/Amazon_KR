@@ -9,14 +9,16 @@ const finalSubmit = document.querySelector(".finalSubmit");
 const membershipValid = JSON.parse(localStorage.getItem("membership")) || [];
 const accountValid = JSON.parse(localStorage.getItem("account")) || [];
 
-console.log(membershipValid, accountValid);
-
-if (membershipValid) {
+if (membershipValid.id === accountValid.id) {
   finalSubmit.addEventListener("click", () => {
     alert("이미 멤버십에 가입되어있는 유저입니다.");
   });
 } else {
   finalSubmit.addEventListener("click", () => {
-    localStorage.setItem("membership", true);
+    const localMemberItem = {
+      membership : true,
+      id : accountValid.id
+    }
+    localStorage.setItem("membership", JSON.stringify(localMemberItem));
   });
 }
