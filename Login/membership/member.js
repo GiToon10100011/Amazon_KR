@@ -1,5 +1,16 @@
 import "./header/header.js";
 
+const accountValid = JSON.parse(localStorage.getItem("account")) || [];
+
+const memberName = document.querySelector(".member-name");
+const mobileMemberName = document.querySelector(".pmobile > b");
+console.log(mobileMemberName);
+
+if (accountValid) {
+  memberName.innerText = accountValid.id;
+  mobileMemberName.innerText = accountValid.id;
+}
+
 // Accordian Event
 const firstContent = document.querySelectorAll(".accordion .content");
 firstContent[0].style.display = "block";
