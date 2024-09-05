@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/a7e457e146.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="order.css" />
+    <script type="module" defer src="order.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>주문내역</h1>
+      <form name="searchProductId" action="#">
+        <span class="searchBox"
+          ><input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="주문 상품의 정보를 입력해주세요."
+        /></span>
+        <input id="searchProductBtn" type="button" value="조회하기" />
+      </form>
+      <div class="dateFilter">
+        <div class="radioBtns">
+          <input type="radio" name="yearBtn" id="yearBtn1" checked />
+          <label for="yearBtn1">최근 6개월</label>
+          <input type="radio" name="yearBtn" id="yearBtn2" />
+          <label for="yearBtn2">2024</label>
+          <input type="radio" name="yearBtn" id="yearBtn3" />
+          <label for="yearBtn3">2023</label>
+          <input type="radio" name="yearBtn" id="yearBtn4" />
+          <label for="yearBtn4">2022</label>
+          <input type="radio" name="yearBtn" id="yearBtn5" />
+          <label for="yearBtn5">2021</label>
+        </div>
+        <div class="calendarFilter">
+          <input type="date" name="" id="" />
+          <span>~</span>
+          <input type="date" name="" id="" />
+        </div>
+      </div>
+    </header>
+    <main id="order-content">
+      <div class="sortFilter">
+        <select name="categoryFilter" id="categoryFilter">
+          <option value="" selected>카테고리</option>
+          <option value="전자">전자</option>
+          <option value="컴퓨터">컴퓨터</option>
+          <option value="예술 및 공예">예술 및 공예</option>
+          <option value="자동차 용품">자동차 용품</option>
+          <option value="유아">유아</option>
+          <option value="뷰티 및 퍼스널케어">뷰티 및 퍼스널 케어</option>
+          <option value="여성 패션">여성 패션</option>
+          <option value="남성 패션">남성 패션</option>
+          <option value="아동용 의류">아동용 의류</option>
+          <option value="건강 및 가정용품">건강 및 가정용품</option>
+          <option value="가정 및 주방">가정 및 주방</option>
+          <option value="산업용 및 과학용">산업용 및 과학용</option>
+          <option value="여행 가방">여행 가방</option>
+          <option value="영화 및 TV">영화 및 TV</option>
+          <option value="애왕동물 용품">애완동물 용품</option>
+          <option value="소프트웨어">소프트웨어</option>
+          <option value="스포츠 및 야외활동">스포츠 및 야외 활동</option>
+          <option value="공구 및 주택 개조">공구 및 주택 개조</option>
+          <option value="장난감 및 게임">장난감 및 게임</option>
+          <option value="비디오 게임">비디오 게임</option>
+        </select>
+        <hr />
+        <select name="sortProducts" id="sortProducts">
+          <option value="recent">최신순</option>
+          <option value="low">낮은가격순</option>
+          <option value="high">높은가격순</option>
+        </select>
+      </div>
+      <section class="orderItems"></section>
+    </main>
+  </body>
+</html>

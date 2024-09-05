@@ -1,0 +1,190 @@
+@import "../reset.scss";
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-family: map-get($map: $family, $key: kr-font);
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  form {
+    margin-bottom: 10px;
+    .searchBox {
+      position: relative;
+      height: 40px;
+      background: linear-gradient(
+        to right,
+        map-get($color, main-amazon-color),
+        map-get($color, amazon-point-color)
+      );
+      border-radius: 4px;
+      input[type="text"] {
+        width: 100%;
+        padding-left: 10px;
+        @include border-style($color: transparent);
+        // padding: 10px;
+        height: 40px;
+        background-clip: padding-box;
+        outline: none;
+        border-radius: 4px;
+        &:focus {
+          outline: none;
+        }
+      }
+      &::after {
+        position: absolute;
+        content: "\f002";
+        font-family: "FontAwesome";
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-right: 10px;
+        color: map-get($map: $color, $key: main-amazon-color);
+      }
+    }
+  }
+  hr {
+    border: none;
+    height: 1px;
+    background: map-get($map: $color, $key: main-border-color);
+    margin-bottom: 20px;
+  }
+  .recent-search {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    .recent-search-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      i {
+        cursor: pointer;
+      }
+    }
+    .recent-search-items {
+      width: 100%;
+      height: 30px;
+      white-space: nowrap;
+      overflow-x: scroll;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      user-select: none;
+      overflow-y: hidden;
+      span {
+        @include border-style(
+          $color: map-get($map: $color, $key: main-border-color)
+        );
+        border-radius: 20px;
+        padding: 4px 10px;
+        font-size: 12px;
+        height: 30px;
+        margin-right: 4px;
+        transition: all 0.3s;
+        &:hover {
+          @include border-style($color: map-get($color, main-amazon-color));
+        }
+      }
+    }
+  }
+  .hottest-items {
+    width: 100%;
+    .ranking-title {
+      display: flex;
+      align-items: end;
+      gap: 6px;
+      border-bottom: 1px solid map-get($map: $color, $key: searchBar-bg-color);
+      padding-bottom: 10px;
+      .current-date {
+        padding-bottom: 4px;
+        font-size: 8px;
+        color: map-get($map: $color, $key: placeholder-color);
+      }
+    }
+    .ranking-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      .ranking {
+        width: 100%;
+        position: relative;
+        height: 100%;
+        bottom: 0;
+        opacity: 1;
+        transition: all 0.6s;
+        &.active {
+          opacity: 0;
+        }
+        p {
+          width: 100%;
+          font-weight: 500;
+          padding: 16px 0;
+          position: relative;
+          // 54px마다 순위 변경
+          bottom: 0;
+          border-bottom: 1px solid
+            map-get($map: $color, $key: searchBar-bg-color);
+          &:last-child {
+            border: none;
+          }
+          span {
+            color: map-get($map: $color, $key: main-amazon-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  height: 840px;
+  width: 100%;
+  z-index: 1;
+}
+
+.mobile-navBar {
+  display: block;
+  z-index: 2;
+  width: 100%;
+  height: 68px;
+  background: map-get($map: $color, $key: main-color);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px -4px 25px rgba(0, 0, 0, 0.25);
+  ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    li {
+      a {
+        transition: all 0.3s;
+        span {
+          font-size: 40px;
+        }
+        i {
+          font-size: 30px;
+        }
+        &:hover {
+          color: map-get($map: $color, $key: main-amazon-color);
+        }
+        &.mobile-search-shortcut {
+          span {
+            color: map-get($map: $color, $key: main-amazon-color);
+          }
+        }
+      }
+    }
+  }
+}
