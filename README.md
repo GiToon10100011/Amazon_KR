@@ -1,6 +1,6 @@
 # 🛒 Jungle Korea - 이커머스 플랫폼 클론 프로젝트
 
-![Amazon Korea 메인 이미지](https://junglekoreakr1104.web.app/images/amazon_kr_ezen2.png)
+![Amazon Korea 메인 이미지](https://junglekoreakr1104.web.app/logo/png/amazon_kr_ezen2.png)
 
 ## 📋 프로젝트 정보
 
