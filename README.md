@@ -160,6 +160,83 @@ function updateCart() {
 - 가격, 평점, 브랜드 등 다양한 필터 옵션
 - 정렬 기능 (인기순, 가격순, 최신순)
 
+### 6. 마이페이지 (사용자 계정 관리)
+
+- 쿠폰 관리 시스템
+- 주문 내역 및 배송 상태 추적
+- 배송지 관리
+- 개인 정보 관리
+- 위시리스트 관리
+
+```javascript
+// my/coupon/coupon.js - 쿠폰 정렬 기능 구현
+const sortFilter = document.querySelector(".sortFilter");
+sortFilter.addEventListener("change", (e) => {
+  let sortedItems;
+  if (e.target.value === "recent") {
+    sortedItems = [...document.querySelectorAll(".couponItem")].sort((a, b) => {
+      const nameA = a
+        .querySelector(".coupon-name span")
+        .innerText[0].toUpperCase();
+      const nameB = b
+        .querySelector(".coupon-name span")
+        .innerText[0].toUpperCase();
+
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    });
+  }
+  if (e.target.value === "high") {
+    sortedItems = [...document.querySelectorAll(".couponItem")].sort(
+      (a, b) =>
+        Number(
+          b.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, "")
+        ) -
+        Number(a.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, ""))
+    );
+  }
+  if (e.target.value === "low") {
+    sortedItems = [...document.querySelectorAll(".couponItem")].sort(
+      (a, b) =>
+        Number(
+          a.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, "")
+        ) -
+        Number(b.querySelector(".coupon-rate").innerText.replace(/[^0-9]/g, ""))
+    );
+  }
+  sortedItems.forEach((item) => {
+    domCouponItems.appendChild(item);
+  });
+});
+
+// my/coupon/coupon.js - 로컬 스토리지에서 쿠폰 데이터 로드
+const couponItems = JSON.parse(localStorage.getItem("couponItems"));
+const couponTotal = document.querySelector(".coupon-sort > span");
+const domCouponItems = document.querySelector(".couponItems");
+
+if (couponItems) {
+  couponTotal.innerText = `전체 ${couponItems.length}개`;
+  const current = new Date();
+
+  //Get estimated delivery dates
+  const future = new Date(current);
+  future.setDate(current.getDate() + 2);
+
+  const futureYear = future.getFullYear();
+  const futureMonth = future.getMonth() + 1;
+  const futureDate = future.getDate();
+
+  domCouponItems.innerHTML = "";
+  domCouponItems.style.textAlign = "";
+  domCouponItems.style.lineHeight = "";
+  couponItems.forEach((item) => {
+    // ... 쿠폰 아이템 렌더링 ...
+  });
+}
+```
+
+
 ## 📂 프로젝트 아키텍처
 
 ### 폴더 구조
