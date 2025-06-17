@@ -1,6 +1,7 @@
 # 🛒 Jungle Korea - 이커머스 플랫폼 프로젝트
 
-![Amazon Korea 메인 이미지](https://junglekoreakr1104.web.app/logo/png/amazon_kr_ezen2.png)
+<img width="1470" alt="image" src="https://github.com/user-attachments/assets/cfe5399a-fb2f-431a-b845-dbcd0b777cc2" />
+
 
 ## 📋 프로젝트 정보
 
